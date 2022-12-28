@@ -11,7 +11,7 @@ body{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     width: 70vh;
-    height: 70vh;
+    min-height: 70vh;
     margin: 10px;
 }
 
@@ -19,11 +19,9 @@ body{
     font-family: 'Lavishly Yours';
     font-style: normal;
     font-weight: 400;
-    font-size: 38px;
+    font-size: 45px;
     line-height: 25px;
-
     color: #298C4A;
-
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -54,6 +52,7 @@ img{
     text-align: center;
     letter-spacing: 0.1em;
     color: #4FB96E;
+    margin-bottom: 0px;
 }
 
 .body-subTitle{
@@ -62,12 +61,9 @@ img{
     font-weight: 500;
     font-size: 16px;
     line-height: 25px;
-    /* or 156% */
-
     text-align: center;
-
     color: #93A298;
-
+    margin-bottom: 20px;
 }
 
 form{
@@ -99,6 +95,7 @@ form{
     --bs-btn-border-radius: 10px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin-bottom: 10px;
+    width: 250px;
 }
 
 .form-footer{
@@ -122,4 +119,13 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+g{
+    stroke: #4FB96E;
+}
+
+.input-group-text {
+    border: var(--bs-border-width) solid #4fb96e;
+    background-color: white;
 }
