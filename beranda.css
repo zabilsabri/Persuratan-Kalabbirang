@@ -21,7 +21,6 @@ hr{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    line-height: 30px;
     font-size: 50px;
     color: #4FB96E;
     min-height: 100px;
@@ -55,10 +54,8 @@ hr{
     font-weight: 400;
     font-size: 18px;
     line-height: 30px;
-    /* or 167% */
-
-
     color: #062310;
+    margin-bottom: 0;
 }
 
 .card-1-body{
@@ -67,9 +64,29 @@ hr{
     font-weight: 300;
     font-size: 13px;
     line-height: 15px;
-    /* or 115% */
-
-
     color: #A6A6A6;
+}
 
+.head-left{
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.card{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.berita-section-title{
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 15px;
+    /* or 42% */
+    height: 36px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    background-color: #C8F2D0;
+    color: #0D4D23;
 }
