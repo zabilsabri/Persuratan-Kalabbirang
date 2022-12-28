@@ -1,0 +1,75 @@
+body { 
+    background: url(images/building.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.beranda-head{
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+hr{
+    border-top: 1px dashed #4FB96E;
+}
+
+.head-left-2{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    font-size: 50px;
+    color: #4FB96E;
+    min-height: 100px;
+}
+
+.head-left-1{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    color: #4FB96E;
+}
+
+.head-right-title{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    /* or 125% */
+
+
+    color: #0D4D23;
+}
+
+.card-1-title{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    /* or 167% */
+
+
+    color: #062310;
+}
+
+.card-1-body{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 15px;
+    /* or 115% */
+
+
+    color: #A6A6A6;
+
+}
