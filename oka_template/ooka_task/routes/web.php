@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController as Registers;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('register', [Registers::class, 'register'])->name('register');
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin']  ,function () {
     Route::group(['prefix' => 'admin'] ,function () {
