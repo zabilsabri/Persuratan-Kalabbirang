@@ -33,7 +33,6 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <img src="{{ asset('image/icon/phone.svg') }}"></img>
-
                                 </div>
                             </div>
                             <input type="text" class="form-control phone-number" placeholder="Masukkan Nomor Telepon">
@@ -125,7 +124,7 @@
                         DAFTAR
                     </button>
                     <div class="card-body">
-                        <span class="fw-bold">Sudah Punya Akun? <a href="#" class="text-success"> Masuk </a> </span>
+                        <span class="fw-bold">Sudah Punya Akun? <a href="login" class="text-success"> Masuk </a> </span>
                       </div>
                 </div>
             </form>
