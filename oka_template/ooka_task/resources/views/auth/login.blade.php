@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Montserrat:wght@500&display=swap" rel="stylesheet">    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Montserrat:wght@500&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="{{asset('style/css/login.css')}}">
     <title>Login</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
         <div class="container-title">
             <div class="d-flex align-items-center">
                 <div class="flex-shrink-0">
-                    <img src="images/Lambang_Kabupaten_Takalar.png" alt="Lambang_Kabupaten_Takalar">
+                    <img src="{{asset('image/Lambang_Kabupaten_Takalar.png')}}" alt="Lambang_Kabupaten_Takalar">
                 </div>
                 <div class="flex-grow-1 ms-3">
                     <h5 class="text-login" >Kallabbirang</h5>
@@ -44,7 +45,7 @@
                 <div class="mb-3">
                     <label for="nomorTelpon" class="form-label">Nomor Telepon</label>
                     <div class="input-group flex-nowrap">
-                        <span class="input-group-text">
+                        <span class="input-group-text" style="border-right-style: solid;border-right-width: 0px;">
                             <svg fill="none" height="48" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
                                 <path d="m0 0h48v48h-48z" fill="#fff" fill-opacity=".01"/>
                                 <g stroke="#000" stroke-linejoin="round" stroke-width="1">
@@ -57,7 +58,7 @@
                 </div>
                 <div class="form-footer">
                     <button type="submit" class="btn btn-success">MASUK</button>
-                    <p class="form-footer-text" >Belum Punya Akun? <a href="#">Daftar</a></p>
+                    <p class="form-footer-text" >Belum Punya Akun? <a href="register">Daftar</a></p>
                 </div>
             </form>
         </div>
