@@ -67,5 +67,16 @@ img{
 
 .form-footer{
     margin-top: 20px;
+    margin-bottom: 50px;
     text-align: center;
+}
+
+.row{
+    justify-content: space-evenly;
+}
+
+@media (min-width: 576px){
+.col-sm-6 {
+    width: 505px;
+}
 }
