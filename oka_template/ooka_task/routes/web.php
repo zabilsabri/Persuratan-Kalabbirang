@@ -27,6 +27,8 @@ Route::get('login', [Logins::class, 'login'])->name('login');
 Route::get('beranda', [Users::class, 'beranda'])->name('beranda');
 Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
 Route::get('data-simpan', [Users::class, 'dataSimpan'])->name('dataSimpan');
+Route::get('data-ubah', [Users::class, 'dataUbah'])->name('dataUbah');
+
 
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin']  ,function () {

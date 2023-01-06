@@ -16,4 +16,7 @@ class UserController extends Controller
     public function dataSimpan() {
         return view('user.dataSimpan');
     }
+    public function dataUbah() {
+        return view('user.dataUbah');
+    }
 }
