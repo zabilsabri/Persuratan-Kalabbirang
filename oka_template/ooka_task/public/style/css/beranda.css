@@ -1,12 +1,20 @@
+body{
+    background: white;
+}
+
 .beranda-head{
+    background: url(/image/building.png) no-repeat center center fixed; 
     min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
+    flex-wrap: wrap;
 }
 
 hr{
-    border-top: 1px dashed #4FB96E;
+    border-top: 3px dashed #4FB96E;
+    margin: 0;
 }
 
 .head-left-2{
@@ -61,7 +69,7 @@ hr{
 
 .head-left{
     padding-top: 70px;
-    padding-bottom: 70px;
+    padding-bottom: 25px;
 }
 
 .card{
@@ -69,16 +77,99 @@ hr{
     border-radius: 5px;
 }
 
+.berita-section{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .berita-section-title{
     font-family: 'Montserrat';
     font-style: italic;
     font-weight: 600;
-    font-size: 36px;
     line-height: 15px;
     /* or 42% */
-    height: 36px;
     text-align: center;
     letter-spacing: 0.1em;
-    background-color: #C8F2D0;
     color: #0D4D23;
+    padding-top: 15px;
+}
+
+.berita-title{
+    background-color: #C8F2D0;
+    font-size: 36px;
+    height: 50px;
+}
+
+.container-berita{
+    position: relative;
+    color: white;
+    width: 319px;
+    height: 217px;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+@media (min-width: 768px){
+.row-cols-md-3>* {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33.3333333333%;
+}
+}
+
+.judul-berita-img{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+
+    color: #FFFFFF;
+}
+
+.berita-img{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 15px;
+    /* or 75% */
+
+    letter-spacing: 0.02em;
+
+    color: #FFFFFF;
+}
+
+.beranda-head-text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 37px;
+    text-align: center;
+
+    color: #0D4D23;
+}
+
+@media (min-width: 1200px){
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1140px;
+    margin-top: 70px;
+}
+}
+
+.footer {
+    margin-top:100px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #4FB96E;
+    text-align: center;
 }
