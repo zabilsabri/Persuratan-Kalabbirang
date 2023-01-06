@@ -13,4 +13,10 @@ class UserController extends Controller
     public function riwayat() {
         return view('user.riwayat');
     }
+    public function dataSimpan() {
+        return view('user.dataSimpan');
+    }
+    public function dataUbah() {
+        return view('user.dataUbah');
+    }
 }
