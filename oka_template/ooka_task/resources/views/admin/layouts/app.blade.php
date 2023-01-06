@@ -23,80 +23,11 @@
 <body>
     <div id="app">
         <div class="main-wrapper">
-            <div class="navbar-bg bg-success"></div>
-            <nav class="navbar navbar-expand-lg main-navbar">
+            
+        @include('admin.layouts.nav')
+        @include('admin.layouts.sidebar')
 
-                <ul class="navbar-nav mr-auto">
-                    <li>
-                        <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
-                                class="fas fa-bars"></i></a>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
-                                class="fas fa-search"></i></a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav navbar-right">
-
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown"
-                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="" title="Administrator" src="{{ asset('style/img/avatar/avatar-1.png') }}"
-                                class="rounded-circle mr-1" />
-                            <div class="d-sm-none d-lg-inline-block">
-                                Hi, Ujang Maman
-                            </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-
-                            <a href="features-profile.html" class="dropdown-item has-icon">
-                                <i class="far fa-user"></i> Profile Saya
-                            </a>
-
-                            <a href="#" class="dropdown-item has-icon text-danger">
-                                <i class="fas fa-sign-out-alt"></i> Keluar
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-
-            </nav>
-            <div class="main-sidebar sidebar-style-2">
-                <aside id="sidebar-wrapper">
-                    <div class="sidebar-brand mb-4">
-                        <a href="index.html">
-                            <img src="{{ asset('image/Logo.png') }}" alt="">
-                        </a>
-                    </div>
-                    <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="index.html">
-                            <img src="{{ asset('image/icon.png') }}" alt="">
-                        </a>
-                    </div>
-                    <ul class="sidebar-menu">
-                        <li class="menu-header">Home</li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link has-dropdown"><i
-                                    class="fas fa-th-large"></i><span>Dashboard</span></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="nav-link" href="#">Surat Masuk</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="#">Surat Keluar</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="#">Berita</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link" href="#">Arsip Surat</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </aside>
-            </div>
+            
 
             <!-- Main Content -->
             <div class="main-content">
