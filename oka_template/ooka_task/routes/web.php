@@ -41,5 +41,8 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
     Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/', 'DashboardController@index')->name('dashboard');
+        Route::get('/profil', 'ProfilController@index')->name('profil');
+
+
     });
 });
