@@ -22,17 +22,24 @@ use App\Http\Controllers\User\UserController as Users;
 //     return view('welcome');
 // });
 
+// LOGIN
 Route::get('register', [Registers::class, 'register'])->name('register');
 Route::get('login', [Logins::class, 'login'])->name('login');
 Route::get('beranda', [Users::class, 'beranda'])->name('beranda');
 Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
 
 
-Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin']  ,function () {
-    Route::group(['prefix' => 'admin'] ,function () {
+// USER
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], function () {
+
+    Route::get('/', 'BeritaController@index')->name('berita');
+});
+
+
+// ADMIN
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], function () {
+    Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/', 'DashboardController@index')->name('dashboard');
-
     });
-
 });

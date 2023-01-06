@@ -45,3 +45,10 @@
  .mt-100{
      margin-top:100px;
  }
+
+ body.layout-3 .main-content1 {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 120px !important;
+  margin-left: -120px;
+}
