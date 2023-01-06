@@ -85,4 +85,8 @@
                 </div>
             </div>
     </div>
+
+    <div class="footer">
+        <img src="{{asset('image/Lambang_Kabupaten_Takalar.png')}}" alt="Lambang_Kabupaten_Takalar">
+    </div>
 @endsection
