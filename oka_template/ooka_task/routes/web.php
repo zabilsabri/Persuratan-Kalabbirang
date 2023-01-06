@@ -18,13 +18,20 @@ use App\Http\Controllers\Auth\RegisterController as Registers;
 //     return view('welcome');
 // });
 
+// LOGIN
 Route::get('register', [Registers::class, 'register'])->name('register');
 
-Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin']  ,function () {
-    Route::group(['prefix' => 'admin'] ,function () {
+// USER
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], function () {
+
+    Route::get('/', 'BeritaController@index')->name('berita');
+});
+
+
+// ADMIN
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], function () {
+    Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/', 'DashboardController@index')->name('dashboard');
-
     });
-
 });
