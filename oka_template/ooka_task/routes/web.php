@@ -26,7 +26,7 @@ use App\Http\Controllers\User\UserController as Users;
 Route::get('register', [Registers::class, 'register'])->name('register');
 Route::get('login', [Logins::class, 'login'])->name('login');
 Route::get('beranda', [Users::class, 'beranda'])->name('beranda');
-Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
+// Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
 Route::get('data-simpan', [Users::class, 'dataSimpan'])->name('dataSimpan');
 Route::get('data-ubah', [Users::class, 'dataUbah'])->name('dataUbah');
 Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
@@ -36,9 +36,14 @@ Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
 // USER
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], function () {
 
+    // Berita
     Route::get('/berita', 'BeritaController@index')->name('berita');
     Route::get('/detail_berita', 'BeritaController@detail')->name('detail.berita');
     
+    // Riwayat
+    Route::get('/riwayat', 'RiwayatController@index')->name('riwayat');
+    Route::get('/riwayat_kosong', 'RiwayatController@kosong')->name('riwayat.kosong');
+
 });
 
 
