@@ -37,6 +37,7 @@ Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], function () {
 
     Route::get('/', 'BeritaController@index')->name('berita');
+    
 });
 
 
