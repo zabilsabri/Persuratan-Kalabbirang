@@ -2,7 +2,7 @@
 @section('content')
     <link rel="stylesheet" href="{{ asset('style/css/berita.css') }}">
 
-    <div class="container-fluid  bg-primary">
+    <div class="container-fluid  ">
         <div class="hero-slider  ">
             <div class="row ">
                 <div class="col-md-9 my-3">
@@ -167,7 +167,7 @@
                 <div class="d-grid  ">
                     <div class="input-group">
                         <input class="form-control border-end-0 border" type="search" value="search"
-                            id="example-search-input">
+                            id="example-search-input" placeholder="Cari di sini..">
                         <span class="input-group-append">
                             <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
                                 type="button">
@@ -220,7 +220,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-md-4">
                 <div class="card my-3">
                     <img src="{{ asset('style/img/news/img09.jpg') }}" class="card-img-top" alt="...">
