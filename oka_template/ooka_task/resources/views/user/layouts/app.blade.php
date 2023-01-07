@@ -26,8 +26,10 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-green" style="padding-left: 30px; padding-right: 30px;">
         <div class="container-fluid">
-            <img src="{{ asset('image/Lambang_Kabupaten_Takalar.png') }}" alt="Lambang_Kabupaten_Takalar">
-            <a class="navbar-brand">Kallabirang</a>
+            {{-- <img src="{{ asset('image/Lambang_Kabupaten_Takalar.png') }}" alt="Lambang_Kabupaten_Takalar">
+            <a class="navbar-brand">Kallabirang</a> --}}
+            <img src="{{ asset('image/Logo-black.png') }} " alt="">
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -42,7 +44,7 @@
                         <a class="nav-link {{ Route::is('riwayat') ? 'active' : '' }}" href="riwayat">Riwayat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('berita') ? 'active' : '' }} " href="#">Berita</a>
+                        <a class="nav-link {{ Route::is('berita') || Route::is('detail.berita') ? 'active' : '' }} " href="berita">Berita</a>
                     </li>
                 </ul>
                 <div class="d-flex">

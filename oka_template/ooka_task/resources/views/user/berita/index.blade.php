@@ -9,9 +9,11 @@
 
                     <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
                         <div class="carousel-inner">
-
                             <div class="carousel-item active">
-                                <img src="{{ asset('style/img/news/img01.jpg') }}" class="d-block w-100" alt="...">
+                                <a href="detail_berita">
+                                    <img src="{{ asset('style/img/news/img01.jpg') }}" class="d-block w-100" alt="...">
+                                </a>
+
                                 <div class="carousel-caption d-none d-md-block box text-dark text-md-start">
                                     <h3>Judul Berita</h3>
                                     <div class="d-flex justify-content-start">
@@ -29,6 +31,7 @@
                                     <h5>Lorem ipsum dolor sit amet.</h5>
                                 </div>
                             </div>
+
                             <div class="carousel-item active">
                                 <img src="{{ asset('style/img/news/img08.jpg') }}" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block box text-dark text-md-start">
@@ -240,7 +243,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
 
     </div>
