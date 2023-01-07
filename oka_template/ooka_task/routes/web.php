@@ -46,6 +46,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
     
     // Arsip Surat
     Route::get('/arsip', 'ArsipSuratController@index')->name('arsip');
+    Route::get('/arsip_kosong', 'ArsipSuratController@kosong')->name('arsip.kosong');
 
 });
 

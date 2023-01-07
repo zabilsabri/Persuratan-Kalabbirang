@@ -10,4 +10,8 @@ class ArsipSuratController extends Controller
     public function index() {
         return view('user.arsipSurat.index');
     }
+
+    public function kosong() {
+        return view('user.arsipSurat.kosong');
+    }
 }
