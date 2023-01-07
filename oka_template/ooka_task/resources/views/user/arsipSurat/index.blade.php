@@ -15,7 +15,7 @@
         <div class="row mt-5 justify-content-evenly px-5">
             <div class="col-md-5">
 
-                <div class="card border border-success py-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <div class="card surat-box border border-success py-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="d-flex justify-content-start ">
                         <i class="ion ion-ios-folder-outline text-success px-3 pt-3" style="font-size: 50px;"></i>
                         <div class="px-2">
@@ -26,8 +26,8 @@
                 </div>
 
             </div>
-            <div class="col-md-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <div class="card border border-success py-0">
+            <div class="col-md-5" >
+                <div class="card surat-box border border-success py-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="d-flex justify-content-start ">
                         <i class="ion ion-ios-folder-outline text-success px-3 pt-3" style="font-size: 50px;"></i>
                         <div class="px-2">
@@ -39,9 +39,9 @@
             </div>
 
         </div>
-        <div class="row mt-5 justify-content-evenly px-5">
+        <div class="row mt-5 justify-content-evenly px-5" >
             <div class="col-md-5">
-                <div class="card border border-success py-0">
+                <div class="card surat-box border border-success py-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="d-flex justify-content-start ">
                         <i class="ion ion-ios-folder-outline text-success px-3 pt-3" style="font-size: 50px;"></i>
                         <div class="px-2">
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="col-md-5">
-                <div class="card border border-success py-0">
+                <div class="card surat-box border border-success py-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="d-flex justify-content-start ">
                         <i class="ion ion-ios-folder-outline text-success px-3 pt-3" style="font-size: 50px;"></i>
                         <div class="px-2">
@@ -78,39 +78,61 @@
                 <div class="modal-body">
                     <table>
                         <tr>
+                            <td class=" fw-bold">Tanggal Pengajuan</td>
                             <td>
-                                <p>Tanggal Pengajuan &emsp; &emsp; :</p>
+                                &emsp; &emsp; : &nbsp;
                             </td>
-                            <td>
-                                
+                            <td class="text-success fw-bold">
+                                2 Januari 2023
                             </td>
                         </tr>
+
                         <tr>
+                            <td class=" fw-bold">Tanggal Selesai</td>
                             <td>
-                                <p>Tanggal Selesai &emsp; &emsp; &emsp; :</p>
+                                &emsp; &emsp; : &nbsp;
+                            </td>
+                            <td class="text-success fw-bold">
+                                2 Januari 2023
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class=" fw-bold">
+                                Jenis Surat
 
                             </td>
-                            <td></td>
-                        </tr>
-                        <tr>
                             <td>
-                                <p>Tanggal Pengajuan</p>
-
+                                &emsp; &emsp; : &nbsp;
                             </td>
-                            <td></td>
+                            <td class="text-success fw-bold">
+                                Surat Pengantar
+                            </td>
                         </tr>
+
                         <tr>
+                            <td class=" fw-bold">Penandatanganan</td>
                             <td>
-                                <p>Tanggal Pengajuan</p>
-
+                                &emsp; &emsp; : &nbsp;
                             </td>
-                            <td></td>
+                            <td class="text-success fw-bold">
+                                Ahmad Santoso
+                            </td>
                         </tr>
+
+                        <tr class=" fw-bold">
+                            <td>Lampiran</td>
+                        </tr>
+
                     </table>
+                    <div class="text-center py-2">
+
+                        <img src="{{ asset('image/berita1.png') }}" class="img-fluid" alt="...">
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
