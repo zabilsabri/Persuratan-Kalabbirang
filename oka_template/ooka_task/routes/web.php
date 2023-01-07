@@ -43,6 +43,10 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
     // Riwayat
     Route::get('/riwayat', 'RiwayatController@index')->name('riwayat');
     Route::get('/riwayat_kosong', 'RiwayatController@kosong')->name('riwayat.kosong');
+    
+    // Arsip Surat
+    Route::get('/arsip', 'ArsipSuratController@index')->name('arsip');
+    Route::get('/arsip_kosong', 'ArsipSuratController@kosong')->name('arsip.kosong');
 
 });
 

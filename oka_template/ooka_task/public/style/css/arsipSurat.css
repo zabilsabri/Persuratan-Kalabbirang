@@ -1,0 +1,5 @@
+
+.surat-box:hover {
+   background-color: rgb(226, 226, 226);
+   transition: .3s;
+}
