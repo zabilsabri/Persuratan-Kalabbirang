@@ -41,7 +41,7 @@
                         <a class="nav-link {{ Route::is('beranda') ? 'active' : '' }} " href="beranda">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('riwayat') ? 'active' : '' }}" href="riwayat">Riwayat</a>
+                        <a class="nav-link {{ Route::is('riwayat') || Route::is('riwayat.kosong') ? 'active' : '' }}" href="riwayat">Riwayat</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('berita') || Route::is('detail.berita') ? 'active' : '' }} " href="berita">Berita</a>
