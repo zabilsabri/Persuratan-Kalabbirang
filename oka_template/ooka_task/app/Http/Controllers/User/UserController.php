@@ -20,4 +20,10 @@ class UserController extends Controller
     public function bantuan() {
         return view('user.bantuan');
     }
+    public function profilUserLogin() {
+        return view('user.profile.profil_login');
+    }
+    public function profilUserNotLogin() {
+        return view('user.profile.profil_notLogin');
+    }
 }

@@ -7,7 +7,7 @@
                 <div class="col-sm-6">
                     <div class="head-left">
                         <p class="head-left-1" > Selamat Datang, </p>
-                        <p class="head-left-2" > Warga Kallabirang </p>
+                        <p class="head-left-2" > Warga Kalabbirang </p>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -87,6 +87,6 @@
     </div>
 
     <div class="footer">
-        <img src="{{asset('image/Lambang_Kabupaten_Takalar.png')}}" alt="Lambang_Kabupaten_Takalar">
+        <img src="{{asset('image/Lambang_Kabupaten_Takalar.png')}}" width= "45px" height="55px" alt="Lambang_Kabupaten_Takalar">
     </div>
 @endsection
