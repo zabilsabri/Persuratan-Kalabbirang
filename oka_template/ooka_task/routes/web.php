@@ -49,6 +49,9 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
     // Arsip Surat
     Route::get('/arsip', 'ArsipSuratController@index')->name('arsip');
     Route::get('/arsip_kosong', 'ArsipSuratController@kosong')->name('arsip.kosong');
+    
+    // Dokumen
+    Route::get('/dokumen', 'DokumenController@index')->name('dokumen');
 
 });
 
@@ -57,7 +60,10 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], function () {
     Route::group(['prefix' => 'admin'], function () {
 
+        // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard');
+        
+        // Profil
         Route::get('/profil', 'ProfilController@index')->name('profil');
 
 
