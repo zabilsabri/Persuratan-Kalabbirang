@@ -70,7 +70,7 @@
     </div>
 
     <div class="form-footer">
-        <button type="submit" class="btn btn-success">SIMPAN</button>
+        <button type="submit" class="btn btn-success">UBAH DATA</button>
     </div>
 
   </form>

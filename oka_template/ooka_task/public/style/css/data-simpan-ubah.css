@@ -50,10 +50,6 @@ g{
     background-color: white;
 }
 
-img{
-    width: 35px;
-}
-
 .btn-success {
     --bs-btn-font-weight: 700;
     --bs-btn-color: var(--bs-white);
