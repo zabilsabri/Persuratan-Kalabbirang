@@ -38,7 +38,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('beranda') ? 'active' : '' }} " href="beranda">Beranda</a>
+                        <a class="nav-link {{ Route::is('beranda') ? 'active' : '' }} " href="/">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ Route::is('riwayat') || Route::is('riwayat.kosong') ? 'active' : '' }}" href="riwayat">Riwayat</a>
