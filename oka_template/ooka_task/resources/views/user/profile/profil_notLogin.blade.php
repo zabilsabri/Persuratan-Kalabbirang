@@ -17,7 +17,7 @@
 
                 <div class="text-center" style="margin-top:30px;">
 
-                <a href="#" class="btn btn-outline-success px-5 py-2 bg-white">
+                <a href="login" class="btn btn-outline-success px-5 py-2 bg-white">
                     MASUK
                 </a>
                 </div>
@@ -36,7 +36,7 @@
                     </svg>
                     <div class="card-icon">
                         <div class="card-text">
-                            <p class="card-box-text m-0" style="padding-top: 11px;padding-left: 20px;">Data Pribadi</p>
+                            <p class="card-box-text m-0" style="padding-top: 16px;padding-left: 20px;">Data Pribadi</p>
                         </div>
                         <div class="icon">
                             <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@
                     </svg>
                     <div class="card-icon">
                         <div class="card-text">
-                            <p class="card-box-text m-0" style="padding-top: 11px;padding-left: 20px;">Dokumen Saya</p>
+                            <p class="card-box-text m-0" style="padding-top: 16px;padding-left: 20px;">Dokumen Saya</p>
                         </div>
                         <div class="icon">
                             <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,7 @@
             <h4 class="mt-5" style="color:#4FB96E ;">Informasi Umum</h4>
             <div class="card">
                 <div class="card-body">
-                <a href="#" class="card-link">
+                <a href="/faq" class="card-link">
                     <svg width="50" height="50" style="float:left;" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <ellipse opacity="0.05" cx="28.7375" cy="29.3845" rx="28.7151" ry="28.5" fill="#4FB96E"/>
                         <path d="M35.9163 32.947H21.5588L16.7729 37.697V18.697C16.7729 18.3821 16.899 18.08 17.1234 17.8573C17.3478 17.6346 17.6521 17.5095 17.9694 17.5095H35.9163C36.2337 17.5095 36.538 17.6346 36.7624 17.8573C36.9867 18.08 37.1128 18.3821 37.1128 18.697V31.7595C37.1128 32.0745 36.9867 32.3765 36.7624 32.5992C36.538 32.8219 36.2337 32.947 35.9163 32.947ZM41.8986 25.822V42.447L37.1128 37.697H23.9517C23.6344 37.697 23.3301 37.5719 23.1057 37.3492C22.8813 37.1265 22.7553 36.8245 22.7553 36.5095V35.322H39.5057V24.6345H40.7022C41.0195 24.6345 41.3238 24.7596 41.5482 24.9823C41.7726 25.205 41.8986 25.5071 41.8986 25.822ZM24.179 19.8845C23.1381 19.8845 22.3006 20.122 21.6545 20.5851C21.0324 21.072 20.7213 21.7489 20.7332 22.687L20.7452 22.7226H23.0544C23.0663 22.3664 23.174 22.0933 23.3894 21.9033C23.6109 21.7209 23.8913 21.624 24.179 21.6301C24.55 21.6301 24.861 21.7489 25.0764 21.9626C25.2918 22.1883 25.3875 22.497 25.3875 22.8533C25.3875 23.2333 25.3037 23.5539 25.1123 23.827C24.9448 24.1001 24.6935 24.3376 24.3824 24.5276C23.7723 24.9314 23.3535 25.2876 23.1262 25.6083C22.8869 25.917 22.7553 26.4158 22.7553 27.0095H25.1482C25.1482 26.6414 25.196 26.3445 25.3037 26.1308C25.4114 25.917 25.6148 25.7033 25.9139 25.5133C26.4523 25.2283 26.895 24.8839 27.242 24.4089C27.589 23.9339 27.7684 23.447 27.7684 22.8533C27.7684 21.9508 27.4454 21.2264 26.7993 20.692C26.1652 20.1576 25.2918 19.8845 24.179 19.8845ZM22.7553 28.197V30.572H25.1482V28.197H22.7553ZM29.934 30.572H32.327V28.197H29.934V30.572ZM29.934 19.8845V27.0095H32.327V19.8845H29.934Z" fill="#4FB96E"/>
@@ -80,7 +80,7 @@
 
                         <div class="card-icon">
                             <div class="card-text">
-                                <p class="card-box-text m-0" style="padding-top: 11px;padding-left: 20px;">FAQ</p>
+                                <p class="card-box-text m-0" style="padding-top: 16px;padding-left: 20px;">FAQ</p>
                             </div>
                             <div class="icon">
                                 <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,7 +100,7 @@
                     </svg>
                     <div class="card-icon">
                         <div class="card-text">
-                            <p class="card-box-text m-0" style="padding-top: 11px;padding-left: 20px;">Bantuan</p>
+                            <p class="card-box-text m-0" style="padding-top: 16px;padding-left: 20px;">Bantuan</p>
                         </div>
                         <div class="icon">
                             <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">
