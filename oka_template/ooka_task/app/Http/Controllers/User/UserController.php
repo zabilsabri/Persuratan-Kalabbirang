@@ -26,4 +26,7 @@ class UserController extends Controller
     public function profilUserNotLogin() {
         return view('user.profile.profil_notLogin');
     }
+    public function lps() {
+        return view('user.layananPengajuanSurat.lps');
+    }
 }
