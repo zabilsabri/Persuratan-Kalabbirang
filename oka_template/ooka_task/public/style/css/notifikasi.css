@@ -1,0 +1,26 @@
+
+.btn-hover-success:hover {
+
+   background-color: #E7FFEE;
+   transition: .3s;
+
+}
+.btn-hover-warning:hover {
+
+   background-color: #ffffe7;
+   transition: .3s;
+
+}
+.btn-hover-primary:hover {
+
+   background-color: #e7e9ff;
+   transition: .3s;
+
+}
+.btn-hover-danger:hover {
+
+   background-color: #ffe7e7;
+   transition: .3s;
+
+}
+
