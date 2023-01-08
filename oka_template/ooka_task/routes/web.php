@@ -55,6 +55,9 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
     
     // FaQ
     Route::get('/faq', 'FaqController@index')->name('faq');
+    
+    // Notifikasi
+    Route::get('/notifikasi', 'NotifikasiController@index')->name('notifikasi');
 
 });
 
