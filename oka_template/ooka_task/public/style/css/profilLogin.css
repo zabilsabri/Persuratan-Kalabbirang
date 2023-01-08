@@ -140,3 +140,7 @@
 .card-link{
   text-decoration: none;
 }
+
+.btn-outline-success {
+  --bs-btn-hover-color: black;
+}

@@ -21,6 +21,9 @@ class UserController extends Controller
         return view('user.bantuan');
     }
     public function profilUserLogin() {
-        return view('user.profil_login');
+        return view('user.profile.profil_login');
+    }
+    public function profilUserNotLogin() {
+        return view('user.profile.profil_notLogin');
     }
 }

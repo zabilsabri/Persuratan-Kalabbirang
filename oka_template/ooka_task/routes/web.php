@@ -31,6 +31,7 @@ Route::get('data-simpan', [Users::class, 'dataSimpan'])->name('dataSimpan');
 Route::get('data-ubah', [Users::class, 'dataUbah'])->name('dataUbah');
 Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
 Route::get('profil-user', [Users::class, 'profilUserLogin'])->name('profil-user');
+Route::get('profil-user-nl', [Users::class, 'profilUserNotLogin'])->name('profil-user-nl');
 
 
 
