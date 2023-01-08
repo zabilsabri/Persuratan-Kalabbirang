@@ -7,7 +7,7 @@
                 <div class="col-sm-6">
                     <div class="head-left">
                         <p class="head-left-1" > Selamat Datang, </p>
-                        <p class="head-left-2" > Warga Kallabirang </p>
+                        <p class="head-left-2" > Warga Kalabbirang </p>
                     </div>
                 </div>
                 <div class="col-sm-6">

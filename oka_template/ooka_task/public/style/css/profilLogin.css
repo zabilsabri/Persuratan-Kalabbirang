@@ -1,0 +1,142 @@
+.avatar.avatar-xxl {
+  font-size: 30px;
+  height: 300px;
+  width: 300px;
+}
+
+.profile-user-picture{
+    display: block;
+}
+
+.profile-body{
+    margin:70px;
+}
+
+.profile-head{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 25px;
+  /* or 62% */
+
+  text-align: center;
+
+  color: #0D4D23;
+}
+
+.avatar {
+    background: #6777ef;
+    border-radius: 50%;
+    color: #e3eaef;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    line-height: 1.28;
+    height: 45px;
+    width: 45px;
+    border: 5px solid #4FB96E;
+  }
+
+  .ic {
+    position: absolute;
+    transform: translate(25%, 25%);
+  }
+
+  .profile-user-name{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 25px;
+
+    /* or 62% */
+    text-align: center;
+
+    color: #4FB96E;
+  }
+
+  .profile-email{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 25px;
+
+    /* or 104% */
+    text-align: center;
+
+    color: #062310;
+  }
+
+.avatar img {
+    border-radius: 50%;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.my-box {
+    background: #C4F2CD;
+    bottom: 14.64%;
+    height: 25%;
+    padding: 0.1rem;
+    position: absolute;
+    right: 14.64%;
+    transform: translate(50%, 50%);
+    width: 25%;
+    z-index: 2;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 767px) {
+    .profile-user-name{
+        font-size: 30px;
+      }
+    
+      .profile-email{
+        font-size: 14px;
+      }
+
+      .profile-body{
+        margin:50px;
+    }
+
+    .col-md-6{
+      margin-top: 50px;
+    }
+  }
+
+.card{
+    border-radius: 0%;
+}
+
+.card-header{
+    background-color: white;
+}
+
+.card-icon{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon{
+    padding:11px 0px;
+}
+
+.card-box-text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    color: #062310;
+}
+
+.card-link{
+  text-decoration: none;
+}

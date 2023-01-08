@@ -30,6 +30,7 @@ Route::get('/', [Users::class, 'beranda'])->name('beranda');
 Route::get('data-simpan', [Users::class, 'dataSimpan'])->name('dataSimpan');
 Route::get('data-ubah', [Users::class, 'dataUbah'])->name('dataUbah');
 Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
+Route::get('profil-user', [Users::class, 'profilUserLogin'])->name('profil-user');
 
 
 
