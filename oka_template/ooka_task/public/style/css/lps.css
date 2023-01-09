@@ -1,0 +1,100 @@
+.lps-head{
+    margin: 30px;
+}
+
+.head-title{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 0.06em;
+    color: #0D4D23;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.form-control {
+    background-color: #C6F0D2;
+    border-radius: 0;
+}
+
+.btn-secondary {
+    --bs-btn-color: black;
+    --bs-btn-bg: #C6F0D2;
+    --bs-btn-border-color: none;
+}
+
+.btn {
+    --bs-btn-border-radius: 0;    
+}
+
+.surat-jenis{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #A6A6A6;
+}
+
+.surat-title{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #0D4D23;
+}
+
+.card {
+    --bs-card-bg: ;
+    border: none;
+}
+
+.syarat-title{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #000000;
+}
+
+.syarat-body{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 15px;
+
+color: #000000;
+}
+
+.macam-surat{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+}
+
+@media (max-width: 768px){
+    .col-md-6 {
+        margin-top: 30px;
+    }
+
+    .macam-surat{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
