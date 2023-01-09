@@ -29,4 +29,8 @@ class UserController extends Controller
     public function lps() {
         return view('user.layananPengajuanSurat.lps');
     }
+    public function pengajuanSuccess()
+    {
+        return view('user.surat.pengajuan-success');
+    }
 }
