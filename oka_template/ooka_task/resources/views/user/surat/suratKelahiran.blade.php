@@ -1,6 +1,6 @@
 @extends('user.layouts.app', ['title' => 'surat-kelahiran'])
 @section('content')
-<link rel="stylesheet" href="{{ asset('style/css/suratKelahiran.css') }}">
+<link rel="stylesheet" href="{{ asset('style/css/surat.css') }}">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <div class="surat-head">
     <p class="jenis-surat">Surat Keterangan</p>
@@ -50,20 +50,25 @@
                     btnOuter = $(".button_outer");
                 btnUpload.on("change", function(e){
                     var ext = btnUpload.val().split('.').pop().toLowerCase();
-                    var fileName = e.target.files[0].name;                    
+                    var fileName = e.target.files[0].name;
+                    var fileSize = e.target.files[0].size;                  
                     if($.inArray(ext, ['pdf']) == -1) {
-                        $(".error_msg").text("Not an pdf...");
+                        $(".error_msg").text("File Yang Diupload Harus Dalam Format PDF...");
                     } else {
-                        $(".error_msg").text("");
-                        btnOuter.addClass("file_uploading");
-                        setTimeout(function(){
-                            btnOuter.addClass("file_uploaded");
-                        },3000);
-                        var uploadedFile = URL.createObjectURL(e.target.files[0]);
-                        setTimeout(function(){
-                            $("#file-name").append('<p>'+fileName+'</p>');
-                            $("#uploaded_view").addClass("show");
-                        },3500);
+                        if(fileSize > 3145728){
+                            $(".error_msg").text("File Yang Diupload Tidak Boleh Lebih Dari 3MB...");
+                        } else {
+                                $(".error_msg").text("");
+                            btnOuter.addClass("file_uploading");
+                            setTimeout(function(){
+                                btnOuter.addClass("file_uploaded");
+                            },3000);
+                            var uploadedFile = URL.createObjectURL(e.target.files[0]);
+                            setTimeout(function(){
+                                $("#file-name").append('<p>'+fileName+'</p>');
+                                $("#uploaded_view").addClass("show");
+                            },3500);
+                        }
                     }
                 });
                 $(".file_remove").on("click", function(e){
@@ -117,19 +122,24 @@
                 btnUpload2.on("change", function(e){
                     var ext = btnUpload2.val().split('.').pop().toLowerCase();
                     var fileName2 = e.target.files[0].name;                    
+                    var fileSize2 = e.target.files[0].size;                  
                     if($.inArray(ext, ['pdf']) == -1) {
-                        $(".error_msg2").text("Not an pdf...");
+                        $(".error_msg2").text("File Yang Diupload Harus Dalam Format PDF...");
                     } else {
-                        $(".error_msg2").text("");
-                        btnOuter2.addClass("file_uploading2");
-                        setTimeout(function(){
-                            btnOuter2.addClass("file_uploaded2");
-                        },3000);
-                        var uploadedFile = URL.createObjectURL(e.target.files[0]);
-                        setTimeout(function(){
-                            $("#file-name2").append('<p>'+fileName2+'</p>');
-                            $("#uploaded_view2").addClass("show2");
-                        },3500);
+                        if(fileSize2 > 3145728){
+                            $(".error_msg2").text("File Yang Diupload Tidak Boleh Lebih Dari 3MB...");
+                        } else {
+                                $(".error_msg2").text("");
+                            btnOuter2.addClass("file_uploading2");
+                            setTimeout(function(){
+                                btnOuter2.addClass("file_uploaded2");
+                            },3000);
+                            var uploadedFile2 = URL.createObjectURL(e.target.files[0]);
+                            setTimeout(function(){
+                                $("#file-name2").append('<p>'+fileName2+'</p>');
+                                $("#uploaded_view2").addClass("show2");
+                            },3500);
+                        }
                     }
                 });
                 $(".file_remove2").on("click", function(e){
@@ -184,19 +194,24 @@
                 btnUpload3.on("change", function(e){
                     var ext = btnUpload3.val().split('.').pop().toLowerCase();
                     var fileName3 = e.target.files[0].name;                    
+                    var fileSize3 = e.target.files[0].size;                  
                     if($.inArray(ext, ['pdf']) == -1) {
-                        $(".error_msg3").text("Not an pdf...");
+                        $(".error_msg3").text("File Yang Diupload Harus Dalam Format PDF...");
                     } else {
-                        $(".error_msg3").text("");
-                        btnOuter3.addClass("file_uploading3");
-                        setTimeout(function(){
-                            btnOuter3.addClass("file_uploaded3");
-                        },3000);
-                        var uploadedFile = URL.createObjectURL(e.target.files[0]);
-                        setTimeout(function(){
-                            $("#file-name3").append('<p>'+fileName3+'</p>');
-                            $("#uploaded_view3").addClass("show3");
-                        },3500);
+                        if(fileSize3 > 3145728){
+                            $(".error_msg3").text("File Yang Diupload Tidak Boleh Lebih Dari 3MB...");
+                        } else {
+                                $(".error_msg3").text("");
+                            btnOuter3.addClass("file_uploading3");
+                            setTimeout(function(){
+                                btnOuter3.addClass("file_uploaded3");
+                            },3000);
+                            var uploadedFile3 = URL.createObjectURL(e.target.files[0]);
+                            setTimeout(function(){
+                                $("#file-name3").append('<p>'+fileName3+'</p>');
+                                $("#uploaded_view3").addClass("show3");
+                            },3500);
+                        }
                     }
                 });
                 $(".file_remove3").on("click", function(e){
@@ -251,19 +266,24 @@
                 btnUpload4.on("change", function(e){
                     var ext = btnUpload4.val().split('.').pop().toLowerCase();
                     var fileName4 = e.target.files[0].name;                    
+                    var fileSize4 = e.target.files[0].size;                  
                     if($.inArray(ext, ['pdf']) == -1) {
-                        $(".error_msg4").text("Not an pdf...");
+                        $(".error_msg4").text("File Yang Diupload Harus Dalam Format PDF...");
                     } else {
-                        $(".error_msg4").text("");
-                        btnOuter4.addClass("file_uploading4");
-                        setTimeout(function(){
-                            btnOuter4.addClass("file_uploaded4");
-                        },3000);
-                        var uploadedFile = URL.createObjectURL(e.target.files[0]);
-                        setTimeout(function(){
-                            $("#file-name4").append('<p>'+fileName4+'</p>');
-                            $("#uploaded_view4").addClass("show4");
-                        },3500);
+                        if(fileSize4 > 3145728){
+                            $(".error_msg4").text("File Yang Diupload Tidak Boleh Lebih Dari 3MB...");
+                        } else {
+                                $(".error_msg4").text("");
+                            btnOuter4.addClass("file_uploading4");
+                            setTimeout(function(){
+                                btnOuter4.addClass("file_uploaded4");
+                            },3000);
+                            var uploadedFile4 = URL.createObjectURL(e.target.files[0]);
+                            setTimeout(function(){
+                                $("#file-name4").append('<p>'+fileName4+'</p>');
+                                $("#uploaded_view4").addClass("show4");
+                            },3500);
+                        }
                     }
                 });
                 $(".file_remove4").on("click", function(e){
@@ -318,19 +338,24 @@
                 btnUpload5.on("change", function(e){
                     var ext = btnUpload5.val().split('.').pop().toLowerCase();
                     var fileName5 = e.target.files[0].name;                    
+                    var fileSize5 = e.target.files[0].size;                  
                     if($.inArray(ext, ['pdf']) == -1) {
-                        $(".error_msg5").text("Not an pdf...");
+                        $(".error_msg5").text("File Yang Diupload Harus Dalam Format PDF...");
                     } else {
-                        $(".error_msg5").text("");
-                        btnOuter5.addClass("file_uploading5");
-                        setTimeout(function(){
-                            btnOuter5.addClass("file_uploaded5");
-                        },3000);
-                        var uploadedFile = URL.createObjectURL(e.target.files[0]);
-                        setTimeout(function(){
-                            $("#file-name5").append('<p>'+fileName5+'</p>');
-                            $("#uploaded_view5").addClass("show5");
-                        },3500);
+                        if(fileSize5 > 3145728){
+                            $(".error_msg5").text("File Yang Diupload Tidak Boleh Lebih Dari 3MB...");
+                        } else {
+                                $(".error_msg5").text("");
+                            btnOuter5.addClass("file_uploading5");
+                            setTimeout(function(){
+                                btnOuter5.addClass("file_uploaded5");
+                            },3000);
+                            var uploadedFile5 = URL.createObjectURL(e.target.files[0]);
+                            setTimeout(function(){
+                                $("#file-name5").append('<p>'+fileName5+'</p>');
+                                $("#uploaded_view5").addClass("show5");
+                            },3500);
+                        }
                     }
                 });
                 $(".file_remove5").on("click", function(e){

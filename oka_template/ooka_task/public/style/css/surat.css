@@ -10,7 +10,7 @@ color: #A6A6A6;
 }
 
 .surat-head{
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .judul-surat{
@@ -47,10 +47,21 @@ line-height: 16px;
 color: #A6A6A6;
 }
 
-form{
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-top: 40px;
+@media(min-width: 576px){
+    form{
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: 40px;
+    }
+}
+
+
+@media(max-width: 575px){
+    form{
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-top: 40px;
+    }
 }
 
 * {margin: 0; padding: 0; box-sizing: border-box;}
