@@ -49,4 +49,8 @@ class UserController extends Controller
     {
         return view('user.surat.suratPembuatanSertifikat');
     }
+        public function surat6()
+    {
+        return view('user.surat.suratAktaJualBeli');
+    }
 }

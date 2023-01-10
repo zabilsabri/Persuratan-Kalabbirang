@@ -38,6 +38,7 @@ Route::get('surat-kelahiran', [Users::class, 'surat2'])->name('surat2');
 Route::get('surat-keterangan-usaha', [Users::class, 'surat3'])->name('surat3');
 Route::get('surat-kartu-keluarga', [Users::class, 'surat4'])->name('surat4');
 Route::get('surat-pembuatan-sertifikat', [Users::class, 'surat5'])->name('surat5');
+Route::get('surat-akta-jual-beli', [Users::class, 'surat6'])->name('surat6');
 
 
 
