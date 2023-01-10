@@ -35,6 +35,7 @@ Route::get('profil-user-nl', [Users::class, 'profilUserNotLogin'])->name('profil
 Route::get('layanan-pengajuan-surat', [Users::class, 'lps'])->name('lps');
 Route::get('selesai-pengajuan', [Users::class, 'pengajuanSuccess'])->name('selesai-pengajuan');
 Route::get('surat-kelahiran', [Users::class, 'surat2'])->name('surat2');
+Route::get('surat-keterangan-usaha', [Users::class, 'surat3'])->name('surat3');
 
 
 
