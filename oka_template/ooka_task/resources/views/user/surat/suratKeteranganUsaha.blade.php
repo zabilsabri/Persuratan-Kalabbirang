@@ -4,7 +4,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <div class="surat-head">
     <p class="jenis-surat">Surat Keterangan</p>
-    <p class="judul-surat"> Kelahiran </p>
+    <p class="judul-surat"> Surat Keterangan Usaha </p>
 </div>
 <hr>
 <form action="#">
@@ -82,7 +82,7 @@
     </div>
     <div class="col-sm-6">
         <div class="mb-3">
-            <label for="nomorTelpon" class="form-label">Kartu Keluarga <span style="color: red;" >*</span> </label>
+            <label for="nomorTelpon" class="form-label">Kartu Tanda Penduduk <span style="color: red;" >*</span> </label>
             <p class="syarat-form" > Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
             <main class="main_full">
                 <div class="container">
@@ -226,7 +226,7 @@
 
     <div class="col-sm-6">
         <div class="mb-3">
-            <label for="nomorTelpon" class="form-label">Pengantar Dari Bidan <span style="color: red;" >*</span></label>
+            <label for="nomorTelpon" class="form-label">Kartu Keluarga <span style="color: red;" >*</span></label>
             <p class="syarat-form" > Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
             <main class="main_full">
                 <div class="container">
@@ -298,7 +298,7 @@
 
     <div class="col-sm-6">
         <div class="mb-3">
-            <label for="nomorTelpon" class="form-label">Buku Nikah Orang Tua <span style="color: red;" >*</span></label>
+            <label for="nomorTelpon" class="form-label">Tanda Lunas PBB Tahun <span style="color: red;" >*</span></label>
             <p class="syarat-form" > Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
             <main class="main_full">
                 <div class="container">
