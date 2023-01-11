@@ -81,5 +81,7 @@ class UserController extends Controller
     {
         return view('user.surat.surattidakMampu');
     }
-    
+    public function surat13 () {
+        return view('user.surat.suratBelumMenikah');
+    }   
 }
