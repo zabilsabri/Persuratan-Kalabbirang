@@ -1,10 +1,10 @@
-@extends('user.layouts.app', ['title' => 'Surat SKCK'])
+@extends('user.layouts.app', ['title' => 'Surat Izin Keramaian'])
 @section('content')
 <link rel="stylesheet" href="{{ asset('style/css/surat.css') }}">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <div class="surat-head">
     <p class="jenis-surat">Surat Pengantar</p>
-    <p class="judul-surat"> Pembuatan SKCK </p>
+    <p class="judul-surat"> Izin Keramaian </p>
 </div>
 <hr>
 <form action="#">
