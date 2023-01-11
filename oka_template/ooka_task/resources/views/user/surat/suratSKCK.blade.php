@@ -1,4 +1,4 @@
-@extends('user.layouts.app', ['title' => 'surat-kelahiran'])
+@extends('user.layouts.app', ['title' => 'Surat SKCK'])
 @section('content')
 <link rel="stylesheet" href="{{ asset('style/css/surat.css') }}">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
