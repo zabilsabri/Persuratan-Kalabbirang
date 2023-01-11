@@ -1,17 +1,17 @@
-@extends('user.layouts.app', ['title' => 'Surat SKCK'])
+@extends('user.layouts.app', ['title' => 'Surat Izin Mendirikan Pembangunan'])
 @section('content')
 <link rel="stylesheet" href="{{ asset('style/css/surat.css') }}">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <div class="surat-head">
     <p class="jenis-surat">Surat Pengantar</p>
-    <p class="judul-surat"> Pembuatan SKCK </p>
+    <p class="judul-surat"> Izin Mendirikan Pembangunan </p>
 </div>
 <hr>
 <form action="#">
     <div class="row">
     <div class="col-sm-6">
         <div class="mb-3">
-            <label for="nomorTelpon" class="form-label">Pengantar Dari Kepala Lingkungan <span style="color: red;" >*</span></label>
+            <label for="nomorTelpon" class="form-label">SPOP Dari Dinas PUD Tata Ruang <span style="color: red;" >*</span></label>
             <p class="syarat-form" > Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
             <main class="main_full">
                 <div class="container">
@@ -82,7 +82,7 @@
     </div>
     <div class="col-sm-6">
         <div class="mb-3">
-            <label for="nomorTelpon" class="form-label">Tanda lunas pbb tahun berjalan (SPPT)<span style="color: red;" >*</span> </label>
+            <label for="nomorTelpon" class="form-label">Pengantar Dari Kepala Lingkungan<span style="color: red;" >*</span> </label>
             <p class="syarat-form" > Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
             <main class="main_full">
                 <div class="container">
@@ -154,7 +154,7 @@
 
     <div class="col-sm-6">
         <div class="mb-3">
-            <label for="nomorTelpon" class="form-label">Kartu Tanda Penduduk (KTP)<span style="color: red;" >*</span></label>
+            <label for="nomorTelpon" class="form-label">Kartu Keluarga (KK)<span style="color: red;" >*</span></label>
             <p class="syarat-form" > Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
             <main class="main_full">
                 <div class="container">
@@ -226,7 +226,7 @@
 
     <div class="col-sm-6">
         <div class="mb-3">
-            <label for="nomorTelpon" class="form-label">Kartu Keluarga (KK)<span style="color: red;" >*</span></label>
+            <label for="nomorTelpon" class="form-label">Tanda lunas PBB Tahun Berjalan (SPPT)<span style="color: red;" >*</span></label>
             <p class="syarat-form" > Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
             <main class="main_full">
                 <div class="container">

@@ -33,6 +33,8 @@ Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
 Route::get('profil-user', [Users::class, 'profilUserLogin'])->name('profil-user');
 Route::get('profil-user-nl', [Users::class, 'profilUserNotLogin'])->name('profil-user-nl');
 Route::get('layanan-pengajuan-surat', [Users::class, 'lps'])->name('lps');
+
+//Surat
 Route::get('selesai-pengajuan', [Users::class, 'pengajuanSuccess'])->name('selesai-pengajuan');
 Route::get('surat-ktp', [Users::class, 'surat1'])->name('surat1');
 Route::get('surat-kelahiran', [Users::class, 'surat2'])->name('surat2');
@@ -42,6 +44,10 @@ Route::get('surat-pembuatan-sertifikat', [Users::class, 'surat5'])->name('surat5
 Route::get('surat-akta-jual-beli', [Users::class, 'surat6'])->name('surat6');
 Route::get('surat-akte-hibah-dan-ahli-waris', [Users::class, 'surat7'])->name('surat7');
 Route::get('surat-skck', [Users::class, 'surat8'])->name('surat8');
+Route::get('surat-izin-keramaian', [Users::class, 'surat9'])->name('surat9');
+Route::get('surat-izin-mendirikan-pembangunan', [Users::class, 'surat10'])->name('surat10');
+Route::get('surat-keterangan-menikah', [Users::class, 'surat11'])->name('surat11');
+
 
 
 
