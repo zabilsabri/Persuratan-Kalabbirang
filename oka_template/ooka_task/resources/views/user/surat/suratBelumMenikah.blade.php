@@ -1,17 +1,17 @@
-@extends('user.layouts.app', ['title' => 'surat-tidak-mampu'])
+@extends('user.layouts.app', ['title' => 'surat-belum-menikah'])
 @section('content')
     <link rel="stylesheet" href="{{ asset('style/css/surat.css') }}">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <div class="surat-head">
         <p class="jenis-surat">Surat Pengantar</p>
-        <p class="judul-surat"> Surat Tidak Mampu </p>
+        <p class="judul-surat"> Belum Menikah </p>
     </div>
     <hr>
     <form action="#">
         <div class="row">
             <div class="col-sm-6">
                 <div class="mb-3">
-                    <label for="nomorTelpon" class="form-label"> Pengantar dari Kepala Lingkungan <span
+                    <label for="nomorTelpon" class="form-label"> Pengantaran dari Imam Linkungan  <span
                             style="color: red;">*</span></label>
                     <p class="syarat-form"> Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
                     <main class="main_full">
@@ -96,7 +96,7 @@
 
             <div class="col-sm-6">
                 <div class="mb-3">
-                    <label for="nomorTelpon" class="form-label">Tanda lunas PBB Tahun berjalan (SPPT) <span
+                    <label for="nomorTelpon" class="form-label"> Fotocopy KTP dan KK <span
                             style="color: red;">*</span></label>
                     <p class="syarat-form"> Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
                     <main class="main_full">
@@ -180,7 +180,7 @@
 
             <div class="col-sm-6">
                 <div class="mb-3">
-                    <label for="nomorTelpon" class="form-label">Fotocopy KTP dan KK <span
+                    <label for="nomorTelpon" class="form-label"> Tanda Lunas PBB Tahun Berjalan <span
                             style="color: red;">*</span></label>
                     <p class="syarat-form"> Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
                     <main class="main_full">
