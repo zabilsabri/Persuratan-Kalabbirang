@@ -34,6 +34,7 @@ Route::get('profil-user', [Users::class, 'profilUserLogin'])->name('profil-user'
 Route::get('profil-user-nl', [Users::class, 'profilUserNotLogin'])->name('profil-user-nl');
 Route::get('layanan-pengajuan-surat', [Users::class, 'lps'])->name('lps');
 Route::get('selesai-pengajuan', [Users::class, 'pengajuanSuccess'])->name('selesai-pengajuan');
+Route::get('surat-ktp', [Users::class, 'surat1'])->name('surat1');
 Route::get('surat-kelahiran', [Users::class, 'surat2'])->name('surat2');
 Route::get('surat-keterangan-usaha', [Users::class, 'surat3'])->name('surat3');
 Route::get('surat-kartu-keluarga', [Users::class, 'surat4'])->name('surat4');
