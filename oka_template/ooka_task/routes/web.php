@@ -47,6 +47,7 @@ Route::get('surat-skck', [Users::class, 'surat8'])->name('surat8');
 Route::get('surat-izin-keramaian', [Users::class, 'surat9'])->name('surat9');
 Route::get('surat-izin-mendirikan-pembangunan', [Users::class, 'surat10'])->name('surat10');
 Route::get('surat-keterangan-menikah', [Users::class, 'surat11'])->name('surat11');
+Route::get('surat-tidak-mampu', [Users::class, 'surat12'])->name('surat12');
 
 
 
