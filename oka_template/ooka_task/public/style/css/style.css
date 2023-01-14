@@ -104,7 +104,7 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
 }
 
 .bg-light {
-  background-color: #e3eaef !important;
+  background-color: white !important;
 }
 
 .bg-dark {
@@ -1887,8 +1887,7 @@ h6 .badge {
   top: 0;
   left: 0;
   width: 100%;
-  height: 115px;
-  background-color: #6777ef;
+  height: 75px;
   z-index: -1;
 }
 
@@ -2004,6 +2003,13 @@ h6 .badge {
   color: #fff;
   font-weight: 700;
 }
+
+.test{
+  background-color: green;
+  border-radius: 50%;
+  height: 10px;
+}
+
 .navbar .navbar-text {
   color: #fff;
 }
@@ -2017,6 +2023,7 @@ h6 .badge {
 }
 .navbar .nav-link.nav-link-lg div {
   margin-top: 3px;
+  color: black;
 }
 .navbar .nav-link.nav-link-lg i {
   margin-left: 0 !important;
@@ -2886,6 +2893,12 @@ pre {
 .section {
   position: relative;
   z-index: 1;
+  background: url(/image/building.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 90vh;
 }
 .section > *:first-child {
   margin-top: -7px;
@@ -3503,14 +3516,14 @@ body.layout-3 .main-footer {
 }
 
 .main-content {
-  padding-left: 280px;
-  padding-right: 30px;
+  padding-left: 250px;
+  padding-right: 0px;
   padding-top: 80px;
   width: 100%;
   position: relative;
 }
 
-.main-footer {
+/* .main-footer {
   padding: 20px 30px 20px 280px;
   margin-top: 40px;
   color: #98a6ad;
@@ -3523,7 +3536,7 @@ body.layout-3 .main-footer {
 }
 .main-footer .footer-right {
   float: right;
-}
+} */
 
 .simple-footer {
   text-align: center;

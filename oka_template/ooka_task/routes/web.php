@@ -82,14 +82,14 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
 
 // ADMIN
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], function () {
-    Route::group(['prefix' => 'admin'], function () {
+    Route::group(['prefix' => ''], function () {
 
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard');
         
         // Profil
         Route::get('/profil', 'ProfilController@index')->name('profil');
-
+        Route::get('/profil-edit', 'ProfilController@edit')->name('profil-edit');
 
     });
 });
