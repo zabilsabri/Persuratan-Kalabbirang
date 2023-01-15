@@ -1,46 +1,46 @@
 @extends('admin.layouts.app', ['title' => 'Profile'])
+<link rel="stylesheet" href="{{ asset('style/css/profil-admin.css') }}">
 
 @section('content')
-    <div class="section-header">
-        <h1>Profile</h1>
-        <div class="section-header-breadcrumb mr-3">
-            <div class="breadcrumb-item active"><a href="#">Home</a></div>
-            <div class="breadcrumb-item"><a href="#">Profil</a></div>
+    <div class="hal-head">
+        <div class="row ms-4 me-4">
+            <div class="col-md-6 mt-5">
+                <p class="hal-title" > Profil Saya </p>
+            </div>
+            <div class="col-md-6 text-right mt-5">
+                <p class="hal-breadcrump" > Profil / Admin </p>
+            </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-6  col-12">
-            <div class="card-body">
-                <figure class="avatar mr-2 avatar-xxl">
-                    <img src="{{ asset('style/img/avatar/avatar-1.png') }}" alt="...">
-                    <a href="#" class="my-box">
-                        <i class=" ion ion-edit ic" style="font-size: 50px; color: #000;"> </i>
-                    </a>
-                </figure>
-                <div class="text-center mt-3">
-
-                    <h2 style="color:#4FB96E ;">Ini nama saya</h2>
-                    <h5>admin@gmail.com</h5>
+    <div class="hal-body">
+        <img src="{{ asset('style/img/avatar/avatar-1.png') }}" class="profile-picture mb-4" alt="...">
+        <p class="nama-admin" style="margin-bottom: 0px;"> Lorem Ipsum Dolor </p>
+        <p class="kartu-pegawai-admin">No. Kartu Pegawai</p>
+        <div class="profil-input">
+            <fieldset disabled>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="disabledTextInput" placeholder="Lorem Ipsum Dolor" value="Lorem Ipsum Dolor">
+                    <label for="floatingInput" class="profil-input-label">NIP</label>
                 </div>
-
-            </div>
-        </div>
-        <div class="col-md-6  col-12 mt-5 ">
-            <h4 style="color:#4FB96E ;">Pengaturan</h4>
-            <div class="card ">
-                <div class="card-header d-flex justify-content-between">
-
-                    <a href="#" class="btn btn-icon icon-left"><i style="color:#4FB96E; font-size: 30px;"
-                            class="ion ion-android-person"></i> <b>Data Pribadi</b></a>
-                    <i class="ion ion-chevron-right"> </i>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="disabledTextInput" placeholder="Lorem ipsum dolor sit amet" value="Lorem ipsum dolor sit amet">
+                    <label for="floatingInput" class="profil-input-label">Jabatan</label>
                 </div>
-            </div>
-            <div class="text-center" style="margin-top:130px;">
-
-                <a href="#" class="btn btn-outline-success px-5 py-2 bg-white">
-                    KELUAR
-                </a>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="disabledTextInput" placeholder="Loremipsum@gmail.com" value="Loremipsum@gmail.com">
+                    <label for="floatingInput" class="profil-input-label">Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="disabledTextInput" placeholder="000000000000000000" value="000000000000000000">
+                    <label for="floatingInput" class="profil-input-label">No. Telepon</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="disabledTextInput" placeholder="**********" value="**********">
+                    <label for="floatingInput" class="profil-input-label">Password</label>
+                </div>
+            </fieldset>
+            <div class="text-center mt-4">
+                <a type="submit" href="/profil-edit" class="btn btn-success w-25">Ubah Data Pribadi</a>
             </div>
         </div>
     </div>
