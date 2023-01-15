@@ -135,6 +135,10 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
   color: #fc544b !important;
 }
 
+.dropdown-toggle::after {
+  color: black;
+}
+
 .text-light, .text-light-all *, .text-light-all *:before, .text-light-all *:after {
   color: #e3eaef !important;
 }
@@ -182,8 +186,9 @@ p, ul:not(.list-unstyled), ol {
 .input-group-text,
 .custom-select,
 .custom-file-label {
-  background-color: #fdfdff;
-  border-color: #e4e6fc;
+  background: #FFFFFF;
+  border: 1px solid #4FB96E;
+  border-radius: 4px;
 }
 .form-control:focus,
 .input-group-text:focus,
@@ -197,8 +202,6 @@ p, ul:not(.list-unstyled), ol {
 select.form-control:not([size]):not([multiple]),
 .form-control:not(.form-control-sm):not(.form-control-lg) {
   font-size: 14px;
-  padding: 10px 15px;
-  height: 42px;
 }
 
 textarea.form-control {

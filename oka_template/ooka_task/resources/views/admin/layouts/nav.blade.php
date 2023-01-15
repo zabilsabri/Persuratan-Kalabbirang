@@ -24,7 +24,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
 
-                            <a href="features-profile.html" class="dropdown-item has-icon">
+                            <a href="/profil" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile Saya
                             </a>
 
