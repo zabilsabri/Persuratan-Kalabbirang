@@ -89,7 +89,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
         
         // Profil
         Route::get('/profil', 'ProfilController@index')->name('profil');
-
+        Route::get('/profil-edit', 'ProfilController@edit')->name('profil-edit');
 
     });
 });

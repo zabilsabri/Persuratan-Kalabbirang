@@ -1,14 +1,13 @@
-<div class="navbar-bg bg-success"></div>
+<div class="navbar-bg bg-light"></div>
             <nav class="navbar navbar-expand-lg main-navbar">
 
                 <ul class="navbar-nav mr-auto">
                     <li>
-                        <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i
-                                class="fas fa-bars"></i></a>
+                        <a href="#" data-toggle="sidebar" class="test nav-link nav-link-lg"><i
+                                class="fas fa-bars" style="height: 40px; padding-top: 5px;"></i></a>
                     </li>
                     <li>
-                        <a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
-                                class="fas fa-search"></i></a>
+                        
                     </li>
                 </ul>
 
@@ -25,7 +24,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
 
-                            <a href="features-profile.html" class="dropdown-item has-icon">
+                            <a href="/profil" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile Saya
                             </a>
 
