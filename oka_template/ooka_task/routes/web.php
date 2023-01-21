@@ -91,5 +91,9 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
         Route::get('/profil', 'ProfilController@index')->name('profil');
         Route::get('/profil-edit', 'ProfilController@edit')->name('profil-edit');
 
+        // Surat Keluar
+        Route::get('/surat-keluar-detail', 'suratKeluarController@detail')->name('surat-keluar-detail');
+
+
     });
 });
