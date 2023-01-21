@@ -10,4 +10,8 @@ class suratMasukController extends Controller
     public function index() {
         return view('admin.suratMasuk.index');
     }
+
+    public function detail() {
+        return view('admin.suratMasuk.detail');
+    }
 }
