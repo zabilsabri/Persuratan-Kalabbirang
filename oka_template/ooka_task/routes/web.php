@@ -99,5 +99,9 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
             Route::get('/detail', 'BeritaController@detail')->name('berita-admin.detail');
         });
 
+        // Surat Keluar
+        Route::get('/surat-keluar-detail', 'suratKeluarController@detail')->name('surat-keluar-detail');
+
+
     });
 });
