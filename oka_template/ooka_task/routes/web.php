@@ -98,10 +98,16 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
             Route::get('/', 'BeritaController@index')->name('berita-admin');
             Route::get('/detail', 'BeritaController@detail')->name('berita-admin.detail');
         });
-
+        
         // Surat Keluar
         Route::get('/surat-keluar-detail', 'suratKeluarController@detail')->name('surat-keluar-detail');
+        
 
+        // Surat Masuk
+        Route::group(['prefix' => 'surat-masuk'], function() {
+            Route::get('/', 'suratMasukController@index')->name('surat-masuk');
+            Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk.detail');
+        });
 
     });
 });
