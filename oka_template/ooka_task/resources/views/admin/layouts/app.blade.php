@@ -13,13 +13,18 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Montserrat:wght@500&display=swap&family=Inter:wght@600&display=swap&family=Inter:wght@600&family=Roboto&display=swap&family=Nunito+Sans:wght@700&display=swap""
+    <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Montserrat:wght@500&display=swap&family=Inter:wght@600&display=swap&family=Inter:wght@600&family=Roboto&display=swap&family=Nunito+Sans:wght@700&display=swap"
         rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('style/node_modules/ionicons201/css/ionicons.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('style/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('style/node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('style/css/style.css') }}" />
@@ -29,11 +34,11 @@
 <body>
     <div id="app">
         <div class="main-wrapper">
-            
-        @include('admin.layouts.nav')
-        @include('admin.layouts.sidebar')
 
-            
+            @include('admin.layouts.nav')
+            @include('admin.layouts.sidebar')
+
+
 
             <!-- Main Content -->
             <div class="main-content">
@@ -57,11 +62,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="{{ asset('style/js/stisla.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
 
 
     <!-- JS Libraies -->
-    <script src="{{ asset('style/node_modules/chart.js/dist/Chart.min.js')}}"></script>
+    <script src="{{ asset('style/node_modules/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{ asset('style/node_modules/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('style/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('style/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js')}}"></script>
 
     <!-- Template JS File -->
     <script src="{{ asset('style/js/scripts.js') }}"></script>
@@ -69,7 +79,9 @@
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('style/js/page/modules-ion-icons.js') }}"></script>
-    <script src="{{ asset('style/js/page/modules-chartjs.js')}}"></script>
+    <script src="{{ asset('style/js/page/modules-chartjs.js') }}"></script>
+    <script src="{{ asset('style/js/page/modules-datatables.js') }}"></script>
+
 
 
 </body>

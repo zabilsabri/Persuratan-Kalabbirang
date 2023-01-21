@@ -88,8 +88,16 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
         Route::get('/', 'DashboardController@index')->name('dashboard');
         
         // Profil
-        Route::get('/profil', 'ProfilController@index')->name('profil');
-        Route::get('/profil-edit', 'ProfilController@edit')->name('profil-edit');
+        Route::group(['prefix' => 'profil'], function() {
+            Route::get('/', 'ProfilController@index')->name('profil');
+            Route::get('/edit', 'ProfilController@edit')->name('profil.edit');
+        });
+
+        // Berita
+        Route::group(['prefix' => 'berita'], function() {
+            Route::get('/', 'BeritaController@index')->name('berita-admin');
+            Route::get('/detail', 'BeritaController@detail')->name('berita-admin.detail');
+        });
 
         // Surat Keluar
         Route::get('/surat-keluar-detail', 'suratKeluarController@detail')->name('surat-keluar-detail');
