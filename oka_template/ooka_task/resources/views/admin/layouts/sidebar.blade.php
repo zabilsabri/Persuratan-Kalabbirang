@@ -23,7 +23,7 @@
                        <a class="nav-link" href="#">Surat Keluar</a>
                    </li>
                    <li>
-                       <a class="nav-link" href="#">Berita</a>
+                       <a class="nav-link" href="{{ route('berita-admin') }} ">Berita</a>
                    </li>
                    <li>
                        <a class="nav-link" href="#">Arsip Surat</a>
