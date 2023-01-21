@@ -73,12 +73,15 @@
                                         <td class="text-center">2018-01-20</td>
 
                                         <td>
-                                            <a href="#" class="btn btn-warning">
+                                            {{-- Detail --}}
+                                            <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
                                                 <i class="ion ion-information"></i>
                                             </a>
+                                            {{-- Edit --}}
                                             <a href="#" class="btn btn-primary">
                                                 <i class="ion ion-compose"></i>
                                             </a>
+                                            {{-- Hapus --}}
                                             <a href="#" class="btn btn-danger">
                                                 <i class="ion ion-trash-a"></i>
                                             </a>

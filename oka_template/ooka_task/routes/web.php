@@ -96,7 +96,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
         // Berita
         Route::group(['prefix' => 'berita'], function() {
             Route::get('/', 'BeritaController@index')->name('berita-admin');
-            Route::get('/detail', 'BeritaController@detail')->name('berita.detail');
+            Route::get('/detail', 'BeritaController@detail')->name('berita-admin.detail');
         });
 
     });

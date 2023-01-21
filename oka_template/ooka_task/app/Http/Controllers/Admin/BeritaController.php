@@ -10,4 +10,9 @@ class BeritaController extends Controller
     public function index() {
         return view('admin.berita.index');
     }
+
+    public function detail() {
+        return view('admin.berita.detail');
+    }
+
 }
