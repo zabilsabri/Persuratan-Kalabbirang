@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['title' => 'Profile'])
+@extends('admin.layouts.app', ['title' => 'Detail Surat Keluar'])
 <link rel="stylesheet" href="{{ asset('style/css/suratKeluarDetail.css') }}">
 
 @section('content')
@@ -40,10 +40,6 @@
                     <td class="surat-detail">Undangan</td>
                 </tr>
             </table>
-            <button type="button" class="btn btn-success mb-5">Segera</button>
-            <button type="button" class="btn btn-primary mb-5">Biasa</button>
-            <button type="button" class="btn btn-danger mb-5">Penting</button>
-            <button type="button" class="btn btn-dark mb-5">Rahasia</button>
         </div>
         <div class="col-sm-6">
             <p class="surat-text" >
@@ -77,8 +73,8 @@
             </div>
         </div>
     </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-2">
-        <button class="btn btn-danger me-md-2" type="button">
+    <div class="d-grid gap-5 d-md-flex justify-content-md-center mt-2">
+        <button class="btn btn-danger me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#modalDitolakAdmin">
         <div class="d-flex align-items-center">
             <div class="flex-shrink-0">
             <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,3 +102,22 @@
 </div>
 
 @endsection
+
+<!-- Modal Ditolak -->
+<div class="modal fade" id="modalDitolakAdmin" tabindex="-1" aria-labelledby="modalDitolakAdminLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body" style="padding-bottom: 0px;">
+        <h6>Alasan Penolakan <span style="color:red;" >*</span> </h6>
+        <form action="#">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger">Kirim</button>
+      </div>
+    </div>
+  </div>
+</div>

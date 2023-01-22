@@ -109,3 +109,8 @@
     text-align: center;
     color: #FFFFFF;
 }
+
+.form-control, .input-group-text, .custom-select, .custom-file-label {
+    border: 1px solid #FF0000 !important;
+    border-radius: 4px;
+}
