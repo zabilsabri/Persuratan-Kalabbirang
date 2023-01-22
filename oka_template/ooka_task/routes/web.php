@@ -101,6 +101,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
 
         // Surat Keluar
         Route::get('/surat-keluar-detail', 'suratKeluarController@detail')->name('surat-keluar-detail');
+        Route::get('/surat-keluar-disposisi', 'suratKeluarController@disposisi')->name('surat-keluar-disposisi');
 
 
     });
