@@ -45,4 +45,8 @@
     .pdf {
         width: 100%;
     }
+
+    .my-btn {
+        margin-top: 0 !important;
+    }
 }

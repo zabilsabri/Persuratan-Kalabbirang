@@ -18,4 +18,8 @@ class suratMasukController extends Controller
     public function input() {
         return view('admin.suratMasuk.input');
     }
+
+    public function disposisi() {
+        return view('admin.suratMasuk.disposisi');
+    }
 }
