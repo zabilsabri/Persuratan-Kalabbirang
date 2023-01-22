@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['title' => 'Profile'])
+@extends('admin.layouts.app', ['title' => 'Surat Keluar'])
 <link rel="stylesheet" href="{{ asset('style/css/suratKeluarDetail.css') }}">
 
 @section('content')

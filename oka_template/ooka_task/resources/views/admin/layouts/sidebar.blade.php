@@ -17,7 +17,7 @@
                        class="fas fa-th-large"></i><span>Dashboard</span></a>
                <ul class="dropdown-menu">
                    <li>
-                       <a class="nav-link" href="#">Surat Masuk</a>
+                       <a class="nav-link" href="{{ route('surat-masuk') }} ">Surat Masuk</a>
                    </li>
                    <li>
                        <a class="nav-link" href="#">Surat Keluar</a>
