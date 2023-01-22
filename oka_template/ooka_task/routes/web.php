@@ -106,6 +106,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
         // Surat Masuk
         Route::group(['prefix' => 'surat-masuk'], function() {
             Route::get('/', 'suratMasukController@index')->name('surat-masuk');
+            Route::get('/input', 'suratMasukController@input')->name('surat-masuk.input');
             Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk.detail');
         });
 

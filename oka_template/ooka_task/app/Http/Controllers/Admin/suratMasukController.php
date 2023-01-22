@@ -14,4 +14,8 @@ class suratMasukController extends Controller
     public function detail() {
         return view('admin.suratMasuk.detail');
     }
+
+    public function input() {
+        return view('admin.suratMasuk.input');
+    }
 }
