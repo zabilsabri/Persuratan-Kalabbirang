@@ -5,7 +5,7 @@
     <div class="hal-head">
         <div class="d-flex align-items-center">
             <div class="flex-grow-1 ms-3">
-                <h1 class="mx-3 mt-3 mb-0"> Detail Surat Keluar </h1>
+                <h1 class="mx-3 mt-3 mb-0"> Surat Keluar </h1>
             </div>
             <div class="flex-shrink-0 mt-3">
                 <a href="{{ route ('surat-keluar.input') }}">
