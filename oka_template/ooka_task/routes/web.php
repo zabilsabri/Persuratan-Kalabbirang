@@ -82,7 +82,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
 
 // ADMIN
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], function () {
-    Route::group(['prefix' => 'admin'], function () {
+    Route::group(['prefix' => ''], function () {
 
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard');
@@ -101,7 +101,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
         
         // Surat Keluar
         Route::get('/surat-keluar-detail', 'suratKeluarController@detail')->name('surat-keluar-detail');
-        
+        Route::get('/surat-keluar-disposisi', 'suratKeluarController@disposisi')->name('surat-keluar-disposisi');
 
         // Surat Masuk
         Route::group(['prefix' => 'surat-masuk'], function() {

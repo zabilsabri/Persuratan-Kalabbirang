@@ -40,7 +40,7 @@
                 </div>
             </fieldset>
             <div class="text-center mt-4">
-                <a type="submit" href="/profil-edit" class="btn btn-success w-25">Ubah Data Pribadi</a>
+                <a type="submit" href="{{ route('profil.edit') }}" class="btn btn-success w-25">Ubah Data Pribadi</a>
             </div>
         </div>
     </div>

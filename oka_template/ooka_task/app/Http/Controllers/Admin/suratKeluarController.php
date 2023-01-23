@@ -10,4 +10,7 @@ class suratKeluarController extends Controller
     public function detail() {
         return view('admin.suratKeluar.detail');
     }
+    public function disposisi() {
+        return view('admin.suratKeluar.disposisi');
+    }
 }
