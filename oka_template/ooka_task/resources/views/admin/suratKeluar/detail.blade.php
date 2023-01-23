@@ -74,7 +74,7 @@
         </div>
     </div>
     <div class="d-grid gap-5 d-md-flex justify-content-md-center mt-2">
-        <button class="btn btn-danger me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#modalDitolakAdmin">
+        <button class="btn btn-danger me-md-2 mb-2" type="button" data-bs-toggle="modal" data-bs-target="#modalDitolakAdmin">
         <div class="d-flex align-items-center">
             <div class="flex-shrink-0">
             <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +86,7 @@
             </div>
         </div>
         </button>
-        <button class="btn btn-success" type="button">
+        <button class="btn btn-success mb-2" type="button">
         <div class="d-flex align-items-center">
             <div class="flex-shrink-0">
                 <svg width="34" height="23" viewBox="0 0 41 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -110,9 +110,7 @@
       <div class="modal-body" style="padding-bottom: 0px;">
         <h6>Alasan Penolakan <span style="color:red;" >*</span> </h6>
         <form action="#">
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-            </div>
+            <textarea class="form-control" style="border: 1px solid #FF0000; height:150px;" id="exampleFormControlTextarea1" rows="3"></textarea>
         </form>
       </div>
       <div class="modal-footer">
