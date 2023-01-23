@@ -20,7 +20,7 @@
                        <a class="nav-link" href="{{ route('surat-masuk') }} ">Surat Masuk</a>
                    </li>
                    <li>
-                       <a class="nav-link" href="#">Surat Keluar</a>
+                       <a class="nav-link" href="{{ route('surat-keluar') }} ">Surat Keluar</a>
                    </li>
                    <li>
                        <a class="nav-link" href="{{ route('berita-admin') }} ">Berita</a>
