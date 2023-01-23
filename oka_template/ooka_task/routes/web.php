@@ -100,10 +100,12 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
         });
         
         // Surat Keluar
-        Route::get('/surat-keluar-detail', 'suratKeluarController@detail')->name('surat-keluar-detail');
-        Route::get('/surat-keluar-disposisi', 'suratKeluarController@disposisi')->name('surat-keluar-disposisi');
-        Route::get('/surat-keluar-input', 'suratKeluarController@input')->name('surat-keluar-disposisi');
-
+        Route::group(['prefix' => 'surat-keluar'], function() {
+            Route::get('/', 'suratKeluarController@index')->name('surat-keluar');
+            Route::get('/input', 'suratKeluarController@input')->name('surat-keluar.input');
+            Route::get('/disposisi', 'suratKeluarController@disposisi')->name('surat-keluar.disposisi');
+            Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar.detail');
+        });
 
         // Surat Masuk
         Route::group(['prefix' => 'surat-masuk'], function() {

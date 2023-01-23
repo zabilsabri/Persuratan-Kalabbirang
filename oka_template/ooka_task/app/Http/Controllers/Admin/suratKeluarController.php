@@ -16,4 +16,7 @@ class suratKeluarController extends Controller
     public function input() {
         return view('admin.suratKeluar.input');
     }
+    public function index() {
+        return view('admin.suratKeluar.index');
+    }
 }
