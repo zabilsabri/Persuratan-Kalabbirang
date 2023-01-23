@@ -98,6 +98,9 @@
     .hal-body{
         margin: 10px;
     }
+    .hal-title{
+        text-align: center;
+    }
 }
 
 .button-text{

@@ -13,4 +13,7 @@ class suratKeluarController extends Controller
     public function disposisi() {
         return view('admin.suratKeluar.disposisi');
     }
+    public function input() {
+        return view('admin.suratKeluar.input');
+    }
 }
