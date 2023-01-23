@@ -1,5 +1,5 @@
 @extends('admin.layouts.app', ['title' => 'Surat Keluar Disposisi'])
-<link rel="stylesheet" href="{{ asset('style/css/suratKeluarDetail.css') }}">
+<link rel="stylesheet" href="{{ asset('style/css/suratKeluarDisposisi.css') }}">
 
 @section('content')
 <div class="hal-head">
@@ -46,16 +46,41 @@
                 </tr>
             </table>
         </div>
-        <div class="col-sm-6">
-            <p>test</p>
-            <div class="form-outline datepicker" data-mdb-toggle-button="false">
-                <input
-                    type="text"
-                    class="form-control"
-                    id="exampleDatepicker1"
-                    data-mdb-toggle="datepicker"
-                />
-                <label for="exampleDatepicker1" class="form-label">Select a date</label>
+        <div class="col-sm-4">
+            <div class=" form-group">
+                <h4 class="surat-kategori col-form-label ">Tanggal Disposisi</h4>
+                <div class="">
+                    <input type="date" class="form-control " id="floatingInput" placeholder="" value="">
+                </div>
+            </div>
+            <div class=" form-group">
+                <h4 class="surat-kategori col-form-label ">Penerima</h4>
+                <div class="">
+                    <select class="form-control" id="floatingInput">
+                        <option>Pilih Penerima</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class=" form-group">
+                <h4 class="surat-kategori col-form-label ">Instruksi</h4>
+                <div class="">
+                    <select class="form-control" id="floatingInput">
+                        <option>Pilih Instruksi</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4" style="align-items: flex-end">
+            <div class="col-sm-6 mb-3">
+                <label for="exampleFormControlTextarea1" class="surat-kategori col-form-label ">Catatan</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 150px"></textarea>
+            </div>
+            <div class="col-sm-6 mb-3 text-center">
+                <button type="button" class="btn btn-success w-75 H-25">KIRIM DISPOSISI</button>
             </div>
         </div>
     </div>
