@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="flex-grow-1 ms-3">
                                     <div class="d-flex justify-content-between">
-                                        <h6 class="nama-user"><a href="#" class="text-black stretched-link">Mamet</a></h6>
+                                        <h6 class="nama-user"><a href="{{ route('not-verif') }}" class="text-black stretched-link">Mamet</a></h6>
                                         <p class="tanggal-user" >11/01/2023</p>
                                     </div>
                                     <h6 class="telpon-user-red">+62 8XX XXXX XXXX</h6>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="flex-grow-1 ms-3">
                                     <div class="d-flex justify-content-between">
-                                        <h6 class="nama-user"><a href="#" class="text-black stretched-link">Zabil</a></h6>
+                                        <h6 class="nama-user"><a href="{{ route('yes-verif') }}" class="text-black stretched-link">Zabil</a></h6>
                                         <p class="tanggal-user" >10/05/2003</p>
                                     </div>
                                     <h6 class="telpon-user-green">+62 8XX XXXX XXXX</h6>

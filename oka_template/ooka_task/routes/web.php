@@ -118,6 +118,8 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
 
         Route::group(['prefix' => 'verifikasi'], function() {
             Route::get('/', 'verifController@index')->name('verifikasi');
+            Route::get('/not-verif', 'verifController@notVerif')->name('not-verif');
+            Route::get('/yes-verif', 'verifController@yesVerif')->name('yes-verif');
         });
 
     });
