@@ -1,0 +1,38 @@
+.input-group-text, select.form-control:not([size]):not([multiple]), .form-control:not(.form-control-sm):not(.form-control-lg) {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 19px !important;
+    line-height: 23px;
+    color: #4FB96E;
+    background-color: white;
+}
+
+.hal-head{
+    padding: 30px;
+}
+
+.profil-input{
+    padding: 0px 30px 10px 30px;
+}
+
+.gambar-label{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+
+    color: #4FB96E;
+}
+
+.btn{
+    font-size: 20px !important;
+}
+
+@media (min-width: 576px){
+    .btn{
+        width: 227.377778px;
+        height: 51.377778px;
+    }
+}
