@@ -116,5 +116,9 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
             Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk.detail');
         });
 
+        Route::group(['prefix' => 'verifikasi'], function() {
+            Route::get('/', 'verifController@index')->name('verifikasi');
+        });
+
     });
 });
