@@ -29,6 +29,9 @@
                        <a class="nav-link" href="#">Arsip Surat</a>
                    </li>
                    <li>
+                       <a class="nav-link" href="#">Hasil Disposisi</a>
+                   </li>
+                   <li>
                        <a class="nav-link" href="{{ route('verifikasi') }} ">Verifikasi Warga</a>
                    </li>
                </ul>
