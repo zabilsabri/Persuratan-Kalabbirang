@@ -91,6 +91,13 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6" m-5>
+
+                    </div>
+                    <div class="col-md-6  ">
+                        <h4 class="text-success text-end">Tanda Tangan Digital</h4>
+                        <img src="" alt="" class="img-thumbnail  mx-auto text-end m-5">
+                    </div>
                 </div>
                 <div class="text-center mt-4">
                     <button type="submit" class="btn btn-success w-25">SIMPAN</button>

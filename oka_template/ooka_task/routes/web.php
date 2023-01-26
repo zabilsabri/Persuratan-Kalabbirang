@@ -25,6 +25,7 @@ use App\Http\Controllers\User\UserController as Users;
 // LOGIN
 Route::get('register', [Registers::class, 'register'])->name('register');
 Route::get('login', [Logins::class, 'login'])->name('login');
+Route::post('login', [Logins::class, 'login_proses'])->name('login_proses');
 Route::get('/', [Users::class, 'beranda'])->name('beranda');
 // Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
 Route::get('data-simpan', [Users::class, 'dataSimpan'])->name('dataSimpan');
@@ -82,8 +83,8 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
 
 // ADMIN
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], function () {
-    Route::group(['prefix' => 'admin'], function () {
 
+    Route::group(['prefix' => 'admin'], function () {
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard');
         

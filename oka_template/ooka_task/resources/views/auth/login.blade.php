@@ -24,7 +24,8 @@
         <div class="container-body">
             <h6 class="body-title">Masuk</h6>
             <h6 class="body-subTitle">Lengkapi data untuk melanjutkan</h6>
-            <form action="#" method="post">
+            <form action="{{ route('login_proses') }}" method="post">
+                {{ csrf_field() }}
                 <div class="mb-3">
                     <label for="nik" class="form-label">Nomor Induk Kependudukan</label>
                     <div class="input-group flex-nowrap">
@@ -39,7 +40,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <input type="number" class="form-control" placeholder="Masukkan Nomor Induk Kependudukan" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                        <input type="number" class="form-control" name="nik" placeholder="Masukkan Nomor Induk Kependudukan" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
                     </div>
                 </div>
                 <div class="mb-3">
@@ -53,7 +54,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <input type="number" class="form-control" placeholder="Masukkan Nomor Telpon" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                        <input type="number" class="form-control" name="no_telp" placeholder="Masukkan Nomor Telpon" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
                     </div>
                 </div>
                 <div class="form-footer">

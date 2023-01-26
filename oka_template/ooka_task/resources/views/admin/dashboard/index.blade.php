@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="section-header">
-        <h1>Selamat Datang, Admin ! </h1>
+        <h1>Selamat Datang, {{ Session()->get('role') }} ! </h1>
         <div class="section-header-breadcrumb mr-3">
             <div class="breadcrumb-item active"><a href="#">Home</a></div>
             <div class="breadcrumb-item"><a href="#">Admin</a></div>
