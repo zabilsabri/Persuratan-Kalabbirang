@@ -3667,3 +3667,53 @@ body.layout-3 .main-wrapper {
     opacity: 0;
   }
 }
+
+.modal-body-text{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 30px;
+  /* or 107% */
+
+  text-align: center;
+
+  color: #000000;
+}
+
+.modal-body-button{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-modal {
+  --bs-btn-font-size: 14px;
+  --bs-btn-font-weight: 600;
+  --bs-btn-line-height: 1.5;
+  --bs-btn-border-radius: 7px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 153px;
+  --bs-btn-font-family: Montserrat;
+}
+
+.btn-secondary-modal {
+  --bs-btn-color: #292A2E;
+  --bs-btn-bg: #E6E6E6;
+}
+
+.btn-success-modal {
+  --bs-btn-color: #4FB96E;
+  --bs-btn-bg: #E0FAE7;
+}
+
+.breadcrump-dashboard{
+  text-decoration: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  line-height: 175%;
+  /* identical to box height, or 38px */
+
+
+  color: #0D4D23;
+}

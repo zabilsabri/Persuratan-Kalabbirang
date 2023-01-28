@@ -124,3 +124,13 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
 
     });
 });
+
+// LURAH
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah'], function () {
+    Route::group(['prefix' => 'lurah'], function () {
+
+        // Dashboard
+        Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    });
+});
