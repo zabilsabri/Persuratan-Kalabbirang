@@ -132,5 +132,22 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah'], func
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard');
 
+        // Surat Masuk
+        Route::group(['prefix' => 'surat-masuk'], function() {
+            Route::get('/', 'suratMasukController@index')->name('surat-masuk');
+            Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk.detail');
+        });
+
+        // Surat Keluar
+        Route::group(['prefix' => 'surat-keluar'], function() {
+            Route::get('/', 'suratKeluarController@index')->name('surat-keluar');
+            Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar.detail');
+        });
+
+        // Surat Arsip
+        Route::group(['prefix' => 'surat-arsip'], function() {
+            Route::get('/', 'suratArsipController@index')->name('surat-arsip');
+            Route::get('/detail', 'suratArsipController@detail')->name('surat-arsip.detail');
+        });
     });
 });

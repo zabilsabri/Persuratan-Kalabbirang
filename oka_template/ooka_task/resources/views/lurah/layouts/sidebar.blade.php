@@ -23,7 +23,7 @@
                        <a class="nav-link" href="{{ route('surat-keluar') }} ">Surat Keluar</a>
                    </li>
                    <li>
-                       <a class="nav-link" href="#">Arsip Surat</a>
+                       <a class="nav-link" href="{{ route('surat-arsip') }}">Arsip Surat</a>
                    </li>
                    <li>
                        <a class="nav-link" href="#">Disposisi</a>
