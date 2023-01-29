@@ -141,7 +141,7 @@ body {
 .success_box, .success_box2, .success_box3, .success_box4, .success_box5, .success_box6, .success_box7, .success_box8 {
     display: none; 
     width: 41px; 
-    height: 8px; 
+    height: 11px; 
     position: relative;
 }
 
@@ -173,12 +173,13 @@ body {
 }
 
 .uploaded_file_view, .uploaded_file_view2, .uploaded_file_view3, .uploaded_file_view4, .uploaded_file_view5, .uploaded_file_view6, .uploaded_file_view7, .uploaded_file_view8 {
-    max-width: 300px; 
-    margin: 40px auto; 
-    text-align: center; 
-    position: relative; 
-    transition: .2s; 
-    opacity: 0; 
+    max-width: 300px;
+    margin: 40px auto;
+    margin-right: 50px;
+    text-align: center;
+    position: relative;
+    transition: .2s;
+    opacity: 0;
     padding: 15px;
 }
 
