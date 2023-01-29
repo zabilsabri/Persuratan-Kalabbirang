@@ -11,24 +11,26 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav navbar-right">
+                <ul class="navbar-nav navbar-right" style="margin-top: 17px;">
 
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <img alt="" title="Administrator" src="{{ asset('style/img/avatar/avatar-1.png') }}"
-                                class="rounded-circle mr-1" />
-                            <div class="d-sm-none d-lg-inline-block">
-                                Hi, Ujang Maman
+                                class="rounded-circle mr-1" style="margin-bottom: 17px;"/>
+                            <div class="d-sm-none d-lg-inline-block lh-1">
+                                <span class="nama-navbar" > Hi, Ujang Maman </span>
+                                <br>
+                                <span class="level-navbar" > Administrator </span>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
 
-                            <a href="{{ route('profil') }}" class="dropdown-item has-icon">
+                            <a href="{{ route('profil-admin') }}" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile Saya
                             </a>
 
-                            <a href="#" class="dropdown-item has-icon text-danger">
+                            <a href="#" class="dropdown-item has-icon text-danger" data-bs-toggle="modal" data-bs-target="#modalLogout">
                                 <i class="fas fa-sign-out-alt"></i> Keluar
                             </a>
                         </div>
@@ -36,3 +38,20 @@
                 </ul>
 
             </nav>
+
+            <!-- Modal Logout -->
+            <div class="modal fade" id="modalLogout" tabindex="-1" aria-labelledby="modalLogoutLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="modal-body-text">
+                                <p>Apakah anda yakin ingin keluar?</p>
+                            </div>
+                            <div class="modal-body-button">
+                                <button type="button" class="btn btn-modal btn-secondary-modal" data-bs-dismiss="modal">Tidak</button>
+                                <button type="button" class="btn btn-modal btn-success-modal">Ya</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>

@@ -43,7 +43,7 @@
 
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-masuk.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-masuk-lurah.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>
@@ -76,7 +76,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-masuk.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-masuk-lurah.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>
@@ -111,7 +111,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-masuk.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-masuk-lurah.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>
@@ -144,7 +144,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-masuk.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-masuk-lurah.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>

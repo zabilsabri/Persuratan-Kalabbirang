@@ -85,12 +85,12 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
     Route::group(['prefix' => 'admin'], function () {
 
         // Dashboard
-        Route::get('/', 'DashboardController@index')->name('dashboard');
+        Route::get('/', 'DashboardController@index')->name('dashboard-admin');
         
         // Profil
         Route::group(['prefix' => 'profil'], function() {
-            Route::get('/', 'ProfilController@index')->name('profil');
-            Route::get('/edit', 'ProfilController@edit')->name('profil.edit');
+            Route::get('/', 'ProfilController@index')->name('profil-admin');
+            Route::get('/edit', 'ProfilController@edit')->name('profil-admin.edit');
         });
 
         // Berita
@@ -102,18 +102,18 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
         
         // Surat Keluar
         Route::group(['prefix' => 'surat-keluar'], function() {
-            Route::get('/', 'suratKeluarController@index')->name('surat-keluar');
+            Route::get('/', 'suratKeluarController@index')->name('surat-keluar-admin');
             Route::get('/input', 'suratKeluarController@input')->name('surat-keluar.input');
             Route::get('/disposisi', 'suratKeluarController@disposisi')->name('surat-keluar.disposisi');
-            Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar.detail');
+            Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar-admin.detail');
         });
 
         // Surat Masuk
         Route::group(['prefix' => 'surat-masuk'], function() {
-            Route::get('/', 'suratMasukController@index')->name('surat-masuk');
+            Route::get('/', 'suratMasukController@index')->name('surat-masuk-admin');
             Route::get('/input', 'suratMasukController@input')->name('surat-masuk.input');
             Route::get('/disposisi', 'suratMasukController@disposisi')->name('surat-masuk.disposisi');
-            Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk.detail');
+            Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk-admin.detail');
         });
 
         Route::group(['prefix' => 'verifikasi'], function() {
@@ -130,24 +130,24 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah'], func
     Route::group(['prefix' => 'lurah'], function () {
 
         // Dashboard
-        Route::get('/', 'DashboardController@index')->name('dashboard');
+        Route::get('/', 'DashboardController@index')->name('dashboard-lurah');
 
         // Surat Masuk
         Route::group(['prefix' => 'surat-masuk'], function() {
-            Route::get('/', 'suratMasukController@index')->name('surat-masuk');
-            Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk.detail');
+            Route::get('/', 'suratMasukController@index')->name('surat-masuk-lurah');
+            Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk-lurah.detail');
         });
 
         // Surat Keluar
         Route::group(['prefix' => 'surat-keluar'], function() {
-            Route::get('/', 'suratKeluarController@index')->name('surat-keluar');
-            Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar.detail');
+            Route::get('/', 'suratKeluarController@index')->name('surat-keluar-lurah');
+            Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar-lurah.detail');
         });
 
         // Surat Arsip
         Route::group(['prefix' => 'surat-arsip'], function() {
-            Route::get('/', 'suratArsipController@index')->name('surat-arsip');
-            Route::get('/detail', 'suratArsipController@detail')->name('surat-arsip.detail');
+            Route::get('/', 'suratArsipController@index')->name('surat-arsip-lurah');
+            Route::get('/detail', 'suratArsipController@detail')->name('surat-arsip-lurah.detail');
         });
     });
 });

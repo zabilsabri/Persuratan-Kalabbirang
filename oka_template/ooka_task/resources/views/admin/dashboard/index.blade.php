@@ -4,8 +4,8 @@
     <div class="section-header">
         <h1>Selamat Datang, Admin ! </h1>
         <div class="section-header-breadcrumb mr-3">
-            <div class="breadcrumb-item active"><a href="#">Home</a></div>
-            <div class="breadcrumb-item"><a href="#">Admin</a></div>
+            <div class="breadcrumb-item active"><a href="#" class="breadcrump-dashboard">Home</a></div>
+            <div class="breadcrumb-item"><a href="#" class="breadcrump-dashboard">Admin</a></div>
         </div>
     </div>
     <div class="row">

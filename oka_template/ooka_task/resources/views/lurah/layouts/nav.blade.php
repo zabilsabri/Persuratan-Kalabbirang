@@ -11,20 +11,22 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav navbar-right">
+                <ul class="navbar-nav navbar-right" style="margin-top: 17px;">
 
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                             <img alt="" title="Administrator" src="{{ asset('style/img/avatar/avatar-1.png') }}"
-                                class="rounded-circle mr-1" />
-                            <div class="d-sm-none d-lg-inline-block">
-                                Hi, Ujang Maman
+                                class="rounded-circle mr-1" style="margin-bottom: 17px;"/>
+                            <div class="d-sm-none d-lg-inline-block lh-1">
+                                <span class="nama-navbar" > Hi, Ujang Maman </span>
+                                <br>
+                                <span class="level-navbar" > Lurah </span>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
 
-                            <a href="{{ route('profil') }}" class="dropdown-item has-icon">
+                            <a href="#" class="dropdown-item has-icon">
                                 <i class="far fa-user"></i> Profile Saya
                             </a>
 

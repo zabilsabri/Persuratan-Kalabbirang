@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
    <aside id="sidebar-wrapper">
        <div class="sidebar-brand mb-4">
-           <a href="index.html">
+           <a href="{{ route('dashboard-admin') }}">
                <img src="{{ asset('image/Logo.png') }}" alt="">
            </a>
        </div>
@@ -17,10 +17,10 @@
                        class="fas fa-th-large"></i><span>Dashboard</span></a>
                <ul class="dropdown-menu">
                    <li>
-                       <a class="nav-link" href="{{ route('surat-masuk') }} ">Surat Masuk</a>
+                       <a class="nav-link" href="{{ route('surat-masuk-admin') }} ">Surat Masuk</a>
                    </li>
                    <li>
-                       <a class="nav-link" href="{{ route('surat-keluar') }} ">Surat Keluar</a>
+                       <a class="nav-link" href="{{ route('surat-keluar-admin') }} ">Surat Keluar</a>
                    </li>
                    <li>
                        <a class="nav-link" href="{{ route('berita-admin') }} ">Berita</a>
