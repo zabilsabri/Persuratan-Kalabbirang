@@ -33,55 +33,55 @@ class UserController extends Controller
     {
         return view('user.surat.pengajuan-success');
     }
-    public function surat1()
+    public function suratKtp()
     {
         return view('user.surat.suratKtp');
     }
-    public function surat2()
+    public function suratKelahiran()
     {
         return view('user.surat.suratKelahiran');
     }
-    public function surat3()
+    public function suratKetUsaha()
     {
         return view('user.surat.suratKeteranganUsaha');
     }
-    public function surat4()
+    public function suratKartuKeluarga()
     {
         return view('user.surat.suratKartuKeluarga');
     }
-    public function surat5()
+    public function suratPembuatanSertifikat()
     {
         return view('user.surat.suratPembuatanSertifikat');
     }
-    public function surat6()
+    public function suratAktaJualBeli()
     {
         return view('user.surat.suratAktaJualBeli');
     }
-    public function surat7()
+    public function suratHibahAhliWaris()
     {
         return view('user.surat.suratAkteHibahDanAhliWaris');
     }
-    public function surat8()
+    public function suratKck()
     {
         return view('user.surat.suratSKCK');
     }
-    public function surat9()
+    public function suratIzinKeramaian()
     {
         return view('user.surat.suratIzinKeramaian');
     }
-    public function surat10()
+    public function suratIzinBangunan()
     {
         return view('user.surat.suratIzinMendirikanPembangunan');
     }
-    public function surat11()
+    public function suratKetMenikah()
     {
         return view('user.surat.suratKeteranganMenikah');
     }
-    public function surat12()
+    public function suratTidakMampu()
     {
         return view('user.surat.surattidakMampu');
     }
-    public function surat13 () {
+    public function suratBelumMenikah () {
         return view('user.surat.suratBelumMenikah');
     }   
 }

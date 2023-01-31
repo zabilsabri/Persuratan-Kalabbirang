@@ -25,36 +25,11 @@ use App\Http\Controllers\User\UserController as Users;
 // LOGIN
 Route::get('register', [Registers::class, 'register'])->name('register');
 Route::get('login', [Logins::class, 'login'])->name('login');
-Route::get('/', [Users::class, 'beranda'])->name('beranda');
-// Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
-Route::get('data-simpan', [Users::class, 'dataSimpan'])->name('dataSimpan');
-Route::get('data-ubah', [Users::class, 'dataUbah'])->name('dataUbah');
-Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
-Route::get('profil-user', [Users::class, 'profilUserLogin'])->name('profil-user');
-Route::get('profil-user-nl', [Users::class, 'profilUserNotLogin'])->name('profil-user-nl');
-Route::get('layanan-pengajuan-surat', [Users::class, 'lps'])->name('lps');
-
-//Surat
-Route::get('selesai-pengajuan', [Users::class, 'pengajuanSuccess'])->name('selesai-pengajuan');
-Route::get('surat-ktp', [Users::class, 'surat1'])->name('surat1');
-Route::get('surat-kelahiran', [Users::class, 'surat2'])->name('surat2');
-Route::get('surat-keterangan-usaha', [Users::class, 'surat3'])->name('surat3');
-Route::get('surat-kartu-keluarga', [Users::class, 'surat4'])->name('surat4');
-Route::get('surat-pembuatan-sertifikat', [Users::class, 'surat5'])->name('surat5');
-Route::get('surat-akta-jual-beli', [Users::class, 'surat6'])->name('surat6');
-Route::get('surat-akte-hibah-dan-ahli-waris', [Users::class, 'surat7'])->name('surat7');
-Route::get('surat-skck', [Users::class, 'surat8'])->name('surat8');
-Route::get('surat-izin-keramaian', [Users::class, 'surat9'])->name('surat9');
-Route::get('surat-izin-mendirikan-pembangunan', [Users::class, 'surat10'])->name('surat10');
-Route::get('surat-keterangan-menikah', [Users::class, 'surat11'])->name('surat11');
-Route::get('surat-tidak-mampu', [Users::class, 'surat12'])->name('surat12');
-Route::get('surat-belum-menikah', [Users::class, 'surat13'])->name('surat13');
-
-
-
 
 // USER
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], function () {
+
+    Route::get('/', 'UserController@beranda')->name('beranda');
 
     // Berita
     Route::get('/berita', 'BeritaController@index')->name('berita');
@@ -77,7 +52,35 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
     // Notifikasi
     Route::get('/notifikasi', 'NotifikasiController@index')->name('notifikasi');
 
-});
+    //Surat
+    Route::get('layanan-pengajuan-surat', 'UserController@lps')->name('lps');
+    Route::get('selesai-pengajuan', 'UserController@pengajuanSuccess')->name('selesai-pengajuan');
+    Route::get('surat-ktp', 'UserController@suratKtp')->name('surat-ktp');
+    Route::get('surat-kelahiran', 'UserController@suratKelahiran')->name('surat-kelahiran');
+    Route::get('surat-keterangan-usaha', 'UserController@suratKetUsaha')->name('surat-ket-usaha');
+    Route::get('surat-kartu-keluarga', 'UserController@suratKartuKeluarga')->name('surat-kartu-keluarga');
+    Route::get('surat-pembuatan-sertifikat', 'UserController@suratPembuatanSertifikat')->name('surat-pembuatan-sertifikat');
+    Route::get('surat-akta-jual-beli', 'UserController@suratAktaJualBeli')->name('surat-akta-jual-beli');
+    Route::get('surat-akte-hibah-dan-ahli-waris', 'UserController@suratHibahAhliWaris')->name('surat-akte-hibah-ahli-waris');
+    Route::get('surat-skck', 'UserController@suratKck')->name('surat-kck');
+    Route::get('surat-izin-keramaian', 'UserController@suratIzinKeramaian')->name('surat-izin-keramaian');
+    Route::get('surat-izin-mendirikan-pembangunan', 'UserController@suratIzinBangunan')->name('surat-izin-mendirikan-bangunan');
+    Route::get('surat-keterangan-menikah', 'UserController@suratKetMenikah')->name('surat-ket-menikah');
+    Route::get('surat-tidak-mampu', 'UserController@suratTidakMampu')->name('surat-tidak-mampu');
+    Route::get('surat-belum-menikah', 'UserController@suratBelumMenikah')->name('surat-belum-menikah');
+
+    // Data
+    Route::get('data-simpan', 'UserController@dataSimpan')->name('dataSimpan');
+    Route::get('data-ubah', 'UserController@dataUbah')->name('dataUbah');
+
+    // Bantuan
+    Route::get('bantuan', 'UserController@bantuan')->name('bantuan');
+
+    // Profil
+    Route::get('profil-user', 'UserController@profilUserLogin')->name('profil-user');
+    Route::get('profil-user-nl', 'UserController@profilUserNotLogin')->name('profil-user-nl');
+
+    });
 
 
 // ADMIN
