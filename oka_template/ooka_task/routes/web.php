@@ -151,5 +151,11 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah'], func
             Route::get('/', 'suratArsipController@index')->name('surat-arsip-lurah');
             Route::get('/detail', 'suratArsipController@detail')->name('surat-arsip-lurah.detail');
         });
+
+        // Profil
+        Route::group(['prefix' => 'profil'], function() {
+            Route::get('/', 'ProfilController@index')->name('profil-lurah');
+            Route::get('/edit', 'ProfilController@edit')->name('profil-lurah.edit');
+        });
     });
 });
