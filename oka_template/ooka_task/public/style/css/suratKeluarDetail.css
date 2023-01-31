@@ -113,6 +113,14 @@
     color: #FFFFFF;
 }
 
+.text-green{
+    color: #4FB96E;
+}
+
+.border-green {
+    border-color: #4FB96E !important;
+}
+
 .modal-body-text1{
     font-family: 'Montserrat';
     font-style: normal;
@@ -134,4 +142,28 @@
 .modal-body-button{
     text-align: right;
     margin-top: 30px;
+}
+
+.modal-container{
+    border: 2px solid;
+    padding: 30px;
+    border-radius: 7px;
+}
+
+.modal-container-text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #4FB96E;
+}
+
+
+.modal-container-text2{
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    
+    color: #000000;
 }

@@ -136,12 +136,14 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah'], func
         Route::group(['prefix' => 'surat-masuk'], function() {
             Route::get('/', 'suratMasukController@index')->name('surat-masuk-lurah');
             Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk-lurah.detail');
+            Route::get('/kosong', 'suratMasukController@kosong')->name('surat-masuk-lurah.kosong');
         });
 
         // Surat Keluar
         Route::group(['prefix' => 'surat-keluar'], function() {
             Route::get('/', 'suratKeluarController@index')->name('surat-keluar-lurah');
             Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar-lurah.detail');
+            Route::get('/kosong', 'suratKeluarController@kosong')->name('surat-keluar-lurah.kosong');
         });
 
         // Surat Arsip

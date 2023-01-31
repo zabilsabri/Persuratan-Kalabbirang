@@ -14,4 +14,8 @@ class suratKeluarController extends Controller
     public function detail() {
         return view('lurah.suratKeluar.detail');
     }
+
+    public function kosong() {
+        return view('lurah.suratKeluar.kosong');
+    }
 }
