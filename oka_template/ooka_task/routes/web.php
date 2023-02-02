@@ -159,3 +159,38 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah'], func
         });
     });
 });
+
+// KASI
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi'], function () {
+    Route::group(['prefix' => 'kasi'], function () {
+
+        // Dashboard
+        Route::get('/', 'DashboardController@index')->name('dashboard-kasi');
+
+        // Surat Masuk
+        Route::group(['prefix' => 'surat-masuk'], function() {
+            Route::get('/', 'suratMasukController@index')->name('surat-masuk-kasi');
+            Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk-kasi.detail');
+            Route::get('/kosong', 'suratMasukController@kosong')->name('surat-masuk-kasi.kosong');
+        });
+
+        // Surat Keluar
+        Route::group(['prefix' => 'surat-keluar'], function() {
+            Route::get('/', 'suratKeluarController@index')->name('surat-keluar-kasi');
+            Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar-kasi.detail');
+            Route::get('/kosong', 'suratKeluarController@kosong')->name('surat-keluar-kasi.kosong');
+        });
+
+        // Surat Arsip
+        Route::group(['prefix' => 'surat-arsip'], function() {
+            Route::get('/', 'suratArsipController@index')->name('surat-arsip-kasi');
+            Route::get('/detail', 'suratArsipController@detail')->name('surat-arsip-kasi.detail');
+        });
+
+        // Profil
+        Route::group(['prefix' => 'profil'], function() {
+            Route::get('/', 'ProfilController@index')->name('profil-kasi');
+            Route::get('/edit', 'ProfilController@edit')->name('profil-kasi.edit');
+        });
+    });
+});
