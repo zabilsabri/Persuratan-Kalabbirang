@@ -13,7 +13,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class=" text-right px-4 pt-4">
-                        <a class="btn text-white btn-success">
+                        <a href="{{ route('berita-admin.tambah') }}" class="btn text-white btn-success">
                             <i class="ion ion-plus"></i> Tambah Berita
                         </a>
                     </div>
@@ -82,9 +82,9 @@
                                                 <i class="ion ion-compose"></i>
                                             </a>
                                             {{-- Hapus --}}
-                                            <a href="#" class="btn btn-danger">
+                                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
                                                 <i class="ion ion-trash-a"></i>
-                                            </a>
+                                            </button>
                                         </td>
                                     </tr>
 
@@ -119,3 +119,20 @@
 
     </div>
 @endsection
+
+    <!-- Modal Hapus Berita-->
+    <div class="modal fade" id="modalHapusBerita" tabindex="-1" aria-labelledby="modalHapusBeritaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-body-text">
+                        <p>Apakah anda yakin ingin menghapus berita ini?</p>
+                    </div>
+                    <div class="modal-body-button">
+                        <button type="button" class="btn btn-modal btn-secondary-modal" data-bs-dismiss="modal">Tidak</button>
+                        <button type="button" class="btn btn-modal btn-success-modal">Ya</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
