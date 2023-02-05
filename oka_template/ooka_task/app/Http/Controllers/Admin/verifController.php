@@ -18,4 +18,12 @@ class verifController extends Controller
     public function yesVerif() {
         return view('admin.verif.yesVerif');
     }
+
+    public function detailWarga() {
+        return view('admin.verif.detail');
+    }
+
+    public function editWarga() {
+        return view('admin.verif.edit');
+    }
 }

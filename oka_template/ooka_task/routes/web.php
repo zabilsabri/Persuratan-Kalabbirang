@@ -116,10 +116,13 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
             Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk-admin.detail');
         });
 
-        Route::group(['prefix' => 'verifikasi'], function() {
+        // Data Warga
+        Route::group(['prefix' => 'data-warga'], function() {
             Route::get('/', 'verifController@index')->name('verifikasi');
             Route::get('/not-verif', 'verifController@notVerif')->name('not-verif');
             Route::get('/yes-verif', 'verifController@yesVerif')->name('yes-verif');
+            Route::get('/detail-warga', 'verifController@detailWarga')->name('detail-warga');
+            Route::get('/edit-warga', 'verifController@editWarga')->name('edit-warga');
         });
 
     });
