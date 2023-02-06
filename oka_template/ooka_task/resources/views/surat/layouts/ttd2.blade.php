@@ -1,10 +1,15 @@
 <div class="surat-ttd">
-    <table style="float:left;width:35%;">
+    <table class="w-100" >
         <tr>
-            <td>Kalabbirang, 05 Oktober 2022</td>
+            <td class="text-end" style="padding-right: 32px">Kalabbirang, 05 Oktober 2022</td>
         </tr>
         <tr>
-            <td>LURAH KALABBIRANG,</td>
+            <td>Mengetahui:</td>
+        </tr>
+    </table>
+    <table style="float:left;width:35%;">
+        <tr>
+            <td>CAMAT PATTALLASSANG,</td>
         </tr>
         <tr class="text-center">
             <img width="100px" height="100px" src="{{ public_path('image/Kanimozhi_Signature.svg.png') }}" alt="">
@@ -20,9 +25,6 @@
         </tr>
     </table>
     <table style="float:right;width:35%;">
-        <tr>
-            <td>Kalabbirang, 05 Oktober 2022</td>
-        </tr>
         <tr>
             <td>LURAH KALABBIRANG,</td>
         </tr>
