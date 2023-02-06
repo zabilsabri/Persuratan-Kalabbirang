@@ -26,6 +26,18 @@ class suratController extends Controller
             case 5:
                 $pdf = Pdf::loadView('surat/isiSurat/ketKematian');
                 break;
+            case 6:
+                $pdf = Pdf::loadView('surat/isiSurat/ketBedaNama');
+                break;
+            case 7:
+                $pdf = Pdf::loadView('surat/isiSurat/ketJanda');
+                break;
+            case 8:
+                $pdf = Pdf::loadView('surat/isiSurat/ketBaik');
+                break;
+            case 9:
+                $pdf = Pdf::loadView('surat/isiSurat/pengPernikahan');
+                break;
 
         }
         $pdf->setPaper('A4', 'potrait');
