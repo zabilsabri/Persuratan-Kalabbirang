@@ -34,6 +34,9 @@
                    <li>
                        <a class="nav-link" href="{{ route('verifikasi') }} ">Data Warga</a>
                    </li>
+                   <li>
+                       <a class="nav-link" href="{{ route('data-lurah-kasi') }} ">Data Lurah/Kasi</a>
+                   </li>
                </ul>
            </li>
        </ul>

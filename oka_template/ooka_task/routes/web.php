@@ -125,6 +125,13 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
             Route::get('/edit-warga', 'verifController@editWarga')->name('edit-warga');
         });
 
+        // Data Lurah/Kasi
+        Route::group(['prefix' => 'data-lurah-kasi'], function() {
+            Route::get('/', 'dataLurahKasiController@index')->name('data-lurah-kasi');
+            Route::get('/detail-lurah-kasi', 'dataLurahKasiController@detail')->name('detail-lurah-kasi');
+            Route::get('/edit-lurah-kasi', 'dataLurahKasiController@edit')->name('edit-lurah-kasi');
+        });
+
     });
 });
 
