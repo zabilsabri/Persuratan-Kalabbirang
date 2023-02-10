@@ -44,9 +44,6 @@ class suratController extends Controller
             case 11:
                 $pdf = Pdf::loadView('surat/isiSurat/ketBerdomisili');
                 break;
-            case 11:
-                $pdf = Pdf::loadView('surat/isiSurat/ketBerdomisili');
-                break;
             case 12:
                 $pdf = Pdf::loadView('surat/isiSurat/ketMiskin');
                 break;
