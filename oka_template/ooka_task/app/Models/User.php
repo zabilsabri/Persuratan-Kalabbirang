@@ -25,8 +25,8 @@ class User extends Authenticatable
         'jkl',
         'alamat',
         'pekerjaan',
-        'no_kk',
-        'no_telp',
+        'nomor_kk',
+        'nomor_telp',
         'profil', // foto profil
         'ktp', // foto ktp
         'email',
