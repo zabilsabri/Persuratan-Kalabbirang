@@ -18,17 +18,17 @@ return new class extends Migration
             $table->string('nama');
             $table->string('username');
             $table->string('nik')->unique();
-            $table->date('ttl');
-            $table->enum('jkl', ['laki-laki', 'perempuan']);
-            $table->string('alamat');
-            $table->string('pekerjaan');
-            $table->string('nomor_kk');
-            $table->string('nomor_telp');
+            $table->date('ttl')->nullable();
+            $table->enum('jkl', ['laki-laki', 'perempuan'])->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('pekerjaan')->nullable();
+            $table->string('nomor_kk')->nullable();
+            $table->string('nomor_telp')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('profil'); // fotot profil
-            $table->string('ktp'); // foto kk
+            // $table->string('password');
+            $table->string('profil')->nullable(); // fotot profil
+            $table->string('ktp')->nullable(); // foto kk
             $table->rememberToken();
             $table->timestamps();
         });
