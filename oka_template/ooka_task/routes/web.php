@@ -98,6 +98,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
             Route::get('/', 'BeritaController@index')->name('berita-admin');
             Route::get('/tambah', 'BeritaController@tambah')->name('berita-admin.tambah');
             Route::get('/detail', 'BeritaController@detail')->name('berita-admin.detail');
+            Route::get('/edit', 'BeritaController@edit')->name('berita-admin.edit');
         });
         
         // Surat Keluar
@@ -112,6 +113,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
         Route::group(['prefix' => 'surat-masuk'], function() {
             Route::get('/', 'suratMasukController@index')->name('surat-masuk-admin');
             Route::get('/input', 'suratMasukController@input')->name('surat-masuk.input');
+            Route::get('/edit', 'suratMasukController@edit')->name('surat-masuk.edit');
             Route::get('/disposisi', 'suratMasukController@disposisi')->name('surat-masuk.disposisi');
             Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk-admin.detail');
         });
@@ -125,11 +127,23 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
             Route::get('/edit-warga', 'verifController@editWarga')->name('edit-warga');
         });
 
-        // Data Lurah/Kasi
+        // Data Pegawai
         Route::group(['prefix' => 'data-lurah-kasi'], function() {
             Route::get('/', 'dataLurahKasiController@index')->name('data-lurah-kasi');
             Route::get('/detail-lurah-kasi', 'dataLurahKasiController@detail')->name('detail-lurah-kasi');
             Route::get('/edit-lurah-kasi', 'dataLurahKasiController@edit')->name('edit-lurah-kasi');
+        });
+
+        // Surat Arsip
+        Route::group(['prefix' => 'surat-arsip'], function() {
+            Route::get('/', 'suratArsipController@index')->name('surat-arsip-admin');
+            Route::get('/detail', 'suratArsipController@detail')->name('surat-arsip-admin.detail');
+        });
+
+        // Surat Antar
+        Route::group(['prefix' => 'surat-antar'], function() {
+            Route::get('/', 'suratAntarController@index')->name('surat-antar');
+            Route::get('/detail', 'suratAntarController@detail')->name('surat-antar.detail');
         });
 
     });

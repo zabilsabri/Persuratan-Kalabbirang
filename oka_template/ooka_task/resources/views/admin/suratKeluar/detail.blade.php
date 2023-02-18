@@ -82,7 +82,7 @@
             </svg>
             </div>
             <div class="button-text flex-grow-1 ms-3">
-                Ditolak
+                DITOLAK
             </div>
         </div>
         </button>
@@ -94,7 +94,7 @@
                     </svg>
                 </div>
                 <div class="button-text flex-grow-1 ms-3">
-                    Disposisi
+                    PENYERAHAN
                 </div>
             </div>
         </a>

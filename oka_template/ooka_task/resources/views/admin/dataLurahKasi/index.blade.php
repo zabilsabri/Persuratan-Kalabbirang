@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="hal-head">
-        <h1>Data Warga</h1>
+        <h1>Data Pegawai</h1>
     </div>
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-left: 30px;margin-right: 30px;border-bottom-width: 0px;">
