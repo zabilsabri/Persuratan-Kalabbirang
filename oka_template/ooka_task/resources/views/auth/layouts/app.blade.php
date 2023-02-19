@@ -21,7 +21,7 @@
 
 <body class="bg-success">
   <div id="app">
-    <section class="section">
+    <section class="sections">
       <div class="container mt-5 ">
         <div class="row">
           <div class="mx-auto col-12 col-sm-10 col-md-10  col-lg-10  col-xl-10 ">

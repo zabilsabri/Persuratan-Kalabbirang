@@ -1,11 +1,11 @@
-@extends('kasi.layouts.app', ['title' => 'Surat Keluar'])
+@extends('admin.layouts.app', ['title' => 'Surat Arsip'])
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('style/css/suratMasuk.css') }} ">
     <div class="hal-head">
         <div class="d-flex align-items-center">
             <div class="flex-grow-1 ms-3">
-                <h1 class="mx-3 mt-3 mb-0"> Surat Keluar </h1>
+                <h1 class="mx-3 mt-3 mb-0"> Surat Arsip </h1>
             </div>
         </div>
     </div>
@@ -13,6 +13,24 @@
     <div class="section-body">
         <div class="row">
             <div class="col-12">
+                <div class="row" style="justify-content: center;">
+                    <div class="col-sm-3 mb-3 mb-sm-0">
+                        <div class="card">
+                        <div class="card-body" style="margin-top: 0px; color:white; background-color:#4FB96E; border-radius: 7px;">
+                            <h5 class="card-title">Surat Masuk</h5>
+                            <p class="card-text">30</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="card">
+                        <div class="card-body" style="margin-top: 0px; color: #4FB96E; background-color:#FFFFFF; border-radius: 7px; border: 2px solid #4FB96E;">
+                            <h5 class="card-title">Surat Keluar</h5>
+                            <p class="card-text">50</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card">
 
                     <div class="p-3 d-flex justify-content-between">
@@ -44,7 +62,7 @@
 
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-keluar-kasi.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-arsip-admin.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>
@@ -77,7 +95,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-keluar-kasi.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-arsip-admin.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>
@@ -112,7 +130,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-keluar-kasi.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-arsip-admin.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>
@@ -145,7 +163,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-keluar-kasi.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-arsip-admin.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>

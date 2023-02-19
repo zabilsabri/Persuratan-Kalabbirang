@@ -15,6 +15,10 @@ class BeritaController extends Controller
         return view('admin.berita.detail');
     }
 
+    public function edit() {
+        return view('admin.berita.edit');
+    }
+
     public function tambah() {
         return view('admin.berita.tambah');
     }

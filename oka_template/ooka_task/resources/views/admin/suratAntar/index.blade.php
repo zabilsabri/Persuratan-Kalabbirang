@@ -1,15 +1,15 @@
-@extends('lurah.layouts.app', ['title' => 'Surat Keluar'])
+@extends('admin.layouts.app', ['title' => 'Surat Antar'])
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('style/css/suratMasuk.css') }} ">
     <div class="hal-head">
         <div class="d-flex align-items-center">
             <div class="flex-grow-1 ms-3">
-                <h1 class="mx-3 mt-3 mb-0"> Surat Keluar </h1>
+                <h1 class="mx-3 mt-3 mb-0"> Pengantaran Surat </h1>
             </div>
+            
         </div>
     </div>
-
     <div class="section-body">
         <div class="row">
             <div class="col-12">
@@ -19,15 +19,13 @@
 
                         <div class="dataTables_length " id="table-1_length">
                             <div class="d-flex mt-4">
-                                <span class=" mx-2 mt-2">Tampilkan </span>
                                 <select name="table-1_length" aria-controls="table-1"
                                     class="custom-select custom-select-sm form-control form-control-sm">
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
+                                    <option value="all">Status Antar Surat</option>
+                                    <option value="terkirim">Terkirim</option>
+                                    <option value="belum_terkirim">Belum Terkirim</option>
+                                    <option value="perjalanan">Dalam Perjalanan</option>
                                 </select>
-                                <span class="mx-2 mt-2"> entri</span>
                             </div>
                         </div>
 
@@ -44,7 +42,7 @@
 
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-keluar-lurah.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-antar.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>
@@ -77,7 +75,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-keluar-lurah.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-antar.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>
@@ -112,7 +110,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-keluar-lurah.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-antar.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>
@@ -145,7 +143,7 @@
                             </a>
                         </div>
                         <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-keluar-lurah.detail') }}" style="text-decoration:none;">
+                            <a href="{{route ('surat-antar.detail') }}" style="text-decoration:none;">
                                 <div class="card ">
                                     <div class="card-header">
                                         <h4 class="text-dark">Kemendikbud RI</h4>
@@ -178,11 +176,8 @@
                             </a>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
-
     </div>
 @endsection
