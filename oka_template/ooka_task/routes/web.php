@@ -24,7 +24,9 @@ use App\Http\Controllers\User\UserController as Users;
 
 // LOGIN
 Route::get('register', [Registers::class, 'register'])->name('register');
-Route::get('login', [Logins::class, 'login'])->name('login');
+Route::get('login', [Logins::class, 'showLogin'])->name('showLogin');
+
+
 Route::get('/', [Users::class, 'beranda'])->name('beranda');
 // Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
 Route::get('data-simpan', [Users::class, 'dataSimpan'])->name('dataSimpan');
@@ -163,13 +165,6 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah'], func
             Route::get('/kosong', 'suratMasukController@kosong')->name('surat-masuk-lurah.kosong');
         });
 
-        // Surat Keluar
-        Route::group(['prefix' => 'surat-keluar'], function() {
-            Route::get('/', 'suratKeluarController@index')->name('surat-keluar-lurah');
-            Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar-lurah.detail');
-            Route::get('/kosong', 'suratKeluarController@kosong')->name('surat-keluar-lurah.kosong');
-        });
-
         // Surat Arsip
         Route::group(['prefix' => 'surat-arsip'], function() {
             Route::get('/', 'suratArsipController@index')->name('surat-arsip-lurah');
@@ -196,13 +191,6 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi'], funct
             Route::get('/', 'suratMasukController@index')->name('surat-masuk-kasi');
             Route::get('/detail', 'suratMasukController@detail')->name('surat-masuk-kasi.detail');
             Route::get('/kosong', 'suratMasukController@kosong')->name('surat-masuk-kasi.kosong');
-        });
-
-        // Surat Keluar
-        Route::group(['prefix' => 'surat-keluar'], function() {
-            Route::get('/', 'suratKeluarController@index')->name('surat-keluar-kasi');
-            Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar-kasi.detail');
-            Route::get('/kosong', 'suratKeluarController@kosong')->name('surat-keluar-kasi.kosong');
         });
 
         // Surat Arsip
