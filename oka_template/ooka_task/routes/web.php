@@ -24,7 +24,7 @@ use App\Http\Controllers\User\UserController as Users;
 
 // LOGIN
 Route::get('register', [Registers::class, 'register'])->name('register');
-Route::get('login', [Logins::class, 'showLogin'])->name('showLogin');
+Route::get('login', [Logins::class, 'login'])->name('showLogin');
 
 
 Route::get('/', [Users::class, 'beranda'])->name('beranda');

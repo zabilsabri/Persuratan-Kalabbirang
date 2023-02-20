@@ -30,7 +30,7 @@ class User extends Authenticatable
         'profil', // foto profil
         'ktp', // foto ktp
         'email',
-        'password',
+        // 'password',
     ];
 
     /**

@@ -18,9 +18,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function() {
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], function () {
 
+    Route::get('/login', 'LoginController@index')->name('index.login');
     Route::post('/login', 'LoginController@login')->name('login');
     Route::post('/register', 'LoginController@register')->name('register');
 
+    Route::group(['prefix' => 'suratMasuk'], function () {
+
+        Route::get('/', 'suratMasukController@index')->name('index.suratMasuk');
+        Route::post('/store', 'suratMasukController@store')->name('store.suratMasuk');
+        Route::get('/edit/{id}', 'suratMasukController@edit')->name('edit.suratMasuk');
+        Route::put('/update/{id}', 'suratMasukController@update')->name('update.suratMasuk');
+        Route::delete('/destroy/{id}', 'suratMasukController@destroy')->name('destroy.suratMasuk');
+    });
 });
