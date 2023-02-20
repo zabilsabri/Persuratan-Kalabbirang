@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController as Registers;
-use App\Http\Controllers\Auth\LoginController as Logins;
 use App\Http\Controllers\User\UserController as Users;
 
 
@@ -18,14 +16,16 @@ use App\Http\Controllers\User\UserController as Users;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-// LOGIN
-Route::get('register', [Registers::class, 'register'])->name('register');
-Route::get('login', [Logins::class, 'showLogin'])->name('showLogin');
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function() {
 
+    Route::get('/login', 'LoginController@showLogin')->name('showLogin');
+    Route::post('/loginProcess', 'LoginController@loginWeb')->name('loginProcess');
+
+    Route::get('/register', 'LoginController@showRegister')->name('showRegister');
+    Route::post('/registerProcess', 'LoginController@registerWeb')->name('registerProcess');
+
+});
 
 Route::get('/', [Users::class, 'beranda'])->name('beranda');
 // Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
