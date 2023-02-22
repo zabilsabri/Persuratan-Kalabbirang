@@ -9,8 +9,7 @@
         <p class="text-secondary fw-bold mx-auto ">Isilah data secara lengkap dan benar</p>
 
         <div class="card-body">
-            <form method="POST">
-
+            <form action="{{ route('registerProcess') }}" method="POST">
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label>Nomor Kartu Keluarga</label>
@@ -22,7 +21,7 @@
                                 </div>
                             </div>
                             <input type="text" class="form-control phone-number"
-                                placeholder="Masukkan Nomor Kartu Keluarga" autofocus>
+                                placeholder="Masukkan Nomor Kartu Keluarga" name="nik" autofocus style="height: 61.6px;">
                         </div>
                     </div>
 
@@ -35,7 +34,7 @@
                                     <img src="{{ asset('image/icon/phone.svg') }}"></img>
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" placeholder="Masukkan Nomor Telepon">
+                            <input type="text" class="form-control phone-number" name="nomor_telp" placeholder="Masukkan Nomor Telepon" style="height: 61.6px;">
                         </div>
                     </div>
 
@@ -43,9 +42,8 @@
                         <h6>Lampiran Foto</h6>
                         <label for="first_name">Foto KTP</label>
                         <div class="file-drop-area">
-
                             <span class="choose-file-button">Pilih File</span>
-                            <input class="file-input" type="file" multiple>
+                            <input class="file-input" name="ktp" type="file" multiple>
                         </div>
                     </div>
                 </div>
@@ -60,7 +58,7 @@
                                 </div>
                             </div>
                             <input type="text" class="form-control phone-number"
-                                placeholder="Masukkan Nomor Induk Kependudukan ">
+                                placeholder="Masukkan Nomor Induk Kependudukan " name="nik" style="height: 61.6px;">
                         </div>
                     </div>
 
@@ -73,7 +71,7 @@
                                     <img src="{{ asset('image/icon/email.svg') }}"></img>
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" placeholder="Masukkan Alamat Email">
+                            <input type="text" class="form-control phone-number" name="email" placeholder="Masukkan Alamat Email" style="height: 61.6px;">
                         </div>
                     </div>
 
@@ -82,7 +80,7 @@
                         <div class="file-drop-area">
 
                             <span class="choose-file-button">Pilih File</span>
-                            <input class="file-input" type="file" multiple>
+                            <input class="file-input" type="file" name="profil" multiple>
                         </div>
                     </div>
                 </div>
@@ -98,7 +96,7 @@
 
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" placeholder="Masukkan Nama Lengkap">
+                            <input type="text" class="form-control phone-number" name="nama" placeholder="Masukkan Nama Lengkap" style="height: 61.6px;">
                         </div>
                     </div>
 
@@ -111,7 +109,7 @@
                                     <img src="{{ asset('image/icon/person-write.svg') }}"></img>
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" placeholder="Buat Username">
+                            <input type="text" class="form-control phone-number" name="username" placeholder="Buat Username" style="height: 61.6px;">
                         </div>
                     </div>
                 </div>
