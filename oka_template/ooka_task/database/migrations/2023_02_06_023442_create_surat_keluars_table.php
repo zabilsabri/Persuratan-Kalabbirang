@@ -15,13 +15,16 @@ return new class extends Migration
     {
         Schema::create('surat_keluars', function (Blueprint $table) {
             $table->id();
-            // $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenisSurat');
+            $table->unsignedBigInteger('jenis_suratKeluar_id');
             $table->string('no_surat');
             $table->string('tgl_surat');
             $table->string('kode_surat');
             $table->string('pj'); // penanggung jawab
             $table->string('status');
             $table->timestamps();
+            
+            $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenis_surats');
+
         });
     }
 

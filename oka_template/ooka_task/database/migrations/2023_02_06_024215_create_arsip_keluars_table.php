@@ -15,10 +15,11 @@ return new class extends Migration
     {   
         Schema::create('arsip_keluars', function (Blueprint $table) {
             $table->id();
-            // $table->foreign('suratKeluar_id')->references('id')->on('suratKeluar');
-            $table->string('suratKeluar_id');
+            $table->unsignedBigInteger('suratKeluar_id');
             $table->string('file_surat');
             $table->timestamps();
+
+            $table->foreign('suratKeluar_id')->references('id')->on('surat_keluars');
         });
     }
 

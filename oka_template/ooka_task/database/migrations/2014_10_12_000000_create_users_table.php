@@ -22,13 +22,15 @@ return new class extends Migration
             $table->enum('jkl', ['laki-laki', 'perempuan'])->nullable();
             $table->string('alamat')->nullable();
             $table->string('pekerjaan')->nullable();
-            $table->string('nomor_kk')->nullable();
-            $table->string('nomor_telp')->nullable();
+            $table->string('nomor_kk');
+            $table->string('nomor_telp');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             // $table->string('password');
-            $table->string('profil')->nullable(); // fotot profil
-            $table->string('ktp')->nullable(); // foto kk
+            $table->string('profil')->nullable(); // foto profil
+            $table->string('ktp'); // foto ktp
+            $table->string('swafoto_ktp'); // swafoto ktp
+            $table->boolean('verif_user')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
