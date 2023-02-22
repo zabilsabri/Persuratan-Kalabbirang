@@ -49,7 +49,7 @@ class LoginController extends Controller
             'nomor_kk'                  => 'required',
             'nomor_telp'                => 'required',
             'ktp'                       => 'required',
-            // 'swafoto_ktp'               => 'required',
+            'swafoto_ktp'               => 'required',
             'email'                     => 'required|unique:users'
         ]);
 
@@ -66,10 +66,10 @@ class LoginController extends Controller
             $user->ktp = $request->file('ktp')->getClientOriginalName();
         }
 
-        // if($request-file('swafoto_ktp')){
-        //     $request->file('swafoto_ktp')->move('fotoswafoto_ktp/', $request->file('swafoto_ktp')->getClientOriginalName());
-        //     $user->swafoto_ktp = $request->file('swafoto_ktp')->getClientOriginalName();
-        // }
+        if($request-file('swafoto_ktp')){
+            $request->file('swafoto_ktp')->move('fotoswafoto_ktp/', $request->file('swafoto_ktp')->getClientOriginalName());
+            $user->swafoto_ktp = $request->file('swafoto_ktp')->getClientOriginalName();
+        }
 
         $user->save();
     
