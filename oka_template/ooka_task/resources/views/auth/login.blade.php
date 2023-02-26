@@ -24,7 +24,7 @@
         <div class="container-body">
             <h6 class="body-title">Masuk</h6>
             <h6 class="body-subTitle">Lengkapi data untuk melanjutkan</h6>
-            <form action="{{ route('loginProcess') }}" method="POST">
+            <form action="{{ route('login.post') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="nik" class="form-label">Nomor Induk Kependudukan</label>

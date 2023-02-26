@@ -19,11 +19,11 @@ use App\Http\Controllers\User\UserController as Users;
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function() {
 
-    Route::get('/login', 'LoginController@showLogin')->name('showLogin');
-    Route::post('/loginProcess', 'LoginController@loginWeb')->name('loginProcess');
+    Route::get('/login', 'LoginController@index')->name('login');
+    Route::post('/loginProcess', 'LoginController@authenticate')->name('login.post');
 
-    Route::get('/register', 'LoginController@showRegister')->name('showRegister');
-    Route::post('/registerProcess', 'LoginController@registerWeb')->name('registerProcess');
+    Route::get('/register', 'registerController@index')->name('register');
+    Route::post('/registerProcess', 'registerController@store')->name('register.post');
 
 });
 
