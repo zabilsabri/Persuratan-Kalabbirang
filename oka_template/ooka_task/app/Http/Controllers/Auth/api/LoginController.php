@@ -67,7 +67,7 @@ class LoginController extends Controller
         
         $register = User::create([
             'nama'                      => $request->nama,
-            // 'password'                  => encrypt($request->password),
+            'role_id'                  => 4,
             'username'                  => $request->username,
             'nik'                       => $request->nik,
             'ttl'                       => Carbon::now(),
