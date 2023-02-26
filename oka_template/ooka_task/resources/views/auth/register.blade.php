@@ -9,7 +9,8 @@
         <p class="text-secondary fw-bold mx-auto ">Isilah data secara lengkap dan benar</p>
 
         <div class="card-body">
-            <form action="{{ route('registerProcess') }}" method="POST">
+            <form action="{{ route('register.post') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label>Nomor Kartu Keluarga</label>
@@ -21,7 +22,7 @@
                                 </div>
                             </div>
                             <input type="text" class="form-control phone-number"
-                                placeholder="Masukkan Nomor Kartu Keluarga" name="nik" autofocus style="height: 61.6px;">
+                                placeholder="Masukkan Nomor Kartu Keluarga" name="nomor_kk" autofocus style="height: 61.6px;border-left-width: 0px;"">
                         </div>
                     </div>
 
@@ -34,7 +35,7 @@
                                     <img src="{{ asset('image/icon/phone.svg') }}"></img>
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" name="nomor_telp" placeholder="Masukkan Nomor Telepon" style="height: 61.6px;">
+                            <input type="text" class="form-control phone-number" name="nomor_telp" placeholder="Masukkan Nomor Telepon" style="height: 61.6px;border-left-width: 0px;"">
                         </div>
                     </div>
 
@@ -58,7 +59,7 @@
                                 </div>
                             </div>
                             <input type="text" class="form-control phone-number"
-                                placeholder="Masukkan Nomor Induk Kependudukan " name="nik" style="height: 61.6px;">
+                                placeholder="Masukkan Nomor Induk Kependudukan " name="nik" style="height: 61.6px;border-left-width: 0px;"">
                         </div>
                     </div>
 
@@ -71,7 +72,7 @@
                                     <img src="{{ asset('image/icon/email.svg') }}"></img>
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" name="email" placeholder="Masukkan Alamat Email" style="height: 61.6px;">
+                            <input type="text" class="form-control phone-number" name="email" placeholder="Masukkan Alamat Email" style="height: 61.6px;border-left-width: 0px;"">
                         </div>
                     </div>
 
@@ -80,7 +81,7 @@
                         <div class="file-drop-area">
 
                             <span class="choose-file-button">Pilih File</span>
-                            <input class="file-input" type="file" name="profil" multiple>
+                            <input class="file-input" type="file" name="swafoto_ktp" multiple>
                         </div>
                     </div>
                 </div>
@@ -96,7 +97,7 @@
 
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" name="nama" placeholder="Masukkan Nama Lengkap" style="height: 61.6px;">
+                            <input type="text" class="form-control phone-number" name="nama" placeholder="Masukkan Nama Lengkap" style="height: 61.6px;border-left-width: 0px;"">
                         </div>
                     </div>
 
@@ -109,14 +110,10 @@
                                     <img src="{{ asset('image/icon/person-write.svg') }}"></img>
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" name="username" placeholder="Buat Username" style="height: 61.6px;">
+                            <input type="text" class="form-control phone-number" name="username" placeholder="Buat Username" style="height: 61.6px;border-left-width: 0px;"">
                         </div>
                     </div>
                 </div>
-
-
-
-
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-success btn-lg px-5  ">
                         DAFTAR

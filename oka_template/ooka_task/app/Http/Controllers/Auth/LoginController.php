@@ -12,15 +12,11 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
 
-    public function showLogin() {
+    public function index() {
         return view('auth.login');
     }
 
-    public function showRegister() {
-        return view('auth.register');
-    }
-
-    public function loginWeb(Request $request)
+    public function authenticate(Request $request)
     {   
         $request->validate([
             'nik'=>'required',
@@ -38,41 +34,6 @@ class LoginController extends Controller
         } else {
             dd($request->all());
         }
-    }
-
-    public function registerWeb(Request $request)
-    {   
-        $request->validate([
-            'nama'                      => 'required|unique:users',
-            'username'                  => 'required|unique:users',
-            'nik'                       => 'required|unique:users',
-            'nomor_kk'                  => 'required',
-            'nomor_telp'                => 'required',
-            'ktp'                       => 'required',
-            'swafoto_ktp'               => 'required',
-            'email'                     => 'required|unique:users'
-        ]);
-
-
-        $user = new User();
-        $user->nama = $request->nama;
-        $user->username = $request->userName;
-        $user->nik = $request->nik;
-        $user->nomor_kk = $request->nomor_kk;
-        $user->email = $request->email;
-
-        if($request-file('ktp')){
-            $request->file('ktp')->move('fotoKTP/', $request->file('ktp')->getClientOriginalName());
-            $user->ktp = $request->file('ktp')->getClientOriginalName();
-        }
-
-        if($request-file('swafoto_ktp')){
-            $request->file('swafoto_ktp')->move('fotoswafoto_ktp/', $request->file('swafoto_ktp')->getClientOriginalName());
-            $user->swafoto_ktp = $request->file('swafoto_ktp')->getClientOriginalName();
-        }
-
-        $user->save();
-    
     }
 
 }
