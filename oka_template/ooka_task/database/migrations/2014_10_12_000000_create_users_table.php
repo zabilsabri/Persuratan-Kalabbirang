@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('username');
             $table->string('nik')->unique();
-            $table->date('ttl')->nullable();
+            $table->date('ttl')->nullable()->format('d-m-Y');
             $table->enum('jkl', ['laki-laki', 'perempuan'])->nullable();
             $table->string('alamat')->nullable();
             $table->string('pekerjaan')->nullable();
