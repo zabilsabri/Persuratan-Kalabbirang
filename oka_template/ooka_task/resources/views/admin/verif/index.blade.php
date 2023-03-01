@@ -45,33 +45,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td scope="col">1</td>
-                            <td scope="col">Hip Hop</td>
-                            <td scope="col">Hip Hop</td>
-                            <td scope="col">Hip Hop</td>
-                            <td scope="col" class="text-success">Ya</td>
-                        </tr>
+                            <tr>
+                                <td scope="col">1</td>
+                                <td scope="col">Hip Hop</td>
+                                <td scope="col">Hip Hop</td>
+                                <td scope="col">Hip Hop</td>
+                                <td scope="col"><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
+                            </tr>
                         <tr>
                             <td scope="col">2</td>
                             <td scope="col">Jazz</td>
                             <td scope="col">Jazz</td>
                             <td scope="col">Jazz</td>
-                            <td scope="col" class="text-danger">Belum</td>
+                            <td scope="col"><a class=" text-danger" href="{{ route('not-verif') }}">Belum</a></td>
                         </tr>
                         <tr>
                             <td scope="col">3</td>
                             <td scope="col">Jazz</td>
                             <td scope="col">Jazz</td>
                             <td scope="col">Jazz</td>
-                            <td scope="col" class="text-success">Ya</td>
+                            <td scope="col"><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
                         </tr>
                         <tr>
                             <td scope="col">4</td>
                             <td scope="col">Jazz</td>
                             <td scope="col">Jazz</td>
                             <td scope="col">Jazz</td>
-                            <td scope="col" class="text-success">Ya</td>
+                            <td scope="col" ><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
                         </tr>
                     </tbody>
                 </table>
