@@ -22,34 +22,40 @@ class suratMasukController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);
-
         $validate = Validator::make($request->all(), [
             'asal_surat'                => 'required',
             'no_surat'                  => 'required',
             'tujuan_surat'              => 'required',
             'status'                    => 'required',
-            'file_surat'                => 'required',
+            'file_surat'                => 'required|mimes:pdf,docx',
         ]);
 
         if ($validate->fails()) {
             return response()->json($validate->errors());
         }
 
-        // dd($request);
-        $store = suratMasuk::create($request->all());
-        if ($store)
-        return response()->json([
-            'status' => 'Sukses Tambah Surat Masuk'
-        ]);
+        $data = $request->all();
+
+        if ($request->hasFile('file_surat')) {
+            $file = $request->file('file_surat');
+            $namaSurat = $file->getClientOriginalName();
+            $request->file_surat->move(public_path('file/suratMasuk/'), $namaSurat);
+        }
+        $data['file_surat'] = $namaSurat;
+        $store = suratMasuk::create($data);
+
+        if ($store) {
+            return response()->json([
+                'status' => 'Sukses Tambah Surat Masuk'
+            ]);
+        }
 
         return response()->json([
             'status' => 'Gagal Tambah Surat Masuk'
         ]);
     }
 
-    public function edit ($id
-    ) {
+    public function edit($id) {
 
         return response()->json([
             'status' => 'Data edit',
@@ -57,41 +63,49 @@ class suratMasukController extends Controller
         ]);
     }
 
-    public function update (Request $request, $id) {
-        
-        // dd($id);
+    public function update(Request $request, $id)
+    {
         $suratMasuk =  suratMasuk::find($id);
-
+        // dd($request->all());
         $validate = Validator::make($request->all(), [
             'asal_surat'                => 'required',
             'no_surat'                  => 'required',
             'tujuan_surat'              => 'required',
             'status'                    => 'required',
-            'file_surat'                => 'required',
+            'file_surat'                => 'required|mimes:pdf,docx',
         ]);
 
         if ($validate->fails()) {
             return response()->json($validate->errors());
         }
-        
 
         $data = $request->all();
-        $suratMasuk->asal_surat = $data['asal_surat'];
-        $suratMasuk->no_surat = $data['no_surat'];
-        $suratMasuk->tujuan_surat = $data['tujuan_surat'];
-        $suratMasuk->status = $data['status'];
-        $suratMasuk->file_surat = $data['file_surat'];
-        $suratMasuk->save();
-        // $suratMasuk->update($data);
+
+        if ($request->hasFile('file_surat')) {
+            $file = $request->file('file_surat');
+            $namaSurat = $file->getClientOriginalName();
+            $request->file_surat->move(public_path('file/suratMasuk/'), $namaSurat);
+            $data['file_surat'] = $namaSurat;
+        } else {
+            $suratMasuk->file_surat = $suratMasuk->file_surat;
+        }
+
+        // $suratMasuk->asal_surat = $data['asal_surat'];
+        // $suratMasuk->no_surat = $data['no_surat'];
+        // $suratMasuk->tujuan_surat = $data['tujuan_surat'];
+        // $suratMasuk->status = $data['status'];
+        // $suratMasuk->file_surat = $data['file_surat'];
+        // $suratMasuk->save();
+        $suratMasuk->update($data);
 
         return response()->json([
             'status' => 'Sukses Edit',
-            
-        ]);
 
+        ]);
     }
 
-    public function destroy ($id) {
+    public function destroy($id)
+    {
 
         $suratMasuk = suratMasuk::find($id);
         $suratMasuk->delete();
@@ -100,5 +114,4 @@ class suratMasukController extends Controller
             'status'    => 'Sukses Hapus Data'
         ]);
     }
-
 }

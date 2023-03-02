@@ -101,9 +101,6 @@ class LoginController extends Controller
 
     }
 
-    public function forget(Request $request) {
-        
-    }
 
     public function destroy($id) {
         $data = User::find($id);
