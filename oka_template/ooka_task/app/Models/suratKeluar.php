@@ -10,12 +10,15 @@ class suratKeluar extends Model
     use HasFactory;
 
     protected $fillable = [
+        // yang selalu diisi disetiap jenis surat
         'jenis_suratKeluar_id',
         'no_surat',
         'tgl_surat',
         'kode_surat',
         'pj', // penanggung jawab
         'status',
+
+        // berbeda bersadarkan jenis surat nya
         'nama',
         'jkl',
         'alamat',
@@ -23,10 +26,10 @@ class suratKeluar extends Model
         'nik',
         'agama',
         'pekerjaan',
-        'nama_ahliWaris1',
+        'nm_ahliWaris1',
         'ttl_ahliWaris1',
         'status_ahliWaris1',
-        'nama_ahliWaris2',
+        'nm_ahliWaris2',
         'ttl_ahliWaris2',
         'status_ahliWaris2',
         'jumlah_tanggungan',

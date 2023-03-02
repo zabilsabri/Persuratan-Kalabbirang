@@ -17,10 +17,20 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('jenis_suratKeluar_id');
             $table->string('no_surat');
-            $table->string('tgl_surat');
+            $table->date('tgl_surat');
             $table->string('kode_surat');
             $table->string('pj'); // penanggung jawab
-            $table->string('status');
+            $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
+            $table->string('nama');
+            $table->string('ttl');
+            $table->string('pekerjaan');
+            $table->string('alamat');
+            $table->string('nm_ahliWaris1');
+            $table->string('ttl_ahliWaris1');
+            $table->string('status_ahliWaris1');
+            $table->string('nm_ahliWaris2');
+            $table->string('ttl_ahliWaris2');
+            $table->string('status_ahliWaris2');
             $table->timestamps();
             
             $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenis_surats');

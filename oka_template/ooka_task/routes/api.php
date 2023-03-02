@@ -33,7 +33,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
         Route::get('/edit/{id}', 'suratMasukController@edit')->name('edit.suratMasuk');
         Route::put('/update/{id}', 'suratMasukController@update')->name('update.suratMasuk');
         Route::delete('/destroy/{id}', 'suratMasukController@destroy')->name('destroy.suratMasuk');
-        
+
     });
 
     Route::group(['prefix' => 'arsipMasuk'], function () {
@@ -45,4 +45,15 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
         Route::delete('/destroy/{id}', 'arsipMasukController@destroy')->name('destroy.arsipMasuk');
 
     });
+
+    Route::group(['prefix' => 'suratKeluar'], function () {
+
+        Route::get('/', 'suratKeluarController@index')->name('index.suratKeluar');
+        Route::post('/store', 'suratKeluarController@store')->name('store.suratKeluar');
+        Route::get('/edit/{id}', 'suratKeluarController@edit')->name('edit.suratKeluar');
+        Route::put('/update/{id}', 'suratKeluarController@update')->name('update.suratKeluar');
+        Route::delete('/destroy/{id}', 'suratKeluarController@destroy')->name('destroy.suratKeluar');
+
+    });
+
 });
