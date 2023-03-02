@@ -25,19 +25,15 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {   
-        // $tes = encrypt('tes');
-        // dump($tes);
-        // $dec = decrypt($tes);
-        // dd($dec);
-        // dd($request);
+        
         $user = User::where('nik', $request->nik)->first();
         if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp) {
             return response()->json([
-                'status' => 'Berhasil'
+                'status' => 'Berhasil Login'
             ], 200);
         } else {
             return response()->json([
-                'status' => 'Gagal'
+                'status' => 'Gagal Login'
             ], 401);
         }
     }
@@ -103,6 +99,18 @@ class LoginController extends Controller
             'status' => 'Gagal Register'
         ]);
 
+    }
+
+    public function forget(Request $request) {
+        
+    }
+
+    public function destroy($id) {
+        $data = User::find($id);
+        $data->delete();
+        return response()->json([
+            'status' => 'Sukses Hapus'
+        ]);
     }
 
 }

@@ -23,6 +23,8 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
     Route::get('/login', 'LoginController@index')->name('index.login');
     Route::post('/login', 'LoginController@login')->name('login');
     Route::post('/register', 'LoginController@register')->name('register');
+    Route::put('/forget', 'LoginController@forget')->name('forget_password');
+    Route::delete('/destroy/user/{id}', 'LoginController@destroy')->name('destroy');
 
     Route::group(['prefix' => 'suratMasuk'], function () {
 
