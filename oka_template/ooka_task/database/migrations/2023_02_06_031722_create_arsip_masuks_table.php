@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('arsip_masuks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('suratMasuk_id');
+            $table->string('file_surat');
             $table->timestamps();
 
             $table->foreign('suratMasuk_id')->references('id')->on('surat_masuks');

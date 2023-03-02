@@ -90,12 +90,6 @@ class suratMasukController extends Controller
             $suratMasuk->file_surat = $suratMasuk->file_surat;
         }
 
-        // $suratMasuk->asal_surat = $data['asal_surat'];
-        // $suratMasuk->no_surat = $data['no_surat'];
-        // $suratMasuk->tujuan_surat = $data['tujuan_surat'];
-        // $suratMasuk->status = $data['status'];
-        // $suratMasuk->file_surat = $data['file_surat'];
-        // $suratMasuk->save();
         $suratMasuk->update($data);
 
         return response()->json([

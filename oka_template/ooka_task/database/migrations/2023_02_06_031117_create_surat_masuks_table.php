@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('asal_surat');
             $table->string('no_surat');
             $table->string('tujuan_surat');
-            $table->string('status');
+            $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
             $table->string('file_surat');
             $table->timestamps();
         });

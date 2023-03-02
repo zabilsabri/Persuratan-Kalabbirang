@@ -33,5 +33,16 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
         Route::get('/edit/{id}', 'suratMasukController@edit')->name('edit.suratMasuk');
         Route::put('/update/{id}', 'suratMasukController@update')->name('update.suratMasuk');
         Route::delete('/destroy/{id}', 'suratMasukController@destroy')->name('destroy.suratMasuk');
+        
+    });
+
+    Route::group(['prefix' => 'arsipMasuk'], function () {
+
+        Route::get('/', 'arsipMasukController@index')->name('index.arsipMasuk');
+        Route::post('/store', 'arsipMasukController@store')->name('store.arsipMasuk');
+        Route::get('/edit/{id}', 'arsipMasukController@edit')->name('edit.arsipMasuk');
+        Route::put('/update/{id}', 'arsipMasukController@update')->name('update.arsipMasuk');
+        Route::delete('/destroy/{id}', 'arsipMasukController@destroy')->name('destroy.arsipMasuk');
+
     });
 });
