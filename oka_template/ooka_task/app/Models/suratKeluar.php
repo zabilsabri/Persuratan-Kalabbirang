@@ -19,6 +19,7 @@ class suratKeluar extends Model
         'status',
 
         // berbeda bersadarkan jenis surat nya
+        // field surat ahli waris
         'nama',
         'jkl',
         'alamat',
@@ -32,6 +33,8 @@ class suratKeluar extends Model
         'nm_ahliWaris2',
         'ttl_ahliWaris2',
         'status_ahliWaris2',
+
+        // field surat tidak mampu
         'jumlah_tanggungan',
         'jumlah_penghasilan',
         'nama_anak',
@@ -40,11 +43,15 @@ class suratKeluar extends Model
         'sekolah_anak', // nama sekolah
         'nis_anak',
         'alamat_anak',
+
+        // field surat usaha
         'status_nikah',
         'bidang_usaha',
         'bentuk_usaha',
         'alamat_usaha',
         'durasi_usaha',
+
+        // field surat ket. kawin
         'info_kawin', // informasi kawin sebelum nya
         'atribut_nama',
     ];

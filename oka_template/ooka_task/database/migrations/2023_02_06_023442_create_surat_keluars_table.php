@@ -25,12 +25,19 @@ return new class extends Migration
             $table->string('ttl');
             $table->string('pekerjaan');
             $table->string('alamat');
+            $table->string('nik')->nullable();
+            $table->enum('agama', ['islam', 'kristen', 'hindu', 'buddha', 'katolik']);
+            $table->enum('jkl', ['L', 'P']);
+
+            // field surat ahli waris
             $table->string('nm_ahliWaris1')->nullable();
             $table->string('ttl_ahliWaris1')->nullable();
             $table->string('status_ahliWaris1')->nullable();
             $table->string('nm_ahliWaris2')->nullable();
             $table->string('ttl_ahliWaris2')->nullable();
             $table->string('status_ahliWaris2')->nullable();
+
+            // field surat ket. tidak mampu
             $table->integer('jml_tanggungan')->nullable();
             $table->string('jml_penghasilan')->nullable();
             $table->string('nm_anak')->nullable();
@@ -39,6 +46,15 @@ return new class extends Migration
             $table->string('nm_SekolahAnak')->nullable();
             $table->string('nis_anak')->nullable();
             $table->string('alamat_anak')->nullable();
+            
+            // field surat ket. usaha
+            $table->string('status_nikah')->nullable();
+            $table->string('bidang_usaha')->nullable();
+            $table->string('bentuk_usaha')->nullable();
+            $table->string('alamat_usaha')->nullable();
+            $table->string('durasi_usaha')->nullable();
+
+
             $table->timestamps();
             
             $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenis_surats');

@@ -44,7 +44,7 @@ class suratKeluarController extends Controller
     }
 
     public function update(Request $request) {
-        
+        // dd($request->all());
         $suratKeluar = suratKeluar::find($request->id);
         $data = $request->all();
         $data['tgl_surat'] = Carbon::now();
