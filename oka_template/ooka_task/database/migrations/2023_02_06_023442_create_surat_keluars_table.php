@@ -25,12 +25,20 @@ return new class extends Migration
             $table->string('ttl');
             $table->string('pekerjaan');
             $table->string('alamat');
-            $table->string('nm_ahliWaris1');
-            $table->string('ttl_ahliWaris1');
-            $table->string('status_ahliWaris1');
-            $table->string('nm_ahliWaris2');
-            $table->string('ttl_ahliWaris2');
-            $table->string('status_ahliWaris2');
+            $table->string('nm_ahliWaris1')->nullable();
+            $table->string('ttl_ahliWaris1')->nullable();
+            $table->string('status_ahliWaris1')->nullable();
+            $table->string('nm_ahliWaris2')->nullable();
+            $table->string('ttl_ahliWaris2')->nullable();
+            $table->string('status_ahliWaris2')->nullable();
+            $table->integer('jml_tanggungan')->nullable();
+            $table->string('jml_penghasilan')->nullable();
+            $table->string('nm_anak')->nullable();
+            $table->string('ttl_anak')->nullable();
+            $table->string('pekerjaan_anak')->nullable();
+            $table->string('nm_SekolahAnak')->nullable();
+            $table->string('nis_anak')->nullable();
+            $table->string('alamat_anak')->nullable();
             $table->timestamps();
             
             $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenis_surats');

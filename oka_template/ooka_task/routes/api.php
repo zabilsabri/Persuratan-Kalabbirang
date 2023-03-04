@@ -31,8 +31,8 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
         Route::get('/', 'suratMasukController@index')->name('index.suratMasuk');
         Route::post('/store', 'suratMasukController@store')->name('store.suratMasuk');
         Route::get('/edit/{id}', 'suratMasukController@edit')->name('edit.suratMasuk');
-        Route::put('/update/{id}', 'suratMasukController@update')->name('update.suratMasuk');
-        Route::delete('/destroy/{id}', 'suratMasukController@destroy')->name('destroy.suratMasuk');
+        Route::put('/update', 'suratMasukController@update')->name('update.suratMasuk');
+        Route::delete('/destroy', 'suratMasukController@destroy')->name('destroy.suratMasuk');
 
     });
 
@@ -41,8 +41,8 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
         Route::get('/', 'arsipMasukController@index')->name('index.arsipMasuk');
         Route::post('/store', 'arsipMasukController@store')->name('store.arsipMasuk');
         Route::get('/edit/{id}', 'arsipMasukController@edit')->name('edit.arsipMasuk');
-        Route::put('/update/{id}', 'arsipMasukController@update')->name('update.arsipMasuk');
-        Route::delete('/destroy/{id}', 'arsipMasukController@destroy')->name('destroy.arsipMasuk');
+        Route::put('/update', 'arsipMasukController@update')->name('update.arsipMasuk');
+        Route::delete('/destroy', 'arsipMasukController@destroy')->name('destroy.arsipMasuk');
 
     });
 
@@ -51,8 +51,8 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
         Route::get('/', 'suratKeluarController@index')->name('index.suratKeluar');
         Route::post('/store', 'suratKeluarController@store')->name('store.suratKeluar');
         Route::get('/edit/{id}', 'suratKeluarController@edit')->name('edit.suratKeluar');
-        Route::put('/update/{id}', 'suratKeluarController@update')->name('update.suratKeluar');
-        Route::delete('/destroy/{id}', 'suratKeluarController@destroy')->name('destroy.suratKeluar');
+        Route::put('/update', 'suratKeluarController@update')->name('update.suratKeluar');
+        Route::delete('/destroy', 'suratKeluarController@destroy')->name('destroy.suratKeluar');
 
     });
 

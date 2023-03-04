@@ -43,9 +43,9 @@ class suratKeluarController extends Controller
 
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request) {
         
-        $suratKeluar = suratKeluar::find($id);
+        $suratKeluar = suratKeluar::find($request->id);
         $data = $request->all();
         $data['tgl_surat'] = Carbon::now();
         $suratKeluar->update($data);
@@ -56,8 +56,8 @@ class suratKeluarController extends Controller
 
     }
 
-    public function destroy($id) {
-        $data = suratKeluar::find($id);
+    public function destroy(Request $request) {
+        $data = suratKeluar::find($request->id);
         $data->delete();
         return response()->json([
             'status'        => 'Sukses Hapus'

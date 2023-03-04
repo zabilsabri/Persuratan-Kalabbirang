@@ -63,9 +63,9 @@ class suratMasukController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $suratMasuk =  suratMasuk::find($id);
+        $suratMasuk =  suratMasuk::find($request->id);
         // dd($request->all());
         $validate = Validator::make($request->all(), [
             'asal_surat'                => 'required',
@@ -98,10 +98,10 @@ class suratMasukController extends Controller
         ]);
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
 
-        $suratMasuk = suratMasuk::find($id);
+        $suratMasuk = suratMasuk::find($request->id);
         $suratMasuk->delete();
 
         return response()->json([

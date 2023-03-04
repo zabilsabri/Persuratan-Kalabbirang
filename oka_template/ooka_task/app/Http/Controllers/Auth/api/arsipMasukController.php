@@ -52,9 +52,9 @@ class arsipMasukController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $arsipMasuk =  arsipMasuk::find($id);
+        $arsipMasuk =  arsipMasuk::find($request->id);
 
         $validate = Validator::make($request->all(), [
             'suratMasuk_id'             => 'required',
@@ -87,9 +87,10 @@ class arsipMasukController extends Controller
         ]);
     }
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $arsipMasuk = arsipMasuk::find($id);
+        // dd($request->id);
+        $arsipMasuk = arsipMasuk::find($request->id);
         $arsipMasuk->delete();
         return response()->json([
             'status'    => 'Sukses Hapus Data'
