@@ -1,138 +1,125 @@
-@extends('admin.layouts.app', ['title' => 'Admin Berita'])
+@extends('admin.layouts.app', ['title' => 'Berita'])
 
 @section('content')
-    <link rel="stylesheet" href="{{ asset('style/css/paginate.css') }}">
-    <div class="section-header">
-        <h1>Berita</h1>
+    <link rel="stylesheet" href="{{ asset('style/css/suratMasuk.css') }} ">
+    <div class="hal-head">
+        <div class="d-flex align-items-center">
+            <div class="flex-grow-1 ms-3">
+                <h1 class="mx-3 mt-3 mb-0"> Berita </h1>
+            </div>
+        </div>
     </div>
-
     <div class="section-body">
-
-
         <div class="row">
             <div class="col-12">
-                <div class="card">
-                    <div class=" text-right px-4 pt-4">
+                <div class="card px-4 pb-4">
+                    <div class=" text-right px-4 pt-4 mb-4">
                         <a href="{{ route('berita-admin.tambah') }}" class="btn text-white btn-success">
                             <i class="ion ion-plus"></i> Tambah Berita
                         </a>
                     </div>
-                    <div class="p-3 d-flex justify-content-between">
-
-                        <div class="dataTables_length " id="table-1_length">
-                            <div class="d-flex mt-4">
-                                <span class=" mx-2 mt-2">Tampilkan </span>
-                                <select name="table-1_length" aria-controls="table-1"
-                                    class="custom-select custom-select-sm form-control form-control-sm">
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                                <span class="mx-2 mt-2"> entri</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-3">
-                            <div id="table-1_filter" class="dataTables_filter">
-                                <label>Cari:
-                                    <input type="search" class="form-control form-control-sm" placeholder=""
-                                        aria-controls="table-1">
-                                </label>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-md">
-                                <thead class="bg-success  ">
-                                    <tr>
-                                        <th class="text-white text-center">
-                                            No
-                                        </th>
-                                        <th class="text-white" width="35%">Judul Berita</th>
-                                        <th class="text-white" width="20%">Sumber</th>
-                                        <th class="text-center text-white">Tgl Publikasi</th>
-                                        <th class="text-white" width="15%">Action</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td>
-                                            {{ Str::limit('Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quos alkdjasmas , asdkasdoklasd sds adasdsd.', 50, '...') }}
-                                        </td>
-
-                                        <td>
-                                            {{ Str::limit('Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, quos alkdjasmas , asdkasdoklasd sds adasdsd.', 25, '...') }}
-                                        </td>
-
-                                        <td class="text-center">2018-01-20</td>
-
-                                        <td>
-                                            {{-- Detail --}}
-                                            <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
-                                                <i class="ion ion-information"></i>
-                                            </a>
-                                            {{-- Edit --}}
-                                            <a href="#" class="btn btn-primary">
-                                                <i class="ion ion-compose"></i>
-                                            </a>
-                                            {{-- Hapus --}}
-                                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                                <i class="ion ion-trash-a"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="card-footer text-center">
-                        <nav class="d-inline-block">
-                            <ul class="pagination  mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link " href="#" tabindex="-1"><i
-                                            class="fas fa-chevron-left"></i></a>
-                                </li>
-                                <li class="page-item active "><a class="page-link" href="#">1 <span
-                                            class="sr-only">(current)</span></a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
+                    <!-- Set up the datatable -->
+                    <table class="table" id="tableBerita">
+                        <thead style="background-color: #CCFFDA;">
+                            <tr>
+                                <th scope="col" style="width: 10px;">No</th>
+                                <th scope="col">Judul Berita</th>
+                                <th scope="col">Sumber</th>
+                                <th scope="col">Tgl Publikasi</th>
+                                <th scope="col" style="width: 100px">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <td scope="col">1</td>
+                                    <td scope="col">Hip Hop</td>
+                                    <td scope="col">Hip Hop</td>
+                                    <td scope="col">Hip Hop</td>
+                                    <td>
+                                        {{-- Detail --}}
+                                        <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
+                                            <i class="ion ion-information"></i>
+                                        </a>
+                                        {{-- Edit --}}
+                                        <a href="#" class="btn btn-primary">
+                                            <i class="ion ion-compose"></i>
+                                        </a>
+                                        {{-- Hapus --}}
+                                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                                            <i class="ion ion-trash-a"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <tr>
+                                <td scope="col">2</td>
+                                <td scope="col">Jazz</td>
+                                <td scope="col">Jazz</td>
+                                <td scope="col">Jazz</td>
+                                <td>
+                                    {{-- Detail --}}
+                                    <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
+                                        <i class="ion ion-information"></i>
+                                    </a>
+                                    {{-- Edit --}}
+                                    <a href="#" class="btn btn-primary">
+                                        <i class="ion ion-compose"></i>
+                                    </a>
+                                    {{-- Hapus --}}
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                                        <i class="ion ion-trash-a"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">3</td>
+                                <td scope="col">Jazz</td>
+                                <td scope="col">Jazz</td>
+                                <td scope="col">Jazz</td>
+                                <td>
+                                    {{-- Detail --}}
+                                    <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
+                                        <i class="ion ion-information"></i>
+                                    </a>
+                                    {{-- Edit --}}
+                                    <a href="#" class="btn btn-primary">
+                                        <i class="ion ion-compose"></i>
+                                    </a>
+                                    {{-- Hapus --}}
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                                        <i class="ion ion-trash-a"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col">4</td>
+                                <td scope="col">Jazz</td>
+                                <td scope="col">Jazz</td>
+                                <td scope="col">Jazz</td>
+                                <td>
+                                    {{-- Detail --}}
+                                    <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
+                                        <i class="ion ion-information"></i>
+                                    </a>
+                                    {{-- Edit --}}
+                                    <a href="#" class="btn btn-primary">
+                                        <i class="ion ion-compose"></i>
+                                    </a>
+                                    {{-- Hapus --}}
+                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                                        <i class="ion ion-trash-a"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>        
                 </div>
             </div>
         </div>
-
     </div>
+
+    <script>
+    $(document).ready( function () {
+            $('#tableBerita').DataTable();
+        } );
+    </script>
 @endsection
-
-    <!-- Modal Hapus Berita-->
-    <div class="modal fade" id="modalHapusBerita" tabindex="-1" aria-labelledby="modalHapusBeritaLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="modal-body-text">
-                        <p>Apakah anda yakin ingin menghapus berita ini?</p>
-                    </div>
-                    <div class="modal-body-button">
-                        <button type="button" class="btn btn-modal btn-secondary-modal" data-bs-dismiss="modal">Tidak</button>
-                        <button type="button" class="btn btn-modal btn-success-modal">Ya</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>

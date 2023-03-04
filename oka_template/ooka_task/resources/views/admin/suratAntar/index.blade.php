@@ -19,9 +19,9 @@
     </div>
     <div class="section-body">
 
-        <div class="card p-4">
+        <div class="card p-4 m-3">
 
-            <div class="inner-section-body p-4">
+            <div class="inner-section-body">
             <div class="category-filter">
                 <select id="categoryFilter" class="form-control special">
                     <option value="">Status Antar Surat (Show All)</option>
