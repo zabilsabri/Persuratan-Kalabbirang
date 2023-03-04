@@ -21,18 +21,16 @@ hr{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 40px;
+    line-height: 42px;
     color: #4FB96E;
-    min-height: 100px;
 }
 
 .head-left-1{
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 600;
-    line-height: 30px;
-    font-size: 24px;
-    letter-spacing: 0.05em;
+    font-size: 20px;
+    line-height: 42px;
     color: #4FB96E;
 }
 

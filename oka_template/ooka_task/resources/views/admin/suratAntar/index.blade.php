@@ -2,6 +2,13 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('style/css/suratMasuk.css') }} ">
+    <style>
+    select.special{
+        display: inline;
+        width: 300px;
+        margin-left: 25px;
+    }
+    </style>
     <div class="hal-head">
         <div class="d-flex align-items-center">
             <div class="flex-grow-1 ms-3">
@@ -11,173 +18,105 @@
         </div>
     </div>
     <div class="section-body">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
 
-                    <div class="p-3 d-flex justify-content-between">
+        <div class="card p-4 m-3">
 
-                        <div class="dataTables_length " id="table-1_length">
-                            <div class="d-flex mt-4">
-                                <select name="table-1_length" aria-controls="table-1"
-                                    class="custom-select custom-select-sm form-control form-control-sm">
-                                    <option value="all">Status Antar Surat</option>
-                                    <option value="terkirim">Terkirim</option>
-                                    <option value="belum_terkirim">Belum Terkirim</option>
-                                    <option value="perjalanan">Dalam Perjalanan</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="mt-3">
-                            <div id="table-1_filter" class="dataTables_filter">
-                                <label>Cari:
-                                    <input type="search" class="form-control form-control-sm" placeholder=""
-                                        aria-controls="table-1">
-                                </label>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-antar.detail') }}" style="text-decoration:none;">
-                                <div class="card ">
-                                    <div class="card-header">
-                                        <h4 class="text-dark">Kemendikbud RI</h4>
-                                        <div class="card-header-action" style="color: #828282;">
-                                            17/12/2022
-                                        </div>
-                                    </div>
-                                    <div class="card-sub-header d-flex justify-content-between">
-                                        <h4 class="text-success">Judul surat/Jenis surat</h4>
-                                        <div class="card-header-action fs-2">
-                                            <i class="ion-ios-star-outline" style="color: #828282;"></i>
-                                            <i class="ion-ios-star" style="color: #828282;"></i>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-
-                                        <p class="pdf">
-                                            <a href="aduh" class="text-dark">
-                                                <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M19.7548 0H2.64366C1.29922 0 0.199219 1.16667 0.199219 2.59259V20.7407C0.199219 22.1667 1.29922 23.3333 2.64366 23.3333H19.7548C21.0992 23.3333 22.1992 22.1667 22.1992 20.7407V2.59259C22.1992 1.16667 21.0992 0 19.7548 0ZM8.14366 11.0185C8.14366 12.0556 7.28811 12.963 6.31033 12.963C5.63532 12.963 5.08811 13.5102 5.08811 14.1852V14.6389C5.08811 15.1451 4.6777 15.5556 4.17144 15.5556C3.66518 15.5556 3.25477 15.1451 3.25477 14.6389V10.8333C3.25477 9.1458 4.62279 7.77778 6.31033 7.77778C7.28811 7.77778 8.14366 8.68518 8.14366 9.72222V11.0185ZM14.2548 13.6111C14.2548 14.6481 13.3992 15.5556 12.4214 15.5556C10.7339 15.5556 9.36589 14.1875 9.36589 12.5V10.8333C9.36589 9.1458 10.7339 7.77778 12.4214 7.77778C13.3992 7.77778 14.2548 8.68518 14.2548 9.72222V13.6111ZM19.1437 8.80555C19.1437 9.31182 18.7333 9.72222 18.227 9.72222H17.9585C17.6005 9.72222 17.3103 10.0124 17.3103 10.3704C17.3103 10.7283 17.6005 11.0185 17.9585 11.0185H18.227C18.7333 11.0185 19.1437 11.4289 19.1437 11.9352V12.0463C19.1437 12.5526 18.7333 12.963 18.227 12.963C17.7207 12.963 17.3103 13.3734 17.3103 13.8796V14.6389C17.3103 15.1451 16.8999 15.5556 16.3937 15.5556C15.8874 15.5556 15.477 15.1451 15.477 14.6389V9.61111C15.477 8.59859 16.2978 7.77778 17.3103 7.77778H18.1714C18.7084 7.77778 19.1437 8.21306 19.1437 8.75V8.80555ZM11.1992 10.3333C11.1992 9.99583 11.4728 9.72222 11.8103 9.72222C12.1478 9.72222 12.4214 9.99583 12.4214 10.3333V13C12.4214 13.3375 12.1478 13.6111 11.8103 13.6111C11.4728 13.6111 11.1992 13.3375 11.1992 13V10.3333ZM5.08811 10.3333C5.08811 9.99583 5.36171 9.72222 5.69922 9.72222C6.03673 9.72222 6.31033 9.99583 6.31033 10.3333V10.4074C6.31033 10.7449 6.03673 11.0185 5.69922 11.0185C5.36171 11.0185 5.08811 10.7449 5.08811 10.4074V10.3333Z"
-                                                        fill="#FF0000" />
-                                                </svg>
-                                                berkas.pdf
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-antar.detail') }}" style="text-decoration:none;">
-                                <div class="card ">
-                                    <div class="card-header">
-                                        <h4 class="text-dark">Kemendikbud RI</h4>
-                                        <div class="card-header-action" style="color: #828282;">
-                                            17/12/2022
-                                        </div>
-                                    </div>
-                                    <div class="card-sub-header d-flex justify-content-between">
-                                        <h4 class="text-success">Judul surat/Jenis surat</h4>
-                                        <div class="card-header-action fs-2">
-                                            <i class="ion-ios-star-outline" style="color: #828282;"></i>
-                                            <i class="ion-ios-star" style="color: #828282;"></i>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-
-                                        <p class="pdf">
-                                            <a href="aduh" class="text-dark">
-                                                <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M19.7548 0H2.64366C1.29922 0 0.199219 1.16667 0.199219 2.59259V20.7407C0.199219 22.1667 1.29922 23.3333 2.64366 23.3333H19.7548C21.0992 23.3333 22.1992 22.1667 22.1992 20.7407V2.59259C22.1992 1.16667 21.0992 0 19.7548 0ZM8.14366 11.0185C8.14366 12.0556 7.28811 12.963 6.31033 12.963C5.63532 12.963 5.08811 13.5102 5.08811 14.1852V14.6389C5.08811 15.1451 4.6777 15.5556 4.17144 15.5556C3.66518 15.5556 3.25477 15.1451 3.25477 14.6389V10.8333C3.25477 9.1458 4.62279 7.77778 6.31033 7.77778C7.28811 7.77778 8.14366 8.68518 8.14366 9.72222V11.0185ZM14.2548 13.6111C14.2548 14.6481 13.3992 15.5556 12.4214 15.5556C10.7339 15.5556 9.36589 14.1875 9.36589 12.5V10.8333C9.36589 9.1458 10.7339 7.77778 12.4214 7.77778C13.3992 7.77778 14.2548 8.68518 14.2548 9.72222V13.6111ZM19.1437 8.80555C19.1437 9.31182 18.7333 9.72222 18.227 9.72222H17.9585C17.6005 9.72222 17.3103 10.0124 17.3103 10.3704C17.3103 10.7283 17.6005 11.0185 17.9585 11.0185H18.227C18.7333 11.0185 19.1437 11.4289 19.1437 11.9352V12.0463C19.1437 12.5526 18.7333 12.963 18.227 12.963C17.7207 12.963 17.3103 13.3734 17.3103 13.8796V14.6389C17.3103 15.1451 16.8999 15.5556 16.3937 15.5556C15.8874 15.5556 15.477 15.1451 15.477 14.6389V9.61111C15.477 8.59859 16.2978 7.77778 17.3103 7.77778H18.1714C18.7084 7.77778 19.1437 8.21306 19.1437 8.75V8.80555ZM11.1992 10.3333C11.1992 9.99583 11.4728 9.72222 11.8103 9.72222C12.1478 9.72222 12.4214 9.99583 12.4214 10.3333V13C12.4214 13.3375 12.1478 13.6111 11.8103 13.6111C11.4728 13.6111 11.1992 13.3375 11.1992 13V10.3333ZM5.08811 10.3333C5.08811 9.99583 5.36171 9.72222 5.69922 9.72222C6.03673 9.72222 6.31033 9.99583 6.31033 10.3333V10.4074C6.31033 10.7449 6.03673 11.0185 5.69922 11.0185C5.36171 11.0185 5.08811 10.7449 5.08811 10.4074V10.3333Z"
-                                                        fill="#FF0000" />
-                                                </svg>
-                                                berkas.pdf
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-antar.detail') }}" style="text-decoration:none;">
-                                <div class="card ">
-                                    <div class="card-header">
-                                        <h4 class="text-dark">Kemendikbud RI</h4>
-                                        <div class="card-header-action" style="color: #828282;">
-                                            17/12/2022
-                                        </div>
-                                    </div>
-                                    <div class="card-sub-header d-flex justify-content-between">
-                                        <h4 class="text-success">Judul surat/Jenis surat</h4>
-                                        <div class="card-header-action fs-2">
-                                            <i class="ion-ios-star-outline" style="color: #828282;"></i>
-                                            <i class="ion-ios-star" style="color: #828282;"></i>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-
-                                        <p class="pdf">
-                                            <a href="aduh" class="text-dark">
-                                                <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M19.7548 0H2.64366C1.29922 0 0.199219 1.16667 0.199219 2.59259V20.7407C0.199219 22.1667 1.29922 23.3333 2.64366 23.3333H19.7548C21.0992 23.3333 22.1992 22.1667 22.1992 20.7407V2.59259C22.1992 1.16667 21.0992 0 19.7548 0ZM8.14366 11.0185C8.14366 12.0556 7.28811 12.963 6.31033 12.963C5.63532 12.963 5.08811 13.5102 5.08811 14.1852V14.6389C5.08811 15.1451 4.6777 15.5556 4.17144 15.5556C3.66518 15.5556 3.25477 15.1451 3.25477 14.6389V10.8333C3.25477 9.1458 4.62279 7.77778 6.31033 7.77778C7.28811 7.77778 8.14366 8.68518 8.14366 9.72222V11.0185ZM14.2548 13.6111C14.2548 14.6481 13.3992 15.5556 12.4214 15.5556C10.7339 15.5556 9.36589 14.1875 9.36589 12.5V10.8333C9.36589 9.1458 10.7339 7.77778 12.4214 7.77778C13.3992 7.77778 14.2548 8.68518 14.2548 9.72222V13.6111ZM19.1437 8.80555C19.1437 9.31182 18.7333 9.72222 18.227 9.72222H17.9585C17.6005 9.72222 17.3103 10.0124 17.3103 10.3704C17.3103 10.7283 17.6005 11.0185 17.9585 11.0185H18.227C18.7333 11.0185 19.1437 11.4289 19.1437 11.9352V12.0463C19.1437 12.5526 18.7333 12.963 18.227 12.963C17.7207 12.963 17.3103 13.3734 17.3103 13.8796V14.6389C17.3103 15.1451 16.8999 15.5556 16.3937 15.5556C15.8874 15.5556 15.477 15.1451 15.477 14.6389V9.61111C15.477 8.59859 16.2978 7.77778 17.3103 7.77778H18.1714C18.7084 7.77778 19.1437 8.21306 19.1437 8.75V8.80555ZM11.1992 10.3333C11.1992 9.99583 11.4728 9.72222 11.8103 9.72222C12.1478 9.72222 12.4214 9.99583 12.4214 10.3333V13C12.4214 13.3375 12.1478 13.6111 11.8103 13.6111C11.4728 13.6111 11.1992 13.3375 11.1992 13V10.3333ZM5.08811 10.3333C5.08811 9.99583 5.36171 9.72222 5.69922 9.72222C6.03673 9.72222 6.31033 9.99583 6.31033 10.3333V10.4074C6.31033 10.7449 6.03673 11.0185 5.69922 11.0185C5.36171 11.0185 5.08811 10.7449 5.08811 10.4074V10.3333Z"
-                                                        fill="#FF0000" />
-                                                </svg>
-                                                berkas.pdf
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-6 p-5">
-                            <a href="{{route ('surat-antar.detail') }}" style="text-decoration:none;">
-                                <div class="card ">
-                                    <div class="card-header">
-                                        <h4 class="text-dark">Kemendikbud RI</h4>
-                                        <div class="card-header-action" style="color: #828282;">
-                                            17/12/2022
-                                        </div>
-                                    </div>
-                                    <div class="card-sub-header d-flex justify-content-between">
-                                        <h4 class="text-success">Judul surat/Jenis surat</h4>
-                                        <div class="card-header-action fs-2">
-                                            <i class="ion-ios-star-outline" style="color: #828282;"></i>
-                                            <i class="ion-ios-star" style="color: #828282;"></i>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-
-                                        <p class="pdf">
-                                            <a href="aduh" class="text-dark">
-                                                <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M19.7548 0H2.64366C1.29922 0 0.199219 1.16667 0.199219 2.59259V20.7407C0.199219 22.1667 1.29922 23.3333 2.64366 23.3333H19.7548C21.0992 23.3333 22.1992 22.1667 22.1992 20.7407V2.59259C22.1992 1.16667 21.0992 0 19.7548 0ZM8.14366 11.0185C8.14366 12.0556 7.28811 12.963 6.31033 12.963C5.63532 12.963 5.08811 13.5102 5.08811 14.1852V14.6389C5.08811 15.1451 4.6777 15.5556 4.17144 15.5556C3.66518 15.5556 3.25477 15.1451 3.25477 14.6389V10.8333C3.25477 9.1458 4.62279 7.77778 6.31033 7.77778C7.28811 7.77778 8.14366 8.68518 8.14366 9.72222V11.0185ZM14.2548 13.6111C14.2548 14.6481 13.3992 15.5556 12.4214 15.5556C10.7339 15.5556 9.36589 14.1875 9.36589 12.5V10.8333C9.36589 9.1458 10.7339 7.77778 12.4214 7.77778C13.3992 7.77778 14.2548 8.68518 14.2548 9.72222V13.6111ZM19.1437 8.80555C19.1437 9.31182 18.7333 9.72222 18.227 9.72222H17.9585C17.6005 9.72222 17.3103 10.0124 17.3103 10.3704C17.3103 10.7283 17.6005 11.0185 17.9585 11.0185H18.227C18.7333 11.0185 19.1437 11.4289 19.1437 11.9352V12.0463C19.1437 12.5526 18.7333 12.963 18.227 12.963C17.7207 12.963 17.3103 13.3734 17.3103 13.8796V14.6389C17.3103 15.1451 16.8999 15.5556 16.3937 15.5556C15.8874 15.5556 15.477 15.1451 15.477 14.6389V9.61111C15.477 8.59859 16.2978 7.77778 17.3103 7.77778H18.1714C18.7084 7.77778 19.1437 8.21306 19.1437 8.75V8.80555ZM11.1992 10.3333C11.1992 9.99583 11.4728 9.72222 11.8103 9.72222C12.1478 9.72222 12.4214 9.99583 12.4214 10.3333V13C12.4214 13.3375 12.1478 13.6111 11.8103 13.6111C11.4728 13.6111 11.1992 13.3375 11.1992 13V10.3333ZM5.08811 10.3333C5.08811 9.99583 5.36171 9.72222 5.69922 9.72222C6.03673 9.72222 6.31033 9.99583 6.31033 10.3333V10.4074C6.31033 10.7449 6.03673 11.0185 5.69922 11.0185C5.36171 11.0185 5.08811 10.7449 5.08811 10.4074V10.3333Z"
-                                                        fill="#FF0000" />
-                                                </svg>
-                                                berkas.pdf
-                                            </a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="inner-section-body">
+            <div class="category-filter">
+                <select id="categoryFilter" class="form-control special">
+                    <option value="">Status Antar Surat (Show All)</option>
+                    <option value="Terkirim">Terkirim</option>
+                    <option value="Belum">Belum Terkirim</option>
+                    <option value="Dalam Perjalanan">Dalam Perjalanan</option>
+                </select>
             </div>
+
+            <!-- Set up the datatable -->
+            <table class="table" id="filterTable">
+                <thead style="background-color: #CCFFDA;" >
+                    <tr>
+                        <th scope="col" style="width: 10px;">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">NIK</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">Dokumen</th>
+                        <th scope="col" style="width: 100px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td scope="col">1</td>
+                            <td scope="col">Hip Hop</td>
+                            <td scope="col">Hip Hop</td>
+                            <td scope="col">Hip Hop</td>
+                            <td scope="col"><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
+                            <td scope="col">Terkirim</td>
+                        </tr>
+                    <tr>
+                        <td scope="col">2</td>
+                        <td scope="col">Jazz</td>
+                        <td scope="col">Jazz</td>
+                        <td scope="col">Jazz</td>
+                        <td scope="col"><a class=" text-danger" href="{{ route('not-verif') }}">Belum</a></td>
+                        <td scope="col">Terkirim</td>
+                    </tr>
+                    <tr>
+                        <td scope="col">3</td>
+                        <td scope="col">Jazz</td>
+                        <td scope="col">Jazz</td>
+                        <td scope="col">Jazz</td>
+                        <td scope="col"><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
+                        <td scope="col">Belum</td>
+                    </tr>
+                    <tr>
+                        <td scope="col">4</td>
+                        <td scope="col">Jazz</td>
+                        <td scope="col">Jazz</td>
+                        <td scope="col">Jazz</td>
+                        <td scope="col" ><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
+                        <td scope="col">Dalam Perjalanan</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>          
+
         </div>
     </div>
+
+    <script>
+    $("document").ready(function () {
+
+      $("#filterTable").dataTable({
+        "searching": true
+      });
+
+      var table = $('#filterTable').DataTable();
+
+      $("#filterTable_filter.dataTables_filter").append($("#categoryFilter"));
+
+      var categoryIndex = 0;
+      $("#filterTable th").each(function (i) {
+        if ($($(this)).html() == "Status") {
+          categoryIndex = i; return false;
+        }
+      });
+
+      $.fn.dataTable.ext.search.push(
+        function (settings, data, dataIndex) {
+          var selectedItem = $('#categoryFilter').val()
+          var category = data[categoryIndex];
+          if (selectedItem === "" || category.includes(selectedItem)) {
+            return true;
+          }
+          return false;
+        }
+      );
+
+      $("#categoryFilter").change(function (e) {
+        table.draw();
+      });
+
+      table.draw();
+    });
+  </script>
 @endsection

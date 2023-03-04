@@ -73,7 +73,6 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
 
-
     <!-- JS Libraies -->
     <script src="{{ asset('style/node_modules/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('style/node_modules/datatables/media/js/jquery.dataTables.min.js')}}"></script>
@@ -88,7 +87,6 @@
     <script src="{{ asset('style/js/page/modules-ion-icons.js') }}"></script>
     <script src="{{ asset('style/js/page/modules-chartjs.js') }}"></script>
     <script src="{{ asset('style/js/page/modules-datatables.js') }}"></script>
-
 
 
 </body>
