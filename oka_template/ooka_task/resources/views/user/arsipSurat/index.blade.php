@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('style/css/arsipSurat.css') }}">
     <div class="container-md  py-4">
 
-        <div class="header">
+        <div class="header mb-5">
             <h1 class="text-dark text-center">
                 <b>
                     Pengarsipan Surat
@@ -12,58 +12,96 @@
             </h1>
         </div>
 
-        <div class="row mt-5 justify-content-evenly px-5">
-            <div class="col-md-5">
-
-                <div class="card surat-box border border-success py-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="d-flex justify-content-start ">
-                        <i class="ion ion-ios-folder-outline text-success px-3 pt-3" style="font-size: 50px;"></i>
-                        <div class="px-2">
-                            <p class="pt-2 ">Nomor Surat</p>
-                            <h5 class="text-success ">Lorem ipsum dolor sit amet.</h5>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-5" >
-                <div class="card surat-box border border-success py-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="d-flex justify-content-start ">
-                        <i class="ion ion-ios-folder-outline text-success px-3 pt-3" style="font-size: 50px;"></i>
-                        <div class="px-2">
-                            <p class="pt-2 ">Nomor Surat</p>
-                            <h5 class="text-success ">Lorem ipsum dolor sit amet.</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="row mt-5 justify-content-evenly px-5" >
-            <div class="col-md-5">
-                <div class="card surat-box border border-success py-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="d-flex justify-content-start ">
-                        <i class="ion ion-ios-folder-outline text-success px-3 pt-3" style="font-size: 50px;"></i>
-                        <div class="px-2">
-                            <p class="pt-2 ">Nomor Surat</p>
-                            <h5 class="text-success ">Lorem ipsum dolor sit amet.</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="card surat-box border border-success py-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <div class="d-flex justify-content-start ">
-                        <i class="ion ion-ios-folder-outline text-success px-3 pt-3" style="font-size: 50px;"></i>
-                        <div class="px-2">
-                            <p class="pt-2 ">Nomor Surat</p>
-                            <h5 class="text-success ">Lorem ipsum dolor sit amet.</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        <table class="table" id="tableArsipSurat">
+            <thead style="background-color: #CCFFDA;" >
+                <tr>
+                    <th scope="col" style="width: 10px;">No</th>
+                    <th scope="col">Jenis Surat</th>
+                    <th scope="col">No. Surat</th>
+                    <th scope="col">Tgl Selesai</th>
+                    <th scope="col" style="width: 200px;">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: white;">
+                    <td scope="col">1</td>
+                    <td scope="col">Hip Hop</td>
+                    <td scope="col">Hip Hop</td>
+                    <td scope="col">Hip Hop</td>
+                    <td>
+                        {{-- Detail --}}
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning">
+                            <i class="ion ion-information"></i>
+                        </a>
+                        {{-- Edit --}}
+                        <a href="#" class="btn btn-primary">
+                            <i class="ion ion-compose"></i>
+                        </a>
+                        {{-- Hapus --}}
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                            <i class="ion ion-trash-a"></i>
+                        </button>
+                    </td>                        </tr>
+                <tr style="background-color: white;">
+                    <td scope="col">2</td>
+                    <td scope="col">Jazz</td>
+                    <td scope="col">Jazz</td>
+                    <td scope="col">Jazz</td>
+                    <td>
+                        {{-- Detail --}}
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning">
+                            <i class="ion ion-information"></i>
+                        </a>
+                        {{-- Edit --}}
+                        <a href="#" class="btn btn-primary">
+                            <i class="ion ion-compose"></i>
+                        </a>
+                        {{-- Hapus --}}
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                            <i class="ion ion-trash-a"></i>
+                        </button>
+                    </td>                        </tr>
+                <tr style="background-color: white;">
+                    <td scope="col">3</td>
+                    <td scope="col">Jazz</td>
+                    <td scope="col">Jazz</td>
+                    <td scope="col">Jazz</td>
+                    <td>
+                        {{-- Detail --}}
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning">
+                            <i class="ion ion-information"></i>
+                        </a>
+                        {{-- Edit --}}
+                        <a href="#" class="btn btn-primary">
+                            <i class="ion ion-compose"></i>
+                        </a>
+                        {{-- Hapus --}}
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                            <i class="ion ion-trash-a"></i>
+                        </button>
+                    </td>                        </tr>
+                <tr style="background-color: white;">
+                    <td scope="col">4</td>
+                    <td scope="col">Jazz</td>
+                    <td scope="col">Jazz</td>
+                    <td scope="col">Jazz</td>
+                    <td>
+                        {{-- Detail --}}
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning">
+                            <i class="ion ion-information"></i>
+                        </a>
+                        {{-- Edit --}}
+                        <a href="#" class="btn btn-primary">
+                            <i class="ion ion-compose"></i>
+                        </a>
+                        {{-- Hapus --}}
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                            <i class="ion ion-trash-a"></i>
+                        </button>
+                    </td>                        
+                </tr>
+            </tbody>
+        </table>
 
     </div>
 
@@ -137,4 +175,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+    $(document).ready( function () {
+            $('#tableArsipSurat').DataTable();
+        } );
+    </script>
 @endsection

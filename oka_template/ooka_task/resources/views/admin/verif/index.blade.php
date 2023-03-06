@@ -1,153 +1,219 @@
 @extends('admin.layouts.app', ['title' => 'Data Warga'])
 <link rel="stylesheet" href="{{ asset('style/css/verifikasiUser.css')}}">
-
+<style>
+  select.special{
+    display: inline;
+    width: 300px;
+    margin-left: 25px;
+  }
+</style>
 @section('content')
-    <div class="hal-head">
-        <h1>Data Warga</h1>
+<div class="hal-head">
+    <h1>Data Warga</h1>
+</div>
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist"
+        style="margin-left: 30px;margin-right: 30px;border-bottom-width: 0px;">
+        <button class="nav-link active" id="nav-verifikasi-tab" data-bs-toggle="tab" data-bs-target="#nav-verifikasi"
+            type="button" role="tab" aria-controls="nav-verifikasi" aria-selected="true">Verifikasi</button>
+        <button class="nav-link" id="nav-data-warga-tab" data-bs-toggle="tab" data-bs-target="#nav-data-warga"
+            type="button" role="tab" aria-controls="nav-data-warga" aria-selected="false">Data Warga</button>
     </div>
-    <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-left: 30px;margin-right: 30px;border-bottom-width: 0px;">
-            <button class="nav-link active" id="nav-verifikasi-tab" data-bs-toggle="tab" data-bs-target="#nav-verifikasi" type="button" role="tab" aria-controls="nav-verifikasi" aria-selected="true">Verifikasi</button>
-            <button class="nav-link" id="nav-data-warga-tab" data-bs-toggle="tab" data-bs-target="#nav-data-warga" type="button" role="tab" aria-controls="nav-data-warga" aria-selected="false">Data Warga</button>
-        </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-verifikasi" role="tabpanel" aria-labelledby="nav-verifikasi-tab" tabindex="0" style="padding-top: 0px;">
-            <div class="section-body" style="padding-top: 0px;">
-                <div class="inner-section-body">
-                <div class="row ps-4 pe-4" style="flex-direction: row-reverse"> 
-
-                    <div class="col-sm-2">
-                        <div class="mt-3">
-                            <div id="table-1_filter" class="dataTables_filter">
-                                <select class="form-control" id="floatingInput"> 
-                                    <option>Semua</option>
-                                    <option>Status Verifikasi</option>
-                                    <option>Belum Terverifikasi</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            
-                <div class="row">
-                    <div class="user-box col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0">
-                                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <circle cx="25" cy="25" r="25" fill="#FF5757"/>
-                                            <path d="M28.4357 25.7144L37.0813 17.0826L37.0815 17.0823C37.4443 16.7195 37.6481 16.2275 37.6481 15.7144C37.6481 15.2014 37.4443 14.7094 37.0815 14.3466C36.7188 13.9838 36.2267 13.78 35.7137 13.78C35.2007 13.78 34.7086 13.9838 34.3459 14.3466L34.3456 14.3469L25.7137 22.9925L17.0818 14.3469L17.0815 14.3466C16.7188 13.9838 16.2267 13.78 15.7137 13.78C15.2007 13.78 14.7086 13.9838 14.3459 14.3466C13.9831 14.7094 13.7793 15.2014 13.7793 15.7144C13.7793 16.2275 13.9831 16.7195 14.3459 17.0823L14.3462 17.0826L22.9918 25.7144L14.3473 34.3452C14.3471 34.3453 14.3469 34.3455 14.3467 34.3457C14.1663 34.5249 14.023 34.738 13.9252 34.9728L14.3867 35.165L13.9252 34.9728C13.8273 35.2078 13.7769 35.4598 13.7769 35.7144C13.7769 35.969 13.8273 36.2211 13.9252 36.4561L14.3861 36.2641L13.9252 36.4561C14.0228 36.6905 14.1658 36.9033 14.3459 37.0823C14.5249 37.2624 14.7376 37.4053 14.972 37.503C15.207 37.6009 15.4591 37.6513 15.7137 37.6513C15.9683 37.6513 16.2204 37.6009 16.4554 37.503C16.69 37.4052 16.903 37.2621 17.0821 37.0818C17.0824 37.0815 17.0827 37.0811 17.083 37.0808L25.7137 28.4364L34.3444 37.0808C34.3446 37.081 34.3448 37.0813 34.3451 37.0815C34.5242 37.2619 34.7373 37.4052 34.972 37.503C35.207 37.6009 35.4591 37.6513 35.7137 37.6513C35.9683 37.6513 36.2204 37.6009 36.4554 37.503C36.6898 37.4053 36.9026 37.2624 37.0816 37.0823C37.2616 36.9033 37.4046 36.6905 37.5022 36.4561C37.6002 36.2211 37.6506 35.969 37.6506 35.7144C37.6506 35.4599 37.6002 35.2078 37.5022 34.9728C37.4044 34.738 37.2612 34.5249 37.0807 34.3458C37.0805 34.3456 37.0803 34.3454 37.0801 34.3452L28.4357 25.7144Z" fill="white" stroke="white"/>
-                                        </svg>
-                                    </div>
-                                    <div class="flex-grow-1 ms-3">
-                                        <div class="d-flex justify-content-between">
-                                            <h6 class="nama-user"><a href="{{ route('not-verif') }}" class="text-black stretched-link">Mamet</a></h6>
-                                            <p class="tanggal-user" >11/01/2023</p>
-                                        </div>
-                                        <h6 class="telpon-user-red">+62 8XX XXXX XXXX</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user-box col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="25" cy="25" r="25" fill="#4FB96E"/>
-                                        <path d="M13.2808 26.6748L21.0933 34.4873L36.7183 17.7462" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    </div>
-                                    <div class="flex-grow-1 ms-3">
-                                        <div class="d-flex justify-content-between">
-                                            <h6 class="nama-user"><a href="{{ route('yes-verif') }}" class="text-black stretched-link">Zabil</a></h6>
-                                            <p class="tanggal-user" >10/05/2003</p>
-                                        </div>
-                                        <h6 class="telpon-user-green">+62 8XX XXXX XXXX</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tab-pane fade" id="nav-data-warga" role="tabpanel" aria-labelledby="nav-data-warga-tab" tabindex="0" style="padding-top: 0px;">
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-verifikasi" role="tabpanel" aria-labelledby="nav-verifikasi-tab"
+        tabindex="0" style="padding-top: 0px;">
         <div class="section-body" style="padding-top: 0px;">
-            <div class="inner-section-body">
-                <div class="row ps-4 pe-4" style="flex-direction: row-reverse">
-                    
-                <div class="col-sm-2">
-                    <div class="mt-3">
-                        <div id="table-1_filter" class="dataTables_filter">
-                            <label>Cari:
-                                <input type="search" class="form-control form-control-sm" placeholder=""
-                                    aria-controls="table-1">
-                            </label>
-                        </div>
-                    </div>
+            <div class="inner-section-body p-4">
+                <div class="category-filter">
+                    <select id="categoryFilter" class="form-control special">
+                        <option value="">Status Verifikasi (Show All)</option>
+                        <option value="Ya">Telah Verifikasi</option>
+                        <option value="Belum">Belum Verifikasi</option>
+                    </select>
                 </div>
 
-                </div>
-            
-                <div class="row">
-                    <div class="user-box col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0">
-                                    <svg width="70" height="65" viewBox="0 0 70 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse cx="33.25" cy="30.3689" rx="33.25" ry="30.3689" fill="white"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.75 61.9632C53.2769 61.9632 66.675 49.7261 66.675 34.6312C66.675 19.5364 53.2769 7.29933 36.75 7.29933C20.2231 7.29933 6.825 19.5364 6.825 34.6312C6.825 49.7261 20.2231 61.9632 36.75 61.9632ZM36.75 65C55.114 65 70 51.4039 70 34.6312C70 17.8586 55.114 4.26245 36.75 4.26245C18.386 4.26245 3.5 17.8586 3.5 34.6312C3.5 51.4039 18.386 65 36.75 65Z" fill="#4FB96E"/>
-                                        <path d="M16.7998 52.2904C16.7998 50.7218 18.0833 49.3962 19.7923 49.2231C32.6185 47.9264 40.9393 48.0433 53.7372 49.252C54.3763 49.3133 54.982 49.5432 55.4804 49.9138C55.9787 50.2843 56.3481 50.7794 56.5435 51.3385C56.7389 51.8976 56.7517 52.4966 56.5805 53.0623C56.4093 53.628 56.0614 54.1359 55.5793 54.524C40.4755 66.5485 31.8438 66.383 17.8638 54.5362C17.1822 53.9592 16.7998 53.1392 16.7998 52.2919V52.2904Z" fill="#4FB96E"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M53.5664 50.7615C40.8699 49.5619 32.6688 49.4495 19.9739 50.7326C19.556 50.7771 19.1708 50.9608 18.892 51.2485C18.6131 51.5363 18.4603 51.9078 18.4627 52.2921C18.4627 52.7263 18.6605 53.1378 18.9947 53.4233C25.924 59.2936 31.1742 61.9463 36.3063 61.963C41.4568 61.9797 46.9896 59.3482 54.4874 53.3808C54.7256 53.1871 54.8971 52.9345 54.981 52.6535C55.0649 52.3725 55.0577 52.0753 54.9601 51.798C54.8626 51.5207 54.6789 51.2753 54.4315 51.0915C54.1841 50.9078 53.8835 50.7937 53.5664 50.763V50.7615ZM19.6098 47.714C32.5707 46.4036 41.0129 46.522 53.9105 47.7413C54.872 47.833 55.7833 48.1787 56.5329 48.7361C57.2825 49.2935 57.8379 50.0384 58.1312 50.8797C58.4244 51.721 58.4427 52.6221 58.1838 53.4728C57.9249 54.3234 57.4001 55.0867 56.6736 55.6691C49.0677 61.7246 42.7336 65.0227 36.2963 64.9999C29.8409 64.9786 23.786 61.6244 16.7354 55.6493C16.2306 55.2199 15.8281 54.6999 15.5532 54.122C15.2783 53.5441 15.1369 52.9206 15.1377 52.2905C15.1353 51.1584 15.5902 50.0653 16.4154 49.2206C17.2406 48.3758 18.3781 47.8388 19.6098 47.7124V47.714Z" fill="#4FB96E"/>
-                                        <path d="M50.0502 28.5574C50.0502 31.7792 48.649 34.8689 46.1547 37.147C43.6605 39.4251 40.2776 40.705 36.7502 40.705C33.2228 40.705 29.8399 39.4251 27.3457 37.147C24.8514 34.8689 23.4502 31.7792 23.4502 28.5574C23.4502 25.3357 24.8514 22.2459 27.3457 19.9678C29.8399 17.6897 33.2228 16.4099 36.7502 16.4099C40.2776 16.4099 43.6605 17.6897 46.1547 19.9678C48.649 22.2459 50.0502 25.3357 50.0502 28.5574Z" fill="#4FB96E"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.7502 37.6681C39.3957 37.6681 41.9329 36.7082 43.8036 34.9996C45.6743 33.2911 46.7252 30.9737 46.7252 28.5574C46.7252 26.1411 45.6743 23.8238 43.8036 22.1152C41.9329 20.4067 39.3957 19.4468 36.7502 19.4468C34.1047 19.4468 31.5675 20.4067 29.6968 22.1152C27.8261 23.8238 26.7752 26.1411 26.7752 28.5574C26.7752 30.9737 27.8261 33.2911 29.6968 34.9996C31.5675 36.7082 34.1047 37.6681 36.7502 37.6681ZM36.7502 40.705C40.2776 40.705 43.6605 39.4251 46.1547 37.147C48.649 34.8689 50.0502 31.7792 50.0502 28.5574C50.0502 25.3357 48.649 22.2459 46.1547 19.9678C43.6605 17.6897 40.2776 16.4099 36.7502 16.4099C33.2228 16.4099 29.8399 17.6897 27.3457 19.9678C24.8514 22.2459 23.4502 25.3357 23.4502 28.5574C23.4502 31.7792 24.8514 34.8689 27.3457 37.147C29.8399 39.4251 33.2228 40.705 36.7502 40.705Z" fill="#4FB96E"/>
-                                    </svg>
-                                    </div>
-                                    <div class="flex-grow-1 ms-3">
-                                        <div class="d-flex justify-content-between">
-                                            <h6 class="nama-user"><a href="{{ route('detail-warga') }}" class="text-black stretched-link">Nama Warga</a></h6>
-                                        </div>
-                                        <h6 class="telpon-user-green">No. Induk Kependudukan</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="user-box col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0">
-                                    <svg width="70" height="65" viewBox="0 0 70 65" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <ellipse cx="33.25" cy="30.3689" rx="33.25" ry="30.3689" fill="white"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.75 61.9632C53.2769 61.9632 66.675 49.7261 66.675 34.6312C66.675 19.5364 53.2769 7.29933 36.75 7.29933C20.2231 7.29933 6.825 19.5364 6.825 34.6312C6.825 49.7261 20.2231 61.9632 36.75 61.9632ZM36.75 65C55.114 65 70 51.4039 70 34.6312C70 17.8586 55.114 4.26245 36.75 4.26245C18.386 4.26245 3.5 17.8586 3.5 34.6312C3.5 51.4039 18.386 65 36.75 65Z" fill="#4FB96E"/>
-                                        <path d="M16.7998 52.2904C16.7998 50.7218 18.0833 49.3962 19.7923 49.2231C32.6185 47.9264 40.9393 48.0433 53.7372 49.252C54.3763 49.3133 54.982 49.5432 55.4804 49.9138C55.9787 50.2843 56.3481 50.7794 56.5435 51.3385C56.7389 51.8976 56.7517 52.4966 56.5805 53.0623C56.4093 53.628 56.0614 54.1359 55.5793 54.524C40.4755 66.5485 31.8438 66.383 17.8638 54.5362C17.1822 53.9592 16.7998 53.1392 16.7998 52.2919V52.2904Z" fill="#4FB96E"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M53.5664 50.7615C40.8699 49.5619 32.6688 49.4495 19.9739 50.7326C19.556 50.7771 19.1708 50.9608 18.892 51.2485C18.6131 51.5363 18.4603 51.9078 18.4627 52.2921C18.4627 52.7263 18.6605 53.1378 18.9947 53.4233C25.924 59.2936 31.1742 61.9463 36.3063 61.963C41.4568 61.9797 46.9896 59.3482 54.4874 53.3808C54.7256 53.1871 54.8971 52.9345 54.981 52.6535C55.0649 52.3725 55.0577 52.0753 54.9601 51.798C54.8626 51.5207 54.6789 51.2753 54.4315 51.0915C54.1841 50.9078 53.8835 50.7937 53.5664 50.763V50.7615ZM19.6098 47.714C32.5707 46.4036 41.0129 46.522 53.9105 47.7413C54.872 47.833 55.7833 48.1787 56.5329 48.7361C57.2825 49.2935 57.8379 50.0384 58.1312 50.8797C58.4244 51.721 58.4427 52.6221 58.1838 53.4728C57.9249 54.3234 57.4001 55.0867 56.6736 55.6691C49.0677 61.7246 42.7336 65.0227 36.2963 64.9999C29.8409 64.9786 23.786 61.6244 16.7354 55.6493C16.2306 55.2199 15.8281 54.6999 15.5532 54.122C15.2783 53.5441 15.1369 52.9206 15.1377 52.2905C15.1353 51.1584 15.5902 50.0653 16.4154 49.2206C17.2406 48.3758 18.3781 47.8388 19.6098 47.7124V47.714Z" fill="#4FB96E"/>
-                                        <path d="M50.0502 28.5574C50.0502 31.7792 48.649 34.8689 46.1547 37.147C43.6605 39.4251 40.2776 40.705 36.7502 40.705C33.2228 40.705 29.8399 39.4251 27.3457 37.147C24.8514 34.8689 23.4502 31.7792 23.4502 28.5574C23.4502 25.3357 24.8514 22.2459 27.3457 19.9678C29.8399 17.6897 33.2228 16.4099 36.7502 16.4099C40.2776 16.4099 43.6605 17.6897 46.1547 19.9678C48.649 22.2459 50.0502 25.3357 50.0502 28.5574Z" fill="#4FB96E"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.7502 37.6681C39.3957 37.6681 41.9329 36.7082 43.8036 34.9996C45.6743 33.2911 46.7252 30.9737 46.7252 28.5574C46.7252 26.1411 45.6743 23.8238 43.8036 22.1152C41.9329 20.4067 39.3957 19.4468 36.7502 19.4468C34.1047 19.4468 31.5675 20.4067 29.6968 22.1152C27.8261 23.8238 26.7752 26.1411 26.7752 28.5574C26.7752 30.9737 27.8261 33.2911 29.6968 34.9996C31.5675 36.7082 34.1047 37.6681 36.7502 37.6681ZM36.7502 40.705C40.2776 40.705 43.6605 39.4251 46.1547 37.147C48.649 34.8689 50.0502 31.7792 50.0502 28.5574C50.0502 25.3357 48.649 22.2459 46.1547 19.9678C43.6605 17.6897 40.2776 16.4099 36.7502 16.4099C33.2228 16.4099 29.8399 17.6897 27.3457 19.9678C24.8514 22.2459 23.4502 25.3357 23.4502 28.5574C23.4502 31.7792 24.8514 34.8689 27.3457 37.147C29.8399 39.4251 33.2228 40.705 36.7502 40.705Z" fill="#4FB96E"/>
-                                    </svg>
-                                    </div>
-                                    <div class="flex-grow-1 ms-3">
-                                        <div class="d-flex justify-content-between">
-                                            <h6 class="nama-user"><a href="{{ route('detail-warga') }}" class="text-black stretched-link">Zabil</a></h6>
-                                        </div>
-                                        <h6 class="telpon-user-green">No. Induk Kependudukan</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Set up the datatable -->
+                <table class="table" id="filterTable">
+                    <thead style="background-color: #CCFFDA;" >
+                        <tr>
+                            <th scope="col" style="width: 10px;">No</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">NIK</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col" style="width: 150px;">Status Verifikasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td scope="col">1</td>
+                                <td scope="col">Hip Hop</td>
+                                <td scope="col">Hip Hop</td>
+                                <td scope="col">Hip Hop</td>
+                                <td scope="col"><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
+                            </tr>
+                        <tr>
+                            <td scope="col">2</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col"><a class=" text-danger" href="{{ route('not-verif') }}">Belum</a></td>
+                        </tr>
+                        <tr>
+                            <td scope="col">3</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col"><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
+                        </tr>
+                        <tr>
+                            <td scope="col">4</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col" ><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+    <div class="tab-pane fade" id="nav-data-warga" role="tabpanel" aria-labelledby="nav-data-warga-tab" tabindex="0"
+        style="padding-top: 0px;">
+        <div class="section-body" style="padding-top: 0px;">
+            <div class="inner-section-body p-4">
+                <table class="table" id="filterTable2">
+                    <thead style="background-color: #CCFFDA;" >
+                        <tr>
+                            <th scope="col" style="width: 10px;">No</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">NIK</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="col">1</td>
+                            <td scope="col">Hip Hop</td>
+                            <td scope="col">Hip Hop</td>
+                            <td scope="col">Hip Hop</td>
+                            <td>
+                                {{-- Detail --}}
+                                <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
+                                    <i class="ion ion-information"></i>
+                                </a>
+                                {{-- Edit --}}
+                                <a href="#" class="btn btn-primary">
+                                    <i class="ion ion-compose"></i>
+                                </a>
+                                {{-- Hapus --}}
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                                    <i class="ion ion-trash-a"></i>
+                                </button>
+                            </td>                        </tr>
+                        <tr>
+                            <td scope="col">2</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td>
+                                {{-- Detail --}}
+                                <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
+                                    <i class="ion ion-information"></i>
+                                </a>
+                                {{-- Edit --}}
+                                <a href="#" class="btn btn-primary">
+                                    <i class="ion ion-compose"></i>
+                                </a>
+                                {{-- Hapus --}}
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                                    <i class="ion ion-trash-a"></i>
+                                </button>
+                            </td>                        </tr>
+                        <tr>
+                            <td scope="col">3</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td>
+                                {{-- Detail --}}
+                                <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
+                                    <i class="ion ion-information"></i>
+                                </a>
+                                {{-- Edit --}}
+                                <a href="#" class="btn btn-primary">
+                                    <i class="ion ion-compose"></i>
+                                </a>
+                                {{-- Hapus --}}
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                                    <i class="ion ion-trash-a"></i>
+                                </button>
+                            </td>                        </tr>
+                        <tr>
+                            <td scope="col">4</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td scope="col">Jazz</td>
+                            <td>
+                                {{-- Detail --}}
+                                <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
+                                    <i class="ion ion-information"></i>
+                                </a>
+                                {{-- Edit --}}
+                                <a href="#" class="btn btn-primary">
+                                    <i class="ion ion-compose"></i>
+                                </a>
+                                {{-- Hapus --}}
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
+                                    <i class="ion ion-trash-a"></i>
+                                </button>
+                            </td>                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+</div>
+
+  <script>
+    $("document").ready(function () {
+
+      $("#filterTable").dataTable({
+        "searching": true
+      });
+
+      $("#filterTable2").dataTable({
+        "searching": true
+      });
+
+      var table = $('#filterTable').DataTable();
+
+      $("#filterTable_filter.dataTables_filter").append($("#categoryFilter"));
+
+      var categoryIndex = 0;
+      $("#filterTable th").each(function (i) {
+        if ($($(this)).html() == "Status Verifikasi") {
+          categoryIndex = i; return false;
+        }
+      });
+
+      $.fn.dataTable.ext.search.push(
+        function (settings, data, dataIndex) {
+          var selectedItem = $('#categoryFilter').val()
+          var category = data[categoryIndex];
+          if (selectedItem === "" || category.includes(selectedItem)) {
+            return true;
+          }
+          return false;
+        }
+      );
+
+      $("#categoryFilter").change(function (e) {
+        table.draw();
+      });
+
+      table.draw();
+    });
+  </script>
 @endsection
