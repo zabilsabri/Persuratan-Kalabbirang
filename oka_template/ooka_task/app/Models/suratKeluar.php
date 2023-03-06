@@ -17,13 +17,13 @@ class suratKeluar extends Model
         'kode_surat',
         'pj', // penanggung jawab
         'status',
+        'ttl',
 
         // berbeda bersadarkan jenis surat nya
         // field surat ahli waris
         'nama',
         'jkl',
         'alamat',
-        'ttl',
         'nik',
         'agama',
         'pekerjaan',
@@ -45,15 +45,16 @@ class suratKeluar extends Model
         'alamat_anak',
 
         // field surat usaha
-        'status_nikah',
         'bidang_usaha',
         'bentuk_usaha',
         'alamat_usaha',
         'durasi_usaha',
-
+        
         // field surat ket. kawin
+        'status_nikah',
         'info_kawin', // informasi kawin sebelum nya
         'atribut_nama',
+        'kewarganegara', // integer
     ];
 
     public function arsipKeluar () {

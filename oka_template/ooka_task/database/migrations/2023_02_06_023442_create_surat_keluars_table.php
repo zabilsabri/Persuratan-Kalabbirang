@@ -48,12 +48,18 @@ return new class extends Migration
             $table->string('alamat_anak')->nullable();
             
             // field surat ket. usaha
-            $table->string('status_nikah')->nullable();
             $table->string('bidang_usaha')->nullable();
             $table->string('bentuk_usaha')->nullable();
             $table->string('alamat_usaha')->nullable();
             $table->string('durasi_usaha')->nullable();
+            
+            // field surat ket. menikah
+            $table->string('status_nikah')->nullable();
+            $table->string('info_kawin')->nullable(); // informasi kawin sebelum nya
+            $table->string('kewarganegara')->nullable();
+            $table->integer('atribut_nama')->nullable();
 
+            
 
             $table->timestamps();
             
