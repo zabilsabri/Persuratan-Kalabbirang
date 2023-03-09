@@ -41,7 +41,7 @@ return [
             'provider' => 'users',
         ],
 
-        'web' => [
+        'pegawai' => [
             'driver' => 'session',
             'provider' => 'pegawais',
         ],

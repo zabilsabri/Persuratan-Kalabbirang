@@ -26,7 +26,7 @@ class LoginController extends Controller
         $user = User::where('nik', $request->nik)->first();
         if(isset($user -> nik)){
             if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp) {
-                Auth::login($user);    
+                Auth::guard('web')->login($user);    
                 return redirect()->route('beranda');
             } else {
                 dd($request->all());
@@ -34,6 +34,12 @@ class LoginController extends Controller
         } else {
             dd($request->all());
         }
+    }
+
+    public function logout()
+    {
+        Auth::Logout(); 
+        return redirect()->route('beranda');
     }
 
 }
