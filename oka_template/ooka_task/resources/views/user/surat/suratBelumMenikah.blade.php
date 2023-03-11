@@ -7,11 +7,53 @@
         <p class="judul-surat"> Belum Menikah </p>
     </div>
     <hr>
-    <form action="#">
+    <form action="#" method="POST">
+        <div class="row mb-4">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="inputNama" class="form-label">1. Nama</label>
+                    <input type="text" class="form-control" id="inputNama" name="nama" value="{{ Auth::user()->nama }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputTTL" class="form-label">2. Tempat / Tgl Lahir</label>
+                    <input type="text" class="form-control" id="inputTTL" value="{{ Auth::user()->ttl }}" placeholder="{{ Auth::user()->ttl ? '' : 'Takalar, 10-05-2003' }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">3. Jenis Kelamin</label>
+                        <select class="form-select" aria-label="Default select example" required>
+                            <option selected>Pilih Jenis Kelamin</option>
+                            <option value="laki - laki">Laki - Laki</option>
+                            <option value="perempuan">Perempuan</option>
+                        </select>
+                </div>
+                <div class="mb-3">
+                    <label for="inputNIK" class="form-label">4. NIK</label>
+                    <input type="text" class="form-control" id="inputNIK" placeholder="" value="{{ Auth::user()->nik }}" required>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="inputStatus" class="form-label">5. Status</label>
+                    <input type="text" class="form-control" id="inputStatus" placeholder="" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputAgama" class="form-label">6. Agama</label>
+                    <input type="text" class="form-control" id="inputAgama" placeholder="" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPekerjaan" class="form-label">7. Pekerjaan</label>
+                    <input type="text" class="form-control" id="inputPekerjaan" value="{{ Auth::user()->pekerjaan }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputAlamat" class="form-label">8. Alamat</label>
+                    <input type="text" class="form-control" id="inputAlamat" value="{{ Auth::user()->pekerjaan }}" required>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-6">
                 <div class="mb-3">
-                    <label for="nomorTelpon" class="form-label"> Pengantaran dari Imam Linkungan  <span
+                    <label for="nomorTelpon" class="form-label"> Pengantaran dari Imam Lingkungan  <span
                             style="color: red;">*</span></label>
                     <p class="syarat-form"> Unggah file dalam format PDF dengan ukuran maksimal 3MB </p>
                     <main class="main_full">

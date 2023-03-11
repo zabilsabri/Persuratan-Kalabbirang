@@ -8,6 +8,71 @@
     </div>
     <hr>
     <form action="#">
+        <div class="row mb-4">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="inputNama" class="form-label">1. Nama</label>
+                    <input type="text" class="form-control" id="inputNama" name="nama" value="{{ Auth::user()->nama }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputTTL" class="form-label">2. Tempat / Tgl Lahir</label>
+                    <input type="text" class="form-control" id="inputTTL" value="{{ Auth::user()->ttl }}" placeholder="{{ Auth::user()->ttl ? '' : 'Takalar, 10-05-2003' }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputNIK" class="form-label">3. NIK</label>
+                    <input type="text" class="form-control" id="inputNIK" placeholder="" value="{{ Auth::user()->nik }}">
+                </div>
+                <div class="mb-3">
+                    <label for="inputPekerjaan" class="form-label">4. Pekerjaan</label>
+                    <input type="text" class="form-control" id="inputPekerjaan" value="{{ Auth::user()->pekerjaan }}">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="inputStatus" class="form-label">5. Jumlah Tanggunngan</label>
+                    <input type="number" class="form-control" id="inputStatus">
+                </div>
+                <div class="mb-3">
+                    <label for="inputAgama" class="form-label">6. Jumlah Penghasilan</label>
+                    <input type="text" class="form-control" id="inputAgama" placeholder="">
+                </div>
+                <div class="mb-3">
+                    <label for="inputAlamat" class="form-label">7. Alamat</label>
+                    <input type="text" class="form-control" id="inputAlamat" value="{{ Auth::user()->alamat }}">
+                </div>
+            </div>
+        </div>
+        <h4>Biodata Anak</h4>
+        <div class="row mb-4">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="inputNama" class="form-label">1. Nama</label>
+                    <input type="text" class="form-control" id="inputNama" name="nama" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputTTL" class="form-label">2. Tempat / Tgl Lahir</label>
+                    <input type="text" class="form-control" id="inputTTL" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputNIK" class="form-label">3. Pekerjaan</label>
+                    <input type="text" class="form-control" id="inputNIK" required>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="inputPekerjaan" class="form-label">4. Nama Sekolah</label>
+                    <input type="text" class="form-control" id="inputPekerjaan" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputStatus" class="form-label">5. NIS / Kelas</label>
+                    <input type="text" class="form-control" id="inputStatus" placeholder="000000 / X" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputAlamat" class="form-label">6. Alamat</label>
+                    <input type="text" class="form-control" id="inputAlamat" required>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-6">
                 <div class="mb-3">

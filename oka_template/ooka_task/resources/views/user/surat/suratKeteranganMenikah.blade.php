@@ -8,6 +8,126 @@
 </div>
 <hr>
 <form action="#">
+    <div class="row mb-4">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="inputNama" class="form-label">1. Nama</label>
+                <input type="text" class="form-control" id="inputNama" name="nama" value="{{ Auth::user()->nama }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputTTL" class="form-label">2. Tempat / Tgl Lahir</label>
+                <input type="text" class="form-control" id="inputTTL" value="{{ Auth::user()->ttl }}" placeholder="{{ Auth::user()->ttl ? '' : 'Takalar, 10-05-2003' }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">3. Jenis Kelamin</label>
+                    <select class="form-select" aria-label="Default select example"required>
+                        <option selected>Pilih Jenis Kelamin</option>
+                        <option value="laki - laki">Laki - Laki</option>
+                        <option value="perempuan">Perempuan</option>
+                    </select>
+            </div>
+            <div class="mb-3">
+                <label for="inputNIK" class="form-label">4. NIK</label>
+                <input type="text" class="form-control" id="inputNIK" placeholder="" value="{{ Auth::user()->nik }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputKewarganegaraan" class="form-label">5. Kewarganegaraan</label>
+                <input type="text" class="form-control" id="inputKewarganegaraan" required>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="inputAgama" class="form-label">6. Agama</label>
+                <input type="text" class="form-control" id="inputAgama" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputPekerjaan" class="form-label">7. Pekerjaan</label>
+                <input type="text" class="form-control" id="inputPekerjaan" value="{{ Auth::user()->pekerjaan }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputAlamat" class="form-label">8. Alamat</label>
+                <input type="text" class="form-control" id="inputAlamat" value="{{ Auth::user()->pekerjaan }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputAlamat" class="form-label">9. Status Pernikahan</label>
+                <input type="text" class="form-control" id="inputAlamat" value="{{ Auth::user()->pekerjaan }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputAlamat" class="form-label">10. Nama Istri Atau Suami Terdahulu</label>
+                <input type="text" class="form-control" id="inputAlamat" value="{{ Auth::user()->pekerjaan }}">
+            </div>
+        </div>
+    </div>
+    <h4>Biodata Ayah</h4>
+    <div class="row mb-4">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="inputNama" class="form-label">1. Nama Lengkap dan Alias</label>
+                <input type="text" class="form-control" id="inputNama" name="nama" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputTTL" class="form-label">2. Tempat / Tgl Lahir</label>
+                <input type="text" class="form-control" id="inputTTL" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputKewarganegaraan" class="form-label">3. Kewarganegaraan</label>
+                <input type="text" class="form-control" id="inputKewarganegaraan" placeholder="" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputNIK" class="form-label">4. NIK</label>
+                <input type="text" class="form-control" id="inputNIK" placeholder=""required>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="inputAlamat" class="form-label">5. Alamat</label>
+                <input type="text" class="form-control" id="inputAlamat" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputAgama" class="form-label">6. Agama</label>
+                <input type="text" class="form-control" id="inputAgama" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputPekerjaan" class="form-label">7. Pekerjaan</label>
+                <input type="text" class="form-control" id="inputPekerjaan" required>
+            </div>
+        </div>
+    </div>
+    <h4>Biodata Ibu</h4>
+    <div class="row mb-4">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="inputNama" class="form-label">1. Nama Lengkap dan Alias</label>
+                <input type="text" class="form-control" id="inputNama" name="nama" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputTTL" class="form-label">2. Tempat / Tgl Lahir</label>
+                <input type="text" class="form-control" id="inputTTL" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputKewarganegaraan" class="form-label">3. Kewarganegaraan</label>
+                <input type="text" class="form-control" id="inputKewarganegaraan" placeholder="" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputNIK" class="form-label">4. NIK</label>
+                <input type="text" class="form-control" id="inputNIK" placeholder=""required>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="inputAlamat" class="form-label">5. Alamat</label>
+                <input type="text" class="form-control" id="inputAlamat" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputAgama" class="form-label">6. Agama</label>
+                <input type="text" class="form-control" id="inputAgama" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputPekerjaan" class="form-label">7. Pekerjaan</label>
+                <input type="text" class="form-control" id="inputPekerjaan" required>
+            </div>
+        </div>
+    </div>
     <div class="row">
     <div class="col-sm-6">
         <div class="mb-3">
