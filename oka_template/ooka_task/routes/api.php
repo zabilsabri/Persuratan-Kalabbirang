@@ -55,5 +55,15 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
         Route::delete('/destroy', 'suratKeluarController@destroy')->name('destroy.suratKeluar');
 
     });
+    
+    Route::group(['prefix' => 'arsipKeluar'], function () {
+
+        Route::get('/', 'arsipKeluarController@index')->name('index.arsipKeluar');
+        Route::post('/store', 'arsipKeluarController@store')->name('store.arsipKeluar');
+        Route::get('/edit/{id}', 'arsipKeluarController@edit')->name('edit.arsipKeluar');
+        Route::put('/update', 'arsipKeluarController@update')->name('update.arsipKeluar');
+        Route::delete('/destroy', 'arsipKeluarController@destroy')->name('destroy.arsipKeluar');
+
+    });
 
 });
