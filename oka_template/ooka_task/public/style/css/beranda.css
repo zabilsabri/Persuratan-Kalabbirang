@@ -2,6 +2,10 @@ body{
     background: white;
 }
 
+.card-beranda{
+    text-decoration: none;
+}
+
 .beranda-head{
     background: url(/image/building.png) no-repeat center center fixed; 
     min-height: 60vh;

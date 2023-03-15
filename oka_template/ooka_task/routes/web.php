@@ -22,8 +22,10 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
     Route::get('/login', 'LoginController@index')->name('login');
     Route::post('/loginProcess', 'LoginController@authenticate')->name('login.post');
 
-    Route::get('/register', 'registerController@index')->name('register');
-    Route::post('/registerProcess', 'registerController@store')->name('register.post');
+    Route::get('/register', 'RegisterController@index')->name('register');
+    Route::post('/registerProcess', 'RegisterController@store')->name('register.post');
+
+    Route::get('/logout', 'LoginController@logout')->name('logout');
 
 });
 

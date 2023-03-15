@@ -10,21 +10,36 @@
             <div class="card-body">
                 <figure class="avatar mr-2 avatar-xxl">
                     <img src="{{ asset('style/img/avatar/avatar-1.png') }}" class="profile-user-picture" alt="...">
-                    <a href="#" class="my-box">
+                    @auth
+                    <a href="{{ route('data-simpan') }}" class="my-box">
                         <i class=" ion ion-edit ic" style="font-size: 50px; color: #000;"> </i>
                     </a>
+                    @endauth
                 </figure>
-                <div class="text-center mt-3">
 
-                    <h2 class="profile-user-name">Lorem Ipsum Dolor</h2>
-                    <h5 class="profile-email">loremipsum@gmail.com</h5>
+                <!-- Jika User Login -->
+                <div class="text-center mt-3">                
+                    @auth
+                    <h2 class="profile-user-name">{{ Auth::user()->nama}}</h2>
+                    <h5 class="profile-email">{{ Auth::user()->email}}</h5>
+                    @endauth
+
+                    @guest
+                    <h5 class="profile-email">Silahkan Masuk Terlebih Dahulu</h5>
+                    @endguest
+
                 </div>
 
                 <div class="text-center" style="margin-top:30px;">
 
-                <a href="#" class="btn btn-outline-success px-5 py-2 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    KELUAR
-                </a>
+                @auth
+                <a href="#" class="btn btn-outline-success px-5 py-2 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">KELUAR</a>
+                @endauth
+
+                @guest
+                <a href="{{ route('login') }}" class="btn btn-outline-success px-5 py-2 bg-white">MASUK</a>
+                @endguest
+                
                 </div>
 
                 <!-- Modal Logout -->
@@ -37,7 +52,7 @@
                                 </div>
                                 <div class="modal-body-button">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                                    <button type="button" class="btn btn-success">Ya</button>
+                                    <a href="{{ route('logout') }}" type="button" class="btn btn-success">Ya</a>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +65,7 @@
             <h4 style="color:#4FB96E ;">Pengaturan</h4>
             <div class="card">
                 <div class="card-body">
-                <a href="/data-simpan" class="card-link">
+                <a href="{{ Auth()->user('id') == '' ? route('login') : route('dataSimpan') }}" class="card-link">
                     <svg width="50" height="50" style="float:left;" viewBox="0 0 58 63" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <ellipse opacity="0.05" cx="28.9103" cy="31.4829" rx="28.7955" ry="30.678" fill="#4FB96E"/>
                         <path d="M28.9108 32.8635C21.2397 32.8635 18.5444 37.0051 18.5444 39.7661V43.9076H39.2772V39.7661C39.2772 37.0051 36.5819 32.8635 28.9108 32.8635Z" fill="#4FB96E"/>
@@ -71,7 +86,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                <a href="/dokumen" class="card-link">
+                <a href="{{ Auth()->user('id') == '' ? route('login') : route('dokumen') }}" class="card-link">
                     <svg width="50" height="50" style="float:left;" viewBox="0 0 59 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <ellipse opacity="0.05" cx="29.3502" cy="30.9829" rx="28.7955" ry="30.678" fill="#4FB96E"/>
                         <path d="M20.7116 15.644C19.9479 15.644 19.2155 15.9673 18.6754 16.5426C18.1354 17.1179 17.832 17.8982 17.832 18.7118V43.2542C17.832 44.0678 18.1354 44.8481 18.6754 45.4235C19.2155 45.9988 19.9479 46.322 20.7116 46.322H37.9889C38.7526 46.322 39.485 45.9988 40.025 45.4235C40.5651 44.8481 40.8684 44.0678 40.8684 43.2542V24.8474L32.2298 15.644H20.7116ZM20.7116 18.7118H30.79V26.3813H37.9889V43.2542H20.7116V18.7118ZM23.5911 30.983V34.0508H35.1093V30.983H23.5911ZM23.5911 37.1186V40.1864H30.79V37.1186H23.5911Z" fill="#4FB96E"/>

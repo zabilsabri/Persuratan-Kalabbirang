@@ -12,7 +12,7 @@
                 <span class="input-group-text" style="border-right-style: solid;border-right-width: 0px;">
                     <img src="{{ asset('image/icon/form-staff.svg') }}"></img>                        
                 </span>
-                <input type="number" class="form-control" placeholder="00000000000000000000" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                <input type="number" class="form-control" placeholder="00000000000000000000" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;" readonly>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
                 <span class="input-group-text" style="border-right-style: solid;border-right-width: 0px;">
                     <img src="{{ asset('image/icon/Id-card.svg') }}"></img>
                 </span>
-                <input type="number" class="form-control" placeholder="00000000000000000000" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                <input type="number" class="form-control" placeholder="00000000000000000000" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;" readonly>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@
                 <span class="input-group-text" style="border-right-style: solid;border-right-width: 0px;">
                     <img src="{{ asset('image/icon/person.svg') }}"></img>
                 </span>
-                <input type="text" class="form-control" placeholder="Lorem Ipsum Dolor" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                <input type="text" class="form-control" placeholder="Lorem Ipsum Dolor" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;" readonly>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
                 <span class="input-group-text" style="border-right-style: solid;border-right-width: 0px;">
                     <img src="{{ asset('image/icon/phone.svg') }}"></img>
                 </span>
-                <input type="number" class="form-control" placeholder="00000000000000000000" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                <input type="number" class="form-control" placeholder="00000000000000000000" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;" readonly>
             </div>
         </div>
     </div>
@@ -59,7 +59,7 @@
                 <span class="input-group-text" style="border-right-style: solid;border-right-width: 0px;">
                     <img src="{{ asset('image/icon/email.svg') }}"></img>
                 </span>
-                <input type="email" class="form-control" placeholder="loremipsum@gmail.com" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                <input type="email" class="form-control" placeholder="loremipsum@gmail.com" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;" readonly>
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@
     </div>
 
     <div class="form-footer">
-        <button type="submit" class="btn btn-success">SIMPAN</button>
+        <a href="{{ route('dataUbah') }}" type="button" class="btn btn-success">UBAH DATA</a>
     </div>
 
   </form>
