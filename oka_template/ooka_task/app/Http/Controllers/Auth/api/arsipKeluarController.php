@@ -7,8 +7,38 @@ use App\Models\arsipKeluar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class arsipKeluarController extends Controller
-{
+class ArsipKeluarController extends Controller
+{   
+    // GET DATA
+    /**
+     * @OA\Get(
+     *     path="/api/ArsipKeluar",
+     *     tags={"ArsipKeluar"},
+     *     summary="Get all Data arsipKeluar",
+     *     description="Untuk menambah data arsip harus ada data surat keluar",
+     *     operationId="index.arsipKeluar",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="Status values that needed to be considered for filter",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="available",
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *        
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     **/
+
     public function index()
     {
         $arsip = arsipKeluar::all();
@@ -18,6 +48,37 @@ class arsipKeluarController extends Controller
         ]);
     }
 
+
+    // POST DATA
+    /**
+     * @OA\Post(
+     *     path="/api/ArsipKeluar/store",
+     *     tags={"ArsipKeluar"},
+     *     summary="Store Data arsipKeluar",
+     *     description="Multiple status values can be provided with comma separated string",
+     *     operationId="store",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="name field : suratKeluar_id, file_surat(file) ",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="",
+     *             
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *        
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     **/
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
@@ -51,6 +112,75 @@ class arsipKeluarController extends Controller
         ]);
     }
 
+    /** @OA\Get(
+        *     path="/api/ArsipKeluar/{id}",
+        *     tags={"ArsipKeluar"},
+        *     summary="Get 1 Data arsipKeluar",
+        *     description="",
+        *     operationId="edit.arsipKeluar",
+        *     @OA\Parameter(
+        *         name="status",
+        *         in="query",
+        *         description="Status values that needed to be considered for filter",
+        *         required=true,
+        *         explode=true,
+        *         @OA\Schema(
+        *             default="available",
+        *             type="string",
+        *             enum={"available", "pending", "sold"},
+        *         )
+        *     ),
+        *     @OA\Response(
+        *         response=200,
+        *         description="successful operation",
+        *        
+        *     ),
+        *     @OA\Response(
+        *         response=400,
+        *         description="Invalid status value"
+        *     ),
+        * )
+        **/
+
+    public function edit($id)
+    {
+        $arsip = arsipKeluar::find($id);
+        return response()->json([
+            'Title'     => 'Data Arsip Keluar',
+            'Data'      => $arsip
+        ]);
+    }
+
+      // PUT DATA
+    /**
+     * @OA\Put(
+     *     path="/api/ArsipKeluar/update",
+     *     tags={"ArsipKeluar"},
+     *     summary="Update Data arsipKeluar",
+     *     description="Kirim id lewat form",
+     *     operationId="put",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="name field : id, suratKeluar_id, file_surat(file)",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="",
+     *             
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *        
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     **/
     public function update(Request $request)
     {
         $arsipKeluar =  arsipKeluar::find($request->id);
@@ -86,6 +216,36 @@ class arsipKeluarController extends Controller
         ]);
     }
 
+    // DELETE DATA
+    /**
+     * @OA\Delete(
+     *     path="/api/ArsipKeluar/destroy",
+     *     tags={"ArsipKeluar"},
+     *     summary="Hapus Data arsipKeluar",
+     *     description="Multiple status values can be provided with comma separated string",
+     *     operationId="delete",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="kirim id lewat form",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="id",
+     *             
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *        
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     **/
     public function destroy(Request $request)
     {
         // dd($request->id);

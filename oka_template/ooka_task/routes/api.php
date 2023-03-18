@@ -26,43 +26,43 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
     Route::put('/forget', 'LoginController@forget')->name('forget_password');
     Route::delete('/destroy/user/{id}', 'LoginController@destroy')->name('destroy');
 
-    Route::group(['prefix' => 'suratMasuk'], function () {
+    Route::group(['prefix' => 'SuratMasuk'], function () {
 
-        Route::get('/', 'suratMasukController@index')->name('index.suratMasuk');
-        Route::post('/store', 'suratMasukController@store')->name('store.suratMasuk');
-        Route::get('/edit/{id}', 'suratMasukController@edit')->name('edit.suratMasuk');
-        Route::put('/update', 'suratMasukController@update')->name('update.suratMasuk');
-        Route::delete('/destroy', 'suratMasukController@destroy')->name('destroy.suratMasuk');
-
-    });
-
-    Route::group(['prefix' => 'arsipMasuk'], function () {
-
-        Route::get('/', 'arsipMasukController@index')->name('index.arsipMasuk');
-        Route::post('/store', 'arsipMasukController@store')->name('store.arsipMasuk');
-        Route::get('/edit/{id}', 'arsipMasukController@edit')->name('edit.arsipMasuk');
-        Route::put('/update', 'arsipMasukController@update')->name('update.arsipMasuk');
-        Route::delete('/destroy', 'arsipMasukController@destroy')->name('destroy.arsipMasuk');
+        Route::get('/', 'SuratMasukController@index')->name('index.suratMasuk');
+        Route::post('/store', 'SuratMasukController@store')->name('store.suratMasuk');
+        Route::get('/edit/{id}', 'SuratMasukController@edit')->name('edit.suratMasuk');
+        Route::put('/update', 'SuratMasukController@update')->name('update.suratMasuk');
+        Route::delete('/destroy', 'SuratMasukController@destroy')->name('destroy.suratMasuk');
 
     });
 
-    Route::group(['prefix' => 'suratKeluar'], function () {
+    Route::group(['prefix' => 'ArsipMasuk'], function () {
 
-        Route::get('/', 'suratKeluarController@index')->name('index.suratKeluar');
-        Route::post('/store', 'suratKeluarController@store')->name('store.suratKeluar');
-        Route::get('/edit/{id}', 'suratKeluarController@edit')->name('edit.suratKeluar');
-        Route::put('/update', 'suratKeluarController@update')->name('update.suratKeluar');
-        Route::delete('/destroy', 'suratKeluarController@destroy')->name('destroy.suratKeluar');
+        Route::get('/', 'ArsipMasukController@index')->name('index.arsipMasuk');
+        Route::post('/store', 'ArsipMasukController@store')->name('store.arsipMasuk');
+        Route::get('/edit/{id}', 'ArsipMasukController@edit')->name('edit.arsipMasuk');
+        Route::put('/update', 'ArsipMasukController@update')->name('update.arsipMasuk');
+        Route::delete('/destroy', 'ArsipMasukController@destroy')->name('destroy.arsipMasuk');
+
+    });
+
+    Route::group(['prefix' => 'SuratKeluar'], function () {
+
+        Route::get('/', 'SuratKeluarController@index')->name('index.suratKeluar');
+        Route::post('/store', 'SuratKeluarController@store')->name('store.suratKeluar');
+        Route::get('/edit/{id}', 'SuratKeluarController@edit')->name('edit.suratKeluar');
+        Route::put('/update', 'SuratKeluarController@update')->name('update.suratKeluar');
+        Route::delete('/destroy', 'SuratKeluarController@destroy')->name('destroy.suratKeluar');
 
     });
     
-    Route::group(['prefix' => 'arsipKeluar'], function () {
+    Route::group(['prefix' => 'ArsipKeluar'], function () {
 
-        Route::get('/', 'arsipKeluarController@index')->name('index.arsipKeluar');
-        Route::post('/store', 'arsipKeluarController@store')->name('store.arsipKeluar');
-        Route::get('/edit/{id}', 'arsipKeluarController@edit')->name('edit.arsipKeluar');
-        Route::put('/update', 'arsipKeluarController@update')->name('update.arsipKeluar');
-        Route::delete('/destroy', 'arsipKeluarController@destroy')->name('destroy.arsipKeluar');
+        Route::get('/', 'ArsipKeluarController@index')->name('index.arsipKeluar');
+        Route::post('/store', 'ArsipKeluarController@store')->name('store.arsipKeluar');
+        Route::get('/edit/{id}', 'ArsipKeluarController@edit')->name('edit.arsipKeluar');
+        Route::put('/update', 'ArsipKeluarController@update')->name('update.arsipKeluar');
+        Route::delete('/destroy', 'ArsipKeluarController@destroy')->name('destroy.arsipKeluar');
 
     });
 

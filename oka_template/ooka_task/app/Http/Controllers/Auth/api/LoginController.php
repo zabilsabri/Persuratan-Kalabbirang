@@ -14,7 +14,36 @@ class LoginController extends Controller
     // public function login() {
     //     return view('auth.login');
     // }
-
+    
+    /**
+     * @OA\Get(
+     *     path="/api/login",
+     *     tags={"Login"},
+     *     summary="Get all Data User",
+     *     description="",
+     *     operationId="index.login",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="Status values that needed to be considered for filter",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="no_telp, nik",
+     *             
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *        
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     **/
     public function index () {
         
         return response()->json([
@@ -23,6 +52,34 @@ class LoginController extends Controller
         ]);
     }
 
+    /**
+     * @OA\Post(
+     *     path="/api/login",
+     *     tags={"Cek Login"},
+     *     summary="Prose Login",
+     *     description="Untuk menambah data arsip harus ada data surat keluar",
+     *     operationId="login",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="name field : no_telp, nik",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="",
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *        
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     **/
     public function login(Request $request)
     {   
         
@@ -37,6 +94,35 @@ class LoginController extends Controller
             ], 401);
         }
     }
+
+    /**
+     * @OA\Post(
+     *     path="/api/register",
+     *     tags={"Register Warga"},
+     *     summary="",
+     *     description="",
+     *     operationId="register",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="name field : nama, username, nik, ttl, jkl(L, P), alamat, pekerjaan, nomor_kk, nomor_telp, profile(file image), ktp(file image), swafoto_ktp(file image), email",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="",
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *        
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     **/
     
     public function register(Request $request) {
 

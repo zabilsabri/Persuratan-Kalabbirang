@@ -8,18 +8,74 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 
-class suratMasukController extends Controller
+class SuratMasukController extends Controller
 {
+     /**
+     * @OA\Get(
+     *     path="/api/SuratMasuk",
+     *     tags={"SuratMasuk"},
+     *     summary="Get all Data suratMasuk",
+     *     description="",
+     *     operationId="index.suratMasuk",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="Status values that needed to be considered for filter",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="available",
+     *             
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     */
     public function index()
     {
-
-
         return response()->json([
             'status'    => 'Surat Masuk',
             'data'      => suratMasuk::all()
         ]);
     }
 
+    /**
+     * @OA\Post(
+     *     path="/api/SuratMasuk/store",
+     *     tags={"SuratMasuk"},
+     *     summary="Tambah Data suratMasuk",
+     *     description="",
+     *     operationId="store.suratMasuk",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="name field : asal_surat, no_surat, tujuan_surat, status('Rahasia', 'Penting', 'Segera', 'Biasa'), file_surat(file)",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="available",
+     *             
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     */
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
@@ -55,6 +111,35 @@ class suratMasukController extends Controller
         ]);
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/SuratMasuk/{id}",
+     *     tags={"SuratMasuk"},
+     *     summary="Edit Data suratMasuk",
+     *     description="",
+     *     operationId="edit.suratMasuk",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="available",
+     *             
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     */
     public function edit($id) {
 
         return response()->json([
@@ -63,6 +148,35 @@ class suratMasukController extends Controller
         ]);
     }
 
+    /**
+     * @OA\Put(
+     *     path="/api/SuratMasuk/update",
+     *     tags={"SuratMasuk"},
+     *     summary="Update Data suratMasuk",
+     *     description="kirim id lewat form",
+     *     operationId="update.suratMasuk",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="name field : id, asal_surat, no_surat, tujuan_surat, status('Rahasia', 'Penting', 'Segera', 'Biasa'), file_surat(file)",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="available",
+     *             
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     */
     public function update(Request $request)
     {
         $suratMasuk =  suratMasuk::find($request->id);
@@ -98,6 +212,35 @@ class suratMasukController extends Controller
         ]);
     }
 
+    /**
+     * @OA\Delete(
+     *     path="/api/SuratMasuk/destroy",
+     *     tags={"SuratMasuk"},
+     *     summary="Hapus Data suratMasuk",
+     *     description="kirim id lewat form",
+     *     operationId="destroy.suratMasuk",
+     *     @OA\Parameter(
+     *         name="status",
+     *         in="query",
+     *         description="name field : id",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="available",
+     *             
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     */
     public function destroy(Request $request)
     {
 
