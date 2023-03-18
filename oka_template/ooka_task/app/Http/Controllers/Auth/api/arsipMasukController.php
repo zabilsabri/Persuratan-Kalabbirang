@@ -73,6 +73,11 @@ class ArsipMasukController extends Controller
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
+     * * @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="suratKeluar_id", type="string", example="1"),
+     *              @OA\Property(property="file_surat", type="string", example="file.pdf,docx"),
+     *          )
      *        
      *     ),
      *     @OA\Response(
@@ -116,19 +121,19 @@ class ArsipMasukController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/ArsipMasuk/{id}",
+     *     path="/api/ArsipMasuk/",
      *     tags={"ArsipMasuk"},
      *     summary="Get 1 Data arsipMasuk",
-     *     description="",
+     *     description="tambah /id",
      *     operationId="edit.arsipMasuk",
      *     @OA\Parameter(
-     *         name="status",
+     *         name="id",
      *         in="query",
      *         description="Status values that needed to be considered for filter",
      *         required=true,
      *         explode=true,
      *         @OA\Schema(
-     *             default="available",
+     *             default="id",
      *             
      *         )
      *     ),
@@ -174,6 +179,11 @@ class ArsipMasukController extends Controller
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
+     * * @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="suratKeluar_id", type="string", example="1"),
+     *              @OA\Property(property="file_surat", type="string", example="file.pdf,docx"),
+     *          )
      *        
      *     ),
      *     @OA\Response(
@@ -223,12 +233,12 @@ class ArsipMasukController extends Controller
      *     path="/api/ArsipMasuk/destroy",
      *     tags={"ArsipMasuk"},
      *     summary="Hapus Data arsipMasuk",
-     *     description="Multiple status values can be provided with comma separated string",
+     *     description="tambah /id",
      *     operationId="destroy.arsipMasuk",
      *     @OA\Parameter(
-     *         name="status",
+     *         name="id",
      *         in="query",
-     *         description="kirim id lewat form",
+     *         description="",
      *         required=true,
      *         explode=true,
      *         @OA\Schema(
