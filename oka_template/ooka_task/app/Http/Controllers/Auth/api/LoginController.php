@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
@@ -89,16 +90,28 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-
+        // dd($request->only('nik', 'nomor_telp'));
         $user = User::where('nik', $request->nik)->first();
+        if ($user == null) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Data tidak ada'
+            ], 404);
+        }
+        $token = $user->createToken('auth_token')->plainTextToken;
+        // dd($token);
         if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp) {
             return response()->json([
-                'status' => 'Berhasil Login'
+                'status' => true,
+                'message' => 'Berhasil Login',
+                'access_token' => $token,
+                'token_type' => 'Bearer'
             ], 200);
         } else {
             return response()->json([
-                'status' => 'Gagal Login'
-            ], 401);
+                'status'    => false,
+                'message'   => 'Gagal Login'
+            ]);
         }
     }
 
@@ -172,7 +185,17 @@ class LoginController extends Controller
             return response()->json($validate->errors());
         }
 
-        $data = $request->all();
+        $warga = new User();
+        $warga->nama = $request->nama;
+        $warga->username = $request->username;
+        $warga->nik = $request->nik;
+        $warga->jkl = $request->jkl;
+        $warga->alamat = $request->alamat;
+        $warga->pekerjaan = $request->pekerjaan;
+        $warga->nomor_kk = $request->nomor_kk;
+        $warga->nomor_telp = $request->nomor_telp;
+        $warga->email = $request->email;
+
 
         if ($request->hasFile('profil')) {
             $profil = $request->file('profil');
@@ -192,21 +215,33 @@ class LoginController extends Controller
         }
 
         // dd($pathProfil);
-        $data['ttl'] = Carbon::now();
-        $data['profil'] = $namaProfil;
-        $data['ktp'] = $namaKtp;
-        $data['swafoto_ktp'] = $namaSwa;
-        $data['role_id'] = 4;
+        $warga->ttl = Carbon::now();
+        $warga->profil = $namaProfil;
+        $warga->ktp = $namaKtp;
+        $warga->swafoto_ktp = $namaSwa;
+        $warga->role_id = 4;
+        $warga->save();
+        $token = $warga->createToken('auth_token')->plainTextToken;
+        // dd($token);
 
-        $register = User::create($data);
+        // $register = User::create($data);
 
-        if ($register)
-            return response()->json([
-                'status' => 'Sukses Register'
-            ]);
-
+        // if ($register)
         return response()->json([
-            'status' => 'Gagal Register'
+            'status' => 'Sukses Register',
+            'access_token'  => $token,
+            'token_type'    => 'Bearer'
+        ]);
+
+        // return response()->json([
+        //     'status' => 'Gagal Register'
+        // ]);
+    }
+
+    public function logout() {
+        Auth::user()->tokens()->delete();
+        return response()->json([
+            'message'   => 'Sukses Logout'
         ]);
     }
 

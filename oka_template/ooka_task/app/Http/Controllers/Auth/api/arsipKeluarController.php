@@ -162,7 +162,7 @@ class ArsipKeluarController extends Controller
      *     tags={"ArsipKeluar"},
      *     summary="Update Data arsipKeluar",
      *     description="Kirim id lewat form",
-     *     operationId="put",
+     *     operationId="put.arsipKeluar",
      *     @OA\Parameter(
      *         name="status",
      *         in="query",
@@ -177,7 +177,7 @@ class ArsipKeluarController extends Controller
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
-     *        @OA\JsonContent(
+     *         @OA\JsonContent(
      *              @OA\Property(property="id", type="number", example=1),
      *              @OA\Property(property="suratKeluar_id", type="string", example="1"),
      *              @OA\Property(property="file_surat", type="string", example="file.pdf,docx"),
@@ -231,7 +231,7 @@ class ArsipKeluarController extends Controller
      *     tags={"ArsipKeluar"},
      *     summary="Hapus Data arsipKeluar",
      *     description="tambah /id",
-     *     operationId="delete",
+     *     operationId="delete.arsipKeluar",
      *     @OA\Parameter(
      *         name="id",
      *         in="query",
