@@ -29,8 +29,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             // $table->string('password');
             $table->string('profil')->nullable(); // foto profil
-            $table->string('ktp'); // foto ktp
-            $table->string('swafoto_ktp'); // swafoto ktp
+            $table->string('ktp')->nullable(); // foto ktp
+            $table->string('swafoto_ktp')->nullable(); // swafoto ktp
             $table->boolean('verif_user')->default(0);
             $table->rememberToken();
             $table->timestamps();
