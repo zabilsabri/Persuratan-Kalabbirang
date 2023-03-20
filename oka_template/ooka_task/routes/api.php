@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\api\LoginController as ApiLogin;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,19 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    // return $request->user();
+    Route::post('/logout', [ApiLogin::class, 'logout'])->name('logout');
 });
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], function () {
-
+    
     Route::get('/login', 'LoginController@index')->name('index.login');
     Route::post('/login', 'LoginController@login')->name('login');
     Route::post('/register', 'LoginController@register')->name('register');
+
+    
     Route::put('/forget', 'LoginController@forget')->name('forget_password');
     Route::delete('/destroy/user/{id}', 'LoginController@destroy')->name('destroy');
 
-    Route::group(['prefix' => 'SuratMasuk'], function () {
+    Route::group(['prefix' => 'suratMasuk'], function () {
 
         Route::get('/', 'SuratMasukController@index')->name('index.suratMasuk');
         Route::post('/store', 'SuratMasukController@store')->name('store.suratMasuk');
@@ -36,7 +40,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
 
     });
 
-    Route::group(['prefix' => 'ArsipMasuk'], function () {
+    Route::group(['prefix' => 'arsipMasuk'], function () {
 
         Route::get('/', 'ArsipMasukController@index')->name('index.arsipMasuk');
         Route::post('/store', 'ArsipMasukController@store')->name('store.arsipMasuk');
@@ -46,7 +50,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
 
     });
 
-    Route::group(['prefix' => 'SuratKeluar'], function () {
+    Route::group(['prefix' => 'suratKeluar'], function () {
 
         Route::get('/', 'SuratKeluarController@index')->name('index.suratKeluar');
         Route::post('/store', 'SuratKeluarController@store')->name('store.suratKeluar');
@@ -56,7 +60,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
 
     });
     
-    Route::group(['prefix' => 'ArsipKeluar'], function () {
+    Route::group(['prefix' => 'arsipKeluar'], function () {
 
         Route::get('/', 'ArsipKeluarController@index')->name('index.arsipKeluar');
         Route::post('/store', 'ArsipKeluarController@store')->name('store.arsipKeluar');

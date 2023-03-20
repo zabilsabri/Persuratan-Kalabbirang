@@ -71,6 +71,11 @@ class ArsipKeluarController extends Controller
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
+     * @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="suratKeluar_id", type="string", example="1"),
+     *              @OA\Property(property="file_surat", type="string", example="file.pdf,docx"),
+     *          )
      *        
      *     ),
      *     @OA\Response(
@@ -113,26 +118,25 @@ class ArsipKeluarController extends Controller
     }
 
     /** @OA\Get(
-        *     path="/api/ArsipKeluar/{id}",
+        *     path="/api/ArsipKeluar/",
         *     tags={"ArsipKeluar"},
         *     summary="Get 1 Data arsipKeluar",
-        *     description="",
+        *     description="tambah /id",
         *     operationId="edit.arsipKeluar",
         *     @OA\Parameter(
-        *         name="status",
+        *         name="id",
         *         in="query",
-        *         description="Status values that needed to be considered for filter",
+        *         description="",
         *         required=true,
         *         explode=true,
         *         @OA\Schema(
-        *             default="available",
-        *             type="string",
-        *             enum={"available", "pending", "sold"},
+        *             default="id",
         *         )
         *     ),
         *     @OA\Response(
         *         response=200,
         *         description="successful operation",
+        
         *        
         *     ),
         *     @OA\Response(
@@ -158,7 +162,7 @@ class ArsipKeluarController extends Controller
      *     tags={"ArsipKeluar"},
      *     summary="Update Data arsipKeluar",
      *     description="Kirim id lewat form",
-     *     operationId="put",
+     *     operationId="put.arsipKeluar",
      *     @OA\Parameter(
      *         name="status",
      *         in="query",
@@ -173,7 +177,11 @@ class ArsipKeluarController extends Controller
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
-     *        
+     *         @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="suratKeluar_id", type="string", example="1"),
+     *              @OA\Property(property="file_surat", type="string", example="file.pdf,docx"),
+     *          )
      *     ),
      *     @OA\Response(
      *         response=400,
@@ -222,12 +230,12 @@ class ArsipKeluarController extends Controller
      *     path="/api/ArsipKeluar/destroy",
      *     tags={"ArsipKeluar"},
      *     summary="Hapus Data arsipKeluar",
-     *     description="Multiple status values can be provided with comma separated string",
-     *     operationId="delete",
+     *     description="tambah /id",
+     *     operationId="delete.arsipKeluar",
      *     @OA\Parameter(
-     *         name="status",
+     *         name="id",
      *         in="query",
-     *         description="kirim id lewat form",
+     *         description="",
      *         required=true,
      *         explode=true,
      *         @OA\Schema(

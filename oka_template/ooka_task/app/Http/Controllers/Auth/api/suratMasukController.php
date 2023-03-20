@@ -68,6 +68,14 @@ class SuratMasukController extends Controller
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
+     * * @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="asal_surat", type="string", example="Lurah "),
+     *              @OA\Property(property="no_surat", type="string", example="12/3213/213"),
+     *              @OA\Property(property="tujuan_surat", type="string", example="Malino"),
+     *              @OA\Property(property="status", type="string", example="'Rahasia', 'Penting', 'Segera', 'Biasa'"),
+     *              @OA\Property(property="file_surat", type="string", example="file.pdf,docx"),
+     *          )
      *         
      *     ),
      *     @OA\Response(
@@ -113,19 +121,19 @@ class SuratMasukController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/SuratMasuk/{id}",
+     *     path="/api/SuratMasuk/",
      *     tags={"SuratMasuk"},
      *     summary="Edit Data suratMasuk",
-     *     description="",
+     *     description="tambah /id",
      *     operationId="edit.suratMasuk",
      *     @OA\Parameter(
-     *         name="status",
+     *         name="id",
      *         in="query",
      *         description="",
      *         required=true,
      *         explode=true,
      *         @OA\Schema(
-     *             default="available",
+     *             default="id",
      *             
      *         )
      *     ),
@@ -169,6 +177,14 @@ class SuratMasukController extends Controller
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
+     * * @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="asal_surat", type="string", example="Lurah "),
+     *              @OA\Property(property="no_surat", type="string", example="12/3213/213"),
+     *              @OA\Property(property="tujuan_surat", type="string", example="Malino"),
+     *              @OA\Property(property="status", type="string", example="'Rahasia', 'Penting', 'Segera', 'Biasa'"),
+     *              @OA\Property(property="file_surat", type="string", example="file.pdf,docx"),
+     *          )
      *         
      *     ),
      *     @OA\Response(
@@ -217,16 +233,16 @@ class SuratMasukController extends Controller
      *     path="/api/SuratMasuk/destroy",
      *     tags={"SuratMasuk"},
      *     summary="Hapus Data suratMasuk",
-     *     description="kirim id lewat form",
+     *     description="tambah /id",
      *     operationId="destroy.suratMasuk",
      *     @OA\Parameter(
-     *         name="status",
+     *         name="id",
      *         in="query",
      *         description="name field : id",
      *         required=true,
      *         explode=true,
      *         @OA\Schema(
-     *             default="available",
+     *             default="id",
      *             
      *         )
      *     ),

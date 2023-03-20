@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +15,7 @@ class LoginController extends Controller
     // public function login() {
     //     return view('auth.login');
     // }
-    
+
     /**
      * @OA\Get(
      *     path="/api/login",
@@ -44,8 +45,9 @@ class LoginController extends Controller
      *     ),
      * )
      **/
-    public function index () {
-        
+    public function index()
+    {
+
         return response()->json([
             'status' => 'Data User',
             'data'   => User::all()
@@ -72,6 +74,11 @@ class LoginController extends Controller
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="nik", type="string", example="213123"),
+     *              @OA\Property(property="no_telp", type="string", example="0812345"),
+     *          )
      *        
      *     ),
      *     @OA\Response(
@@ -80,18 +87,31 @@ class LoginController extends Controller
      *     ),
      * )
      **/
+
     public function login(Request $request)
-    {   
-        
+    {
+        // dd($request->only('nik', 'nomor_telp'));
         $user = User::where('nik', $request->nik)->first();
+        if ($user == null) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Data tidak ada'
+            ], 404);
+        }
+        $token = $user->createToken('auth_token')->plainTextToken;
+        // dd($token);
         if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp) {
             return response()->json([
-                'status' => 'Berhasil Login'
+                'status' => true,
+                'message' => 'Berhasil Login',
+                'access_token' => $token,
+                'token_type' => 'Bearer'
             ], 200);
         } else {
             return response()->json([
-                'status' => 'Gagal Login'
-            ], 401);
+                'status'    => false,
+                'message'   => 'Gagal Login'
+            ]);
         }
     }
 
@@ -99,11 +119,11 @@ class LoginController extends Controller
      * @OA\Post(
      *     path="/api/register",
      *     tags={"Register Warga"},
-     *     summary="",
+     *     summary="Store warga baru",
      *     description="",
      *     operationId="register",
      *     @OA\Parameter(
-     *         name="status",
+     *         name="nama",
      *         in="query",
      *         description="name field : nama, username, nik, ttl, jkl(L, P), alamat, pekerjaan, nomor_kk, nomor_telp, profile(file image), ktp(file image), swafoto_ktp(file image), email",
      *         required=true,
@@ -115,6 +135,22 @@ class LoginController extends Controller
      *     @OA\Response(
      *         response=200,
      *         description="successful operation",
+     *         @OA\JsonContent(
+     *              @OA\Property(property="id", type="number", example=1),
+     *              @OA\Property(property="nama", type="string", example="Warga 01"),
+     *              @OA\Property(property="username", type="string", example="warga_01"),
+     *              @OA\Property(property="nik", type="string", example="11223344"),
+     *              @OA\Property(property="ttl", type="date", example="20-12-2023"),
+     *              @OA\Property(property="jkl", type="enum", example="eunm(L atau P)"),
+     *              @OA\Property(property="alamat", type="string", example="Antang"),
+     *              @OA\Property(property="pekerjaan", type="string", example="Mahasiswa"),
+     *              @OA\Property(property="nomor_kk", type="string", example="123123"),
+     *              @OA\Property(property="nomor_telp", type="string", example="0812345"),
+     *              @OA\Property(property="profil", type="string", example="image.jpg,png,jpeg"),
+     *              @OA\Property(property="ktp", type="string", example="image.jpg,png,jpeg"),
+     *              @OA\Property(property="swafoto_ktp", type="string", example="image.jpg,png,jpeg"),
+     *              @OA\Property(property="email", type="string", example="warga@gmail.com"),
+     *          )
      *        
      *     ),
      *     @OA\Response(
@@ -123,8 +159,9 @@ class LoginController extends Controller
      *     ),
      * )
      **/
-    
-    public function register(Request $request) {
+
+    public function register(Request $request)
+    {
 
         // dd($request);
         $validate = Validator::make($request->all(), [
@@ -143,12 +180,22 @@ class LoginController extends Controller
             'swafoto_ktp'               => 'required|image|mimes:jpg,jpeg,png',
             'email'                     => 'required',
         ]);
-        
+
         if ($validate->fails()) {
             return response()->json($validate->errors());
         }
-        
-        $data = $request->all();
+
+        $warga = new User();
+        $warga->nama = $request->nama;
+        $warga->username = $request->username;
+        $warga->nik = $request->nik;
+        $warga->jkl = $request->jkl;
+        $warga->alamat = $request->alamat;
+        $warga->pekerjaan = $request->pekerjaan;
+        $warga->nomor_kk = $request->nomor_kk;
+        $warga->nomor_telp = $request->nomor_telp;
+        $warga->email = $request->email;
+
 
         if ($request->hasFile('profil')) {
             $profil = $request->file('profil');
@@ -168,32 +215,43 @@ class LoginController extends Controller
         }
 
         // dd($pathProfil);
-        $data['ttl'] = Carbon::now();
-        $data['profil'] = $namaProfil;
-        $data['ktp'] = $namaKtp;
-        $data['swafoto_ktp'] = $namaSwa;
-        $data['role_id'] = 4;
+        $warga->ttl = Carbon::now();
+        $warga->profil = $namaProfil;
+        $warga->ktp = $namaKtp;
+        $warga->swafoto_ktp = $namaSwa;
+        $warga->role_id = 4;
+        $warga->save();
+        $token = $warga->createToken('auth_token')->plainTextToken;
+        // dd($token);
 
-        $register = User::create($data);
+        // $register = User::create($data);
 
-        if ($register)
+        // if ($register)
         return response()->json([
-            'status' => 'Sukses Register'
+            'status' => 'Sukses Register',
+            'access_token'  => $token,
+            'token_type'    => 'Bearer'
         ]);
 
-        return response()->json([
-            'status' => 'Gagal Register'
-        ]);
+        // return response()->json([
+        //     'status' => 'Gagal Register'
+        // ]);
+    }
 
+    public function logout() {
+        Auth::user()->tokens()->delete();
+        return response()->json([
+            'message'   => 'Sukses Logout'
+        ]);
     }
 
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $data = User::find($id);
         $data->delete();
         return response()->json([
             'status' => 'Sukses Hapus'
         ]);
     }
-
 }

@@ -65,7 +65,28 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "suratKeluar_id": {
+                                            "type": "string",
+                                            "example": "1"
+                                        },
+                                        "file_surat": {
+                                            "type": "string",
+                                            "example": "file.pdf,docx"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid status value"
@@ -73,29 +94,23 @@
                 }
             }
         },
-        "/api/ArsipKeluar/{id}": {
+        "/api/ArsipKeluar/": {
             "get": {
                 "tags": [
                     "ArsipKeluar"
                 ],
                 "summary": "Get 1 Data arsipKeluar",
-                "description": "",
+                "description": "tambah /id",
                 "operationId": "edit.arsipKeluar",
                 "parameters": [
                     {
-                        "name": "status",
+                        "name": "id",
                         "in": "query",
-                        "description": "Status values that needed to be considered for filter",
+                        "description": "",
                         "required": true,
                         "explode": true,
                         "schema": {
-                            "type": "string",
-                            "default": "available",
-                            "enum": [
-                                "available",
-                                "pending",
-                                "sold"
-                            ]
+                            "default": "id"
                         }
                     }
                 ],
@@ -131,7 +146,28 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "suratKeluar_id": {
+                                            "type": "string",
+                                            "example": "1"
+                                        },
+                                        "file_surat": {
+                                            "type": "string",
+                                            "example": "file.pdf,docx"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid status value"
@@ -145,13 +181,13 @@
                     "ArsipKeluar"
                 ],
                 "summary": "Hapus Data arsipKeluar",
-                "description": "Multiple status values can be provided with comma separated string",
+                "description": "tambah /id",
                 "operationId": "delete",
                 "parameters": [
                     {
-                        "name": "status",
+                        "name": "id",
                         "in": "query",
-                        "description": "kirim id lewat form",
+                        "description": "",
                         "required": true,
                         "explode": true,
                         "schema": {
@@ -221,7 +257,28 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "suratKeluar_id": {
+                                            "type": "string",
+                                            "example": "1"
+                                        },
+                                        "file_surat": {
+                                            "type": "string",
+                                            "example": "file.pdf,docx"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid status value"
@@ -229,23 +286,23 @@
                 }
             }
         },
-        "/api/ArsipMasuk/{id}": {
+        "/api/ArsipMasuk/": {
             "get": {
                 "tags": [
                     "ArsipMasuk"
                 ],
                 "summary": "Get 1 Data arsipMasuk",
-                "description": "",
+                "description": "tambah /id",
                 "operationId": "edit.arsipMasuk",
                 "parameters": [
                     {
-                        "name": "status",
+                        "name": "id",
                         "in": "query",
                         "description": "Status values that needed to be considered for filter",
                         "required": true,
                         "explode": true,
                         "schema": {
-                            "default": "available"
+                            "default": "id"
                         }
                     }
                 ],
@@ -281,7 +338,28 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "suratKeluar_id": {
+                                            "type": "string",
+                                            "example": "1"
+                                        },
+                                        "file_surat": {
+                                            "type": "string",
+                                            "example": "file.pdf,docx"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid status value"
@@ -295,13 +373,13 @@
                     "ArsipMasuk"
                 ],
                 "summary": "Hapus Data arsipMasuk",
-                "description": "Multiple status values can be provided with comma separated string",
+                "description": "tambah /id",
                 "operationId": "destroy.arsipMasuk",
                 "parameters": [
                     {
-                        "name": "status",
+                        "name": "id",
                         "in": "query",
-                        "description": "kirim id lewat form",
+                        "description": "",
                         "required": true,
                         "explode": true,
                         "schema": {
@@ -369,7 +447,28 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "nik": {
+                                            "type": "string",
+                                            "example": "213123"
+                                        },
+                                        "no_telp": {
+                                            "type": "string",
+                                            "example": "0812345"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid status value"
@@ -382,12 +481,12 @@
                 "tags": [
                     "Register Warga"
                 ],
-                "summary": "",
+                "summary": "Store warga baru",
                 "description": "",
                 "operationId": "register",
                 "parameters": [
                     {
-                        "name": "status",
+                        "name": "nama",
                         "in": "query",
                         "description": "name field : nama, username, nik, ttl, jkl(L, P), alamat, pekerjaan, nomor_kk, nomor_telp, profile(file image), ktp(file image), swafoto_ktp(file image), email",
                         "required": true,
@@ -399,7 +498,73 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "nama": {
+                                            "type": "string",
+                                            "example": "Warga 01"
+                                        },
+                                        "username": {
+                                            "type": "string",
+                                            "example": "warga_01"
+                                        },
+                                        "nik": {
+                                            "type": "string",
+                                            "example": "11223344"
+                                        },
+                                        "ttl": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "20-12-2023"
+                                        },
+                                        "jkl": {
+                                            "type": "enum",
+                                            "example": "eunm(L atau P)"
+                                        },
+                                        "alamat": {
+                                            "type": "string",
+                                            "example": "Antang"
+                                        },
+                                        "pekerjaan": {
+                                            "type": "string",
+                                            "example": "Mahasiswa"
+                                        },
+                                        "nomor_kk": {
+                                            "type": "string",
+                                            "example": "123123"
+                                        },
+                                        "nomor_telp": {
+                                            "type": "string",
+                                            "example": "0812345"
+                                        },
+                                        "profil": {
+                                            "type": "string",
+                                            "example": "image.jpg,png,jpeg"
+                                        },
+                                        "ktp": {
+                                            "type": "string",
+                                            "example": "image.jpg,png,jpeg"
+                                        },
+                                        "swafoto_ktp": {
+                                            "type": "string",
+                                            "example": "image.jpg,png,jpeg"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "warga@gmail.com"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid status value"
@@ -609,7 +774,40 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "asal_surat": {
+                                            "type": "string",
+                                            "example": "Lurah "
+                                        },
+                                        "no_surat": {
+                                            "type": "string",
+                                            "example": "12/3213/213"
+                                        },
+                                        "tujuan_surat": {
+                                            "type": "string",
+                                            "example": "Malino"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "'Rahasia', 'Penting', 'Segera', 'Biasa'"
+                                        },
+                                        "file_surat": {
+                                            "type": "string",
+                                            "example": "file.pdf,docx"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid status value"
@@ -617,23 +815,23 @@
                 }
             }
         },
-        "/api/SuratMasuk/{id}": {
+        "/api/SuratMasuk/": {
             "get": {
                 "tags": [
                     "SuratMasuk"
                 ],
                 "summary": "Edit Data suratMasuk",
-                "description": "",
+                "description": "tambah /id",
                 "operationId": "edit.suratMasuk",
                 "parameters": [
                     {
-                        "name": "status",
+                        "name": "id",
                         "in": "query",
                         "description": "",
                         "required": true,
                         "explode": true,
                         "schema": {
-                            "default": "available"
+                            "default": "id"
                         }
                     }
                 ],
@@ -669,7 +867,40 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "successful operation"
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "asal_surat": {
+                                            "type": "string",
+                                            "example": "Lurah "
+                                        },
+                                        "no_surat": {
+                                            "type": "string",
+                                            "example": "12/3213/213"
+                                        },
+                                        "tujuan_surat": {
+                                            "type": "string",
+                                            "example": "Malino"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "'Rahasia', 'Penting', 'Segera', 'Biasa'"
+                                        },
+                                        "file_surat": {
+                                            "type": "string",
+                                            "example": "file.pdf,docx"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid status value"
@@ -683,17 +914,17 @@
                     "SuratMasuk"
                 ],
                 "summary": "Hapus Data suratMasuk",
-                "description": "kirim id lewat form",
+                "description": "tambah /id",
                 "operationId": "destroy.suratMasuk",
                 "parameters": [
                     {
-                        "name": "status",
+                        "name": "id",
                         "in": "query",
                         "description": "name field : id",
                         "required": true,
                         "explode": true,
                         "schema": {
-                            "default": "available"
+                            "default": "id"
                         }
                     }
                 ],

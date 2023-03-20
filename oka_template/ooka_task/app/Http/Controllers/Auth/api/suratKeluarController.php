@@ -58,10 +58,7 @@ class SuratKeluarController extends Controller
      *         name="status",
      *         in="query",
      *         description="",
-     *         required=true,
-     *         explode=true,
-     *         @OA\Schema(
-     *             default="available",
+     *        
      *             
      *         )
      *     ),
@@ -104,19 +101,19 @@ class SuratKeluarController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/SuratKeluar/{id}",
+     *     path="/api/SuratKeluar/",
      *     tags={"SuratKeluar"},
-     *     summary="Show Data suratKeluar",
-     *     description="",
+     *     summary="Show Data arsipKeluar",
+     *     description="tambah /id",
      *     operationId="edit.suratKeluar",
      *     @OA\Parameter(
-     *         name="status",
+     *         name="id",
      *         in="query",
-     *         description="Status values that needed to be considered for filter",
+     *         description="",
      *         required=true,
      *         explode=true,
      *         @OA\Schema(
-     *             default="available",
+     *             default="id",
      *             
      *         )
      *     ),
@@ -186,17 +183,17 @@ class SuratKeluarController extends Controller
      * @OA\Delete(
      *     path="/api/SuratKeluar/destroy",
      *     tags={"SuratKeluar"},
-     *     summary="hapus Data suratKeluar",
-     *     description="kirim id lewat form",
-     *     operationId="hapus.suratKeluar",
+     *     summary="Hapus Data suratKeluar",
+     *     description="tambah /id",
+     *     operationId="delete.suratKeluar",
      *     @OA\Parameter(
-     *         name="status",
+     *         name="id",
      *         in="query",
      *         description="",
      *         required=true,
      *         explode=true,
      *         @OA\Schema(
-     *             default="available",
+     *             default="id",
      *             
      *         )
      *     ),
