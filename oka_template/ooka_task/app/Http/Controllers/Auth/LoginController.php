@@ -29,10 +29,10 @@ class LoginController extends Controller
                 Auth::login($user);    
                 return redirect()->route('beranda');
             } else {
-                dd($request->all());
+                return redirect()->route('login')->with('failed', 'NIK atau Nomor Telpon Anda Salah!');
             }
         } else {
-            dd($request->all());
+            return redirect()->route('login')->with('failed', 'NIK atau Nomor Telpon Anda Salah!');
         }
     }
 
