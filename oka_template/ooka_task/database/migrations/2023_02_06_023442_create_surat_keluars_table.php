@@ -19,32 +19,19 @@ return new class extends Migration
             $table->string('no_surat');
             $table->date('tgl_surat');
             $table->string('kode_surat');
+            $table->unsignedBigInteger('user_id');
             $table->string('pj'); // penanggung jawab
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
-            $table->string('nama');
-            $table->string('ttl');
-            $table->string('pekerjaan');
-            $table->string('alamat');
-            $table->string('nik')->nullable();
-            $table->enum('agama', ['islam', 'kristen', 'hindu', 'buddha', 'katolik']);
-            $table->enum('jkl', ['L', 'P']);
-
-            // field surat ahli waris
-            $table->string('nm_ahliWaris1')->nullable();
-            $table->string('ttl_ahliWaris1')->nullable();
-            $table->string('status_ahliWaris1')->nullable();
-            $table->string('nm_ahliWaris2')->nullable();
-            $table->string('ttl_ahliWaris2')->nullable();
-            $table->string('status_ahliWaris2')->nullable();
 
             // field surat ket. tidak mampu
             $table->integer('jml_tanggungan')->nullable();
             $table->string('jml_penghasilan')->nullable();
-            $table->string('nm_anak')->nullable();
-            $table->string('ttl_anak')->nullable();
+            $table->string('nama_anak')->nullable();
+            $table->string('tempat_lahir_anak')->nullable();
+            $table->string('tanggal_lahir_anak')->nullable();
             $table->string('pekerjaan_anak')->nullable();
-            $table->string('nm_SekolahAnak')->nullable();
-            $table->string('nis_anak')->nullable();
+            $table->string('nama_SekolahAnak')->nullable();
+            $table->string('nis_kelas_anak')->nullable();
             $table->string('alamat_anak')->nullable();
             
             // field surat ket. usaha
@@ -54,16 +41,31 @@ return new class extends Migration
             $table->string('durasi_usaha')->nullable();
             
             // field surat ket. menikah
-            $table->string('status_nikah')->nullable();
-            $table->string('info_kawin')->nullable(); // informasi kawin sebelum nya
-            $table->string('kewarganegara')->nullable();
-            $table->integer('atribut_nama')->nullable();
+            $table->string('nama_istri_suami_terdahulu')->nullable();
+                //Biodata Ayah
+            $table->string('nama_ayah')->nullable();
+            $table->string('tempat_lahir_ayah')->nullable();
+            $table->string('tanggal_lahir_ayah')->nullable();
+            $table->string('kewarganegaraan_ayah')->nullable();
+            $table->string('agama_ayah')->nullable();
+            $table->string('pekerjaan_ayah')->nullable();
+            $table->string('alamat_ayah')->nullable();
+                //Biodata Ayah
+            $table->string('nama_ibu')->nullable();
+            $table->string('tempat_lahir_ibu')->nullable();
+            $table->string('tanggal_lahir_ibu')->nullable();
+            $table->string('kewarganegaraan_ibu')->nullable();
+            $table->string('agama_ibu')->nullable();
+            $table->string('pekerjaan_ibu')->nullable();
+            $table->string('alamat_ibu')->nullable();
+
 
             
 
             $table->timestamps();
             
             $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenis_surats');
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }

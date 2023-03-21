@@ -17,7 +17,7 @@ class Jenis_SuratKeluarSeeder extends Seeder
     public function run()
     {
         $role = [
-            ['id' => 1, 'nama' => 'Surat Keterangan Ahli Waris'],
+            ['id' => 1, 'nama' => 'Surat Keterangan Belum Menikah'],
             ['id' => 2, 'nama' => 'Surat Keterangan Tidak Mampu'],
             ['id' => 3, 'nama' => 'Surat Keterangan Usaha'],
             ['id' => 4, 'nama' => 'Surat Pengantar Keterangan Menikah'],
