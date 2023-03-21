@@ -24,6 +24,12 @@
         <div class="container-body">
             <h6 class="body-title">Masuk</h6>
             <h6 class="body-subTitle">Lengkapi data untuk melanjutkan</h6>
+            @if($message = Session::get('failed'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong> {{ $message }} </strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <form action="{{ route('login.post') }}" method="POST">
                 @csrf
                 <div class="mb-3">
@@ -40,7 +46,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <input type="number" class="form-control" placeholder="Masukkan Nomor Induk Kependudukan" name="nik" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                        <input type="number" class="form-control" placeholder="Masukkan Nomor Induk Kependudukan" name="nik" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;" required>
                     </div>
                 </div>
                 <div class="mb-3">
@@ -54,7 +60,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <input type="number" class="form-control" placeholder="Masukkan Nomor Telpon" aria-label="Username" name="nomor_telp" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                        <input type="number" class="form-control" placeholder="Masukkan Nomor Telpon" aria-label="Username" name="nomor_telp" aria-describedby="addon-wrapping" style="border-left-width: 0px;" required>
                     </div>
                 </div>
                 <div class="form-footer">

@@ -8,6 +8,16 @@
         <h3 class="text-success  mx-auto">Register</h3>
         <p class="text-secondary fw-bold mx-auto ">Isilah data secara lengkap dan benar</p>
 
+        @if($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="card-body">
             <form action="{{ route('register.post') }}" method="POST" enctype="multipart/form-data">
                 @csrf
