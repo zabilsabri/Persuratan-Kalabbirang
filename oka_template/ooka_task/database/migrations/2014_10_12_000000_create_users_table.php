@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->unsignedBigInteger('role_id')->default(6);
             $table->string('username');
             $table->string('nik')->unique();
             $table->date('tanggal_lahir')->nullable();
@@ -37,6 +38,8 @@ return new class extends Migration
             $table->boolean('verif_user')->default(0);
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 

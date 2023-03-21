@@ -19,8 +19,10 @@ class RoleSeeder extends Seeder
         $role = [
             ['id' => 1, 'nama' => 'Admin'],
             ['id' => 2, 'nama' => 'Lurah'],
-            ['id' => 3, 'nama' => 'Kasi'],
-            ['id' => 4, 'nama' => 'Warga'],
+            ['id' => 3, 'nama' => 'Kasi Seksi Pemerintah, Ketertiban dan Ketentraman'],
+            ['id' => 4, 'nama' => 'Kasi Seksi Pembangunan'],
+            ['id' => 5, 'nama' => 'Kasi Seksi Ekonomi dan Kesejahteraan Rakyat'],
+            ['id' => 6, 'nama' => 'Warga'],
         ];
 
         foreach ($role as $key => $v) {
