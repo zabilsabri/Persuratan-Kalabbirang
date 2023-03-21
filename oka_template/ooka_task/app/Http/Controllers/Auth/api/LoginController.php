@@ -175,9 +175,9 @@ class LoginController extends Controller
             'pekerjaan'                 => 'required',
             'nomor_kk'                     => 'required',
             'nomor_telp'                   => 'required',
-            'profil'                    => 'required|image|mimes:jpg,jpeg,png',
-            'ktp'                       => 'required|image|mimes:jpg,jpeg,png',
-            'swafoto_ktp'               => 'required|image|mimes:jpg,jpeg,png',
+            // 'profil'                    => 'required|image|mimes:jpg,jpeg,png',
+            // 'ktp'                       => 'required|image|mimes:jpg,jpeg,png',
+            // 'swafoto_ktp'               => 'required|image|mimes:jpg,jpeg,png',
             'email'                     => 'required',
         ]);
 
@@ -216,9 +216,9 @@ class LoginController extends Controller
 
         // dd($pathProfil);
         $warga->ttl = Carbon::now();
-        $warga->profil = $namaProfil;
-        $warga->ktp = $namaKtp;
-        $warga->swafoto_ktp = $namaSwa;
+        // $warga->profil = $namaProfil;
+        // $warga->ktp = $namaKtp;
+        // $warga->swafoto_ktp = $namaSwa;
         $warga->role_id = 4;
         $warga->save();
         $token = $warga->createToken('auth_token')->plainTextToken;
