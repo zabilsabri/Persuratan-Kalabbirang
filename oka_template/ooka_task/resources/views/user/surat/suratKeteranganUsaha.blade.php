@@ -7,6 +7,16 @@
     <p class="judul-surat"> Surat Keterangan Usaha </p>
 </div>
 <hr>
+@if ($errors->any())
+    <div class="alert alert-danger alert-dismissible fade show m-5" role="alert">
+            <ul>
+            @foreach ($errors->all() as $error)
+                <li> {{$error}} </li>
+            @endforeach
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 <form action="#">
     <div class="row mb-4">
         <div class="col-6">
@@ -16,37 +26,51 @@
             </div>
             <div class="mb-3">
                 <label for="inputTTL" class="form-label">2. Tempat / Tgl Lahir</label>
-                <input type="text" class="form-control" id="inputTTL" value="{{ Auth::user()->ttl }}" placeholder="{{ Auth::user()->ttl ? '' : 'Takalar, 10-05-2003' }}" required>
+                    <div class="row g-1">
+                        <div class="col-3">
+                            <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" value="{{ Auth::user()->tempat_lahir }}" aria-label="First name">
+                        </div>
+                        <div class="col-9">
+                            <input type="date" class="form-control" name="tanggal_lahir" id="floatingInput" value="{{ Auth::user()->tanggal_lahir }}">
+                        </div>
+                    </div>    
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">3. Jenis Kelamin</label>
-                    <select class="form-select" aria-label="Default select example"required>
-                        <option selected>Pilih Jenis Kelamin</option>
+                    <select class="form-select" name="jkl" aria-label="Default select example" required>
+                        <option value="{{ Auth()->user()->jkl}}" selected>-- {{ Auth::user()->jkl ?? "Pilih Jenis Kelamin Anda"}}</option>
                         <option value="laki - laki">Laki - Laki</option>
                         <option value="perempuan">Perempuan</option>
                     </select>
             </div>
             <div class="mb-3">
                 <label for="inputNIK" class="form-label">4. NIK</label>
-                <input type="text" class="form-control" id="inputNIK" placeholder="" value="{{ Auth::user()->nik }}" required>
+                <input type="text" class="form-control" name="nik" id="inputNIK" placeholder="" value="{{ Auth::user()->nik }}" required>
             </div>
         </div>
         <div class="col-6">
             <div class="mb-3">
-                <label for="inputStatus" class="form-label">5. Status</label>
-                <input type="text" class="form-control" id="inputStatus" required>
+                <label for="inputStatus" class="form-label">5. Status Nikah</label>
+                <input type="text" class="form-control" name="status_nikah" id="inputStatus" value="{{ Auth::user()->status_nikah }}"  required>
             </div>
             <div class="mb-3">
                 <label for="inputAgama" class="form-label">6. Agama</label>
-                <input type="text" class="form-control" id="inputAgama" required>
+                <select class="form-select" name="agama" aria-label="Default select example" required>
+                    <option value="{{ Auth::user()->agama }}" selected>-- {{ Auth::user()->agama ?? "Pilih Agama Anda"}}</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Buddha">Buddha</option>
+                    <option value="Katolik">Katolik</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="inputPekerjaan" class="form-label">7. Pekerjaan</label>
-                <input type="text" class="form-control" id="inputPekerjaan" value="{{ Auth::user()->pekerjaan }}" required>
+                <input type="text" class="form-control" name="pekerjaan" id="inputPekerjaan" value="{{ Auth::user()->pekerjaan }}" required>
             </div>
             <div class="mb-3">
                 <label for="inputAlamat" class="form-label">8. Alamat</label>
-                <input type="text" class="form-control" id="inputAlamat" value="{{ Auth::user()->pekerjaan }}" required>
+                <input type="text" class="form-control" name="alamat" id="inputAlamat" value="{{ Auth::user()->alamat }}" required>
             </div>
         </div>
     </div>
@@ -58,14 +82,14 @@
         </div>
         <div class="mb-3">
             <label for="inputBentukU" class="form-label">2. Bentuk Usaha</label>
-            <input type="text" class="form-control" id="inputBentuk" required>
+            <input type="text" class="form-control" id="inputBentukU" required>
         </div>
         <div class="mb-3">
             <label for="inputAlamatU" class="form-label">3. Alamat Usaha</label>
             <input type="text" class="form-control" id="inputAlamatU" required>
         </div>
         <div class="mb-3">
-            <label for="inputLamaU" class="form-label">4. Usaha</label>
+            <label for="inputLamaU" class="form-label">4. Durasi Usaha</label>
             <input type="text" class="form-control" id="inputLamaU" placeholder="Sejak tahun (Tahun) Sampai (Tahun)" required>
         </div>
     </div>

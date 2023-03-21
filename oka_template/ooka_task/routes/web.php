@@ -38,21 +38,17 @@ Route::get('profil-user', [Users::class, 'profilUserLogin'])->name('profil-user'
 Route::get('profil-user-nl', [Users::class, 'profilUserNotLogin'])->name('profil-user-nl');
 Route::get('layanan-pengajuan-surat', [Users::class, 'lps'])->name('lps');
 
-//Surat
-Route::get('selesai-pengajuan', [Users::class, 'pengajuanSuccess'])->name('selesai-pengajuan');
-Route::get('surat-ktp', [Users::class, 'surat1'])->name('surat1');
-Route::get('surat-kelahiran', [Users::class, 'surat2'])->name('surat2');
-Route::get('surat-keterangan-usaha', [Users::class, 'surat3'])->name('surat3');
-Route::get('surat-kartu-keluarga', [Users::class, 'surat4'])->name('surat4');
-Route::get('surat-pembuatan-sertifikat', [Users::class, 'surat5'])->name('surat5');
-Route::get('surat-akta-jual-beli', [Users::class, 'surat6'])->name('surat6');
-Route::get('surat-akte-hibah-dan-ahli-waris', [Users::class, 'surat7'])->name('surat7');
-Route::get('surat-skck', [Users::class, 'surat8'])->name('surat8');
-Route::get('surat-izin-keramaian', [Users::class, 'surat9'])->name('surat9');
-Route::get('surat-izin-mendirikan-pembangunan', [Users::class, 'surat10'])->name('surat10');
-Route::get('surat-keterangan-menikah', [Users::class, 'surat11'])->name('surat11');
-Route::get('surat-tidak-mampu', [Users::class, 'surat12'])->name('surat12');
-Route::get('surat-belum-menikah', [Users::class, 'surat13'])->name('surat13');
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Surat'], function () {
+
+    Route::get('selesai-pengajuan', 'requestSuratController@pengajuanSuccess')->name('selesai-pengajuan');
+    Route::get('surat-keterangan-usaha', 'requestSuratController@surat3')->name('surat3');
+    Route::get('surat-keterangan-menikah', 'requestSuratController@surat11')->name('surat11');
+    Route::get('surat-tidak-mampu', 'requestSuratController@surat12')->name('surat12');
+    Route::get('surat-belum-menikah', 'requestSuratController@surat13')->name('surat13');
+    Route::post('proses-surat13', 'requestSuratController@store13')->name('requestSurat13');
+
+});
+
 
 
 

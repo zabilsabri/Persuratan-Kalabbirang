@@ -29,10 +29,6 @@ class UserController extends Controller
     public function lps() {
         return view('user.layananPengajuanSurat.lps');
     }
-    public function pengajuanSuccess()
-    {
-        return view('user.surat.pengajuan-success');
-    }
     public function surat1()
     {
         return view('user.surat.suratKtp');
@@ -40,10 +36,6 @@ class UserController extends Controller
     public function surat2()
     {
         return view('user.surat.suratKelahiran');
-    }
-    public function surat3()
-    {
-        return view('user.surat.suratKeteranganUsaha');
     }
     public function surat4()
     {
@@ -72,16 +64,5 @@ class UserController extends Controller
     public function surat10()
     {
         return view('user.surat.suratIzinMendirikanPembangunan');
-    }
-    public function surat11()
-    {
-        return view('user.surat.suratKeteranganMenikah');
-    }
-    public function surat12()
-    {
-        return view('user.surat.surattidakMampu');
-    }
-    public function surat13 () {
-        return view('user.surat.suratBelumMenikah');
-    }   
+    } 
 }
