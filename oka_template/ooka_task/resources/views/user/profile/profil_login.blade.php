@@ -33,7 +33,7 @@
                 <div class="text-center" style="margin-top:30px;">
 
                 @auth
-                <a href="#" class="btn btn-outline-success px-5 py-2 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">KELUAR</a>
+                <a href="{{ route('logout') }}" class="btn btn-outline-success px-5 py-2 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal">KELUAR</a>
                 @endauth
 
                 @guest
@@ -65,7 +65,7 @@
             <h4 style="color:#4FB96E ;">Pengaturan</h4>
             <div class="card">
                 <div class="card-body">
-                <a href="{{ Auth()->user('id') == '' ? route('login') : route('dataSimpan') }}" class="card-link">
+                <a href="{{ Auth()->user('id') == '' ? route('login') : route('data-simpan') }}" class="card-link">
                     <svg width="50" height="50" style="float:left;" viewBox="0 0 58 63" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <ellipse opacity="0.05" cx="28.9103" cy="31.4829" rx="28.7955" ry="30.678" fill="#4FB96E"/>
                         <path d="M28.9108 32.8635C21.2397 32.8635 18.5444 37.0051 18.5444 39.7661V43.9076H39.2772V39.7661C39.2772 37.0051 36.5819 32.8635 28.9108 32.8635Z" fill="#4FB96E"/>

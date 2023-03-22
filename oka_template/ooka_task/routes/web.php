@@ -31,8 +31,6 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 
 Route::get('/', [Users::class, 'beranda'])->name('beranda');
 // Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
-Route::get('data-simpan', [Users::class, 'dataSimpan'])->name('dataSimpan');
-Route::get('data-ubah', [Users::class, 'dataUbah'])->name('dataUbah');
 Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
 Route::get('profil-user', [Users::class, 'profilUserLogin'])->name('profil-user');
 Route::get('profil-user-nl', [Users::class, 'profilUserNotLogin'])->name('profil-user-nl');
@@ -79,6 +77,11 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
     
     // Notifikasi
     Route::get('/notifikasi', 'NotifikasiController@index')->name('notifikasi');
+
+    // Profil
+    Route::get('data-simpan', [Users::class, 'dataSimpan'])->name('data-simpan');
+    Route::get('data-ubah', [Users::class, 'dataUbah'])->name('dataUbah');
+    Route::post('update-data/{id}', 'UserController@update')->name('update-data');
 
 });
 

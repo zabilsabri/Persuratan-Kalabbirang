@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -14,9 +15,30 @@ class UserController extends Controller
     public function dataSimpan() {
         return view('user.dataSimpan');
     }
+
     public function dataUbah() {
         return view('user.dataUbah');
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nomor_telp' => 'required|numeric|unique:users,nomor_telp,'.$id,
+            'email' => 'required|email|unique:users,email,'.$id,
+        ], [
+            'unique' => 'Data Anda Duplikat!'
+        ]);
+
+        $user = User::find($id);
+        $user->nomor_telp = $request->nomor_telp;
+        $user->email = $request->email;
+        $user->save();
+
+        return back()->with('success', 'Data Anda Berhasil Diedit!');
+
+    }
+
+
     public function bantuan() {
         return view('user.bantuan');
     }
