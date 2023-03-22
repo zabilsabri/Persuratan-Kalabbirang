@@ -3,26 +3,24 @@
 <link rel="stylesheet" href="{{ asset('style/css/data-simpan-ubah.css') }}">
 <div class="data-simpan">
     <h2 class="head-data-simpan text-center" >Data Pribadi</h2>
-    @if ($errors->any())
-        <div class="alert-container p-5">
+    <div class="alert-center">
+        @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show m-5" role="alert">
-                    <ul>
-                    @foreach ($errors->all() as $error)
-                        <li> {{$error}} </li>
-                    @endforeach
-                    </ul>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <ul>
+                @foreach ($errors->all() as $error)
+                    <li> {{$error}} </li>
+                @endforeach
+                </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        </div>
-    @endif
-    @if($message = Session::get('success'))
-        <div class="alert-container p-5">
-            <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
+        @endif
+        @if($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissible fade show w-50" role="alert">
                 <strong> {{$message}} </strong>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        </div>
-    @endif
+        @endif
+    </div>
     <form action="{{ route('update-data', [Auth::user()->id]) }}" method="POST">
     @csrf
     <div class="row">

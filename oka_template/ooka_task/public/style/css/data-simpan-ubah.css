@@ -8,6 +8,13 @@
     color: #0D4D23;
 }
 
+.alert-center{
+    margin-top: 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+}
+
 form{
     margin-top: 25px;
     margin-left: 45px;

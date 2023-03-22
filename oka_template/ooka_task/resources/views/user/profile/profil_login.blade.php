@@ -9,13 +9,46 @@
         <div class="col-md-6  col-12">
             <div class="card-body">
                 <figure class="avatar mr-2 avatar-xxl">
-                    <img src="{{ asset('style/img/avatar/avatar-1.png') }}" class="profile-user-picture" alt="...">
+                    @guest
+                    <img src="{{ asset('style/img/avatar/avatar-1.png') }}" class="profile-user-picture" alt="profile-pic">
+                    @endguest
+
                     @auth
-                    <a href="{{ route('data-simpan') }}" class="my-box">
+                    <img src="{{ asset('temp_file/profile/' . Auth::user()->profil) }}" onerror="this.onerror=null;this.src='{{ asset('style/img/avatar/avatar-1.png') }}';" class="profile-user-picture" alt="profile-pic">
+                    <a class="my-box" href="" data-bs-toggle="modal" data-bs-target="#change-picture">
                         <i class=" ion ion-edit ic" style="font-size: 50px; color: #000;"> </i>
                     </a>
                     @endauth
+                    
                 </figure>
+
+                @auth
+                <!-- Modal -->
+                <div class="modal fade" id="change-picture" tabindex="-1" aria-labelledby="change-pictureLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="change-pictureLabel">Ubah Photo Profile</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('change-profile-picture', [Auth::user()->id]) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                        <figure class="avatar mr-2 avatar-xxl">
+                            <img id="output_image" src="{{ asset('temp_file/profile/' . Auth::user()->profil) }}" onerror="this.onerror=null;this.src='{{ asset('style/img/avatar/avatar-1.png') }}';" class="profile-user-picture" alt="profile-pic">
+                        </figure>
+                        <input type="file" name="profile_pic" onchange="preview(event)">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                @endauth
+
 
                 <!-- Jika User Login -->
                 <div class="text-center mt-3">                
@@ -151,4 +184,16 @@
         </div>
     </div>
     </div>
+
+
+    <script type='text/javascript'>
+        function preview(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('output_image');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 @endsection

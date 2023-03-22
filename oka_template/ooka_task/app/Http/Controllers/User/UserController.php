@@ -38,6 +38,19 @@ class UserController extends Controller
 
     }
 
+    public function updateProfilePic(Request $request, $id)
+    {
+
+        $nama_file = time(). '.' . $request->profile_pic->extension();
+        $request->profile_pic->move(public_path('temp_file/profile/'), $nama_file);
+
+        $user = User::find($id);
+        $user->profil = $nama_file;
+        $user->save();
+
+        return back()->with('success', 'Photo Profile Anda Berhasil Diperbarui!');
+
+    }
 
     public function bantuan() {
         return view('user.bantuan');

@@ -82,6 +82,8 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
     Route::get('data-simpan', [Users::class, 'dataSimpan'])->name('data-simpan');
     Route::get('data-ubah', [Users::class, 'dataUbah'])->name('dataUbah');
     Route::post('update-data/{id}', 'UserController@update')->name('update-data');
+    Route::post('update-profile-pic/{id}', 'UserController@updateProfilePic')->name('change-profile-picture');
+
 
 });
 
