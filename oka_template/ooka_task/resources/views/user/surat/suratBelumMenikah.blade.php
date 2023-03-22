@@ -40,8 +40,8 @@
                     <label for="exampleFormControlInput1" class="form-label">3. Jenis Kelamin</label>
                         <select class="form-select" name="jkl" aria-label="Default select example" required>
                             <option value="{{ Auth()->user()->jkl}}" selected>-- {{ Auth::user()->jkl ?? "Pilih Jenis Kelamin Anda"}}</option>
-                            <option value="laki - laki">Laki - Laki</option>
-                            <option value="perempuan">Perempuan</option>
+                            <option value="Laki - Laki">Laki - Laki</option>
+                            <option value="Perempuan">Perempuan</option>
                         </select>
                 </div>
                 <div class="mb-3">

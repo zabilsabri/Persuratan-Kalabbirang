@@ -46,6 +46,9 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Surat'], func
     Route::get('surat-tidak-mampu', 'requestSuratController@surat12')->name('surat12');
     Route::get('surat-belum-menikah', 'requestSuratController@surat13')->name('surat13');
     Route::post('proses-surat13', 'requestSuratController@store13')->name('requestSurat13');
+    Route::post('proses-surat3', 'requestSuratController@store3')->name('requestSurat3');
+    Route::post('proses-surat12', 'requestSuratController@store12')->name('requestSurat12');
+    Route::post('proses-surat11', 'requestSuratController@store11')->name('requestSurat11');
 
 });
 
