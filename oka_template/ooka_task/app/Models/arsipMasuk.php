@@ -10,7 +10,7 @@ class arsipMasuk extends Model
     use HasFactory;
     protected $fillable = [
         'suratMasuk_id',
-        'file_surat',
+        // 'file_surat',
     ];
 
 

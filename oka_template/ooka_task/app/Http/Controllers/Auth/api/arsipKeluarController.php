@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class ArsipKeluarController extends Controller
-{   
+{
     // GET DATA
     /**
      * @OA\Get(
@@ -88,7 +88,7 @@ class ArsipKeluarController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'suratKeluar_id'             => 'required',
-            'file_surat'                => 'required|mimes:pdf,docx',
+            // 'file_surat'                => 'required|mimes:pdf,docx',
         ]);
 
         if ($validate->fails()) {
@@ -101,6 +101,8 @@ class ArsipKeluarController extends Controller
             $file = $request->file('file_surat');
             $namaArsip = $file->getClientOriginalName();
             $request->file_surat->move(public_path('file/arsipKeluar/'), $namaArsip);
+        } else {
+            $namaArsip = null;
         }
 
         $data['file_surat'] = $namaArsip;
@@ -118,33 +120,33 @@ class ArsipKeluarController extends Controller
     }
 
     /** @OA\Get(
-        *     path="/api/ArsipKeluar/",
-        *     tags={"ArsipKeluar"},
-        *     summary="Get 1 Data arsipKeluar",
-        *     description="tambah /id",
-        *     operationId="edit.arsipKeluar",
-        *     @OA\Parameter(
-        *         name="id",
-        *         in="query",
-        *         description="",
-        *         required=true,
-        *         explode=true,
-        *         @OA\Schema(
-        *             default="id",
-        *         )
-        *     ),
-        *     @OA\Response(
-        *         response=200,
-        *         description="successful operation",
+     *     path="/api/ArsipKeluar/",
+     *     tags={"ArsipKeluar"},
+     *     summary="Get 1 Data arsipKeluar",
+     *     description="tambah /id",
+     *     operationId="edit.arsipKeluar",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="query",
+     *         description="",
+     *         required=true,
+     *         explode=true,
+     *         @OA\Schema(
+     *             default="id",
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
         
-        *        
-        *     ),
-        *     @OA\Response(
-        *         response=400,
-        *         description="Invalid status value"
-        *     ),
-        * )
-        **/
+     *        
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid status value"
+     *     ),
+     * )
+     **/
 
     public function edit($id)
     {
@@ -155,7 +157,7 @@ class ArsipKeluarController extends Controller
         ]);
     }
 
-      // PUT DATA
+    // PUT DATA
     /**
      * @OA\Put(
      *     path="/api/ArsipKeluar/update",
@@ -195,7 +197,7 @@ class ArsipKeluarController extends Controller
 
         $validate = Validator::make($request->all(), [
             'suratKeluar_id'             => 'required',
-            'file_surat'                => 'required|mimes:pdf,docx',
+            // 'file_surat'                => 'required|mimes:pdf,docx',
         ]);
 
         if ($validate->fails()) {
@@ -208,6 +210,9 @@ class ArsipKeluarController extends Controller
             $file = $request->file('file_surat');
             $namaArsip = $file->getClientOriginalName();
             $request->file_surat->move(public_path('file/arsipKeluar/'), $namaArsip);
+        }
+        else {
+            $namaArsip = null;
         }
 
         $data['file_surat'] = $namaArsip;

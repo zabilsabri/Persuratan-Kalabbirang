@@ -90,7 +90,7 @@ class ArsipMasukController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'suratMasuk_id'             => 'required',
-            'file_surat'                => 'required|mimes:pdf,docx',
+            // 'file_surat'                => 'required|mimes:pdf,docx',
         ]);
 
         if ($validate->fails()) {
@@ -103,6 +103,9 @@ class ArsipMasukController extends Controller
             $file = $request->file('file_surat');
             $namaArsip = $file->getClientOriginalName();
             $request->file_surat->move(public_path('file/arsipMasuk/'), $namaArsip);
+        }
+        else {
+            $namaArsip = null;
         }
 
         $data['file_surat'] = $namaArsip;
@@ -198,7 +201,7 @@ class ArsipMasukController extends Controller
 
         $validate = Validator::make($request->all(), [
             'suratMasuk_id'             => 'required',
-            'file_surat'                => 'required|mimes:pdf,docx',
+            // 'file_surat'                => 'required|mimes:pdf,docx',
         ]);
 
         if ($validate->fails()) {
@@ -206,11 +209,14 @@ class ArsipMasukController extends Controller
         }
 
         $data = $request->all();
-
+        // dd($request->hasFile('file_surat'));
         if ($request->hasFile('file_surat')) {
             $file = $request->file('file_surat');
             $namaArsip = $file->getClientOriginalName();
             $request->file_surat->move(public_path('file/arsipMasuk/'), $namaArsip);
+        }
+        else {
+            $namaArsip = null;
         }
 
         $data['file_surat'] = $namaArsip;
