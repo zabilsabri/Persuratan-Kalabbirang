@@ -51,7 +51,7 @@ class requestSuratController extends Controller
         $suratKeluar->no_surat = "1";
         $suratKeluar->kode_surat = "1";
         $suratKeluar->tgl_surat = Carbon::now();
-        $suratKeluar->pj = "Admin";
+        $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
         $suratKeluar->save();
         
@@ -122,7 +122,7 @@ class requestSuratController extends Controller
         $suratKeluar->no_surat = "1";
         $suratKeluar->kode_surat = "1";
         $suratKeluar->tgl_surat = Carbon::now();
-        $suratKeluar->pj = "Admin";
+        $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
 
         $suratKeluar->bidang_usaha = $request->bidang_usaha;
@@ -216,7 +216,7 @@ class requestSuratController extends Controller
         $suratKeluar->no_surat = "1";
         $suratKeluar->kode_surat = "1";
         $suratKeluar->tgl_surat = Carbon::now();
-        $suratKeluar->pj = "Admin";
+        $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
         
         $suratKeluar->nama_istri_suami_terdahulu = $request->nama_istri_suami_dulu;
@@ -331,7 +331,7 @@ class requestSuratController extends Controller
         $suratKeluar->no_surat = "1";
         $suratKeluar->kode_surat = "1";
         $suratKeluar->tgl_surat = Carbon::now();
-        $suratKeluar->pj = "Admin";
+        $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
         
         $suratKeluar->jml_tanggungan = $request->jml_tanggungan;

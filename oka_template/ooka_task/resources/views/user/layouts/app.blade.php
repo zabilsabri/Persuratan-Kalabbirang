@@ -71,7 +71,7 @@
                     <ul class="dropdown-menu dropdown-menu-lg-end" style="padding-bottom: 0px; min-width:225px;">
                         <div class="profile-dropdown">
                             <img src="{{ asset('temp_file/profile/' . Auth::user()->profil) }}" onerror="this.onerror=null;this.src='{{ asset('style/img/avatar/avatar-1.png') }}';" class="profile-picture-dropdown" alt="profile-picture">
-                            <p class="profile-dropdown-name" style="margin-left: 53px;" > {{ Auth::user()->username }} <br> <span class="profile-dropdown-status" > warga </span></p>
+                            <p class="profile-dropdown-name" style="margin-left: 53px;" > {{ Auth::user()->username }} <br> <span class="profile-dropdown-status" > {{ Auth::user()->role->nama }} </span></p>
                         </div>
                         <li class="dropdown-li" >
                             <a class="dropdown-item" href="profil-user">
