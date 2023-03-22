@@ -2,8 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="{{ asset('style/css/pengajuanSuccess.css') }}">
 <div class="hal">
-    <p class="jenis-surat" > Jenis Surat </p>
-    <p class="nama-surat" > Nama Surat </p>
+    <p class="nama-surat" > Selesai </p>
     <div class=" svg-container text-center">
         <svg width="556" height="373" class="img-fluid" viewBox="0 0 556 373" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <rect width="556" height="373" fill="url(#pattern0)"/>
@@ -18,7 +17,7 @@
     <div class="hal-bottom text-center">
         <p class="hal-message" > Anda telah melakukan pengajuan pelayanan surat, kami akan memproses pengajuan Anda. Pengajuan akan diterima apabila berkas yang diminta sesuai.  Informasi selanjutnya akan ditampilkan pada aplikasi.</p>
         <p class="hal-message" >Terima Kasih</p>
-        <button type="button" class="btn btn-success text-center">Kembali</button>
+        <a type="button" href="{{ route('beranda') }}" class="btn btn-success text-center">Kembali</a>
     </div>
 </div>
 
