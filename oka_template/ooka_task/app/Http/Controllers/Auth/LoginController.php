@@ -25,10 +25,23 @@ class LoginController extends Controller
 
         $user = User::where('nik', $request->nik)->first();
         if(isset($user -> nik)){
-            if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp) {
+            if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp && $user->role_id == '6') {
                 Auth::guard('web')->login($user);    
                 return redirect()->route('beranda');
-            } else {
+            } 
+            else if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp && $user->role_id == '1') {
+                Auth::guard('web')->login($user);
+                return redirect()->route('dashboard-admin');
+            } 
+            else if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp && $user->role_id == '3' || $user->role_id == '4' || $user->role_id == '5'){
+                Auth::guard('web')->login($user);
+                return redirect()->route('dashboard-kasi');
+            }
+            else if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp && $user->role_id == '2'){
+                Auth::guard('web')->login($user);
+                return redirect()->route('dashboard-lurah');
+            }
+            else {
                 return redirect()->route('login')->with('failed', 'NIK atau Nomor Telpon Anda Salah!');
             }
         } else {

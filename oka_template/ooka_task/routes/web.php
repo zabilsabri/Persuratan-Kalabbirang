@@ -89,7 +89,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
 
 
 // ADMIN
-Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], function () {
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth', 'Admin']], function () {
     Route::group(['prefix' => 'admin'], function () {
 
         // Dashboard
@@ -158,7 +158,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin'], func
 });
 
 // LURAH
-Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah'], function () {
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah', 'middleware' => ['auth', 'Lurah']], function () {
     Route::group(['prefix' => 'lurah'], function () {
 
         // Dashboard
@@ -186,7 +186,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah'], func
 });
 
 // KASI
-Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi'], function () {
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi', 'middleware' => ['auth', 'Kasi']], function () {
     Route::group(['prefix' => 'kasi'], function () {
 
         // Dashboard
