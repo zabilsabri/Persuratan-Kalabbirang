@@ -18,9 +18,11 @@ class AkunSeeder extends Seeder
     {
         // Akun Default untuk admin, lurah, dan kasi
         $akuns = [
-            ['id' => 1, 'role_id' => '1', 'nama' => 'Admin', 'username' => 'admin', 'nik' => '1', 'ttl' => Carbon::now(), 'nomor_kk' => '1', 'nomor_telp' => '1', 'email' => 'admin@gmail.com'],
-            ['id' => 2, 'role_id' => '2', 'nama' => 'Lurah', 'username' => 'Lurah', 'nik' => '2', 'ttl' => Carbon::now(), 'nomor_kk' => '2', 'nomor_telp' => '2', 'email' => 'lurah@gmail.com'],
-            ['id' => 3, 'role_id' => '3', 'nama' => 'Kasi', 'username' => 'Kasi', 'nik' => '3', 'ttl' => Carbon::now(), 'nomor_kk' => '3', 'nomor_telp' => '3', 'email' => 'kasi@gmail.com'],
+            ['id' => 1, 'role_id' => '1', 'nama' => 'Admin', 'username' => 'admin', 'nik' => '1', 'nomor_kk' => '1', 'nomor_telp' => '1', 'email' => 'admin@gmail.com'],
+            ['id' => 2, 'role_id' => '2', 'nama' => 'Lurah', 'username' => 'Lurah', 'nik' => '2', 'nomor_kk' => '2', 'nomor_telp' => '2', 'email' => 'lurah@gmail.com'],
+            ['id' => 3, 'role_id' => '3', 'nama' => 'Kasi', 'username' => 'Kasi', 'nik' => '3', 'nomor_kk' => '3', 'nomor_telp' => '3', 'email' => 'kasipkk@gmail.com'],
+            ['id' => 4, 'role_id' => '4', 'nama' => 'Kasi', 'username' => 'Kasi', 'nik' => '4', 'nomor_kk' => '4', 'nomor_telp' => '4', 'email' => 'kasipembangunan@gmail.com'],
+            ['id' => 5, 'role_id' => '5', 'nama' => 'Kasi', 'username' => 'Kasi', 'nik' => '5', 'nomor_kk' => '5', 'nomor_telp' => '5', 'email' => 'kasiEKR@gmail.com'],
         ];
 
         foreach ($akuns as $akun) {
@@ -30,7 +32,6 @@ class AkunSeeder extends Seeder
                 'nama'          => $akun['nama'],
                 'username'      => $akun['username'],
                 'nik'           => $akun['nik'],
-                'ttl'           => $akun['ttl'],
                 'nomor_kk'      => $akun['nomor_kk'],
                 'nomor_telp'    => $akun['nomor_telp'],
                 'email'         => $akun['email'],
