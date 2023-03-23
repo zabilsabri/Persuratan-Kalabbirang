@@ -64,5 +64,9 @@ class suratKeluar extends Model
     public function jenisSurat() {
         return $this->hasOne('App\Models\jenisSurat', 'id', 'jenis_suratKeluar_id');
     }
+
+    public function pengantar(){
+        return $this->hasMany(pengantar::class, 'suratKeluar_id', 'id');
+    }
 }
 

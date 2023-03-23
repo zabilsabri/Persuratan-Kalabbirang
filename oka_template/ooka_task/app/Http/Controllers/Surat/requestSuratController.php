@@ -68,10 +68,10 @@ class requestSuratController extends Controller
         $request->peng_pbb->move(public_path('temp_file/pengantar/'), $peng_pbb);
 
         $data = [
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamLingkungan],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pbb],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamLingkungan, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pbb, 'user_id' => Auth::user()->id],
         ];
 
         pengantar::insert($data);
@@ -147,11 +147,11 @@ class requestSuratController extends Controller
         $request->peng_pbb->move(public_path('temp_file/pengantar/'), $peng_pbb);
 
         $data = [
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kepLingkungan],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_sppt],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pbb],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kepLingkungan, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_sppt, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pbb, 'user_id' => Auth::user()->id],
         ];
 
         pengantar::insert($data);
@@ -272,13 +272,13 @@ class requestSuratController extends Controller
         $request->peng_ktpCalon->move(public_path('temp_file/pengantar/'), $peng_ktpCalon);
 
         $data = [
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamLingkungan],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamKelurahan],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_lunasPBB],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktpOrangTua],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kkOrangTua],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktpCalon],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_belumMenikah],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamLingkungan, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamKelurahan, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_lunasPBB, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktpOrangTua, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kkOrangTua, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktpCalon, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_belumMenikah, 'user_id' => Auth::user()->id],
         ];
 
         pengantar::insert($data);
@@ -360,10 +360,10 @@ class requestSuratController extends Controller
         $request->peng_kk->move(public_path('temp_file/pengantar/'), $peng_kk);
 
         $data = [
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kepLingkungan],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_sppt],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kepLingkungan, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_sppt, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk, 'user_id' => Auth::user()->id],
         ];
 
         pengantar::insert($data);

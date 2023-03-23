@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class pengantar extends Model
 {
     use HasFactory;
+
+    public function suratKeluar(){
+        return $this->belongsTo(suratKeluar::class, 'suratKeluar_id', 'id');
+    }
 }
