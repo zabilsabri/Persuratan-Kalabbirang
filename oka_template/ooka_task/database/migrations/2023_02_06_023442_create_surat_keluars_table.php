@@ -19,8 +19,10 @@ return new class extends Migration
             $table->string('no_surat');
             $table->date('tgl_surat');
             $table->string('kode_surat');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('pj_id'); //Penanggung Jawab
+            $table->string('process'); // Surat Sekarang Berada di Tahap Mana (Untuk Keperluan Riwayat User)
+            $table->unsignedBigInteger('user_id'); // Warga yang menginput surat
+            $table->unsignedBigInteger('pj_id'); // Penanggung Jawab atau Surat Sekarang Berada Di Siapa
+            $table->unsignedBigInteger('ttd_id')->nullable(); // Yang Menandatangani Surat Ini Siapa
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
 
             // field surat ket. tidak mampu
@@ -69,6 +71,7 @@ return new class extends Migration
             $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenis_surats');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('pj_id')->references('id')->on('roles');
+            $table->foreign('ttd_id')->references('id')->on('ttds');
 
         });
     }

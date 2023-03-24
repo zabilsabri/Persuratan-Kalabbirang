@@ -71,6 +71,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
     
     // Dokumen
     Route::get('/dokumen', 'DokumenController@index')->name('dokumen');
+    Route::get('/detail/{id}', 'DokumenController@showFile')->name('showFile');
     
     // FaQ
     Route::get('/faq', 'FaqController@index')->name('faq');

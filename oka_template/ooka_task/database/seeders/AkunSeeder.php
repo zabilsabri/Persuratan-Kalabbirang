@@ -23,6 +23,8 @@ class AkunSeeder extends Seeder
             ['id' => 3, 'role_id' => '3', 'nama' => 'Kasi', 'username' => 'Kasi', 'nik' => '3', 'nomor_kk' => '3', 'nomor_telp' => '3', 'email' => 'kasipkk@gmail.com'],
             ['id' => 4, 'role_id' => '4', 'nama' => 'Kasi', 'username' => 'Kasi', 'nik' => '4', 'nomor_kk' => '4', 'nomor_telp' => '4', 'email' => 'kasipembangunan@gmail.com'],
             ['id' => 5, 'role_id' => '5', 'nama' => 'Kasi', 'username' => 'Kasi', 'nik' => '5', 'nomor_kk' => '5', 'nomor_telp' => '5', 'email' => 'kasiEKR@gmail.com'],
+            ['id' => 6, 'role_id' => '6', 'nama' => 'Dummy User', 'username' => 'Dummy User', 'nik' => '6', 'nomor_kk' => '6', 'nomor_telp' => '6', 'email' => 'DummyUser@gmail.com'],
+
         ];
 
         foreach ($akuns as $akun) {
