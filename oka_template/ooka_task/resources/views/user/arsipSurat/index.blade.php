@@ -175,10 +175,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-    $(document).ready( function () {
-            $('#tableArsipSurat').DataTable();
-        } );
-    </script>
 @endsection

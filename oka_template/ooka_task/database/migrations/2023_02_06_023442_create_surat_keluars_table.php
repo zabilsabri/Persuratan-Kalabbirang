@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('process'); // Surat Sekarang Berada di Tahap Mana (Untuk Keperluan Riwayat User)
             $table->unsignedBigInteger('user_id'); // Warga yang menginput surat
             $table->unsignedBigInteger('pj_id'); // Penanggung Jawab atau Surat Sekarang Berada Di Siapa
-            $table->unsignedBigInteger('ttd_id'); // Yang Menandatangani Surat Ini Siapa
+            $table->unsignedBigInteger('ttd_id')->nullable(); // Yang Menandatangani Surat Ini Siapa
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
 
             // field surat ket. tidak mampu

@@ -13,14 +13,19 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    
 
     {{-- ion icon --}}
     <link rel="stylesheet" href="{{ asset('style/node_modules/ionicons201/css/ionicons.min.css') }}">
 
-
     <!-- user style -->
     <link rel="stylesheet" href="{{ asset('style/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('style/css/user.css') }}">
+
+    <link rel="stylesheet"
+        href="{{ asset('style/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('style/node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
 </head>
 
 <body>
@@ -134,13 +139,25 @@
     </nav>
 
     @yield('content')
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>
+     <script src="{{ asset('style/node_modules/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{ asset('style/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{ asset('style/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js')}}"></script>
     <script src="{{ asset('style/js/page/modules-ion-icons.js') }}"></script>
-
-
+    <script>
+        $(document).ready( function () {
+            $('#tableDokumen').DataTable();
+        } );
+    </script>
+    <script>
+    $(document).ready( function () {
+            $('#tableArsipSurat').DataTable();
+        } );
+    </script>
 </body>
 
 </html>

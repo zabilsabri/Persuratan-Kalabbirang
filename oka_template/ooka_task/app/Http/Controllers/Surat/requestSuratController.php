@@ -50,6 +50,7 @@ class requestSuratController extends Controller
         $suratKeluar->user_id = Auth::user()->id;
         $suratKeluar->no_surat = "1";
         $suratKeluar->kode_surat = "1";
+        $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
@@ -68,10 +69,10 @@ class requestSuratController extends Controller
         $request->peng_pbb->move(public_path('temp_file/pengantar/'), $peng_pbb);
 
         $data = [
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamLingkungan, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pbb, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamLingkungan, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_imamLingkungan->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_ktp->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_kk->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pbb, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_pbb->getClientOriginalName()],
         ];
 
         pengantar::insert($data);
@@ -121,6 +122,7 @@ class requestSuratController extends Controller
         $suratKeluar->user_id = Auth::user()->id;
         $suratKeluar->no_surat = "1";
         $suratKeluar->kode_surat = "1";
+        $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
@@ -147,11 +149,11 @@ class requestSuratController extends Controller
         $request->peng_pbb->move(public_path('temp_file/pengantar/'), $peng_pbb);
 
         $data = [
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kepLingkungan, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_sppt, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pbb, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kepLingkungan, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_kepLingkungan->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_ktp->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_sppt, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_sppt->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_kk->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pbb, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_pbb->getClientOriginalName()],
         ];
 
         pengantar::insert($data);
@@ -215,6 +217,7 @@ class requestSuratController extends Controller
         $suratKeluar->user_id = Auth::user()->id;
         $suratKeluar->no_surat = "1";
         $suratKeluar->kode_surat = "1";
+        $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
@@ -253,14 +256,14 @@ class requestSuratController extends Controller
             $peng_pengadilanAgama = time(). '8' . '.' . $request->peng_pengadilanAgama->extension();
             $request->peng_pengadilanAgama->move(public_path('temp_file/pengantar/'), $peng_pengadilanAgama);
             $data = [
-                ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pengadilanAgama]
+                ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pengadilanAgama, 'nama_file_surat' => $request->peng_pengadilanAgama->getClientOriginalName()]
             ];
         }
         else if ($request->peng_belumMenikah != null){
             $peng_belumMenikah = time(). '7' . '.' . $request->peng_belumMenikah->extension();
             $request->peng_belumMenikah->move(public_path('temp_file/pengantar/'), $peng_belumMenikah);
             $data = [
-                ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_belumMenikah]
+                ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_belumMenikah, 'nama_file_surat' => $request->peng_belumMenikah->getClientOriginalName()]
             ];
         }
 
@@ -272,13 +275,12 @@ class requestSuratController extends Controller
         $request->peng_ktpCalon->move(public_path('temp_file/pengantar/'), $peng_ktpCalon);
 
         $data = [
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamLingkungan, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamKelurahan, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_lunasPBB, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktpOrangTua, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kkOrangTua, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktpCalon, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_belumMenikah, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamLingkungan, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_imamLingkungan->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamKelurahan, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_imamKelurahan->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_lunasPBB, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_lunasPBB->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktpOrangTua, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_ktpOrangTua->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kkOrangTua, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_kkOrangTua->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktpCalon, 'user_id' => Auth::user()->id,'nama_file_surat' => $request->peng_ktpCalon->getClientOriginalName()],
         ];
 
         pengantar::insert($data);
@@ -330,6 +332,7 @@ class requestSuratController extends Controller
         $suratKeluar->user_id = Auth::user()->id;
         $suratKeluar->no_surat = "1";
         $suratKeluar->kode_surat = "1";
+        $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
@@ -360,10 +363,10 @@ class requestSuratController extends Controller
         $request->peng_kk->move(public_path('temp_file/pengantar/'), $peng_kk);
 
         $data = [
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kepLingkungan, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_sppt, 'user_id' => Auth::user()->id],
-            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk, 'user_id' => Auth::user()->id],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kepLingkungan, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_kepLingkungan->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_ktp->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_sppt, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_sppt->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk, 'user_id' => Auth::user()->id, 'nama_file_surat' => $request->peng_kk->getClientOriginalName()],
         ];
 
         pengantar::insert($data);
