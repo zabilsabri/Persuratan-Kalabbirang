@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('no_surat');
             $table->date('tgl_surat');
             $table->string('kode_surat');
+            $table->string('catatan')->nullable();
+            $table->string('instruksi')->nullable();
             $table->string('process'); // Surat Sekarang Berada di Tahap Mana (Untuk Keperluan Riwayat User)
             $table->unsignedBigInteger('user_id'); // Warga yang menginput surat
             $table->unsignedBigInteger('pj_id'); // Penanggung Jawab atau Surat Sekarang Berada Di Siapa
@@ -65,7 +67,7 @@ return new class extends Migration
 
 
             
-
+            $table->string('alasan_tolak', 1000)->nullable();
             $table->timestamps();
             
             $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenis_surats');

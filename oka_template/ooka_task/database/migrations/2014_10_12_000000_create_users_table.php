@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('nama');
             $table->unsignedBigInteger('role_id')->default(6);
             $table->string('username');
-            $table->string('nik')->unique();
+            $table->string('nik')->unique()->nullable();
+            $table->string('nip')->unique()->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->string('tempat_lahir')->nullable();
             $table->string('status_nikah')->nullable();
@@ -27,7 +28,8 @@ return new class extends Migration
             $table->enum('jkl', ['Laki - Laki', 'Perempuan'])->nullable();            
             $table->string('alamat')->nullable();
             $table->string('pekerjaan')->nullable();
-            $table->string('nomor_kk');
+            $table->string('nomor_kk')->nullable(); // Nomor Kartu Keluarga
+            $table->string('nomor_kp')->nullable(); // Nomor Kartu Pegawai
             $table->string('nomor_telp');
             $table->string('email')->unique();  
             $table->timestamp('email_verified_at')->nullable();
