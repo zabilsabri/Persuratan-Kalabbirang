@@ -114,8 +114,11 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
         Route::group(['prefix' => 'surat-keluar'], function() {
             Route::get('/', 'suratKeluarController@index')->name('surat-keluar-admin');
             Route::get('/input', 'suratKeluarController@input')->name('surat-keluar.input');
-            Route::get('/disposisi', 'suratKeluarController@disposisi')->name('surat-keluar.disposisi');
-            Route::get('/detail', 'suratKeluarController@detail')->name('surat-keluar-admin.detail');
+            Route::get('/disposisi/{id}', 'suratKeluarController@disposisi')->name('surat-keluar.disposisi');
+            Route::post('/disposisiProses/{id}', 'suratKeluarController@disposisiProses')->name('surat-keluar.disposisiProses');
+            Route::get('/detail/{id}', 'suratKeluarController@detail')->name('surat-keluar-admin.detail');
+            Route::get('/detailFile/{id}', 'suratKeluarController@detailFile')->name('surat-keluar-admin.detailFile');
+            Route::post('/tolakSurat/{id}', 'suratKeluarController@tolakSurat')->name('surat-keluar-admin.tolakSurat');
         });
 
         // Surat Masuk

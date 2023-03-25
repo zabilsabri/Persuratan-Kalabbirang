@@ -57,4 +57,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function suratKeluar(){
+        return $this->hasMany(suratKeluar::class, 'user_id', 'id');
+    }
+
+    // public function suratKeluarDisposisi(){
+    //     return $this->belongsToMany(suratKeluar::class, 'disposisis', 'suratKeluar_id');
+    // }
 }
