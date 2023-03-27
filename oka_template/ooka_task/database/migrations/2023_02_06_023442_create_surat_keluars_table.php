@@ -65,9 +65,6 @@ return new class extends Migration
             $table->string('pekerjaan_ibu')->nullable();
             $table->string('alamat_ibu')->nullable();
 
-
-            
-            $table->string('alasan_tolak', 1000)->nullable();
             $table->timestamps();
             
             $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenis_surats');

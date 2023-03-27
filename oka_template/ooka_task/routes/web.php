@@ -133,10 +133,15 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
         // Data Warga
         Route::group(['prefix' => 'data-warga'], function() {
             Route::get('/', 'verifController@index')->name('verifikasi');
-            Route::get('/not-verif', 'verifController@notVerif')->name('not-verif');
-            Route::get('/yes-verif', 'verifController@yesVerif')->name('yes-verif');
-            Route::get('/detail-warga', 'verifController@detailWarga')->name('detail-warga');
-            Route::get('/edit-warga', 'verifController@editWarga')->name('edit-warga');
+            Route::get('/not-verif/{id}', 'verifController@notVerif')->name('not-verif');
+            Route::post('tolakProcess/{id}', 'verifController@tolakProcess')->name('tolak-warga');
+            Route::get('verifProcess/{id}', 'verifController@verifProcess')->name('verif-warga');
+            Route::get('/yes-verif/{id}', 'verifController@yesVerif')->name('yes-verif');
+            Route::get('/detail-warga/{id}', 'verifController@detailWarga')->name('detail-warga');
+            Route::get('/edit-warga/{id}', 'verifController@editWarga')->name('edit-warga');
+            Route::get('/delete-warga/{id}', 'verifController@deleteWarga')->name('delete-warga');
+            Route::post('/edit-warga-process/{id}', 'verifController@editWargaProcess')->name('edit-user-process');
+            Route::get('/detailFile/{id}', 'verifController@detailFile')->name('dokumen-user-admin.detailFile');
         });
 
         // Data Pegawai
