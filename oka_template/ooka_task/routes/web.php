@@ -139,8 +139,10 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
         // Data Pegawai
         Route::group(['prefix' => 'data-lurah-kasi'], function() {
             Route::get('/', 'dataLurahKasiController@index')->name('data-lurah-kasi');
-            Route::get('/detail-lurah-kasi', 'dataLurahKasiController@detail')->name('detail-lurah-kasi');
-            Route::get('/edit-lurah-kasi', 'dataLurahKasiController@edit')->name('edit-lurah-kasi');
+            Route::get('/detail-lurah-kasi/{id}', 'dataLurahKasiController@detail')->name('detail-lurah-kasi');
+            Route::get('/edit-lurah-kasi/{id}', 'dataLurahKasiController@edit')->name('edit-lurah-kasi');
+            Route::get('/delete-pegawai/{id}', 'dataLurahKasiController@deletePegawai')->name('delete-pegawai');
+            Route::post('/edit-lurah-kasi-process/{id}', 'dataLurahKasiController@editProcess')->name('edit-lurah-kasi-process');
         });
 
         // Surat Arsip
