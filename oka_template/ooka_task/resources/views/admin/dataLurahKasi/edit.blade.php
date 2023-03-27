@@ -4,46 +4,49 @@
     <div class="hal-body pt-4">
         <img src="{{ asset('style/img/avatar/avatar-1.png') }}" class="profile-picture-user mb-4" width="300px" height="305px" alt="...">
         <div class="profil-input">
+        @foreach($users as $user)
+            <form action="{{ route('edit-lurah-kasi-process', [$user -> id]) }}" method="POST">
+                @csrf
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Lorem Ipsum Dolor" value="Lorem Ipsum Dolor">
+                            <input type="text" class="form-control" id="floatingInput" name="nama" value="{{ $user -> nama }}">
                             <label for="floatingInput" class="profil-input-label">Nama Lengkap</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="00000000000000000000000" value="00000000000000000000000">
+                            <input type="text" class="form-control" id="floatingInput" name="nomor_kp" value="{{ $user -> nomor_kp }}">
                             <label for="floatingInput" class="profil-input-label">No. Kartu Kasi</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="00000000000000000000000" value="00000000000000000000000">
+                            <input type="text" class="form-control" id="floatingInput" name="nip" value="{{ $user -> nip }}">
                             <label for="floatingInput" class="profil-input-label">NIP</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Lorem Ipsum Dolor" value="Lorem Ipsum Dolor">
+                            <input type="text" class="form-control" id="floatingInput" name="jabatan" value="{{ $user -> role -> nama }}">
                             <label for="floatingInput" class="profil-input-label">Jabatan</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="Loremipsum@gmail.com" value="Loremipsum@gmail.com">
+                            <input type="email" class="form-control" id="floatingInput" name="email" value="{{ $user -> email }}">
                             <label for="floatingInput" class="profil-input-label">Email</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="000000000000000000" value="000000000000000000">
+                            <input type="text" class="form-control" id="floatingInput" name="nomor_telp" value="{{ $user -> nomor_telp }}">
                             <label for="floatingInput" class="profil-input-label">No. Telepon</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Lorem Ipsum" value="Lorem Ipsum">
+                            <input type="text" class="form-control" id="floatingInput" name="alamat" value="{{ $user -> alamat }}">
                             <label for="floatingInput" class="profil-input-label">Alamat</label>
                         </div>
                     </div>
@@ -57,9 +60,11 @@
                         </div>
                     </div>
                 </div>
+            @endforeach
                 <div class="text-center mt-4">
-                    <a class="btn btn-success w-25" href="{{ route('edit-lurah-kasi') }}" role="button">UBAH DATA</a>
+                    <button class="btn btn-success w-25" type="submit" role="button">SIMPAN</button>
                 </div>
+            </form>
         </div>
     </div>
     

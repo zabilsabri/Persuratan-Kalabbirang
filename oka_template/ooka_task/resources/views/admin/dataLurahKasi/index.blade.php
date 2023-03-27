@@ -26,86 +26,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($lurahs as $index => $lurah)
                             <tr>
-                                <td scope="col">1</td>
-                                <td scope="col">Hip Hop</td>
-                                <td scope="col">Hip Hop</td>
-                                <td scope="col">Hip Hop</td>
+                                <td scope="col">{{ $index + 1 }}</td>
+                                <td scope="col">{{ $lurah -> nama }}</td>
+                                <td scope="col">{{ $lurah -> nik }}</td>
+                                <td scope="col">{{ $lurah -> alamat ?? '-' }}</td>
                                 <td scope="col">
                                     {{-- Detail --}}
-                                    <a href="{{ route('detail-lurah-kasi') }}" class="btn btn-warning">
+                                    <a href="{{ route('detail-lurah-kasi', [$lurah -> id]) }}" class="btn btn-warning">
                                         <i class="ion ion-information"></i>
                                     </a>
-                                    {{-- Edit --}}
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="ion ion-compose"></i>
-                                    </a>
-                                    {{-- Hapus --}}
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                        <i class="ion ion-trash-a"></i>
-                                    </button>
                                 </td>
                             </tr>
-                        <tr>
-                            <td scope="col">2</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">
-                                {{-- Detail --}}
-                                <a href="{{ route('detail-lurah-kasi') }}" class="btn btn-warning">
-                                    <i class="ion ion-information"></i>
-                                </a>
-                                {{-- Edit --}}
-                                <a href="#" class="btn btn-primary">
-                                    <i class="ion ion-compose"></i>
-                                </a>
-                                {{-- Hapus --}}
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="col">3</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">
-                                {{-- Detail --}}
-                                <a href="{{ route('detail-lurah-kasi') }}" class="btn btn-warning">
-                                    <i class="ion ion-information"></i>
-                                </a>
-                                {{-- Edit --}}
-                                <a href="#" class="btn btn-primary">
-                                    <i class="ion ion-compose"></i>
-                                </a>
-                                {{-- Hapus --}}
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="col">4</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col" >
-                                {{-- Detail --}}
-                                <a href="{{ route('detail-lurah-kasi') }}" class="btn btn-warning">
-                                    <i class="ion ion-information"></i>
-                                </a>
-                                {{-- Edit --}}
-                                <a href="#" class="btn btn-primary">
-                                    <i class="ion ion-compose"></i>
-                                </a>
-                                {{-- Hapus --}}
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -126,86 +60,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($kasis as $index2 => $kasi)
                             <tr>
-                                <td scope="col">1</td>
-                                <td scope="col">Hip Hop</td>
-                                <td scope="col">Hip Hop</td>
-                                <td scope="col">Hip Hop</td>
+                                <td scope="col">{{ $index2 + 1 }}</td>
+                                <td scope="col">{{ $kasi -> nama }}</td>
+                                <td scope="col">{{ $kasi -> nik}}</td>
+                                <td scope="col">{{ $kasi -> alamat ?? '-'}}</td>
                                 <td scope="col">
                                     {{-- Detail --}}
-                                    <a href="{{ route('detail-lurah-kasi') }}" class="btn btn-warning">
+                                    <a href="{{ route('detail-lurah-kasi', [$kasi -> id]) }}" class="btn btn-warning">
                                         <i class="ion ion-information"></i>
                                     </a>
-                                    {{-- Edit --}}
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="ion ion-compose"></i>
-                                    </a>
-                                    {{-- Hapus --}}
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                        <i class="ion ion-trash-a"></i>
-                                    </button>
                                 </td>
                             </tr>
-                        <tr>
-                            <td scope="col">2</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">
-                                {{-- Detail --}}
-                                <a href="{{ route('detail-lurah-kasi') }}" class="btn btn-warning">
-                                    <i class="ion ion-information"></i>
-                                </a>
-                                {{-- Edit --}}
-                                <a href="#" class="btn btn-primary">
-                                    <i class="ion ion-compose"></i>
-                                </a>
-                                {{-- Hapus --}}
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="col">3</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">
-                                {{-- Detail --}}
-                                <a href="{{ route('detail-lurah-kasi') }}" class="btn btn-warning">
-                                    <i class="ion ion-information"></i>
-                                </a>
-                                {{-- Edit --}}
-                                <a href="#" class="btn btn-primary">
-                                    <i class="ion ion-compose"></i>
-                                </a>
-                                {{-- Hapus --}}
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td scope="col">4</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col" >
-                                {{-- Detail --}}
-                                <a href="{{ route('detail-lurah-kasi') }}" class="btn btn-warning">
-                                    <i class="ion ion-information"></i>
-                                </a>
-                                {{-- Edit --}}
-                                <a href="#" class="btn btn-primary">
-                                    <i class="ion ion-compose"></i>
-                                </a>
-                                {{-- Hapus --}}
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
