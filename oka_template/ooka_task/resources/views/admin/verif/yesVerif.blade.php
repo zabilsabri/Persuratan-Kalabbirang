@@ -5,7 +5,7 @@
     <div class="hal-head">
         <h1>Verifikasi Warga</h1>
     </div>
-    <div class="row">
+    <div class="row" style="padding: 20px; margin-right: 0px">
         <div class="profil-input col-7">
             <fieldset disabled>
                 <div class="form-floating mb-3">

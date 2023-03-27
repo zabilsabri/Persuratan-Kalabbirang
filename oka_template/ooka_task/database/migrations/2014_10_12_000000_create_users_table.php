@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('profil')->nullable(); // foto profil
             $table->string('ktp')->nullable(); // foto ktp
             $table->string('swafoto_ktp')->nullable(); // swafoto ktp
-            $table->boolean('verif_user')->default(0);
+            $table->boolean('verif_user')->default(0)->nullable();
             $table->rememberToken();
             $table->timestamps();
 
