@@ -89,10 +89,6 @@
                                 <a href="{{ route('detail-warga', [$user_all -> id]) }}" class="btn btn-warning">
                                     <i class="ion ion-information"></i>
                                 </a>
-                                {{-- Hapus --}}
-                                <a class="btn btn-danger" data-bs-toggle="modal" href="{{ route('delete-warga', [$user_all -> id]) }}" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </a>
                             </td>                        
                         </tr>
                         @endforeach

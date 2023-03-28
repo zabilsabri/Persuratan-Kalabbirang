@@ -61,7 +61,9 @@ class verifController extends Controller
     }
 
     public function yesVerif($id) {
-        return view('admin.verif.yesVerif');
+        $users = User::where('id', $id)->get();
+        return view('admin.verif.yesVerif')
+            ->with(compact('users'));
     }
 
     public function detailWarga($id) {  
@@ -88,7 +90,7 @@ class verifController extends Controller
         $users->nomor_telp = $request->nomor_telp;
         $users->save();
 
-        return back()->with('message', 'Data User Berhasil Diedit');
+        return redirect()->route('detail-warga', $id)->with('message', 'Data User Berhasil Diedit');
     }
 
     public function detailFile($id){
@@ -98,7 +100,7 @@ class verifController extends Controller
 
     public function deleteWarga($id)
     {
-        $deleted = DB::table('users')->where('id','=', $id)->delete();
-        return back();
+        $deleted = User::where('id','=', $id)->delete();
+        return redirect()->route('verifikasi');
     }
 }
