@@ -101,6 +101,15 @@
                     <td class="surat-detail">(Belum)</td>
                     @endif
                 </tr>
+                <tr>
+                    <td class="surat-kategori" >TTD</td>
+                    <td>:</td>
+                    @if(isset($surat -> ttd_id))
+                    <td class="surat-detail">(Sudah)</td>
+                    @else
+                    <td class="surat-detail">(Belum)</td>
+                    @endif
+                </tr>
             </table>
         </div>
         @endforeach
