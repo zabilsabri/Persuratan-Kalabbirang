@@ -106,8 +106,11 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
         Route::group(['prefix' => 'berita'], function() {
             Route::get('/', 'BeritaController@index')->name('berita-admin');
             Route::get('/tambah', 'BeritaController@tambah')->name('berita-admin.tambah');
-            Route::get('/detail', 'BeritaController@detail')->name('berita-admin.detail');
-            Route::get('/edit', 'BeritaController@edit')->name('berita-admin.edit');
+            Route::post('/tambah-berita', 'BeritaController@tambahBeritaProcess')->name('berita-admin.tambahProcess');
+            Route::get('/detail/{id}', 'BeritaController@detail')->name('berita-admin.detail');
+            Route::get('/edit/{id}', 'BeritaController@edit')->name('berita-admin.edit');
+            Route::post('/edit-berita/{id}', 'BeritaController@editBeritaProcess')->name('berita-admin.editProcess');
+            Route::get('/delete-berita/{id}', 'BeritaController@deleteBerita')->name('delete-berita');
         });
         
         // Surat Keluar

@@ -16,4 +16,8 @@ class ttd extends Model
     public function user() {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function suratKeluar(){
+        return $this->hasMany(suratKeluar::class, 'ttd_id', 'id');
+    }
 }
