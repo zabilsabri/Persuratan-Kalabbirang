@@ -31,6 +31,7 @@ class suratKeluarController extends Controller
         $surats->catatan = $request->catatan;
         $surats->instruksi = $request->instruksi;
         $surats->pj_id = $request->penerima;
+        $surats->process = "2";
         $surats->save();
 
         $disposisi = new disposisi();

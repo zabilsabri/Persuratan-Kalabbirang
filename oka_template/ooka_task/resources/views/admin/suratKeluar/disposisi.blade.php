@@ -64,6 +64,7 @@
                         <option value="3" >Kasi Pemerintahan, Ketertiban, dan Ketentraman</option>
                         <option value="4" >Kasi Pemerintahan</option>
                         <option value="5" >Kasi Ekonomi dan Kesejahteraan Masyarakat</option>
+                        <option value="{{ $surat -> user_id }}" >{{ $surat -> user -> nama }}</option>
                     </select>
                 </div>
             </div>

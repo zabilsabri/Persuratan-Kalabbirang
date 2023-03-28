@@ -77,6 +77,10 @@ class suratKeluar extends Model
         return $this->belongsTo(User::class, 'pj_id', 'id');
     }
 
+    public function ttd(){
+        return $this->belongsTo(ttd::class, 'ttd_id', 'id');
+    }
+
     // public function userK(){
     //     return $this->belongsToMany(User::class, 'disposisis', 'userk_id');
     // }

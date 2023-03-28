@@ -16,7 +16,11 @@ return new class extends Migration
         Schema::create('beritas', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('content');
+            $table->date('tgl_berita');
+            $table->string('tempat_kejadian');
+            $table->string('penulis');
+            $table->string('deskripsi', 1000);
+            $table->string('gambar');
             $table->timestamps();
         });
     }
