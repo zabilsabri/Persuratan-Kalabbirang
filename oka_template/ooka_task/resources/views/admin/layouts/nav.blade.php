@@ -19,9 +19,9 @@
                             <img alt="" title="Administrator" src="{{ asset('style/img/avatar/avatar-1.png') }}"
                                 class="rounded-circle mr-1" style="margin-bottom: 17px;"/>
                             <div class="d-sm-none d-lg-inline-block lh-1">
-                                <span class="nama-navbar" > Hi, Ujang Maman </span>
+                                <span class="nama-navbar" > {{ Auth::user()->nama }} </span>
                                 <br>
-                                <span class="level-navbar" > Administrator </span>
+                                <span class="level-navbar" > {{ Auth::user()->role->nama }} </span>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">

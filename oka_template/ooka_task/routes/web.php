@@ -104,6 +104,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
         Route::group(['prefix' => 'profil'], function() {
             Route::get('/', 'ProfilController@index')->name('profil-admin');
             Route::get('/edit', 'ProfilController@edit')->name('profil-admin.edit');
+            Route::post('update-data', 'ProfilController@update')->name('update-data');
         });
 
         // Berita
