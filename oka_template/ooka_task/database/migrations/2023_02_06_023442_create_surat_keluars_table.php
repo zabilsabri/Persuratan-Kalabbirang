@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('catatan')->nullable();
             $table->string('instruksi')->nullable();
             $table->string('process'); // Surat Sekarang Berada di Tahap Mana (Untuk Keperluan Riwayat User)
-            $table->unsignedBigInteger('user_id'); // Warga yang menginput surat
+            $table->unsignedBigInteger('user_id')->nullable(); // Warga yang menginput surat
             $table->unsignedBigInteger('pj_id'); // Penanggung Jawab atau Surat Sekarang Berada Di Siapa
             $table->unsignedBigInteger('ttd_id')->nullable(); // Yang Menandatangani Surat Ini Siapa
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
@@ -68,7 +68,7 @@ return new class extends Migration
             $table->timestamps();
             
             $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenis_surats');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('pj_id')->references('id')->on('roles');
             $table->foreign('ttd_id')->references('id')->on('ttds');
 
