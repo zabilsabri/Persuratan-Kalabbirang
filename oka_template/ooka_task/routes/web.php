@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController as Users;
-
-
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +14,12 @@ use App\Http\Controllers\User\UserController as Users;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/cc', function () {
+    Artisan::call('optimize:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    Artisan::call('route:cache');
+});
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], function() {
 
