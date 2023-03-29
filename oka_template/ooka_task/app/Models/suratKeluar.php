@@ -68,5 +68,25 @@ class suratKeluar extends Model
     public function pengantar(){
         return $this->hasMany(pengantar::class, 'suratKeluar_id', 'id');
     }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function pj(){
+        return $this->belongsTo(User::class, 'pj_id', 'id');
+    }
+
+    public function ttd(){
+        return $this->belongsTo(ttd::class, 'ttd_id', 'id');
+    }
+
+    // public function userK(){
+    //     return $this->belongsToMany(User::class, 'disposisis', 'userk_id');
+    // }
+
+    // public function userT(){
+    //     return $this->belongsToMany(User::class, 'disposisis', 'usert_id');
+    // }
 }
 

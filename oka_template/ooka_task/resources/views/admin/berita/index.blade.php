@@ -24,92 +24,30 @@
                             <tr>
                                 <th scope="col" style="width: 10px;">No</th>
                                 <th scope="col">Judul Berita</th>
-                                <th scope="col">Sumber</th>
+                                <th scope="col">Penulis</th>
                                 <th scope="col">Tgl Publikasi</th>
                                 <th scope="col" style="width: 100px">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($beritas as $index => $berita)
                                 <tr>
-                                    <td scope="col">1</td>
-                                    <td scope="col">Hip Hop</td>
-                                    <td scope="col">Hip Hop</td>
-                                    <td scope="col">Hip Hop</td>
+                                    <td scope="col">{{ $index + 1 }}</td>
+                                    <td scope="col">{{ $berita -> judul }}</td>
+                                    <td scope="col">{{ $berita -> penulis }}</td>
+                                    <td scope="col">{{ $berita -> tgl_berita }}</td>
                                     <td>
                                         {{-- Detail --}}
-                                        <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
+                                        <a href="{{ route('berita-admin.detail', [$berita -> id]) }}" class="btn btn-warning">
                                             <i class="ion ion-information"></i>
                                         </a>
                                         {{-- Edit --}}
-                                        <a href="#" class="btn btn-primary">
+                                        <a href="{{ route('berita-admin.edit', [$berita -> id]) }}" class="btn btn-primary">
                                             <i class="ion ion-compose"></i>
                                         </a>
-                                        {{-- Hapus --}}
-                                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                            <i class="ion ion-trash-a"></i>
-                                        </button>
                                     </td>
                                 </tr>
-                            <tr>
-                                <td scope="col">2</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td>
-                                    {{-- Detail --}}
-                                    <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
-                                        <i class="ion ion-information"></i>
-                                    </a>
-                                    {{-- Edit --}}
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="ion ion-compose"></i>
-                                    </a>
-                                    {{-- Hapus --}}
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                        <i class="ion ion-trash-a"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="col">3</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td>
-                                    {{-- Detail --}}
-                                    <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
-                                        <i class="ion ion-information"></i>
-                                    </a>
-                                    {{-- Edit --}}
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="ion ion-compose"></i>
-                                    </a>
-                                    {{-- Hapus --}}
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                        <i class="ion ion-trash-a"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td scope="col">4</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td>
-                                    {{-- Detail --}}
-                                    <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
-                                        <i class="ion ion-information"></i>
-                                    </a>
-                                    {{-- Edit --}}
-                                    <a href="#" class="btn btn-primary">
-                                        <i class="ion ion-compose"></i>
-                                    </a>
-                                    {{-- Hapus --}}
-                                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                        <i class="ion ion-trash-a"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>        
                 </div>

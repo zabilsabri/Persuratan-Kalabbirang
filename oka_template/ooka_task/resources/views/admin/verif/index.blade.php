@@ -45,34 +45,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($users as $index => $user)
                             <tr>
-                                <td scope="col">1</td>
-                                <td scope="col">Hip Hop</td>
-                                <td scope="col">Hip Hop</td>
-                                <td scope="col">Hip Hop</td>
-                                <td scope="col"><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
+                                <td scope="col">{{ $index + 1 }}</td>
+                                <td scope="col">{{ $user -> nama }}</td>
+                                <td scope="col">{{ $user -> nik }}</td>
+                                <td scope="col">{{ $user -> alamat ?? '-' }}</td>
+                                @if($user -> verif_user != 0)
+                                    <td scope="col"><a class="text-success" href="{{ route('yes-verif', [$user -> id]) }}">Ya</a></td>
+                                @else
+                                    <td scope="col"><a class=" text-danger" href="{{ route('not-verif', [$user -> id]) }}">Belum</a></td>
+                                @endif
                             </tr>
-                        <tr>
-                            <td scope="col">2</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col"><a class=" text-danger" href="{{ route('not-verif') }}">Belum</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="col">3</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col"><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
-                        </tr>
-                        <tr>
-                            <td scope="col">4</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col" ><a class="text-success" href="{{ route('yes-verif') }}">Ya</a></td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -93,82 +78,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($users_all as $index2 => $user_all)
                         <tr>
-                            <td scope="col">1</td>
-                            <td scope="col">Hip Hop</td>
-                            <td scope="col">Hip Hop</td>
-                            <td scope="col">Hip Hop</td>
+                            <td scope="col">{{ $index2 + 1 }}</td>
+                            <td scope="col">{{ $user_all -> nama }}</td>
+                            <td scope="col">{{ $user_all -> nik }}</td>
+                            <td scope="col">{{ $user_all -> alamat ?? '-' }}</td>
                             <td>
                                 {{-- Detail --}}
-                                <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
+                                <a href="{{ route('detail-warga', [$user_all -> id]) }}" class="btn btn-warning">
                                     <i class="ion ion-information"></i>
                                 </a>
-                                {{-- Edit --}}
-                                <a href="#" class="btn btn-primary">
-                                    <i class="ion ion-compose"></i>
-                                </a>
-                                {{-- Hapus --}}
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </button>
-                            </td>                        </tr>
-                        <tr>
-                            <td scope="col">2</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td>
-                                {{-- Detail --}}
-                                <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
-                                    <i class="ion ion-information"></i>
-                                </a>
-                                {{-- Edit --}}
-                                <a href="#" class="btn btn-primary">
-                                    <i class="ion ion-compose"></i>
-                                </a>
-                                {{-- Hapus --}}
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </button>
-                            </td>                        </tr>
-                        <tr>
-                            <td scope="col">3</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td>
-                                {{-- Detail --}}
-                                <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
-                                    <i class="ion ion-information"></i>
-                                </a>
-                                {{-- Edit --}}
-                                <a href="#" class="btn btn-primary">
-                                    <i class="ion ion-compose"></i>
-                                </a>
-                                {{-- Hapus --}}
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </button>
-                            </td>                        </tr>
-                        <tr>
-                            <td scope="col">4</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td scope="col">Jazz</td>
-                            <td>
-                                {{-- Detail --}}
-                                <a href="{{ route('berita-admin.detail') }}" class="btn btn-warning">
-                                    <i class="ion ion-information"></i>
-                                </a>
-                                {{-- Edit --}}
-                                <a href="#" class="btn btn-primary">
-                                    <i class="ion ion-compose"></i>
-                                </a>
-                                {{-- Hapus --}}
-                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalHapusBerita">
-                                    <i class="ion ion-trash-a"></i>
-                                </button>
-                            </td>                        </tr>
+                            </td>                        
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

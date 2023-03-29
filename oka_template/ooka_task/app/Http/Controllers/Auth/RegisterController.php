@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\notifikasi;
 
 
 class RegisterController extends Controller
@@ -45,6 +46,13 @@ class RegisterController extends Controller
         $user->swafoto_ktp = $swafoto_ktp;
 
         $user->save();
+
+        $notifikasi = new notifikasi();
+        $notifikasi->user_id = $user -> id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Silahkan menunggu. Data anda sedang diverifikasi oleh admin.";
+        $notifikasi->save();
+
 
         return redirect()->route('login')->with('message', 'Data Armada Berhasil Ditambahkan!');
     
