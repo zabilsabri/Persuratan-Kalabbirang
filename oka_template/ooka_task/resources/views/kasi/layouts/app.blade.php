@@ -26,6 +26,9 @@
     <link rel="stylesheet"
         href="{{ asset('style/node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
 
+    <!-- Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('style/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('style/css/components.css') }}" />

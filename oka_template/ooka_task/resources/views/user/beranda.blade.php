@@ -52,43 +52,20 @@
         </div>
         <div class="berita-body mt-4 mb-4">
             <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach($beritas as $berita)
                 <div class="col">
-                    <a href="{{ route('detail.berita') }}">
+                    <a href="{{ route('detail.berita', [$berita -> id]) }}">
                         <div class="container-berita">
-                            <img src="{{asset('image/berita1.png')}}" class="p-auto" alt="Snow" style="width:100%; height:217px">
+                            <img src="{{ asset('temp_file/berita/'. $berita -> gambar ) }}" class="p-auto" alt="Snow" style="width:100%; height:217px">
                             <div class="bottom-left">
                             <p class="berita-img" >
-                                <span class="judul-berita-img" > Judul berita </span> <br> Lorem Ipsum Dolor sit Amet
+                                <span class="judul-berita-img" > {{ $berita -> judul }} </span> <br> {{ $berita -> tgl_berita }}
                             </p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col">
-                    <a href="{{ route('detail.berita') }}">
-                        <div class="container-berita">
-                            <img src="{{asset('image/berita2.png')}}" alt="Snow" class="p-auto" style="width:100%; height:217px">
-                            <div class="bottom-left">
-                            <p class="berita-img" >
-                                <span class="judul-berita-img" > Judul berita </span> <br> Lorem Ipsum Dolor sit Amet
-                            </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{{ route('detail.berita') }}">
-                        <div class="container-berita">
-                            <img src="{{asset('image/berita3.png')}}" alt="Snow" class="p-auto" style="width:100%; height:217px">
-                            <div class="bottom-left">
-                            <p class="berita-img" >
-                                <span class="judul-berita-img" > Judul berita </span> <br> Lorem Ipsum Dolor sit Amet
-                            </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                </div>
+                @endforeach
             </div>
     </div>
 

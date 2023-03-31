@@ -123,30 +123,30 @@
 //   }
 // });
 
-var ctx = document.getElementById("myChart4").getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    datasets: [{
-      data: [
-        80,
-        50,
-      ],
-      backgroundColor: [
-        '#67C587',
-        '#C4F2CD',
-      ],
-      label: 'Dataset 1'
-    }],
-    labels: [
-      'Dengan Login',
-      'Tanpa Login',
-    ],
-  },
-  options: {
-    responsive: true,
-    legend: {
-      position: 'right',
-    },
-  }
-});
+// var ctx = document.getElementById("myChart4").getContext('2d');
+// var myChart = new Chart(ctx, {
+//   type: 'pie',
+//   data: {
+//     datasets: [{
+//       data: [
+//         80,
+//         50,
+//       ],
+//       backgroundColor: [
+//         '#67C587',
+//         '#C4F2CD',
+//       ],
+//       label: 'Dataset 1'
+//     }],
+//     labels: [
+//       'Dengan Login',
+//       'Tanpa Login',
+//     ],
+//   },
+//   options: {
+//     responsive: true,
+//     legend: {
+//       position: 'right',
+//     },
+//   }
+// });
