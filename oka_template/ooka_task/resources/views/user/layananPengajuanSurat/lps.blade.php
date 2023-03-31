@@ -750,7 +750,7 @@
                     Fotocopy Kartu Tanda Penduduk (KTP) dan Kartu Keluarga (KK)
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ Auth()->user('id') == '' ? route('login') : route('surat3') }}" role="button">Mulai</a>
+            <a class="btn btn-success float-end" href="{{ Auth()->user()->verif_user != '1' ? route('login') : route('surat3') }}" role="button">Mulai</a>
         </div>
     </div>
     <!-- <div class=" surat col-md-6 mt-5">
@@ -1632,7 +1632,7 @@
                     Surat Kematian atau keputusan pengadilan agama apabila yang menikah berstatus janda atau duda
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ Auth()->user('id') == '' ? route('login') : route('surat11') }}" role="button">Mulai</a>
+            <a class="btn btn-success float-end" href="{{ Auth()->user()->verif_user != '1' ? route('login') : route('surat11') }}" role="button">Mulai</a>
         </div>
     </div>
     <div class=" surat col-md-6 mt-5">
@@ -1770,7 +1770,7 @@
                     Fotocopy Kartu Tanda Penduduk (KTP) dan Kartu Keluarga (KK)
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ Auth()->user('id') == '' ? route('login') : route('surat12') }}" role="button">Mulai</a>
+            <a class="btn btn-success float-end" href="{{ Auth()->user()->verif_user != '1' ? route('login') : route('surat12') }}" role="button">Mulai</a>
         </div>
     </div>
     <div class=" surat col-md-6 mt-5">
@@ -1908,7 +1908,7 @@
                     Fotocopy Kartu Tanda Penduduk (KTP) dan Kartu Keluarga (KK)
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ Auth()->user('id') == '' ? route('login') : route('surat13') }}" role="button">Mulai</a>
+            <a class="btn btn-success float-end" href="{{ Auth()->user()->verif_user != '1' ? route('login') : route('surat13') }}" role="button">Mulai</a>
         </div>
     </div>
 </div>

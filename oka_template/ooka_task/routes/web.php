@@ -63,7 +63,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
 
     // Berita
     Route::get('/berita', 'BeritaController@index')->name('berita');
-    Route::get('/detail_berita', 'BeritaController@detail')->name('detail.berita');
+    Route::get('/detail_berita/{id}', 'BeritaController@detail')->name('detail.berita');
     
     // Riwayat
     Route::get('/riwayat', 'RiwayatController@index')->name('riwayat');
@@ -99,6 +99,9 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
 
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard-admin');
+
+        // Logout
+        Route::get('/logout', 'DashboardController@logout')->name('logout-admin');
         
         // Profil
         Route::group(['prefix' => 'profil'], function() {
@@ -180,6 +183,9 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah', 'midd
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard-lurah');
 
+        // Logout
+        Route::get('/logout', 'DashboardController@logout')->name('logout-lurah');
+
         // Surat Masuk
         Route::group(['prefix' => 'surat-masuk'], function() {
             Route::get('/', 'suratMasukController@index')->name('surat-masuk-lurah');
@@ -197,6 +203,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah', 'midd
         Route::group(['prefix' => 'profil'], function() {
             Route::get('/', 'ProfilController@index')->name('profil-lurah');
             Route::get('/edit', 'ProfilController@edit')->name('profil-lurah.edit');
+            Route::post('update-data', 'ProfilController@update')->name('update-data-lurah');
         });
     });
 });
@@ -207,6 +214,9 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi', 'middl
 
         // Dashboard
         Route::get('/', 'DashboardController@index')->name('dashboard-kasi');
+
+        // Logout
+        Route::get('/logout', 'DashboardController@logout')->name('logout-kasi');
 
         // Surat Masuk
         Route::group(['prefix' => 'surat-masuk'], function() {
@@ -225,6 +235,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi', 'middl
         Route::group(['prefix' => 'profil'], function() {
             Route::get('/', 'ProfilController@index')->name('profil-kasi');
             Route::get('/edit', 'ProfilController@edit')->name('profil-kasi.edit');
+            Route::post('update-data', 'ProfilController@update')->name('update-data-kasi');
         });
     });
 });

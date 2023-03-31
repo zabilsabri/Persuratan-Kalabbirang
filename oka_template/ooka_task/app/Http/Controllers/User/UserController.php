@@ -5,11 +5,14 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Berita;
 
 class UserController extends Controller
 {
     public function beranda() {
-        return view('user.beranda');
+        $beritas = Berita::limit(3)->get();
+        return view('user.beranda')
+            ->with(compact('beritas'));
     }
     
     public function dataSimpan() {

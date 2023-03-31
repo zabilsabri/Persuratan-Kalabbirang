@@ -19,7 +19,7 @@ class ProfilController extends Controller
 
         $users = User::find(Auth::user()->id);
         $users->nama = $request->nama;
-        $users->nomor_kk = $request->nomor_kp;
+        $users->nomor_kp = $request->nomor_kp;
         $users->nip = $request->nip;
         $users->role->nama = $request->jabatan;
         $users->email = $request->email;
