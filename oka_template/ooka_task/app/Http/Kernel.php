@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'Admin' => \App\Http\Middleware\AdminMiddleware::class,
         'Lurah' => \App\Http\Middleware\LurahMiddleware::class,
         'Kasi' => \App\Http\Middleware\KasiMiddleware::class,
+        'count.visitors' => \App\Http\Middleware\CountVisitors::class,
     ];
 }

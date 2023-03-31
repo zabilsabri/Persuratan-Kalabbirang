@@ -9,10 +9,13 @@ use App\Models\User;
 use App\Models\suratKeluar;
 use App\Models\suratMasuk;
 use Auth;
+use Session;
 
 class DashboardController extends Controller
 {
     public function index() {
+        $totalLoggedInVisitors = Cache::get('total_logged_in_visitors');
+        $totalNonLoggedInVisitors = Cache::get('total_non_logged_in_visitors');
         $jumlah_surat_keluar = suratKeluar::count();
         $jumlah_surat_masuk = suratMasuk::count();
         $users_notVerif = User::where('verif_user', 0)->count();
@@ -27,7 +30,9 @@ class DashboardController extends Controller
             ->with(compact('users_verif'))
             ->with(compact('jumlah_surat_keluar'))
             ->with(compact('jumlah_surat_masuk'))
-            ->with(compact('users_all'));
+            ->with(compact('users_all'))
+            ->with(compact('totalLoggedInVisitors'))
+            ->with(compact('totalNonLoggedInVisitors'));
     }
 
     public function logout()

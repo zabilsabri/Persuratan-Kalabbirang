@@ -33,7 +33,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 
 });
 
-Route::get('/', [Users::class, 'beranda'])->name('beranda');
+Route::get('/', [Users::class, 'beranda'])->name('beranda')->middleware('count.visitors');
 // Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
 Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
 Route::get('profil-user', [Users::class, 'profilUserLogin'])->name('profil-user');

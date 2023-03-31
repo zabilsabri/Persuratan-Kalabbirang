@@ -131,8 +131,8 @@
     data: {
         datasets: [{
         data: [
-            "{{$users_notVerif}}",
-            "{{$users_verif}}",
+            "{{$totalLoggedInVisitors}}",
+            "{{$totalNonLoggedInVisitors}}",
         ],
         backgroundColor: [
             '#67C587',
