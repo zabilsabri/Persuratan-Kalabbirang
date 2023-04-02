@@ -239,3 +239,12 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi', 'middl
         });
     });
 });
+
+//Surat
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Surat'], function () {
+    Route::group(['prefix' => 'surat'], function () {
+
+        Route::get('/exportSurat/{id}', 'suratController@exportData');
+
+    });
+});
