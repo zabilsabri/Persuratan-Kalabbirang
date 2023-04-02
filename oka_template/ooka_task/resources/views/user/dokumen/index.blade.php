@@ -11,53 +11,29 @@
             </h1>
         </div>
 
-        <div class="row mt-5 justify-content-evenly px-5">
-            <div class="col-md-5">
-
-                <div class="card mt-md-0 mt-4">
-                    <div class="card-body">
-                        <h3 class=" text-success fw-bold"><b> Nama Dokumen </b></h3>
-                        <img src="{{ asset('image/dump.png') }}" class="img-fluid p-3" alt="...">
-
-                        <div class="d-flex justify-content-between px-2">
-                            <a href="#" class="text-danger text-decoration-none d-flex align-items-center"">
-                                <i class="ion ion-trash-a fs-4 pe-3"></i>
-                                <h6 class="pt-1"> Hapus file </h6>
-                            </a>
-                            <a href="#" class="text-secondary text-decoration-none d-flex align-items-center"">
-                                <i class="ion ion-ios-copy-outline pe-3 fs-4"></i>
-                                <h6 class="pt-1"> Ganti File </h6>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-5">
-
-                <div class="card mt-md-0 mt-4">
-                    <div class="card-body">
-                        <h3 class=" text-success fw-bold"><b> Nama Dokumen </b></h3>
-                        <img src="{{ asset('image/dump.png') }}" class="img-fluid p-3" alt="...">
-
-                        <div class="d-flex justify-content-between px-2">
-                            <a href="#" class="text-danger text-decoration-none d-flex align-items-center"">
-                                <i class="ion ion-trash-a fs-4 pe-3"></i>
-                                <h6 class="pt-1"> Hapus file </h6>
-                            </a>
-                            <a href="#" class="text-secondary text-decoration-none d-flex align-items-center"">
-                                <i class="ion ion-ios-copy-outline pe-3 fs-4"></i>
-                                <h6 class="pt-1"> Ganti File </h6>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
-
-
+        <table id="tableDokumen" class="table">
+            <thead style="background-color: #CCFFDA;">
+                <tr>
+                    <th>No</th>
+                    <th>Nama File</th>
+                    <th>Uploaded At</th>
+                    <th>File</th>
+                </tr>
+            </thead>
+            <tbody style="background-color: white;">
+                @foreach($pengantars as $index => $pengantar)
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $pengantar -> nama_file_surat }}</td>
+                    <td>{{ $pengantar -> created_at }}</td>
+                    <td>
+                        <a href="{{ route('showFile', [$pengantar->file_surat]) }}">
+                            <img src="{{ asset('image/pdf_logo.png') }}" width="30" height="30" class="img-fluid" alt="gambar logo pdf">
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection

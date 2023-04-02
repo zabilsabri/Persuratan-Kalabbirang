@@ -1575,7 +1575,7 @@ h6 .badge {
 .btn-light, .btn-light.disabled {
   box-shadow: 0 2px 6px #e6ecf1;
   background-color: #e3eaef;
-  border-color: #e3eaef;
+  border-color: #4FB96E;
   color: #191d21;
 }
 .btn-light:hover, .btn-light:focus, .btn-light:active, .btn-light.disabled:hover, .btn-light.disabled:focus, .btn-light.disabled:active {
@@ -3733,4 +3733,74 @@ body.layout-3 .main-wrapper {
   font-weight: 400;
   font-size: 14px;
   color: #000000;
+}
+
+.berita-section{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.berita-section-title{
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 600;
+  line-height: 15px;
+  /* or 42% */
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: #0D4D23;
+  padding-top: 15px;
+}
+
+.berita-title{
+  background-color: #C8F2D0;
+  font-size: 36px;
+  height: 50px;
+}
+
+.container-berita{
+  position: relative;
+  color: white;
+  width: 319px;
+  height: 217px;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+@media (min-width: 768px){
+.row-cols-md-3>* {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33.3333333333%;
+}
+}
+
+.judul-berita-img{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 15px;
+  letter-spacing: 0.02em;
+
+  color: #FFFFFF;
+}
+
+.berita-img{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 15px;
+  /* or 75% */
+
+  letter-spacing: 0.02em;
+
+  color: #FFFFFF;
 }

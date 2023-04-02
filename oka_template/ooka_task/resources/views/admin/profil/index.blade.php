@@ -13,30 +13,26 @@
         </div>
     </div>
     <div class="hal-body">
-        <img src="{{ asset('style/img/avatar/avatar-1.png') }}" class="profile-picture mb-4" alt="...">
-        <p class="nama-admin" style="margin-bottom: 0px;"> Lorem Ipsum Dolor </p>
-        <p class="kartu-pegawai-admin">No. Kartu Pegawai</p>
+        <img src="{{ asset('temp_file/profile/' . Auth::user()->profil) }}" onerror="this.onerror=null;this.src='{{ asset('style/img/avatar/avatar-1.png') }}';" class="profile-picture mb-4" alt="...">
+        <p class="nama-admin" style="margin-bottom: 0px;"> {{ Auth::user()->nama }} </p>
+        <p class="kartu-pegawai-admin">{{ Auth::user()->nomor_kp }}</p>
         <div class="profil-input">
             <fieldset disabled>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="disabledTextInput" placeholder="Lorem Ipsum Dolor" value="Lorem Ipsum Dolor">
+                    <input type="text" class="form-control" id="disabledTextInput" value="{{ Auth::user()->nip }}">
                     <label for="floatingInput" class="profil-input-label">NIP</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="disabledTextInput" placeholder="Lorem ipsum dolor sit amet" value="Lorem ipsum dolor sit amet">
+                    <input type="text" class="form-control" id="disabledTextInput" value="{{ Auth::user()->role->nama }}">
                     <label for="floatingInput" class="profil-input-label">Jabatan</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="disabledTextInput" placeholder="Loremipsum@gmail.com" value="Loremipsum@gmail.com">
+                    <input type="email" class="form-control" id="disabledTextInput" value="{{ Auth::user()->email }}">
                     <label for="floatingInput" class="profil-input-label">Email</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="disabledTextInput" placeholder="000000000000000000" value="000000000000000000">
+                    <input type="text" class="form-control" id="disabledTextInput" value="{{ Auth::user()->nomor_telp }}">
                     <label for="floatingInput" class="profil-input-label">No. Telepon</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="disabledTextInput" placeholder="**********" value="**********">
-                    <label for="floatingInput" class="profil-input-label">Password</label>
                 </div>
             </fieldset>
             <div class="text-center mt-4">

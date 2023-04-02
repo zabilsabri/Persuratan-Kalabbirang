@@ -4,75 +4,35 @@
 
     <div class="container-fluid  ">
         <div class="hero-slider  ">
-            <div class="row ">
+            <div class="row px-5 pt-5">
                 <div class="col-md-9 my-3">
 
                     <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+                            @foreach($beritas_carousel as $berita_carousel)
+                            <div class="carousel-item {{ $loop->first ? ' active' : '' }}">
                                 <a href="detail_berita">
-                                    <img src="{{ asset('style/img/news/img01.jpg') }}" class="d-block w-100" alt="...">
+                                    <img src="{{ asset('temp_file/berita/'.$berita_carousel->gambar) }}" height="600px" class="d-block w-100" alt="...">
                                 </a>
 
-                                <div class="carousel-caption d-none d-md-block box text-dark text-md-start">
-                                    <h3>Judul Berita</h3>
+                                <div class="carousel-caption d-none d-md-block box text-md-start">
+                                    <div class="content-details text-dark bg-light rounded p-2">
+                                    <h3>{{ $berita_carousel -> judul }}</h3>
                                     <div class="d-flex justify-content-start">
                                         <p>
                                             <i class="ion ion-android-person pe-1 fs-3 "></i>
-                                            Admin
+                                            {{ $berita_carousel -> judul }}
                                             &emsp;
                                         </p>
                                         <p>
                                             <i class="ion ion-calendar pe-1 fs-3"></i>
-                                            Senin, 12 Januari 2023
+                                            {{ $berita_carousel -> tgl_berita }}
                                         </p>
                                     </div>
-                                    <h5>Lorem ipsum dolor sit amet.</h5>
-                                    <h5>Lorem ipsum dolor sit amet.</h5>
-                                </div>
-                            </div>
-
-                            <div class="carousel-item active">
-                                <img src="{{ asset('style/img/news/img08.jpg') }}" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block box text-dark text-md-start">
-                                    <h3>Judul Berita</h3>
-                                    <div class="d-flex justify-content-start">
-                                        <p>
-                                            <i class="ion ion-android-person pe-1 fs-3 "></i>
-                                            Admin
-                                            &emsp;
-                                        </p>
-                                        <p>
-                                            <i class="ion ion-calendar pe-1 fs-3"></i>
-                                            Senin, 12 Januari 2023
-                                        </p>
                                     </div>
-                                    <h5>Lorem ipsum dolor sit amet.</h5>
-                                    <h5>Lorem ipsum dolor sit amet.</h5>
                                 </div>
                             </div>
-                            <div class="carousel-item active">
-                                <img src="{{ asset('style/img/news/img09.jpg') }}" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block box text-dark text-md-start">
-                                    <h3>Judul Berita</h3>
-                                    <div class="d-flex justify-content-start">
-                                        <p>
-                                            <i class="ion ion-android-person pe-1 fs-3 "></i>
-                                            Admin
-                                            &emsp;
-                                        </p>
-                                        <p>
-                                            <i class="ion ion-calendar pe-1 fs-3"></i>
-                                            Senin, 12 Januari 2023
-                                        </p>
-                                    </div>
-                                    <h5>Lorem ipsum dolor sit amet.</h5>
-                                    <h5>Lorem ipsum dolor sit amet.</h5>
-                                </div>
-                            </div>
-
-
-
+                            @endforeach
                         </div>
 
                         <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleControls"
@@ -95,67 +55,33 @@
 
                 </div>
 
-                <div class="col-md-3 col-4  ">
+                <div class="col-md-3 col-4">
+                    @foreach($beritas_carousel as $berita_carousel2)
                     <div class="card my-3">
-                        <img src="{{ asset('style/img/news/img09.jpg') }}" class="card-img-top" alt="...">
-                        <div class=" sub-box">
-                            <h5>Judul Berita</h5>
+                        <img src="{{ asset('temp_file/berita/'.$berita_carousel2->gambar) }}" height="190px" class="card-img-top" alt="...">
+                        <div class=" sub-box text-dark bg-light rounded p-2">
+                            <h5>{{ $berita_carousel2 -> judul }}</h5>
                             <div class="d-flex justify-content-start">
                                 <p style="font-size: 10px; margin-bottom:0;">
                                     <b>
-
                                         <i class="ion ion-android-person pe-1 fs-6"></i>
-                                        Admin
+                                        {{ $berita_carousel2 -> judul }}
                                         &emsp;
                                         <i class="ion ion-calendar pe-1 fs-6"></i>
-                                        Senin, 12 Januari 2023
+                                        {{ $berita_carousel2 -> tgl_berita }}
                                     </b>
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="card my-3">
-                        <img src="{{ asset('style/img/news/img09.jpg') }}" class="card-img-top" alt="...">
-                        <div class=" sub-box">
-                            <h5>Judul Berita</h5>
-                            <div class="d-flex justify-content-start">
-                                <p style="font-size: 10px; margin-bottom:0;">
-                                    <b>
-                                        <i class="ion ion-android-person pe-1 fs-6"></i>
-                                        Admin
-                                        &emsp;
-                                        <i class="ion ion-calendar pe-1 fs-6"></i>
-                                        Senin, 12 Januari 2023
-                                    </b>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card my-3">
-                        <img src="{{ asset('style/img/news/img09.jpg') }}" class="card-img-top" alt="...">
-                        <div class=" sub-box">
-                            <h5>Judul Berita</h5>
-                            <div class="d-flex justify-content-start">
-                                <p style="font-size: 10px; margin-bottom:0;">
-                                    <b>
-
-                                        <i class="ion ion-android-person pe-1 fs-6"></i>
-                                        Admin
-                                        &emsp;
-                                        <i class="ion ion-calendar pe-1 fs-6"></i>
-                                        Senin, 12 Januari 2023
-                                    </b>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
             </div>
 
         </div>
 
-        <div class="row pb-2">
+        <div class="row px-5">
             <div class="col-md-4">
                 <div class="d-grid  ">
                     <span class="badge bg-success py-2 fs-5">Terbaru</span>
@@ -168,83 +94,36 @@
             </div>
             <div class="col-md-4">
                 <div class="d-grid  ">
-                    <div class="input-group">
-                        <input class="form-control border-end-0 border" type="search" value="search"
-                            id="example-search-input" placeholder="Cari di sini..">
-                        <span class="input-group-append">
-                            <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
-                                type="button">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
+                    <span class="badge bg-success py-2 fs-5">Terkini</span>
                 </div>
             </div>
         </div>
 
-        <div class="row pb-2">
-
+        <div class="row pb-2 m-5">
+        @foreach($beritas_all as $berita_all)
             <div class="col-md-4">
-                <div class="card my-3">
-                    <img src="{{ asset('style/img/news/img09.jpg') }}" class="card-img-top" alt="...">
-                    <div class=" sub-box">
-                        <h5>Judul Berita</h5>
+                <div class="card my-2">
+                    <img src="{{ asset('temp_file/berita/'. $berita_all -> gambar) }}" height="250px" class="card-img-top" alt="...">
+                    <div class=" sub-box text-dark bg-light rounded p-2">
+                        <h5>{{ $berita_all -> judul }}</h5>
                         <div class="d-flex justify-content-start">
                             <p style="font-size: 14px; margin-bottom:0;">
                                 <b>
                                     <i class="ion ion-android-person pe-1 fs-5"></i>
-                                    Admin
+                                    {{ $berita_all -> penulis }}
                                     &emsp;
                                     <i class="ion ion-calendar pe-1 fs-5"></i>
-                                    Senin, 12 Januari 2023
+                                    {{ $berita_all -> tgl_berita }}
                                 </b>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="card my-3">
-                    <img src="{{ asset('style/img/news/img09.jpg') }}" class="card-img-top" alt="...">
-                    <div class=" sub-box">
-                        <h5>Judul Berita</h5>
-                        <div class="d-flex justify-content-start">
-                            <p style="font-size: 14px; margin-bottom:0;">
-                                <b>
-                                    <i class="ion ion-android-person pe-1 fs-5"></i>
-                                    Admin
-                                    &emsp;
-                                    <i class="ion ion-calendar pe-1 fs-5"></i>
-                                    Senin, 12 Januari 2023
-                                </b>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card my-3">
-                    <img src="{{ asset('style/img/news/img09.jpg') }}" class="card-img-top" alt="...">
-                    <div class=" sub-box">
-                        <h5>Judul Berita</h5>
-                        <div class="d-flex justify-content-start">
-                            <p style="font-size: 14px; margin-bottom:0;">
-                                <b>
-                                    <i class="ion ion-android-person pe-1 fs-5"></i>
-                                    Admin
-                                    &emsp;
-                                    <i class="ion ion-calendar pe-1 fs-5"></i>
-                                    Senin, 12 Januari 2023
-                                </b>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        @endforeach
         </div>
-
+        <div class="pagination justify-content-center">
+        {{ $beritas_all->links() }}
+        </div>
     </div>
 @endsection

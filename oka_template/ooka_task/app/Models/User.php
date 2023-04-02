@@ -18,10 +18,30 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'role_id',
+        'nama',
+        'username',
+        'nik',
+        'ttl',
+        'jkl',
+        'alamat',
+        'pekerjaan',
+        'nomor_kk',
+        'nomor_telp',
+        'profil', // foto profil
+        'ktp', // foto ktp
         'email',
-        'password',
+        'swafoto_ktp',
+        // 'password',
     ];
+
+    public function role() {
+        return $this->hasOne(Role::class, 'id', 'role_id');
+    }
+
+    public function ttd() {
+        return $this->hasOne(ttd::class, 'user_id', 'id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

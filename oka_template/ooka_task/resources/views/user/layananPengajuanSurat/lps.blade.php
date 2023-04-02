@@ -15,7 +15,7 @@
     </div>
 </div>
 <div class=" macam-surat row">
-    <div class=" surat col-md-6">
+    <!-- <div class=" surat col-md-6">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
             <path d="M6.76224 5.57715H6.2605V54.2378H6.76224V5.57715Z" fill="#F4F4F4"/>
@@ -170,8 +170,8 @@
             </div>
             <a class="btn btn-success float-end disabled" href="#" role="button" aria-disabled="true">Mulai</a>
         </div>
-    </div>
-    <div class=" surat col-md-6">
+    </div> -->
+    <!-- <div class=" surat col-md-6">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
             <path d="M6.76224 5.57715H6.2605V54.2378H6.76224V5.57715Z" fill="#F4F4F4"/>
@@ -314,8 +314,8 @@
             </div>
             <a class="btn btn-success float-end disabled" href="#" role="button" aria-disabled="true">Mulai</a>
         </div>
-    </div>
-    <div class=" surat col-md-6 mt-5">
+    </div> -->
+    <!-- <div class=" surat col-md-6 mt-5">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
             <path d="M6.76224 5.57715H6.2605V54.2378H6.76224V5.57715Z" fill="#F4F4F4"/>
@@ -464,8 +464,8 @@
             </div>
             <a class="btn btn-success float-end disabled" href="#" role="button" aria-disabled="true">Mulai</a>
         </div>
-    </div>
-    <div class=" surat col-md-6 mt-5">
+    </div> -->
+    <!-- <div class=" surat col-md-6 mt-5">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
             <path d="M6.76224 5.57715H6.2605V54.2378H6.76224V5.57715Z" fill="#F4F4F4"/>
@@ -608,7 +608,7 @@
             </div>
             <a class="btn btn-success float-end disabled" href="#" role="button" aria-disabled="true">Mulai</a>
         </div>
-    </div>
+    </div> -->
     <div class=" surat col-md-6 mt-5">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
@@ -750,10 +750,10 @@
                     Fotocopy Kartu Tanda Penduduk (KTP) dan Kartu Keluarga (KK)
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ route('surat3') }}" role="button">Mulai</a>
+            <a class="btn btn-success float-end" href="{{ Auth()->user()->verif_user != '1' ? route('login') : route('surat3') }}" role="button">Mulai</a>
         </div>
     </div>
-    <div class=" surat col-md-6 mt-5">
+    <!-- <div class=" surat col-md-6 mt-5">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
             <path d="M6.76224 5.57715H6.2605V54.2378H6.76224V5.57715Z" fill="#F4F4F4"/>
@@ -908,8 +908,8 @@
             </div>
             <a class="btn btn-success float-end disabled" href="#" role="button" aria-disabled="true">Mulai</a>
         </div>
-    </div>
-    <div class=" surat col-md-6 mt-5">
+    </div> -->
+    <!-- <div class=" surat col-md-6 mt-5">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
             <path d="M6.76224 5.57715H6.2605V54.2378H6.76224V5.57715Z" fill="#F4F4F4"/>
@@ -1052,8 +1052,8 @@
             </div>
             <a class="btn btn-success float-end" href="{{ route('surat7') }}" role="button">Mulai</a>
         </div>
-    </div>
-    <div class=" surat col-md-6 mt-5">
+    </div> -->
+    <!-- <div class=" surat col-md-6 mt-5">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
             <path d="M6.76224 5.57715H6.2605V54.2378H6.76224V5.57715Z" fill="#F4F4F4"/>
@@ -1190,8 +1190,8 @@
             </div>
             <a class="btn btn-success float-end disabled" href="#" role="button" aria-disabled="true">Mulai</a>
         </div>
-    </div>
-    <div class=" surat col-md-6 mt-5">
+    </div> -->
+    <!-- <div class=" surat col-md-6 mt-5">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
             <path d="M6.76224 5.57715H6.2605V54.2378H6.76224V5.57715Z" fill="#F4F4F4"/>
@@ -1328,8 +1328,8 @@
             </div>
             <a class="btn btn-success float-end disabled" href="#" role="button" aria-disabled="true">Mulai</a>
         </div>
-    </div>
-    <div class=" surat col-md-6 mt-5">
+    </div> -->
+    <!-- <div class=" surat col-md-6 mt-5">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
             <path d="M6.76224 5.57715H6.2605V54.2378H6.76224V5.57715Z" fill="#F4F4F4"/>
@@ -1472,7 +1472,7 @@
             </div>
             <a class="btn btn-success float-end disabled" href="#" role="button" aria-disabled="true">Mulai</a>
         </div>
-    </div>
+    </div> -->
     <div class=" surat col-md-6 mt-5">
         <svg width="125" style="float:left;" height="100" viewBox="0 0 125 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M50.5441 5.57715H6.76245V54.2378H50.5441V5.57715Z" fill="#F4F4F4"/>
@@ -1632,7 +1632,7 @@
                     Surat Kematian atau keputusan pengadilan agama apabila yang menikah berstatus janda atau duda
                 </p>
             </div>
-            <a class="btn btn-success float-end disabled" href="#" role="button" aria-disabled="true">Mulai</a>
+            <a class="btn btn-success float-end" href="{{ Auth()->user()->verif_user != '1' ? route('login') : route('surat11') }}" role="button">Mulai</a>
         </div>
     </div>
     <div class=" surat col-md-6 mt-5">
@@ -1770,7 +1770,7 @@
                     Fotocopy Kartu Tanda Penduduk (KTP) dan Kartu Keluarga (KK)
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ route('surat12') }}" role="button">Mulai</a>
+            <a class="btn btn-success float-end" href="{{ Auth()->user()->verif_user != '1' ? route('login') : route('surat12') }}" role="button">Mulai</a>
         </div>
     </div>
     <div class=" surat col-md-6 mt-5">
@@ -1908,7 +1908,7 @@
                     Fotocopy Kartu Tanda Penduduk (KTP) dan Kartu Keluarga (KK)
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ route('surat13') }}" role="button">Mulai</a>
+            <a class="btn btn-success float-end" href="{{ Auth()->user()->verif_user != '1' ? route('login') : route('surat13') }}" role="button">Mulai</a>
         </div>
     </div>
 </div>

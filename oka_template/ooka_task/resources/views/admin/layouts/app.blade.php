@@ -29,6 +29,16 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('style/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('style/css/components.css') }}" />
+
+    <!-- Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Signature Pad -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+    <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
 </head>
 
 <body>
@@ -66,7 +76,6 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
 
-
     <!-- JS Libraies -->
     <script src="{{ asset('style/node_modules/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('style/node_modules/datatables/media/js/jquery.dataTables.min.js')}}"></script>
@@ -81,7 +90,6 @@
     <script src="{{ asset('style/js/page/modules-ion-icons.js') }}"></script>
     <script src="{{ asset('style/js/page/modules-chartjs.js') }}"></script>
     <script src="{{ asset('style/js/page/modules-datatables.js') }}"></script>
-
 
 
 </body>

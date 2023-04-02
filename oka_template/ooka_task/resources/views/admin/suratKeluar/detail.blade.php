@@ -39,6 +39,15 @@
                     <td>:</td>
                     <td class="surat-detail">Undangan</td>
                 </tr>
+                <tr>
+                    <td class="surat-kategori" >TTD</td>
+                    <td>:</td>
+                    @if(isset($surat -> ttd_id))
+                    <td class="surat-detail">(Sudah)</td>
+                    @else
+                    <td class="surat-detail">(Belum)</td>
+                    @endif
+                </tr>
             </table>
         </div>
         <div class="col-sm-6">
@@ -82,7 +91,7 @@
             </svg>
             </div>
             <div class="button-text flex-grow-1 ms-3">
-                Ditolak
+                DITOLAK
             </div>
         </div>
         </button>
@@ -94,7 +103,7 @@
                     </svg>
                 </div>
                 <div class="button-text flex-grow-1 ms-3">
-                    Disposisi
+                    PENYERAHAN
                 </div>
             </div>
         </a>

@@ -1,9 +1,9 @@
-@extends('admin.layouts.app', ['title' => 'Surat Keluar Disposisi'])
+@extends('admin.layouts.app', ['title' => 'Penyerahan Surat Keluar'])
 <link rel="stylesheet" href="{{ asset('style/css/suratKeluarDisposisi.css') }}">
 
 @section('content')
 <div class="hal-head">
-    <h1 class="hal-title" > Kirim Disposisi </h1>
+    <h1 class="hal-title" > Penyerahan Surat </h1>
 </div>
 <div class="hal-body">
     <div class="row">
@@ -80,7 +80,7 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 150px"></textarea>
             </div>
             <div class="col-sm-6 mb-3 text-center">
-                <button type="button" class="btn btn-success w-75 H-25">KIRIM DISPOSISI</button>
+                <button type="button" class="btn btn-success w-75 H-25">SERAHKAN SURAT</button>
             </div>
         </div>
     </div>
