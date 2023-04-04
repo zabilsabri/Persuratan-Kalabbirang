@@ -19,7 +19,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api', 'm
     // return $request->user();
     Route::get('/login', 'LoginController@index')->name('index.login');
     Route::post('/logout', 'LoginController@logout')->name('api.logout');
-
+    
     Route::group(['prefix' => 'suratMasuk'], function () {
     
         Route::get('/', 'SuratMasukController@index')->name('index.suratMasuk');

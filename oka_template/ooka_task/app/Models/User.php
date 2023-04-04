@@ -22,24 +22,31 @@ class User extends Authenticatable
         'nama',
         'username',
         'nik',
-        'ttl',
+        'nip',
+        'status_nikah',
+        'kewarganegaraan',
+        'tanggal_lahir',
+        'tempat_lahir',
         'jkl',
         'alamat',
         'pekerjaan',
         'nomor_kk',
+        'nomor_kp',
         'nomor_telp',
-        'profil', // foto profil
-        'ktp', // foto ktp
-        'email',
+        'profil',
+        'ktp',
         'swafoto_ktp',
+        'email'
         // 'password',
     ];
 
-    public function role() {
+    public function role()
+    {
         return $this->hasOne(Role::class, 'id', 'role_id');
     }
 
-    public function ttd() {
+    public function ttd()
+    {
         return $this->hasOne(ttd::class, 'user_id', 'id');
     }
 

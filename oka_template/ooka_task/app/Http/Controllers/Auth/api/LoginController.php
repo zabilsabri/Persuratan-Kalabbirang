@@ -166,18 +166,23 @@ class LoginController extends Controller
         // dd($request);
         $validate = Validator::make($request->all(), [
             'nama'                      => 'required',
-            // 'password'                  => 'required',
+            'password'                  => 'required',
             'username'                  => 'required',
             'nik'                       => 'required',
-            // 'ttl'                       => 'required',
+            'nip'                       => 'required',
+            'status_nikah'                       => 'required',
+            'kewarganegaraan'                       => 'required',
+            'tanggal_lahir'                       => 'required',
+            'tempat_lahir'                       => 'required',
             'jkl'                       => 'required',
             'alamat'                    => 'required',
             'pekerjaan'                 => 'required',
-            'nomor_kk'                     => 'required',
-            'nomor_telp'                   => 'required',
-            // 'profil'                    => 'required|image|mimes:jpg,jpeg,png',
-            // 'ktp'                       => 'required|image|mimes:jpg,jpeg,png',
-            // 'swafoto_ktp'               => 'required|image|mimes:jpg,jpeg,png',
+            'nomor_kk'                  => 'required',
+            'nomor_kp'                  => 'required',
+            'nomor_telp'                => 'required',
+            'profil'                    => 'required|image|mimes:jpg,jpeg,png',
+            'ktp'                       => 'required|image|mimes:jpg,jpeg,png',
+            'swafoto_ktp'               => 'required|image|mimes:jpg,jpeg,png',
             'email'                     => 'required',
         ]);
 
@@ -189,11 +194,18 @@ class LoginController extends Controller
         $warga->nama = $request->nama;
         $warga->username = $request->username;
         $warga->nik = $request->nik;
+        $warga->nip = $request->nip;
+        $warga->status_nikah = $request->status_nikah;
+        $warga->tanggal_lahir = $request->tanggal_lahir;
+        $warga->tempat_lahir = $request->tempat_lahir;
+        $warga->kewarganegaraan = $request->kewarganegaraan;
+        $warga->agama = $request->agama;
         $warga->jkl = $request->jkl;
         $warga->alamat = $request->alamat;
         $warga->pekerjaan = $request->pekerjaan;
         $warga->nomor_kk = $request->nomor_kk;
         $warga->nomor_telp = $request->nomor_telp;
+        $warga->nomor_kp = $request->nomor_kp;
         $warga->email = $request->email;
 
 
@@ -215,27 +227,26 @@ class LoginController extends Controller
         }
 
         // dd($pathProfil);
-        $warga->ttl = Carbon::now();
-        // $warga->profil = $namaProfil;
-        // $warga->ktp = $namaKtp;
-        // $warga->swafoto_ktp = $namaSwa;
-        $warga->role_id = 4;
+        // $warga->ttl = Carbon::now();
+        $warga->profil = $namaProfil;
+        $warga->ktp = $namaKtp;
+        $warga->swafoto_ktp = $namaSwa;
+        $warga->role_id = 6;
         $warga->save();
-        $token = $warga->createToken('auth_token')->plainTextToken;
+        // $token = $warga->createToken('auth_token')->plainTextToken;
         // dd($token);
 
-        // $register = User::create($data);
 
         // if ($register)
         return response()->json([
             'status' => 'Sukses Register',
-            'access_token'  => $token,
-            'token_type'    => 'Bearer'
+            // 'access_token'  => $token,
+            // 'token_type'    => 'Bearer'
         ]);
 
-        // return response()->json([
-        //     'status' => 'Gagal Register'
-        // ]);
+        return response()->json([
+            'status' => 'Gagal Register'
+        ]);
     }
 
     public function logout() {

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('instruksi')->nullable();
             $table->string('process'); // Surat Sekarang Berada di Tahap Mana (Untuk Keperluan Riwayat User)
             $table->unsignedBigInteger('user_id')->nullable(); // Warga yang menginput surat
+            $table->string('pengirim')->nullable();
             $table->unsignedBigInteger('pj_id')->nullable(); // Penanggung Jawab atau Surat Sekarang Berada Di Siapa
             $table->unsignedBigInteger('ttd_id')->nullable(); // Yang Menandatangani Surat Ini Siapa
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
