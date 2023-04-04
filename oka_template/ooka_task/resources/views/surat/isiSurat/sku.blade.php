@@ -3,10 +3,11 @@
 @section('content')
 <div class="surat-title text-center">
         <h6 class="text-decoration-underline fs-4">SURAT KETERANGAN USAHA</h6>
-        <p>Nomor: {{ $data -> no_surat }}</p>
+<p>Nomor: {{ $data -> no_surat }}</p>
     </div>
     <div class="surat-body fs-6 p-4 pt-0 lh-3">
         <p style="text-indent: 2em;" >Yang bertanda tangan di bawah ini {{ $data -> ttd -> user -> role -> nama ?? '(Jabatan Yang Menandatangani)' }} Kalabbirang, Kecamatan Pattallassang, Kabupaten Takalar, menerangkan bahwa:</p>
+
         <table class="ps-5 lh-lg">
             <tr >
                 <td>Nama</td>

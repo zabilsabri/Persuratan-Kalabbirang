@@ -3,7 +3,7 @@
 @section('content')
 <div class="surat-title text-center">
         <h6 class="text-decoration-underline fs-4">SURAT KETERANGAN BELUM MENIKAH</h6>
-        <p>Nomor: {{ $data -> no_surat }}</p>
+<p>Nomor: {{ $data -> no_surat }}</p>
     </div>
     <div class="surat-body fs-6 p-4 pt-0 lh-lg">
         <p style="text-indent: 2em;" >Yang bertanda tangan di bawah ini {{ $data -> ttd -> user -> role -> nama ?? '(Jabatan Yang Menandatangani)'}} Kalabbirang, Kecamatan Pattallassang, Kabupaten Takalar, menerangkan bahwa:</p>
@@ -45,6 +45,7 @@
             </tr>
         </table>
         <p style="text-indent: 2em;" >Yang tersebut namanya diatas adalah benar penduduk setempat, Kelurahan Kalabbirang, Kecamatan Pattallassang, yang sepanjang sepengetahuan kami <span class="fw-bold fst-italic"> belum pernah Menikah / Kawin. </span></p>
+
         <p style="text-indent: 2em;" >Demikian surat keterangan ini diberikan dan untuk dipergunakan sebagaimana mestinya.</p>
     </div>
 

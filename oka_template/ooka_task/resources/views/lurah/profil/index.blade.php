@@ -12,7 +12,7 @@
             </div>
         </div>
     </div>
-    <div class="hal-body">
+<div class="hal-body">
         <img src="{{ asset('temp_file/profile/' . Auth::user()->profil) }}" onerror="this.onerror=null;this.src='{{ asset('style/img/avatar/avatar-1.png') }}';" class="profile-picture mb-4" alt="...">
         <p class="nama-admin" style="margin-bottom: 0px;"> {{ Auth::user()->nama }} </p>
         <p class="kartu-pegawai-admin">{{ Auth::user()->nomor_kp }}</p>
@@ -30,7 +30,7 @@
                     <input type="email" class="form-control" id="disabledTextInput" value="{{ Auth::user()->email }}">
                     <label for="floatingInput" class="profil-input-label">Email</label>
                 </div>
-                <div class="form-floating mb-3">
+<div class="form-floating mb-3">
                     <input type="text" class="form-control" id="disabledTextInput" value="{{ Auth::user()->nomor_telp }}">
                     <label for="floatingInput" class="profil-input-label">No. Telepon</label>
                 </div>

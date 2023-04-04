@@ -85,5 +85,12 @@ class suratKeluar extends Model
         return $this->hasMany(disposisi::class, 'suratKeluar_id', 'id');
     }
 
+    // public function userK(){
+    //     return $this->belongsToMany(User::class, 'disposisis', 'userk_id');
+    // }
+
+    // public function userT(){
+    //     return $this->belongsToMany(User::class, 'disposisis', 'usert_id');
+    // }
 }
 

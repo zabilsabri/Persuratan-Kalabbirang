@@ -77,7 +77,7 @@
             <tr>
                 <td class="ps-5">b. Perempuan : Perawan, Janda</td>
                 <td>:</td>
-                <td>{{ $data -> user -> status_nikah }}</td>
+<td>{{ $data -> user -> status_nikah }}</td>
             </tr>
             @endif
             <tr>
