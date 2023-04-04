@@ -4,114 +4,31 @@
     <div class="content">
         <h3 class="content-title">Pengajuan Surat</h3>
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mx-5">
+            @foreach($surats as $surat)
             <div class="col">
                 <div class="card h-100">
                     <div class="card-body">
-                        <p class="card-no">No: Nomor Surat</p>
-                        <p class="card-date"> Senin, 6 Desember 2022 </p>
-                        <h5 class="card-title">Card title</h5>
+                        <p class="card-no">No: {{ $surat -> no_surat }}</p>
+                        <p class="card-date"> {{ $surat -> tgl_surat }} </p>
+                        <h5 class="card-title">{{ $surat -> jenisSurat -> nama }}</h5>
                         <div class="stepper-wrapper">
-                            <div class="stepper-item completed">
+                            <div class="stepper-item {{ $surat->process == '1' || $surat->process == '2' || $surat->process == '3' ? 'completed' : '' }}">
                                 <div class="step-counter">1</div>
                                 <div class="step-name">Pengajuan Diterima</div>
                             </div>
-                            <div class="stepper-item active">
+                            <div class="stepper-item {{ $surat->process == '2' || $surat->process == '3' ? 'completed' : '' }}">
                                 <div class="step-counter">2</div>
                                 <div class="step-name">Pending</div>
                             </div>
-                            <div class="stepper-item">
+                            <div class="stepper-item {{ $surat->process == '3' ? 'completed' : '' }}">
                                 <div class="step-counter">3</div>
-                                <div class="step-name">Proses</div>
-                            </div>
-                            <div class="stepper-item">
-                                <div class="step-counter">4</div>
                                 <div class="step-name">Selesai</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <p class="card-no">No: Nomor Surat</p>
-                        <p class="card-date"> Senin, 6 Desember 2022 </p>
-                        <h5 class="card-title">Card title</h5>
-                        <div class="stepper-wrapper">
-                            <div class="stepper-item completed">
-                                <div class="step-counter">1</div>
-                                <div class="step-name">Pengajuan Diterima</div>
-                            </div>
-                            <div class="stepper-item completed">
-                                <div class="step-counter">2</div>
-                                <div class="step-name">Pending</div>
-                            </div>
-                            <div class="stepper-item completed">
-                                <div class="step-counter">3</div>
-                                <div class="step-name">Proses</div>
-                            </div>
-                            <div class="stepper-item completed">
-                                <div class="step-counter">4</div>
-                                <div class="step-name">Selesai</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <p class="card-no">No: Nomor Surat</p>
-                        <p class="card-date"> Senin, 6 Desember 2022 </p>
-                        <h5 class="card-title">Card title</h5>
-                        <div class="stepper-wrapper">
-                            <div class="stepper-item completed">
-                                <div class="step-counter">1</div>
-                                <div class="step-name">Pengajuan Diterima</div>
-                            </div>
-                            <div class="stepper-item completed">
-                                <div class="step-counter">2</div>
-                                <div class="step-name">Pending</div>
-                            </div>
-                            <div class="stepper-item completed">
-                                <div class="step-counter">3</div>
-                                <div class="step-name">Proses</div>
-                            </div>
-                            <div class="stepper-item active">
-                                <div class="step-counter">4</div>
-                                <div class="step-name">Selesai</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <p class="card-no">No: Nomor Surat</p>
-                        <p class="card-date"> Senin, 6 Desember 2022 </p>
-                        <h5 class="card-title">Card title</h5>
-                        <div class="stepper-wrapper">
-                            <div class="stepper-item completed">
-                                <div class="step-counter">1</div>
-                                <div class="step-name">Pengajuan Diterima</div>
-                            </div>
-                            <div class="stepper-item completed">
-                                <div class="step-counter">2</div>
-                                <div class="step-name">Pending</div>
-                            </div>
-                            <div class="stepper-item active">
-                                <div class="step-counter">3</div>
-                                <div class="step-name">Proses</div>
-                            </div>
-                            <div class="stepper-item">
-                                <div class="step-counter">4</div>
-                                <div class="step-name">Selesai</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection

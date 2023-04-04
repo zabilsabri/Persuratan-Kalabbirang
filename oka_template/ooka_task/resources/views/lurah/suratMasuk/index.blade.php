@@ -5,64 +5,79 @@
     <div class="hal-head">
         <div class="d-flex align-items-center">
             <div class="flex-grow-1 ms-3">
-                <h1 class="mx-3 mt-3 mb-0"> Surat Masuk </h1>
+                <h1 class="mx-3 mt-3 mb-5"> Surat Masuk </h1>
             </div>
         </div>
     </div>
-    <div class="section-body">
-        <div class="row">
-            <div class="col-12">
-            <div class="card p-4">
-                    <!-- Set up the datatable -->
-                    <table class="table" id="tableSuratMasuk">
-                        <thead style="background-color: #CCFFDA;">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-left: 30px;margin-right: 30px;border-bottom-width: 0px;">
+            <button class="nav-link active" id="nav-arsipMasuk-tab" data-bs-toggle="tab" data-bs-target="#nav-arsipMasuk" type="button" role="tab" aria-controls="nav-arsipMasuk" aria-selected="true">Surat Masuk</button>
+            <button class="nav-link" id="nav-arsipKeluar-tab" data-bs-toggle="tab" data-bs-target="#nav-arsipKeluar" type="button" role="tab" aria-controls="nav-arsipKeluar" aria-selected="false">Surat Keluar</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-arsipMasuk" role="tabpanel" aria-labelledby="nav-arsipMasuk-tab" tabindex="0" style="padding-top: 0px;">
+        <div class="section-body" style="padding-top: 0px;">
+            <div class="inner-section-body p-4">
+                <table class="table" id="tableMasuk">
+                    <thead style="background-color: #CCFFDA;" >
+                        <tr>
+                            <th scope="col" style="width: 10px;">No</th>
+                            <th scope="col">Judul Surat</th>
+                            <th scope="col">Nama Pengirim</th>
+                            <th scope="col">Tgl Masuk</th>
+                            <th scope="col" style="width: 150px;">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($surat_masuks as $index => $surat_masuk)
                             <tr>
-                                <th scope="col" style="width: 10px;">No</th>
-                                <th scope="col">Judul Surat</th>
-                                <th scope="col">Nama Pengirim</th>
-                                <th scope="col">Tgl Masuk</th>
-                                <th scope="col">Dokumen</th>
+                                <td scope="col">{{ $index + 1 }}</td>
+                                <td scope="col">{{ $surat_masuk -> judul_surat }}</td>
+                                <td scope="col">{{ $surat_masuk -> asal_surat }}</td>
+                                <td scope="col">{{ $surat_masuk -> tgl_surat }}</td>
+                                <td scope="col"><a class="btn btn-success" href="{{ route('surat-masuk-lurah.detail', [$surat_masuk -> id]) }}" role="button">Open</a></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                                <tr>
-                                    <td scope="col">1</td>
-                                    <td scope="col">Hip Hop</td>
-                                    <td scope="col">Hip Hop</td>
-                                    <td scope="col">Hip Hop</td>
-                                    <td scope="col"><a href="#">Lorem Ipsum Dolor</a></td>
-                                </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-arsipKeluar" role="tabpanel" aria-labelledby="nav-arsipKeluar-tab" tabindex="0" style="padding-top: 0px;">
+        <div class="section-body" style="padding-top: 0px;">
+            <div class="inner-section-body p-4">
+                <table class="table" id="tableKeluar">
+                    <thead style="background-color: #CCFFDA;" >
+                        <tr>
+                            <th scope="col" style="width: 10px;">No</th>
+                            <th scope="col">Judul Surat</th>
+                            <th scope="col">Nama Pengirim</th>
+                            <th scope="col">Tgl Masuk</th>
+                            <th scope="col" style="width: 150px;">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($surats as $index => $surat)
                             <tr>
-                                <td scope="col">2</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col"><a href="#">Lorem Ipsum Dolor</a></td>
+                                <td scope="col">{{ $index + 1 }}</td>
+                                <td scope="col">{{ $surat -> jenisSurat -> nama }}</td>
+                                <td scope="col">{{ $surat -> user -> nama }}</td>
+                                <td scope="col">{{ $surat -> created_at }}</td>
+                                <td scope="col"><a class="btn btn-success" href="{{ route('surat-keluar-lurah.detail', [$surat -> id]) }}" role="button">Open</a></td>
                             </tr>
-                            <tr>
-                                <td scope="col">3</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col"><a href="#">Lorem Ipsum Dolor</a></td>
-                            </tr>
-                            <tr>
-                                <td scope="col">4</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col"><a href="#">Lorem Ipsum Dolor</a></td>
-                            </tr>
-                        </tbody>
-                    </table>        
-                </div>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 
     <script>
     $(document).ready( function () {
-            $('#tableSuratMasuk').DataTable();
+            $('#tableMasuk').DataTable();
+            $('#tableKeluar').DataTable();
         } );
     </script>
 @endsection

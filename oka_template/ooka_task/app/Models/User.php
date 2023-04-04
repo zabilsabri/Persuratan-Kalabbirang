@@ -66,6 +66,14 @@ class User extends Authenticatable
         return $this->hasMany(suratKeluar::class, 'user_id', 'id');
     }
 
+    public function suratMasuk(){
+        return $this->hasMany(suratMasuk::class, 'tujuan_surat_id', 'id');
+    }
+
+    public function disposisi(){
+        return $this->hasMany(disposisi::class, 'suratKeluar_id', 'id');
+    }
+
     // public function suratKeluarDisposisi(){
     //     return $this->belongsToMany(suratKeluar::class, 'disposisis', 'suratKeluar_id');
     // }

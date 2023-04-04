@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\suratKeluar;
 use App\Models\suratMasuk;
 use Auth;
+use Cache;
 use Session;
 
 class DashboardController extends Controller

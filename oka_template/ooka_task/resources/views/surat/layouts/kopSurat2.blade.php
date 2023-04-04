@@ -35,7 +35,7 @@
             <tr>
                 <td>Kecamatan</td>
                 <td>:</td>
-                <td></td>
+                <td>Pattallassang</td>
             </tr>
             <tr>
                 <td>Kabupaten/Kota</td>
