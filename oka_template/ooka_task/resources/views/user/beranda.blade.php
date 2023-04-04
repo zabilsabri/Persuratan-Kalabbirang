@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="beranda-head-text text-center p-5">
-            <p> <span style="font-weight: 600;" > Kalabbirang </span> adalah kelurahan di kecamatan lorem ipsum dolor sit amet consectetur. Eu ante mi non venenatis amet viverra euismod arcu enim. Faucibus quam neque at neque lacus. Aenean iaculis nulla sit amet augue consequat scelerisque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam dapibus efficitur lectus, eget fringilla eros suscipit id. Donec tristique mi at tellus mattis fermentum. </p>
+            <p> <span style="font-weight: 600;" > Kalabbirang </span> merupakan salah satu Kelurahan yang berada di bawah wilayah Kecamatan Minasatene, Kabupaten Pangkep. Kelurahan dengan 10 RW ini dipimpin oleh seorang Kepala Kelurahan yang dibantu oleh Sekretaris Kelurahan. </p>
         </div>
         <div class="head-right mt-5 mb-5">
             <p class="head-right-title text-center" >Program Layanan</p>
@@ -52,43 +52,20 @@
         </div>
         <div class="berita-body mt-4 mb-4">
             <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach($beritas as $berita)
                 <div class="col">
-                    <a href="{{ route('detail.berita') }}">
+                    <a href="{{ route('detail.berita', [$berita -> id]) }}">
                         <div class="container-berita">
-                            <img src="{{asset('image/berita1.png')}}" class="p-auto" alt="Snow" style="width:100%; height:217px">
+                            <img src="{{ asset('temp_file/berita/'. $berita -> gambar ) }}" class="p-auto" alt="Snow" style="width:100%; height:217px">
                             <div class="bottom-left">
                             <p class="berita-img" >
-                                <span class="judul-berita-img" > Judul berita </span> <br> Lorem Ipsum Dolor sit Amet
+                                <span class="judul-berita-img" > {{ $berita -> judul }} </span> <br> {{ $berita -> tgl_berita }}
                             </p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col">
-                    <a href="{{ route('detail.berita') }}">
-                        <div class="container-berita">
-                            <img src="{{asset('image/berita2.png')}}" alt="Snow" class="p-auto" style="width:100%; height:217px">
-                            <div class="bottom-left">
-                            <p class="berita-img" >
-                                <span class="judul-berita-img" > Judul berita </span> <br> Lorem Ipsum Dolor sit Amet
-                            </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col">
-                    <a href="{{ route('detail.berita') }}">
-                        <div class="container-berita">
-                            <img src="{{asset('image/berita3.png')}}" alt="Snow" class="p-auto" style="width:100%; height:217px">
-                            <div class="bottom-left">
-                            <p class="berita-img" >
-                                <span class="judul-berita-img" > Judul berita </span> <br> Lorem Ipsum Dolor sit Amet
-                            </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                </div>
+                @endforeach
             </div>
     </div>
 

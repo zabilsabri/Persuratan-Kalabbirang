@@ -19,4 +19,8 @@ class suratMasuk extends Model
     public function arsipMasuk() {
         return $this->hasOne('App\Models\arsipMasuk', 'suratMasuk_id', 'id');
     }
+
+    public function user() {
+        return $this->belongsTo('App\Models\User', 'tujuan_surat_id', 'id');
+    }
 }

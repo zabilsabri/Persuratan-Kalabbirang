@@ -16,7 +16,7 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="" title="Administrator" src="{{ asset('style/img/avatar/avatar-1.png') }}"
+                            <img alt="" title="Administrator" src="{{ asset('temp_file/profile/' . Auth::user()->profil) }}" onerror="this.onerror=null;this.src='{{ asset('style/img/avatar/avatar-1.png') }}';"
                                 class="rounded-circle mr-1" style="margin-bottom: 17px;"/>
                             <div class="d-sm-none d-lg-inline-block lh-1">
                                 <span class="nama-navbar" > {{ Auth::user()->nama }} </span>
@@ -30,9 +30,9 @@
                                 <i class="far fa-user"></i> Profile Saya
                             </a>
 
-                            <a href="#" class="dropdown-item has-icon text-danger" data-bs-toggle="modal" data-bs-target="#modalLogout">
-                                <i class="fas fa-sign-out-alt"></i> Keluar
-                            </a>
+                            <button class="dropdown-item has-icon text-danger" data-bs-toggle="modal" data-bs-target="#modalLogout">
+                                <i class="fas fa-sign-out-alt" style="margin-top: 8px;"></i> Keluar
+                            </button>
                         </div>
                     </li>
                 </ul>
@@ -49,7 +49,7 @@
                             </div>
                             <div class="modal-body-button">
                                 <button type="button" class="btn btn-modal btn-secondary-modal" data-bs-dismiss="modal">Tidak</button>
-                                <button type="button" class="btn btn-modal btn-success-modal">Ya</button>
+                                <a type="button" href="{{ route('logout-admin') }}" class="btn btn-modal btn-success-modal">Ya</a>
                             </div>
                         </div>
                     </div>

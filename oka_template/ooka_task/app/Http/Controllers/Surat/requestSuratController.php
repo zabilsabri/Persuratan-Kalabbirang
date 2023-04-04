@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\pengantar;
 use App\Models\suratKeluar;
+use App\Models\notifikasi;
 use Carbon\Carbon;
 use Auth;
 
@@ -76,6 +77,13 @@ class requestSuratController extends Controller
         ];
 
         pengantar::insert($data);
+
+        $notifikasi = new notifikasi();
+        $notifikasi->user_id = Auth::user()->id;
+        $notifikasi->suratKeluar_id = $suratKeluar -> id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sedang Diverifikasi Oleh Admin. Silahkan Tunggu!";
+        $notifikasi->save();
         
         return redirect()->route('selesai-pengajuan');
     }
@@ -158,6 +166,13 @@ class requestSuratController extends Controller
 
         pengantar::insert($data);
 
+        $notifikasi = new notifikasi();
+        $notifikasi->user_id = Auth::user()->id;
+        $notifikasi->suratKeluar_id = $suratKeluar -> id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sedang Diverifikasi Oleh Admin. Silahkan Tunggu!";
+        $notifikasi->save();
+
         return redirect()->route('selesai-pengajuan');
     }
 
@@ -213,7 +228,7 @@ class requestSuratController extends Controller
         $user->save();
 
         $suratKeluar = new suratKeluar();
-        $suratKeluar->jenis_suratKeluar_id = "2";
+        $suratKeluar->jenis_suratKeluar_id = "4";
         $suratKeluar->user_id = Auth::user()->id;
         $suratKeluar->no_surat = "1";
         $suratKeluar->kode_surat = "1";
@@ -285,6 +300,13 @@ class requestSuratController extends Controller
 
         pengantar::insert($data);
 
+        $notifikasi = new notifikasi();
+        $notifikasi->user_id = Auth::user()->id;
+        $notifikasi->suratKeluar_id = $suratKeluar -> id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sedang Diverifikasi Oleh Admin. Silahkan Tunggu!";
+        $notifikasi->save();
+
         return redirect()->route('selesai-pengajuan');
     }
     
@@ -298,7 +320,6 @@ class requestSuratController extends Controller
             'nama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'jkl' => 'required',
             'nik' => 'required|numeric',
             'pekerjaan' => 'required',
             'jumlah_tanggungan' => 'required',
@@ -307,7 +328,6 @@ class requestSuratController extends Controller
             'nama_anak' => 'required',
             'tempat_lahir_anak' => 'required',
             'tanggal_lahir_anak' => 'required',
-            'durasi_usaha' => 'required',
             'pekerjaan_anak' => 'required',
             'sekolah_anak' => 'required',
             'nis_kelas_anak' => 'required',
@@ -337,7 +357,7 @@ class requestSuratController extends Controller
         $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
         
-        $suratKeluar->jml_tanggungan = $request->jml_tanggungan;
+        $suratKeluar->jml_tanggungan = $request->jumlah_tanggungan;
         $suratKeluar->jml_penghasilan = $request->jumlah_penghasilan;
 
         $suratKeluar->nama_anak = $request->nama_anak;
@@ -370,6 +390,13 @@ class requestSuratController extends Controller
         ];
 
         pengantar::insert($data);
+
+        $notifikasi = new notifikasi();
+        $notifikasi->user_id = Auth::user()->id;
+        $notifikasi->suratKeluar_id = $suratKeluar -> id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sedang Diverifikasi Oleh Admin. Silahkan Tunggu!";
+        $notifikasi->save();
 
         return redirect()->route('selesai-pengajuan');
     }

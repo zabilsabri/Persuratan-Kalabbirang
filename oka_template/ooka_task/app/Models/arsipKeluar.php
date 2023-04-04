@@ -14,7 +14,7 @@ class arsipKeluar extends Model
     ];
 
     public function suratKeluar() {
-        return $this->hasMany('App\Models\suratKeluar', 'id', 'suratKeluar_id');
+        return $this->belongsTo('App\Models\suratKeluar', 'suratKeluar_id', 'id');
     }
 }
 

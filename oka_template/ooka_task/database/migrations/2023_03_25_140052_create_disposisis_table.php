@@ -19,6 +19,8 @@ return new class extends Migration
             $table->unsignedBigInteger('usert_id'); // id User Yang Menerima
             $table->unsignedBigInteger('suratKeluar_id');
             $table->date('tgl_disposisi');
+            $table->string('catatan');
+            $table->string('instruksi');
             $table->timestamps();
 
             $table->foreign('userk_id')->references('id')->on('users');

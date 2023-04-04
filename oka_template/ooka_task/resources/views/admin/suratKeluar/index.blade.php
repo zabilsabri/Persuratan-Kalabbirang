@@ -44,38 +44,19 @@
                                 <th scope="col">Judul Surat</th>
                                 <th scope="col">Nama Pengirim</th>
                                 <th scope="col">Tgl Masuk</th>
-                                <th scope="col">Dokumen</th>
+                                <th scope="col">Detail</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($surats as $index => $surat)
                                 <tr>
-                                    <td scope="col">1</td>
-                                    <td scope="col">Hip Hop</td>
-                                    <td scope="col">Hip Hop</td>
-                                    <td scope="col">Hip Hop</td>
-                                    <td scope="col"><a href="#">Lorem Ipsum Dolor</a></td>
+                                    <td scope="col">{{ $index + 1 }}</td>
+                                    <td scope="col">{{ $surat -> jenisSurat -> nama }}</td>
+                                    <td scope="col">{{ $surat -> user -> nama }}</td>
+                                    <td scope="col">{{ $surat -> created_at }}</td>
+                                    <td scope="col"><a class="btn btn-success" href="{{ route('surat-keluar-admin.detail', [$surat -> id]) }}" role="button">Open</a></td>
                                 </tr>
-                            <tr>
-                                <td scope="col">2</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col"><a href="#">Lorem Ipsum Dolor</a></td>
-                            </tr>
-                            <tr>
-                                <td scope="col">3</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col"><a href="#">Lorem Ipsum Dolor</a></td>
-                            </tr>
-                            <tr>
-                                <td scope="col">4</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col">Jazz</td>
-                                <td scope="col"><a href="#">Lorem Ipsum Dolor</a></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

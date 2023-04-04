@@ -16,7 +16,7 @@
                         <h4>User Terdaftar</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ $users_all }}
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         <h4>User Terverifikasi</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ $users_verif }}
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                         <h4>Surat Masuk</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ $jumlah_surat_masuk }}
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                         <h4>Surat Keluar</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ $jumlah_surat_keluar }}
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     <div class="card-header" style="border-bottom-color: transparent;">
                         <h3 class="text-success">Data Kunjungan Website</h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="width: 400px;">
                         <canvas id="myChart4"></canvas>
                     </div>
                 </div>
@@ -81,30 +81,16 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
+                            @foreach($users as $user)
                            <li class="list-group list-group-flush mb-3">
                                <div class="d-flex align-items-center">
                                    <figure class="avatar mr-2 avatar-lg">
-                                       <img src="{{ asset('style/img/avatar/avatar-1.png') }}" alt="...">
+                                       <img src="{{ asset('temp_file/profile/' . $user->profil) }}" onerror="this.onerror=null;this.src='{{ asset('style/img/avatar/avatar-1.png') }}';" alt="...">
                                    </figure>
-                                   <h5 class="mx-3">Santoso</h5>
+                                   <h5 class="mx-3">{{ $user -> nama }}</h5>
                                </div>
                            </li>
-                           <li class="list-group list-group-flush mb-3">
-                               <div class="d-flex align-items-center">
-                                   <figure class="avatar mr-2 avatar-lg">
-                                       <img src="{{ asset('style/img/avatar/avatar-1.png') }}" alt="...">
-                                   </figure>
-                                   <h5 class="mx-3">Santoso</h5>
-                               </div>
-                           </li>
-                           <li class="list-group list-group-flush mb-3">
-                               <div class="d-flex align-items-center">
-                                   <figure class="avatar mr-2 avatar-lg">
-                                       <img src="{{ asset('style/img/avatar/avatar-1.png') }}" alt="...">
-                                   </figure>
-                                   <h5 class="mx-3">Santoso</h5>
-                               </div>
-                           </li>
+                           @endforeach
                         </ul>
                     </div>
                 </div>
@@ -120,37 +106,51 @@
         </div>
         <div class="berita-body mt-4 mb-4">
             <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach($beritas as $berita)
                 <div class="col">
-                    <div class="container-berita">
-                        <img src="{{asset('image/berita1.png')}}" class="p-auto" alt="Snow" style="width:100%; height:217px">
-                        <div class="bottom-left">
-                        <p class="berita-img" >
-                            <span class="judul-berita-img" > Judul berita </span> <br> Lorem Ipsum Dolor sit Amet
-                        </p>
+                    <a href="{{ route('detail.berita', [$berita -> id]) }}">
+                        <div class="container-berita">
+                            <img src="{{ asset('temp_file/berita/'. $berita -> gambar ) }}" class="p-auto" alt="Snow" style="width:100%; height:217px">
+                            <div class="bottom-left">
+                            <p class="berita-img" >
+                                <span class="judul-berita-img" > {{ $berita -> judul }} </span> <br> {{ $berita -> tgl_berita }}
+                            </p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col">
-                    <div class="container-berita">
-                        <img src="{{asset('image/berita2.png')}}" alt="Snow" class="p-auto" style="width:100%; height:217px">
-                        <div class="bottom-left">
-                        <p class="berita-img" >
-                            <span class="judul-berita-img" > Judul berita </span> <br> Lorem Ipsum Dolor sit Amet
-                        </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="container-berita">
-                        <img src="{{asset('image/berita3.png')}}" alt="Snow" class="p-auto" style="width:100%; height:217px">
-                        <div class="bottom-left">
-                        <p class="berita-img" >
-                            <span class="judul-berita-img" > Judul berita </span> <br> Lorem Ipsum Dolor sit Amet
-                        </p>
-                        </div>
-                    </div>
-                </div>
-                </div>
+                @endforeach
             </div>
     </div>
+
+    
+  <script>
+    var ctx = document.getElementById("myChart4").getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        datasets: [{
+        data: [
+            "{{$totalLoggedInVisitors}}",
+            "{{$totalNonLoggedInVisitors}}",
+        ],
+        backgroundColor: [
+            '#67C587',
+            '#C4F2CD',
+        ],
+        label: 'Dataset 1'
+        }],
+        labels: [
+        'Dengan Login',
+        'Tanpa Login',
+        ],
+    },
+    options: {
+        responsive: true,
+        legend: {
+        position: 'right',
+        },
+    }
+    });
+  </script>
 @endsection

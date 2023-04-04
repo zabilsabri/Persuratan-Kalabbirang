@@ -7,50 +7,48 @@
     </div>
     <div class="hal-body">
         <div class="row">
-            <h6 class="no-surat">No. Surat</h6>
+            <h6 class="no-surat">{{ $surats -> no_surat }}</h6>
             <div class="col-sm-6">
                 <table class="table table-borderless">
                     <tr>
                         <td class="surat-kategori">Tanggal Surat</td>
                         <td>:</td>
-                        <td class="surat-detail">2 Desember 2022</td>
+                        <td class="surat-detail">{{ $surats -> tgl_surat }}</td>
                     </tr>
                     <tr>
                         <td class="surat-kategori">Perihal Surat</td>
                         <td>:</td>
-                        <td class="surat-detail"></td>
+                        <td class="surat-detail">{{ $surats -> perihal }}</td>
                     </tr>
                     <tr>
                         <td class="surat-kategori"> Dari </td>
                         <td>:</td>
                         <td class="surat-detail">
-                            Lorem ipsum
-                            <br>
-                            <span class="bidang-pengirim">Bidang Lorem Ipsum</span>
+                            {{ $surats -> asal_surat }} 
                         </td>
                     </tr>
                     <tr>
                         <td class="surat-kategori">Kepada</td>
                         <td>:</td>
-                        <td class="surat-detail">Lorem ipsum</td>
+                        <td class="surat-detail">{{ $surats -> user -> nama }}</td>
                     </tr>
                     <tr>
                         <td class="surat-kategori">Jenis Surat</td>
                         <td>:</td>
-                        <td class="surat-detail">Undangan</td>
+                        <td class="surat-detail">{{ $surats -> jenis_surat }}</td>
                     </tr>
                 </table>
+                @if($surats -> status == "Segera")
                 <button type="button" class="btn btn-success mb-5">Segera</button>
+                @elseif($surats -> status == "Biasa")
                 <button type="button" class="btn btn-primary mb-5">Biasa</button>
+                @elseif($surats -> status == "Penting")
                 <button type="button" class="btn btn-danger mb-5">Penting</button>
+                @elseif($surats -> status == "Rahasia")
                 <button type="button" class="btn btn-dark mb-5">Rahasia</button>
+                @endif
             </div>
             <div class="col-sm-6">
-                <p class="surat-text">
-                    Lorem ipsum dolor sit amet consectetur.
-                    Quis donec facilisis augue porta eget.
-                    Magna eget elit condimentum scelerisque volutpat vitae sed ac.
-                </p>
                 <div class="lampiran">
                     <svg width="30" style="float:left;" height="17" viewBox="0 0 30 17" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -61,9 +59,8 @@
                     <p class="lampiran-text">Lampiran</p>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="#" class="stretched-link">Lorem Ipsum Dolor sit Amet</a>
+                            <h5 class="card-title"><a href="{{ route('surat-masuk-admin.detailFile', [$surats -> file_surat]) }}" class="stretched-link">{{ $surats -> judul_surat }}</a>
                             </h5>
-                            <p class="card-text">1000 KB</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +68,7 @@
             </div>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5 pt-5">
-            <a class="btn btn-light me-md-2" href="{{ route('surat-masuk.edit') }}" type="button">
+            <a class="btn btn-light me-md-2" href="{{ route('surat-masuk.edit', [$surats -> id]) }}" type="button">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
                     <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +80,7 @@
                     </div>
                 </div>
             </a>
-            <a class="btn btn-success" href="{{ route('surat-masuk.disposisi') }}" type="button">
+            <a class="btn btn-success" href="{{ route('surat-masuk.disposisi', [$surats -> id]) }}" type="button">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
                         <svg width="34" height="23" viewBox="0 0 41 30" fill="none"

@@ -19,11 +19,9 @@ return new class extends Migration
             $table->string('no_surat');
             $table->date('tgl_surat');
             $table->string('kode_surat');
-            $table->string('catatan')->nullable();
-            $table->string('instruksi')->nullable();
             $table->string('process'); // Surat Sekarang Berada di Tahap Mana (Untuk Keperluan Riwayat User)
             $table->unsignedBigInteger('user_id')->nullable(); // Warga yang menginput surat
-            $table->string('pengirim')->nullable();
+            $table->string('pengirim')->nullable(); // Pengirim Surat (Untuk Keperluan Input Surat Keluar)
             $table->unsignedBigInteger('pj_id')->nullable(); // Penanggung Jawab atau Surat Sekarang Berada Di Siapa
             $table->unsignedBigInteger('ttd_id')->nullable(); // Yang Menandatangani Surat Ini Siapa
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);

@@ -15,6 +15,6 @@ class arsipMasuk extends Model
 
 
     public function suratMasuk() {
-        return $this->hasMany('App\Models\suratMasuk', 'id', 'suratMasuk_id');
+        return $this->belongsTo('App\Models\suratMasuk', 'suratMasuk_id', 'id');
     }
 }
