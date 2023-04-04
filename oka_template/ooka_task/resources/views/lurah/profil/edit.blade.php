@@ -1,4 +1,4 @@
-@extends('lurah.layouts.app', ['title' => 'Edit Profile'])
+@extends('kasi.layouts.app', ['title' => 'Edit Profile'])
 <link rel="stylesheet" href="{{ asset('style/css/profil-admin-edit.css') }}">
 
 <style>
@@ -14,11 +14,11 @@
                 <p class="hal-title" > Edit Profil Saya </p>
             </div>
             <div class="col-md-6 text-right mt-5">
-                <p class="hal-breadcrump" > Profil / Lurah </p>
+                <p class="hal-breadcrump" > Profil / Kasi </p>
             </div>
         </div>
     </div>
-    <form action="{{ route('update-data-lurah') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('update-data-kasi') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="hal-body">
         <img src="{{ asset('temp_file/profile/' . Auth::user()->profil) }}" onerror="this.onerror=null;this.src='{{ asset('style/img/avatar/avatar-1.png') }}';" id="output_image" class="profile-picture mb-4" alt="...">
@@ -113,8 +113,8 @@
                     <div class="col-md-6">
                         <div class="signature-pad text-right mt-4">
                             <p class="signature-pad-text" > Tanda Tangan Digital </p>
-                            @if(!empty($user -> ttd -> photo_ttd))
-                            <img src="{{ asset('temp_file/ttd/'. $user -> ttd -> photo_ttd) }}" width="400" height="210" class="img-thumbnail"/>
+                            @if(!empty(Auth::user() -> ttd -> photo_ttd))
+                            <img src="{{ asset('temp_file/ttd/'. Auth::user() -> ttd -> photo_ttd) }}" width="400" height="210" class="img-thumbnail"/>
                             @else
                             <img width="400" height="210" class="img-thumbnail"/>
                             @endif

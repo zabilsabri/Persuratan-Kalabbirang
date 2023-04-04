@@ -18,11 +18,18 @@ return new class extends Migration
             $table->string('asal_surat');
             $table->string('judul_surat');
             $table->string('no_surat');
+            $table->string('perihal');
+            $table->date('tgl_surat');
+            $table->unsignedBigInteger('tujuan_surat_id')->nullable();
+            $table->string('jenis_surat');
+            $table->string('catatan', 1000);
             $table->string('tujuan_surat');
             $table->string('jenis_surat');
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
             $table->string('file_surat');
             $table->timestamps();
+
+            $table->foreign('tujuan_surat_id')->references('id')->on('users');
         });
     }
 

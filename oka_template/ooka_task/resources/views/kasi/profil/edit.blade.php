@@ -113,8 +113,8 @@
                     <div class="col-md-6">
                         <div class="signature-pad text-right mt-4">
                             <p class="signature-pad-text" > Tanda Tangan Digital </p>
-                            @if(!empty($user -> ttd -> photo_ttd))
-                            <img src="{{ asset('temp_file/ttd/'. $user -> ttd -> photo_ttd) }}" width="400" height="210" class="img-thumbnail"/>
+                            @if(!empty(Auth::user() -> ttd -> photo_ttd))
+                            <img src="{{ asset('temp_file/ttd/'. Auth::user() -> ttd -> photo_ttd) }}" width="400" height="210" class="img-thumbnail"/>
                             @else
                             <img width="400" height="210" class="img-thumbnail"/>
                             @endif

@@ -4,18 +4,14 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\notifikasi;
+use Auth;
 
 class NotifikasiController extends Controller
 {
     public function index() {
-
-      // untuk atur tampilan kosong tidak nya
-      $data = array(
-         'view'      => true,
-         'has_klik'  => true
-      );
-
-
-      return view('user.notifikasi.index', $data);
+      $notifs = notifikasi::where('user_id', Auth::user()->id)->get();
+      return view('user.notifikasi.index')
+        ->with(compact('notifs'));
     }
 }

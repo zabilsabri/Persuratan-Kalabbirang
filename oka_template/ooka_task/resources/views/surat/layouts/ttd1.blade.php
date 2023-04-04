@@ -1,22 +1,26 @@
 <div class="surat-ttd">
     <table align="right">
         <tr>
-            <td>Kalabbirang, 05 Oktober 2022</td>
+            <td>Kalabbirang, {{ $data -> ttd -> created_at ?? '(Tanggal Ditandatangani)' }}</td>
         </tr>
         <tr>
-            <td>LURAH KALABBIRANG,</td>
+            <td>{{ $data -> ttd -> user -> role -> nama ?? '(Jabatan Yang Menandatangani)' }} KALABBIRANG,</td>
         </tr>
         <tr class="text-center">
-            <img width="100px" height="100px" src="{{ public_path('image/Kanimozhi_Signature.svg.png') }}" alt="">
+            @if(!empty($data -> ttd -> photo_ttd))
+            <img src="{{ public_path('temp_file/ttd/'. $data -> ttd -> photo_ttd) }}" width="200" height="170" class="img-thumbnail"/>
+            @else
+            <img width="400" height="210" class="img-thumbnail"/>
+            @endif
         </tr>
         <tr>
-            <td class="text-decoration-underline fw-bold" >H. AMIRUDDIN, SE.,M.AP</td>
+            <td class="text-decoration-underline fw-bold" >{{ $data -> ttd -> user -> nama ?? '(Nama Yang Menandatangani)'}}</td>
         </tr>
         <tr>
-            <td>Pangkat : Penata Tk.1</td>
+            <td>Pangkat :-</td>
         </tr>
         <tr>
-            <td>Nip. 12312312312313</td>
+            <td>Nip. {{ $data -> ttd -> user -> nip ?? '(NIP Yang Menandatangani)' }}</td>
         </tr>
     </table>
 </div>

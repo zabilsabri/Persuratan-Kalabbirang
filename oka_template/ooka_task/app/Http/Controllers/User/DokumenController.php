@@ -11,7 +11,7 @@ use DB;
 class DokumenController extends Controller
 {
     public function index() {
-        $pengantars = pengantar::with('suratKeluar')->where('user_id', '=', Auth::user()->id)->paginate(6);
+        $pengantars = pengantar::with('suratKeluar')->where('user_id', '=', Auth::user()->id)->get();
         return view('user.dokumen.index')->with(compact('pengantars'));
     }
 

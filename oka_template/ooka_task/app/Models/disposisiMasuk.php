@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class disposisi extends Model
+class disposisiMasuk extends Model
 {
     use HasFactory;
+    
+    protected $table = 'disposisi_masuks';
 
-    protected $table = 'disposisis';
 
     public function userK(){
         return $this->belongsTo(User::class, 'userk_id', 'id');
@@ -19,7 +20,7 @@ class disposisi extends Model
         return $this->belongsTo(User::class, 'usert_id', 'id');
     }
 
-    public function suratKeluar(){
-        return $this->belongsTo(suratKeluar::class, 'suratKeluar_id', 'id');
+    public function suratMasuk(){
+        return $this->belongsTo(suratKeluar::class, 'suratMasuk_id', 'id');
     }
 }

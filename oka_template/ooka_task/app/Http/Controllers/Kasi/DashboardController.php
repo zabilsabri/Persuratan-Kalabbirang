@@ -10,6 +10,7 @@ use App\Models\suratKeluar;
 use App\Models\suratMasuk;
 use Auth;
 use Session;
+use Cache;
 
 class DashboardController extends Controller
 {
