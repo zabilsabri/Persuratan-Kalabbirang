@@ -36,7 +36,8 @@ class User extends Authenticatable
         'profil',
         'ktp',
         'swafoto_ktp',
-        'email'
+        'email',
+        'status'
         // 'password',
     ];
 

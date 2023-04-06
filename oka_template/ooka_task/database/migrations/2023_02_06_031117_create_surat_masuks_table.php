@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('jenis_surat');
             $table->string('catatan', 1000);
             $table->string('tujuan_surat');
-            $table->string('jenis_surat');
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
             $table->string('file_surat');
             $table->timestamps();

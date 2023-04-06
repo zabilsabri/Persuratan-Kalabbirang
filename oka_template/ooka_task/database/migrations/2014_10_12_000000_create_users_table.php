@@ -38,6 +38,7 @@ return new class extends Migration
             $table->string('ktp')->nullable(); // foto ktp
             $table->string('swafoto_ktp')->nullable(); // swafoto ktp
             $table->boolean('verif_user')->default(0)->nullable();
+            $table->enum('status', [1,0])->default(0);
             $table->rememberToken();
             $table->timestamps();
 

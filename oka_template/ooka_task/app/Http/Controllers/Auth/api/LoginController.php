@@ -47,9 +47,12 @@ class LoginController extends Controller
      **/
     public function index()
     {
+        $user = User::where('status', 1)->count();
+        // dd($user);
 
         return response()->json([
             'status' => 'Data User',
+            'total login' => $user,
             'data'   => User::all()
         ]);
     }
@@ -100,6 +103,11 @@ class LoginController extends Controller
         }
         $token = $user->createToken('auth_token')->plainTextToken;
         // dd($token);
+        $find = User::find($request->nik);
+
+        $find->status = 1;
+        $find->save();
+
         if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp) {
             return response()->json([
                 'status' => true,
@@ -250,6 +258,11 @@ class LoginController extends Controller
     }
 
     public function logout() {
+        $id_login = Auth::user()->id;
+        $find = User::find($id_login);
+        $find->status = '0';
+        $find->save();
+
         Auth::user()->tokens()->delete();
         return response()->json([
             'message'   => 'Sukses Logout'
