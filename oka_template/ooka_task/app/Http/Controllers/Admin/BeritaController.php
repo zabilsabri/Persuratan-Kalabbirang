@@ -5,9 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Berita;
+use Livewire\WithFileUploads;
 
 class BeritaController extends Controller
 {
+
+    use WithFileUploads;
+    public $gambar;
+
     public function index() {
         $beritas = Berita::get();
         return view('admin.berita.index')
@@ -45,7 +50,7 @@ class BeritaController extends Controller
 
         $berita->save();
 
-        return redirect()->route('berita-admin');
+        return redirect()->route('berita-admin')->with("success", "Berita Berhasil Ditambahkan!");
     }
 
     public function editBeritaProcess(Request $request, $id) {
@@ -56,14 +61,16 @@ class BeritaController extends Controller
         $berita->penulis = $request->penulis;
         $berita->deskripsi = $request->deskripsi;
 
-        $nama_gambar_berita = time() . '.' . $request->gambar->extension();
-        $request->gambar->move(public_path('temp_file/berita/'), $nama_gambar_berita);
+        if($request->gambar != null){
+            $nama_gambar_berita = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('temp_file/berita/'), $nama_gambar_berita);
 
-        $berita->gambar = $nama_gambar_berita;
+            $berita->gambar = $nama_gambar_berita;
+        }
 
         $berita->save();
 
-        return redirect()->route('berita-admin');
+        return redirect()->route('berita-admin')->with("success", "Berita Berhasil Diedit!");
     }
 
     public function deleteBerita($id)

@@ -750,7 +750,16 @@
                     Fotocopy Kartu Tanda Penduduk (KTP) dan Kartu Keluarga (KK)
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ !isset(Auth()->user()->verif_user) || Auth()->user()->verif_user != '1' ? route('login') : route('surat3') }}" role="button">Mulai</a>
+            @auth
+                @if(Auth()->user()->verif_user != '1')
+                    <button class="btn btn-success float-end" type="button" data-bs-toggle="modal" data-bs-target="#ModalNotVerif">Mulai</a>
+                @else
+                    <a class="btn btn-success float-end" href="{{ route('surat13') }}" role="button">Mulai</a>
+                @endif
+            @endauth
+            @guest
+            <a class="btn btn-success float-end" href="{{ route('login') }}" role="button">Mulai</a>
+            @endguest
         </div>
     </div>
     <!-- <div class=" surat col-md-6 mt-5">
@@ -1632,7 +1641,16 @@
                     Surat Kematian atau keputusan pengadilan agama apabila yang menikah berstatus janda atau duda
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ !isset(Auth()->user()->verif_user) || Auth()->user()->verif_user != '1' ? route('login') : route('surat11') }}" role="button">Mulai</a>
+            @auth
+                @if(Auth()->user()->verif_user != '1')
+                    <button class="btn btn-success float-end" type="button" data-bs-toggle="modal" data-bs-target="#ModalNotVerif">Mulai</a>
+                @else
+                    <a class="btn btn-success float-end" href="{{ route('surat11') }}" role="button">Mulai</a>
+                @endif
+            @endauth
+            @guest
+            <a class="btn btn-success float-end" href="{{ route('login') }}" role="button">Mulai</a>
+            @endguest        
         </div>
     </div>
     <div class=" surat col-md-6 mt-5">
@@ -1770,7 +1788,16 @@
                     Fotocopy Kartu Tanda Penduduk (KTP) dan Kartu Keluarga (KK)
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ !isset(Auth()->user()->verif_user) || Auth()->user()->verif_user != '1' ? route('login') : route('surat12') }}" role="button">Mulai</a>
+            @auth
+                @if(Auth()->user()->verif_user != '1')
+                    <button class="btn btn-success float-end" type="button" data-bs-toggle="modal" data-bs-target="#ModalNotVerif">Mulai</a>
+                @else
+                    <a class="btn btn-success float-end" href="{{ route('surat12') }}" role="button">Mulai</a>
+                @endif
+            @endauth
+            @guest
+                <a class="btn btn-success float-end" href="{{ route('login') }}" role="button">Mulai</a>
+            @endguest
         </div>
     </div>
     <div class=" surat col-md-6 mt-5">
@@ -1908,9 +1935,34 @@
                     Fotocopy Kartu Tanda Penduduk (KTP) dan Kartu Keluarga (KK)
                 </p>
             </div>
-            <a class="btn btn-success float-end" href="{{ !isset(Auth()->user()->verif_user) || Auth()->user()->verif_user != '1' ? route('login') : route('surat13') }}" role="button">Mulai</a>
+            @auth
+                @if(Auth()->user()->verif_user != '1')
+                    <button class="btn btn-success float-end" type="button" data-bs-toggle="modal" data-bs-target="#ModalNotVerif">Mulai</a>
+                @else
+                    <a class="btn btn-success float-end" href="{{ route('surat13') }}" role="button">Mulai</a>
+                @endif
+            @endauth
+            @guest
+            <a class="btn btn-success float-end" href="{{ route('login') }}" role="button">Mulai</a>
+            @endguest
         </div>
     </div>
 </div>
 
 @endsection
+
+<div class="modal fade" id="ModalNotVerif" tabindex="-1" aria-labelledby="ModalNotVerifLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="ModalNotVerifLabel">Silahkan Menunggu</h1>
+      </div>
+      <div class="modal-body">
+        Akun anda belum diverifikasi oleh Admin. Silahkan menunggu beberapa saat sebelum mengajukan kembali pengajuan surat.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

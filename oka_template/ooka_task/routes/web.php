@@ -128,16 +128,25 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
         // Surat Keluar
         Route::group(['prefix' => 'surat-keluar'], function() {
             Route::get('/', 'suratKeluarController@index')->name('surat-keluar-admin');
-            Route::get('/input', 'suratKeluarController@input')->name('surat-keluar.input');
+
+            //Input Surat Keluar
+            Route::get('/surat-keterangan-usaha', 'suratKeluarController@suratKeteranganUsaha')->name('surat-keluar.surat3');
+            Route::get('/surat-keterangan-menikah', 'suratKeluarController@suratKeteranganMenikah')->name('surat-keluar.surat11');
+            Route::get('/surat-tidak-mampu', 'suratKeluarController@suratTidakMampu')->name('surat-keluar.surat12');
+            Route::get('/surat-belum-menikah', 'suratKeluarController@suratBelumMenikah')->name('surat-keluar.surat13');
+
+            // Proses Input Surat Keluar
+            Route::post('proses-surat13', 'suratKeluarController@store13')->name('surat-keluar.proses13');
+            Route::post('proses-surat3', 'suratKeluarController@store3')->name('surat-keluar.proses3');
+            Route::post('proses-surat12', 'suratKeluarController@store12')->name('surat-keluar.proses12');
+            Route::post('proses-surat11', 'suratKeluarController@store11')->name('surat-keluar.proses11');
+
             Route::get('/disposisi/{id}', 'suratKeluarController@disposisi')->name('surat-keluar.disposisi');
             Route::post('/disposisiProses/{id}', 'suratKeluarController@disposisiProses')->name('surat-keluar.disposisiProses');
             Route::get('/detail/{id}', 'suratKeluarController@detail')->name('surat-keluar-admin.detail');
             Route::get('/detailFile/{id}', 'suratKeluarController@detailFile')->name('surat-keluar-admin.detailFile');
             Route::post('/tolakSurat/{id}', 'suratKeluarController@tolakSurat')->name('surat-keluar-admin.tolakSurat');
-            Route::get('exportData1/{id}', 'suratKeluarController@exportSurat1')->name('exportSuratKeluar1');
-            Route::get('exportData2/{id}', 'suratKeluarController@exportSurat2')->name('exportSuratKeluar2');
-            Route::get('exportData3/{id}', 'suratKeluarController@exportSurat3')->name('exportSuratKeluar3');
-            Route::get('exportData4/{id}', 'suratKeluarController@exportSurat4')->name('exportSuratKeluar4');
+            Route::get('exportData/{id}', 'suratKeluarController@exportSurat')->name('exportSuratKeluar');
         });
 
         // Surat Masuk

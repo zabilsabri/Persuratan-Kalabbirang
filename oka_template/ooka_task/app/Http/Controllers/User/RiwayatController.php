@@ -11,11 +11,11 @@ class RiwayatController extends Controller
 {
     public function index() {
         $surats = suratKeluar::where('user_id', Auth::user()->id)->get();
-        return view('user.riwayat.index')
+        if($surats->isEmpty()){
+            return view('user.riwayat.kosong');
+        } else {
+            return view('user.riwayat.index')
             ->with(compact('surats'));
-    }
-    
-    public function kosong() {
-        return view('user.riwayat.kosong');
+        }
     }
 }

@@ -56,7 +56,7 @@
                 </ul>
                 <div class="d-flex">
                     @auth
-                    <a href="#">
+                    <a href="{{ route('notifikasi') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#ffff"
                             class="bi bi-bell-fill" viewBox="0 0 16 16">
                             <path

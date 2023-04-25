@@ -63,7 +63,7 @@
             <div class="col-md-4">
                 <div class="file-drop-area-berita">
                     <span class="choose-file-button">Pilih File</span>
-                    <input class="file-input" name="gambar" type="file" accept="iamge/*" onchange="preview(event)" required>
+                    <input class="file-input" name="gambar" type="file" accept="image/*" onchange="preview(event)">
                 </div>
             </div>
 

@@ -7,11 +7,11 @@
                 <p class="head-left-1 text-center" > Selamat Datang di </p>
                 <p class="head-left-2 text-center" > Sistem Informasi </p>
                 <p class="head-left-2 text-center" > Desa Kelurahan Kalabbirang </p>
-                <p class="head-left-1 text-center" >Kecamatan Bantimurung, Kabupaten Maros, Sulawesi Selatan</p>
+                <p class="head-left-1 text-center" >Kecamatan Pattallassang, Kabupaten Takalar, Sulawesi Selatan</p>
             </div>
         </div>
         <div class="beranda-head-text text-center p-5">
-            <p> <span style="font-weight: 600;" > Kalabbirang </span> merupakan salah satu Kelurahan yang berada di bawah wilayah Kecamatan Minasatene, Kabupaten Pangkep. Kelurahan dengan 10 RW ini dipimpin oleh seorang Kepala Kelurahan yang dibantu oleh Sekretaris Kelurahan. </p>
+            <p> <span style="font-weight: 600;" > Kalabbirang </span> merupakan salah satu Kelurahan yang berada di bawah wilayah Kecamatan Pattallassang, Kabupaten Takalar. Kelurahan dengan 10 RW ini dipimpin oleh seorang Kepala Kelurahan yang dibantu oleh Sekretaris Kelurahan. </p>
         </div>
         <div class="head-right mt-5 mb-5">
             <p class="head-right-title text-center" >Program Layanan</p>

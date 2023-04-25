@@ -49,9 +49,20 @@ class suratKeluarController extends Controller
 
         return redirect()->route('surat-keluar-admin');
     }
-    public function input() {
-        return view('admin.suratKeluar.input');
+
+    public function suratKeteranganUsaha() {
+        return view('admin.suratKeluar.Surat.suratKeteranganUsaha');
     }
+    public function suratKeteranganMenikah() {
+        return view('admin.suratKeluar.Surat.suratKeteranganMenikah');
+    }
+    public function suratTidakMampu() {
+        return view('admin.suratKeluar.Surat.suratTidakMampu');
+    }
+    public function suratBelumMenikah() {
+        return view('admin.suratKeluar.Surat.suratBelumMenikah');
+    }
+
     public function index() {
         $surats = suratKeluar::with('jenisSurat', 'user')->where('pj_id', Auth::user()->id)->get();
         return view('admin.suratKeluar.index')->with(compact('surats'));
@@ -73,40 +84,89 @@ class suratKeluarController extends Controller
 
         return redirect()->route('surat-keluar-admin');
     }
-    public function exportSurat1($id)
+    public function exportSurat($id)
     {
         $data = suratKeluar::where('id', $id)->first();
 
-        $pdf = Pdf::loadView('surat.isiSurat.belumNikah', compact('data'));
+        if($data -> jenis_suratKeluar_id == 1){
+            $pdf = Pdf::loadView('surat.isiSurat.belumNikah', compact('data'));
+        } else if ($data -> jenis_suratKeluar_id == 2){
+            $pdf = Pdf::loadView('surat.isiSurat.kurangMampu', compact('data'));
+        } else if ($data -> jenis_suratKeluar_id == 3){
+            $pdf = Pdf::loadView('surat.isiSurat.sku', compact('data'));
+        } else if ($data -> jenis_suratKeluar_id == 4){
+            $pdf = Pdf::loadView('surat.isiSurat.pengPernikahan', compact('data'));
+        }
+        
         $pdf->setPaper('A4', 'potrait');
         return $pdf->stream('Surat Belum Menikah.pdf' , array("Attachment" => false));
         exit(0);
     }
-    public function exportSurat2($id)
-    {
-        $data = suratKeluar::where('id', $id)->first();
 
-        $pdf = Pdf::loadView('surat.isiSurat.kurangMampu', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Kurang Mampu.pdf' , array("Attachment" => false));
-        exit(0);
-    }
-    public function exportSurat3($id)
+    public function store13(Request $request)
     {
-        $data = suratKeluar::where('id', $id)->first();
+        $request->validate([
+            'nama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'jkl' => 'required',
+            'nik' => 'required|numeric',
+            'status_nikah' => 'required',
+            'agama' => 'required',
+            'pekerjaan' => 'required',
+            'alamat' => 'required',
+            'peng_imamLingkungan' => 'required',
+            'peng_ktp' => 'required',
+            'peng_kk' => 'required',
+            'peng_pbb' => 'required'
+        ]);
 
-        $pdf = Pdf::loadView('surat.isiSurat.sku', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Keterangan Usaha.pdf' , array("Attachment" => false));
-        exit(0);
-    }
-    public function exportSurat4($id)
-    {
-        $data = suratKeluar::where('id', $id)->first();
+        $user = new User();
+        $user->nama = $request->nama;
+        $user->tanggal_lahir = $request->tanggal_lahir;
+        $user->tempat_lahir = $request->tempat_lahir;
+        $user->status_nikah = $request->status_nikah;
+        $user->jkl = $request->jkl;
+        $user->agama = $request->agama;
+        $user->pekerjaan = $request->pekerjaan;
+        $user->alamat = $request->alamat;
+        $user->role_id = null;
+        $user->save();
 
-        $pdf = Pdf::loadView('surat.isiSurat.pengPernikahan', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Pengantar Pernikahan.pdf' , array("Attachment" => false));
-        exit(0);
+        $suratKeluar = new suratKeluar();
+        $suratKeluar->jenis_suratKeluar_id = "1";
+        $suratKeluar->user_id = Auth::user()->id;
+        $suratKeluar->no_surat = "1";
+        $suratKeluar->kode_surat = "1";
+        $suratKeluar->process = "1";
+        $suratKeluar->tgl_surat = Carbon::now();
+        $suratKeluar->pj_id = "1";
+        $suratKeluar->status = "Segera";
+        $suratKeluar->save();
+        
+        $suratKeluar_id = $suratKeluar->id;
+
+        $peng_imamLingkungan = time(). '1' . '.' . $request->peng_imamLingkungan->extension();
+        $peng_ktp = time(). '2' . '.' . $request->peng_ktp->extension();
+        $peng_kk = time(). '3' . '.' . $request->peng_kk->extension();
+        $peng_pbb = time(). '4' . '.' . $request->peng_pbb->extension();
+
+        $request->peng_imamLingkungan->move(public_path('temp_file/pengantar/'), $peng_imamLingkungan);
+        $request->peng_ktp->move(public_path('temp_file/pengantar/'), $peng_ktp);
+        $request->peng_kk->move(public_path('temp_file/pengantar/'), $peng_kk);
+        $request->peng_pbb->move(public_path('temp_file/pengantar/'), $peng_pbb);
+
+        $data = [
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_imamLingkungan, 'user_id' => null, 'nama_file_surat' => $request->peng_imamLingkungan->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_ktp, 'user_id' => null, 'nama_file_surat' => $request->peng_ktp->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_kk, 'user_id' => null, 'nama_file_surat' => $request->peng_kk->getClientOriginalName()],
+            ['suratKeluar_id'=>$suratKeluar_id, 'file_surat'=> $peng_pbb, 'user_id' => null, 'nama_file_surat' => $request->peng_pbb->getClientOriginalName()],
+        ];
+
+        pengantar::insert($data);
+    
+        return redirect()->route('selesai-pengajuan');
     }
+
+
 }

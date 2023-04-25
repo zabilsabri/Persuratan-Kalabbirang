@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pengantars', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('suratKeluar_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('nama_file_surat');
             $table->string('file_surat');
             $table->foreign('suratKeluar_id')->references('id')->on('surat_keluars');

@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->unsignedBigInteger('role_id')->default(6);
-            $table->string('username');
+            $table->unsignedBigInteger('role_id')->default(6)->nullable();
+            $table->string('username')->nullable();
             $table->string('nik')->unique()->nullable();
             $table->string('nip')->unique()->nullable();
             $table->date('tanggal_lahir')->nullable();
@@ -30,15 +30,14 @@ return new class extends Migration
             $table->string('pekerjaan')->nullable();
             $table->string('nomor_kk')->nullable(); // Nomor Kartu Keluarga
             $table->string('nomor_kp')->nullable(); // Nomor Kartu Pegawai
-            $table->string('nomor_telp');
-            $table->string('email')->unique();  
+            $table->string('nomor_telp')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             // $table->string('password');
             $table->string('profil')->nullable(); // foto profil
             $table->string('ktp')->nullable(); // foto ktp
             $table->string('swafoto_ktp')->nullable(); // swafoto ktp
             $table->boolean('verif_user')->default(0)->nullable();
-            $table->enum('status', [1,0])->default(0);
             $table->rememberToken();
             $table->timestamps();
 

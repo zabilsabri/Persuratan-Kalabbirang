@@ -81,7 +81,7 @@
         Apakah Anda Yakin?
       </div>
       <div class="modal-footer">
-        <a href="{{ route('verif-warga', [$user->id]) }}" type="button" class="btn btn-success">Ya</a>
+        <a href="{{ route('verif-warga', [$user->id]) }}" style="line-height: 40px;" type="button" class="btn btn-success override">Ya</a>
       </div>
     </div>
   </div>

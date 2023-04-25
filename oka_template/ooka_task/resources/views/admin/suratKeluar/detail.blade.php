@@ -59,7 +59,7 @@
                 <p class="lampiran-text">Surat</p>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="../exportData{{ $surat -> jenis_suratKeluar_id }}/{{ $surat -> id }}" class="stretched-link">{{ $surat -> jenisSurat -> nama }}</a></h5>
+                        <h5 class="card-title"><a href="../exportData/{{ $surat -> id }}" class="stretched-link">{{ $surat -> jenisSurat -> nama }}</a></h5>
                     </div>
                 </div>
                 <hr>
