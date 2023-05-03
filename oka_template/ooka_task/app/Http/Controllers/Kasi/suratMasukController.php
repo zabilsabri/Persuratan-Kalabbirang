@@ -101,7 +101,11 @@ class suratMasukController extends Controller
     {
         $surat = suratKeluar::find($id);
         $surat->ttd_id = Auth::user() -> ttd -> id;
-        $surat->pj_id = $surat -> user_id;
+        if($surat->user->role->id == null){
+            $surat->pj_id = null;
+        } else {
+            $surat->pj_id = $surat -> user_id;
+        }
         $surat->process = "3";
         $surat->save();
 

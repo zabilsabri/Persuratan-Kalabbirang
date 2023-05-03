@@ -26,41 +26,41 @@
         <div class="col-6">
             <div class="mb-3">
                 <label for="inputNama" class="form-label">1. Nama</label>
-                <input type="text" class="form-control" id="inputNama" name="nama" value="{{ Auth::user()->nama }}" required>
+                <input type="text" class="form-control" id="inputNama" name="nama" required>
             </div>
             <div class="mb-3">
                 <label for="inputTTL" class="form-label">2. Tempat / Tgl Lahir</label>
                     <div class="row g-1">
                         <div class="col-3">
-                            <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" value="{{ Auth::user()->tempat_lahir }}" aria-label="First name">
+                            <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" aria-label="First name">
                         </div>
                         <div class="col-9">
-                            <input type="date" class="form-control" name="tanggal_lahir" id="floatingInput" value="{{ Auth::user()->tanggal_lahir }}">
+                            <input type="date" class="form-control" name="tanggal_lahir" id="floatingInput">
                         </div>
                     </div>    
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">3. Jenis Kelamin</label>
                     <select class="form-select" name="jkl" aria-label="Default select example" required>
-                        <option value="{{ Auth()->user()->jkl}}" selected>-- {{ Auth::user()->jkl ?? "Pilih Jenis Kelamin Anda"}}</option>
+                        <option selected>Pilih Jenis Kelamin Anda</option>
                         <option value="Laki - Laki">Laki - Laki</option>
                         <option value="Perempuan">Perempuan</option>
                     </select>
             </div>
             <div class="mb-3">
                 <label for="inputNIK" class="form-label">4. NIK</label>
-                <input type="text" class="form-control" name="nik" id="inputNIK" placeholder="" value="{{ Auth::user()->nik }}" required>
+                <input type="text" class="form-control" name="nik" id="inputNIK" placeholder="" required>
             </div>
         </div>
         <div class="col-6">
             <div class="mb-3">
                 <label for="inputStatus" class="form-label">5. Status Nikah</label>
-                <input type="text" class="form-control" name="status_nikah" id="inputStatus" value="{{ Auth::user()->status_nikah }}"  required>
+                <input type="text" class="form-control" name="status_nikah" id="inputStatus" required>
             </div>
             <div class="mb-3">
                 <label for="inputAgama" class="form-label">6. Agama</label>
                 <select class="form-select" name="agama" aria-label="Default select example" required>
-                    <option value="{{ Auth::user()->agama }}" selected>-- {{ Auth::user()->agama ?? "Pilih Agama Anda"}}</option>
+                    <option selected>Pilih Agama Anda</option>
                     <option value="Islam">Islam</option>
                     <option value="Kristen">Kristen</option>
                     <option value="Hindu">Hindu</option>
@@ -70,11 +70,11 @@
             </div>
             <div class="mb-3">
                 <label for="inputPekerjaan" class="form-label">7. Pekerjaan</label>
-                <input type="text" class="form-control" name="pekerjaan" id="inputPekerjaan" value="{{ Auth::user()->pekerjaan }}" required>
+                <input type="text" class="form-control" name="pekerjaan" id="inputPekerjaan" required>
             </div>
             <div class="mb-3">
                 <label for="inputAlamat" class="form-label">8. Alamat</label>
-                <input type="text" class="form-control" name="alamat" id="inputAlamat" value="{{ Auth::user()->alamat }}" required>
+                <input type="text" class="form-control" name="alamat" id="inputAlamat" required>
             </div>
         </div>
     </div>

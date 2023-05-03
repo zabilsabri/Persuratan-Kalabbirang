@@ -26,26 +26,26 @@
             <div class="col-6">
                 <div class="mb-3">
                     <label for="inputNama" class="form-label">1. Nama</label>
-                    <input type="text" class="form-control" id="inputNama" name="nama" value="{{ Auth::user()->nama }}" required>
+                    <input type="text" class="form-control" id="inputNama" name="nama" required>
                 </div>
                 <div class="mb-3">
                     <label for="inputTTL" class="form-label">2. Tempat / Tgl Lahir</label>
                     <div class="row g-1">
                         <div class="col-3">
-                            <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" value="{{ Auth::user()->tempat_lahir }}" aria-label="First name">
+                            <input type="text" class="form-control" name="tempat_lahir" placeholder="Tempat Lahir" aria-label="First name">
                         </div>
                         <div class="col-9">
-                            <input type="date" class="form-control" name="tanggal_lahir" id="floatingInput" value="{{ Auth::user()->tanggal_lahir }}">
+                            <input type="date" class="form-control" name="tanggal_lahir" id="floatingInput" >
                         </div>
                     </div>    
                 </div>
                 <div class="mb-3">
                     <label for="inputNIK" class="form-label">3. NIK</label>
-                    <input type="text" class="form-control" name="nik" id="inputNIK" placeholder="" value="{{ Auth::user()->nik }}">
+                    <input type="text" class="form-control" name="nik" id="inputNIK" placeholder="">
                 </div>
                 <div class="mb-3">
                     <label for="inputPekerjaan" class="form-label">4. Pekerjaan</label>
-                    <input type="text" class="form-control" name="pekerjaan" id="inputPekerjaan" value="{{ Auth::user()->pekerjaan }}">
+                    <input type="text" class="form-control" name="pekerjaan" id="inputPekerjaan">
                 </div>
             </div>
             <div class="col-6">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="inputAlamat" class="form-label">7. Alamat</label>
-                    <input type="text" class="form-control" name="alamat" id="inputAlamat" value="{{ Auth::user()->alamat }}">
+                    <input type="text" class="form-control" name="alamat" id="inputAlamat">
                 </div>
             </div>
         </div>
