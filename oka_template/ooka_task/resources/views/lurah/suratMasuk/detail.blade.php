@@ -31,9 +31,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="surat-kategori">Kepada</td>
+                        <td class="surat-kategori"> Kepada </td>
                         <td>:</td>
-                        <td class="surat-detail">{{ Auth::user()->nama }}</td>
+                        <td class="surat-detail">
+                            {{ $surat -> pj -> nama }}
+                            <br>
+                            <span class="bidang-pengirim">Bidang {{ $surat -> pj -> role -> nama }}</span>
+                        </td>
                     </tr>
                     <tr>
                         <td class="surat-kategori">Jenis Surat</td>
@@ -87,6 +91,7 @@
             @endforeach
         </div>
 
+        @if($surat -> pj -> id == Auth::user()->id)
         <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5 pt-5">
             <button class="btn btn-light border-green me-md-2 mb-2" type="button" data-bs-toggle="modal"
                 data-bs-target="#modalInfoDisposisi">
@@ -123,6 +128,7 @@
                 </div>
             </button>
         </div>
+        @endif
     </div>
 @endsection
 

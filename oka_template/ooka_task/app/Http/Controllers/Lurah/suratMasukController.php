@@ -17,8 +17,8 @@ use PDF;
 class suratMasukController extends Controller
 {
     public function index() {
-        $surat_masuks = suratMasuk::where('tujuan_surat_id', Auth::user()->id)->get();
-        $surats = suratKeluar::where('pj_id', Auth::user()->id)->get();
+        $surat_masuks = suratMasuk::get();
+        $surats = suratKeluar::where('pj_id', '!=', null)->where('pj_id', '!=', '1')->orWhere('pj_id', '2')->get();
         return view('lurah.suratMasuk.index')
             ->with(compact('surats'))
             ->with(compact('surat_masuks'));
@@ -60,42 +60,6 @@ class suratMasukController extends Controller
         return view('lurah.suratMasuk.kosong');
     }
 
-    public function exportSurat1($id)
-    {
-        $data = suratKeluar::where('id', $id)->first();
-
-        $pdf = Pdf::loadView('surat.isiSurat.belumNikah', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Belum Menikah.pdf' , array("Attachment" => false));
-        exit(0);
-    }
-    public function exportSurat2($id)
-    {
-        $data = suratKeluar::where('id', $id)->first();
-
-        $pdf = Pdf::loadView('surat.isiSurat.kurangMampu', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Kurang Mampu.pdf' , array("Attachment" => false));
-        exit(0);
-    }
-    public function exportSurat3($id)
-    {
-        $data = suratKeluar::where('id', $id)->first();
-
-        $pdf = Pdf::loadView('surat.isiSurat.sku', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Keterangan Usaha.pdf' , array("Attachment" => false));
-        exit(0);
-    }
-    public function exportSurat4($id)
-    {
-        $data = suratKeluar::where('id', $id)->first();
-
-        $pdf = Pdf::loadView('surat.isiSurat.pengPernikahan', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Pengantar Pernikahan.pdf' , array("Attachment" => false));
-        exit(0);
-    }
     public function ttd($id)
     {
         $surat = suratKeluar::find($id);

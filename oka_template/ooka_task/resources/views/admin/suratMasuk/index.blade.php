@@ -1,6 +1,12 @@
 @extends('admin.layouts.app', ['title' => 'Surat Masuk'])
 
 @section('content')
+    @if($message = Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
+        <strong> {{$message}} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <link rel="stylesheet" href="{{ asset('style/css/suratMasuk.css') }} ">
     <div class="hal-head">
         <div class="d-flex align-items-center">

@@ -98,8 +98,7 @@
                 <h4 class="surat-kategori col-form-label col-sm-4">Upload File</h4>
                 <div class="row form-group">
                     <div class="col-sm-10 ms-0 ms-md-4">
-                        <input type="file" class="custom-file-input" name="file_surat" id="customFile">
-                        <label class="custom-file-label" for="customFile">Pilih File</label>
+                        <input class="form-control" type="file" name="file_surat" id="customFile">
                     </div>
                 </div>
 

@@ -46,7 +46,7 @@ class suratMasukController extends Controller
         $surat->file_surat = $nama_surat;
         $surat->save();
 
-        return redirect()->route('surat-masuk-admin');
+        return redirect()->route('surat-masuk-admin')->with('success', 'Surat Masuk Berhasil Ditambahkan!');
 
     }
 
@@ -81,7 +81,7 @@ class suratMasukController extends Controller
         }
         $surat->save();
 
-        return back();
+        return redirect()->route('surat-masuk-admin')->with('success', 'Surat Masuk Berhasil Diedit!');
 
     }
 
@@ -106,6 +106,6 @@ class suratMasukController extends Controller
         $disposisi->instruksi = $request->instruksi;
         $disposisi->save();
 
-        return redirect()->route('surat-masuk-admin');
+        return redirect()->route('surat-masuk-admin')->with('success', 'Surat Berhasil DIserahkan!');
     }
 }

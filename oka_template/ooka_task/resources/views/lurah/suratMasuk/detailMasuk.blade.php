@@ -63,7 +63,7 @@
                     <p class="lampiran-text">Surat</p>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="{{ route('surat-masuk-kasi.detailFile', [$surat -> file_surat]) }}" class="stretched-link">{{ $surat -> jenis_surat }}</a></h5>
+                            <h5 class="card-title"><a href="{{ route('surat-masuk-lurah.detailFile', [$surat -> file_surat]) }}" class="stretched-link">{{ $surat -> jenis_surat }}</a></h5>
                         </div>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
                 <p class="modal-body-text1">Surat Akan Diarsip</p>
                 <p class="modal-body-text2">Surat akan langsung masuk dalam arsip. Tekan Oke!</p>
                 <div class="modal-body-button text-end">
-                    <a href="{{ route('surat-masuk-kasi.arsip', [$surat -> id]) }}" type="button" class="btn btn-modal btn-success-modal w-25">Oke</a>
+                    <a href="{{ route('surat-masuk-lurah.arsip', [$surat -> id]) }}" type="button" class="btn btn-modal btn-success-modal w-25">Oke</a>
                 </div>
             </div>
         </div>

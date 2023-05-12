@@ -2,6 +2,12 @@
 <link rel="stylesheet" href="{{ asset('style/css/suratKeluarDetail.css') }}">
 
 @section('content')
+    @if($message = Session::get('failed'))
+    <div class="alert alert-danger alert-dismissible fade show w-100" role="alert">
+        <strong> {{$message}} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <div class="hal-head">
         <h1 class="hal-title"> Detail Surat Masuk </h1>
     </div>
@@ -63,7 +69,7 @@
                     <p class="lampiran-text">Surat</p>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="../exportData{{ $surat -> jenis_suratKeluar_id }}/{{ $surat -> id }}" class="stretched-link">{{ $surat -> jenisSurat -> nama }}</a></h5>
+                            <h5 class="card-title"><a href="{{ route('export.surat', ['id' => $surat -> id]) }}" class="stretched-link">{{ $surat -> jenisSurat -> nama }}</a></h5>
                         </div>
                     </div>
                     <hr>
@@ -193,8 +199,8 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body p-4">
-                <p class="modal-body-text1">Surat berhasil ditandatangani</p>
-                <p class="modal-body-text2">Surat akan langsung masuk dalam arsip</p>
+                <p class="modal-body-text1">Apakah Anda Yakin?</p>
+                <p class="modal-body-text2">Tekan Oke untuk menandatangani dan surat akan otomatis akan tersimpan ke arsip</p>
                 <div class="modal-body-button text-end">
                     <a href="{{ route('surat-masuk-kasi.ttd', [$surat -> id]) }}" type="button" class="btn btn-modal btn-success-modal w-25">Oke</a>
                 </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Surat;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use PDF;
+use App\Models\suratKeluar;
 
 class suratController extends Controller
 {
@@ -58,6 +59,25 @@ class suratController extends Controller
         }
         $pdf->setPaper('A4', 'potrait');
         return $pdf->stream('test.pdf' , array("Attachment" => false));
+        exit(0);
+    }
+
+    public function exportSurat($id)
+    {
+        $data = suratKeluar::where('id', $id)->first();
+
+        if($data -> jenis_suratKeluar_id == 1){
+            $pdf = Pdf::loadView('surat.isiSurat.belumNikah', compact('data'));
+        } else if ($data -> jenis_suratKeluar_id == 2){
+            $pdf = Pdf::loadView('surat.isiSurat.kurangMampu', compact('data'));
+        } else if ($data -> jenis_suratKeluar_id == 3){
+            $pdf = Pdf::loadView('surat.isiSurat.sku', compact('data'));
+        } else if ($data -> jenis_suratKeluar_id == 4){
+            $pdf = Pdf::loadView('surat.isiSurat.pengPernikahan', compact('data'));
+        }
+        
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->stream('Surat Belum Menikah.pdf' , array("Attachment" => false));
         exit(0);
     }
 }

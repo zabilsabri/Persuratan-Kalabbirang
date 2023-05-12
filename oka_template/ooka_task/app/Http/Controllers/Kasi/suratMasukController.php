@@ -100,8 +100,12 @@ class suratMasukController extends Controller
     public function ttd($id)
     {
         $surat = suratKeluar::find($id);
+        
+        if(!isset(Auth::user() -> ttd -> id)){
+            return back()->with('failed', 'Kasi ini belum memiliki tanda tangan! Silahkan ke admin untuk mendaftarkan tanda tangan anda!');
+        } else {
         $surat->ttd_id = Auth::user() -> ttd -> id;
-        if($surat->user->role->id == null){
+            if(!isset($surat->user->role->id)){
             $surat->pj_id = null;
         } else {
             $surat->pj_id = $surat -> user_id;
@@ -114,6 +118,7 @@ class suratMasukController extends Controller
         $arsip->save();
 
         return redirect()->route('surat-masuk-kasi');
+        }
     }
 
     public function arsip($id)

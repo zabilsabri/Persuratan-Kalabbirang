@@ -3,6 +3,12 @@
 <link rel="stylesheet" href="{{ asset('style/css/profil-admin-edit.css') }}">
 
 @section('content')
+    @if($message = Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
+        <strong> {{$message}} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <div class="hal-head">
         <h1 class="hal-title"> Edit Surat Masuk </h1>
     </div>
@@ -108,8 +114,7 @@
                     <h4 class="surat-kategori col-form-label col-sm-4">Upload File</h4>
                     <div class="row form-group">
                         <div class="col-sm-10 ms-0 ms-md-4">
-                            <input type="file" class="custom-file-input" name="file_surat" id="customFile">
-                            <label class="custom-file-label" for="customFile">Pilih File</label>
+                            <input class="form-control" type="file" name="file_surat" id="customFile">
                         </div>
                     </div>
 

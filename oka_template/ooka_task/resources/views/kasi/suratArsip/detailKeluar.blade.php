@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['title' => 'Detail Surat Arsip'])
+@extends('kasi.layouts.app', ['title' => 'Detail Surat Arsip'])
 <link rel="stylesheet" href="{{ asset('style/css/suratKeluarDetail.css') }}">
 
 @section('content')
@@ -56,7 +56,7 @@
                 <p class="lampiran-text">Lampiran</p>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="../../surat-keluar/exportData{{ $detailArsips -> suratKeluar -> jenis_suratKeluar_id }}/{{ $detailArsips -> id }}" class="stretched-link">{{ $detailArsips -> suratKeluar -> jenisSurat -> nama }}</a></h5>
+                        <h5 class="card-title"><a href="{{ route('export.surat', ['id' => $detailArsips -> id]) }}" class="stretched-link">{{ $detailArsips -> suratKeluar -> jenisSurat -> nama }}</a></h5>
                     </div>
                 </div>
             </div>

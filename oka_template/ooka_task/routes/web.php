@@ -72,11 +72,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
     // Arsip Surat
     Route::get('/arsip', 'ArsipSuratController@index')->name('arsip');
     Route::get('/arsip_kosong', 'ArsipSuratController@kosong')->name('arsip.kosong');
-    Route::get('exportData1/{id}', 'ArsipSuratController@exportSurat1')->name('exportSuratKeluar1');
-    Route::get('exportData2/{id}', 'ArsipSuratController@exportSurat2')->name('exportSuratKeluar2');
-    Route::get('exportData3/{id}', 'ArsipSuratController@exportSurat3')->name('exportSuratKeluar3');
-    Route::get('exportData4/{id}', 'ArsipSuratController@exportSurat4')->name('exportSuratKeluar4');
-    
+
     // Dokumen
     Route::get('/dokumen', 'DokumenController@index')->name('dokumen');
     Route::get('/detail/{id}', 'DokumenController@showFile')->name('showFile');
@@ -219,10 +215,6 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah', 'midd
             Route::get('/kosong', 'suratMasukController@kosong')->name('surat-masuk-lurah.kosong');
             Route::get('/detailFile/{id}', 'suratMasukController@detailFile')->name('surat-masuk-lurah.detailFile');
             Route::get('/detailFilePengantar/{id}', 'suratMasukController@detailFilePengantar')->name('surat-masuk-lurah.detailFilePengantar');
-            Route::get('exportData1/{id}', 'suratMasukController@exportSurat1')->name('exportSuratKeluar1');
-            Route::get('exportData2/{id}', 'suratMasukController@exportSurat2')->name('exportSuratKeluar2');
-            Route::get('exportData3/{id}', 'suratMasukController@exportSurat3')->name('exportSuratKeluar3');
-            Route::get('exportData4/{id}', 'suratMasukController@exportSurat4')->name('exportSuratKeluar4');
             Route::get('/ttd/{id}', 'suratMasukController@ttd')->name('surat-masuk-lurah.ttd');
             Route::get('/arsip/{id}', 'suratMasukController@arsip')->name('surat-masuk-lurah.arsip');
         });
@@ -261,10 +253,6 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi', 'middl
             Route::get('/kosong', 'suratMasukController@kosong')->name('surat-masuk-kasi.kosong');
             Route::get('/detailFile/{id}', 'suratMasukController@detailFile')->name('surat-masuk-kasi.detailFile');
             Route::get('/detailFilePengantar/{id}', 'suratMasukController@detailFilePengantar')->name('surat-masuk-kasi.detailFilePengantar');
-            Route::get('exportData1/{id}', 'suratMasukController@exportSurat1')->name('exportSuratKeluar1');
-            Route::get('exportData2/{id}', 'suratMasukController@exportSurat2')->name('exportSuratKeluar2');
-            Route::get('exportData3/{id}', 'suratMasukController@exportSurat3')->name('exportSuratKeluar3');
-            Route::get('exportData4/{id}', 'suratMasukController@exportSurat4')->name('exportSuratKeluar4');
             Route::get('/ttd/{id}', 'suratMasukController@ttd')->name('surat-masuk-kasi.ttd');
             Route::get('/arsip/{id}', 'suratMasukController@arsip')->name('surat-masuk-kasi.arsip');
         });
@@ -286,10 +274,10 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi', 'middl
 });
 
 //Surat
-Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Surat'], function () {
+Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Surat', 'middleware' => ['auth', 'Surat']], function () {
     Route::group(['prefix' => 'surat'], function () {
 
-        Route::get('/exportSurat/{id}', 'suratController@exportData');
+        Route::get('/exportSurat/{id}', 'suratController@exportSurat')->name('export.surat');
 
     });
 });

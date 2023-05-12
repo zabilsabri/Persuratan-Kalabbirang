@@ -51,7 +51,7 @@
                 <p class="lampiran-text">Lampiran</p>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="{{ route('surat-masuk-kasi.detailFile', [$detailArsips -> file_surat]) }}" class="stretched-link">{{ $detailArsips -> suratMasuk -> judul_surat }}</a></h5>
+                        <h5 class="card-title"><a href="{{ route('surat-masuk-lurah.detailFile', [$detailArsips -> file_surat]) }}" class="stretched-link">{{ $detailArsips -> suratMasuk -> judul_surat }}</a></h5>
                     </div>
                 </div>
             </div>
