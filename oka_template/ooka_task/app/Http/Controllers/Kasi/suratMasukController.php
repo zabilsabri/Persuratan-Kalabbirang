@@ -12,7 +12,10 @@ use App\Models\disposisiMasuk;
 use App\Models\pengantar;
 use App\Models\arsipKeluar;
 use App\Models\arsipMasuk;
+use App\Models\antarKeluar;
+use App\Models\antarMasuk;
 use PDF;
+use Carbon\Carbon;
 
 
 class suratMasukController extends Controller
@@ -61,42 +64,6 @@ class suratMasukController extends Controller
         return view('kasi.suratMasuk.kosong');
     }
 
-    public function exportSurat1($id)
-    {
-        $data = suratKeluar::where('id', $id)->first();
-
-        $pdf = Pdf::loadView('surat.isiSurat.belumNikah', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Belum Menikah.pdf' , array("Attachment" => false));
-        exit(0);
-    }
-    public function exportSurat2($id)
-    {
-        $data = suratKeluar::where('id', $id)->first();
-
-        $pdf = Pdf::loadView('surat.isiSurat.kurangMampu', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Kurang Mampu.pdf' , array("Attachment" => false));
-        exit(0);
-    }
-    public function exportSurat3($id)
-    {
-        $data = suratKeluar::where('id', $id)->first();
-
-        $pdf = Pdf::loadView('surat.isiSurat.sku', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Keterangan Usaha.pdf' , array("Attachment" => false));
-        exit(0);
-    }
-    public function exportSurat4($id)
-    {
-        $data = suratKeluar::where('id', $id)->first();
-
-        $pdf = Pdf::loadView('surat.isiSurat.pengPernikahan', compact('data'));
-        $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Pengantar Pernikahan.pdf' , array("Attachment" => false));
-        exit(0);
-    }
     public function ttd($id)
     {
         $surat = suratKeluar::find($id);
@@ -104,7 +71,7 @@ class suratMasukController extends Controller
         if(!isset(Auth::user() -> ttd -> id)){
             return back()->with('failed', 'Kasi ini belum memiliki tanda tangan! Silahkan ke admin untuk mendaftarkan tanda tangan anda!');
         } else {
-        $surat->ttd_id = Auth::user() -> ttd -> id;
+            $surat->ttd_id = Auth::user() -> ttd -> id;
             if(!isset($surat->user->role->id)){
             $surat->pj_id = null;
         } else {
@@ -117,6 +84,14 @@ class suratMasukController extends Controller
         $arsip->suratKeluar_id = $id;
         $arsip->save();
 
+        if($surat -> isAntar == 1){
+            $antar = new antarKeluar();
+            $antar->surat_id = $id;
+            $antar->tgl_pengajuan = Carbon::now();
+            $antar->status = "Belum Terkirim";
+            $antar->save();
+        }
+
         return redirect()->route('surat-masuk-kasi');
         }
     }
@@ -125,12 +100,21 @@ class suratMasukController extends Controller
     {
         $surat = suratMasuk::find($id);
         $surat->tujuan_surat_id = null;
+        $surat->acc_id = Auth::user()->id;
         $surat->save();
 
         $arsip = new arsipMasuk();
         $arsip->suratMasuk_id = $id;
         $arsip->file_surat = $surat->file_surat;
         $arsip->save();
+
+        if($surat -> isAntar == 1){
+            $antar = new antarMasuk();
+            $antar->surat_id = $id;
+            $antar->tgl_pengajuan = Carbon::now();
+            $antar->status = "Belum Terkirim";
+            $antar->save();
+        }
 
         return redirect()->route('surat-masuk-kasi');
     }

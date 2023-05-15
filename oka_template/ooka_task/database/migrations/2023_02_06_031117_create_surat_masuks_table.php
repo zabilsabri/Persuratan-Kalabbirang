@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('no_surat');
             $table->string('perihal');
             $table->date('tgl_surat');
-            $table->unsignedBigInteger('tujuan_surat_id')->nullable();
+            $table->unsignedBigInteger('tujuan_surat_id')->nullable(); // Surat Ditujukan Untuk Siapa
+            $table->unsignedBigInteger('acc_id')->nullable(); // Surat Di Acc Oleh Siapa
+            $table->boolean('isAntar')->default(0)->nullable(); // Apakah Surat Ingin Diantarkan Atau Tidak
             $table->string('jenis_surat');
             $table->string('catatan', 1000);
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
@@ -28,6 +30,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('tujuan_surat_id')->references('id')->on('users');
+            $table->foreign('acc_id')->references('id')->on('users');
+
         });
     }
 

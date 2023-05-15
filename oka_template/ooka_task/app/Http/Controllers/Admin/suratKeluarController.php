@@ -32,6 +32,7 @@ class suratKeluarController extends Controller
     public function disposisiProses(Request $request, $id) {
         $surats = suratKeluar::find($id);
         $surats->pj_id = $request->penerima;
+        $surats->isAntar = $request->isAntar;
         $surats->process = "2";
         $surats->save();
 

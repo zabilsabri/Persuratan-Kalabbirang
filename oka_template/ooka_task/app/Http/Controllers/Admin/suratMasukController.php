@@ -94,6 +94,7 @@ class suratMasukController extends Controller
     public function disposisiProses(Request $request, $id)
     {
         $surats = suratMasuk::find($id);
+        $surats->isAntar = $request->isAntar;
         $surats->tujuan_surat_id = $request->penerima;
         $surats->save();
 

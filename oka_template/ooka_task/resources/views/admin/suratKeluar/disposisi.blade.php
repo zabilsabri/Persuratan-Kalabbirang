@@ -77,6 +77,12 @@
                     </select>
                 </div>
             </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="1" name="isAntar" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    <small>Antar Surat (Surat Akan Otomatis Masuk Kedalam Tabel Antar Surat Jika Surat Telah Ditandatangani)</small>
+                </label>
+            </div>
         </div>
         <div class="row mt-4" style="align-items: flex-end">
             <div class="col-sm-6 mb-3">

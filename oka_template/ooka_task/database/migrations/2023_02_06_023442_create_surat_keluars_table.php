@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('no_surat');
             $table->date('tgl_surat');
             $table->string('kode_surat');
+            $table->boolean('isAntar')->default(0)->nullable(); // Apakah Surat Ingin Diantarkan Atau Tidak
             $table->string('process'); // Surat Sekarang Berada di Tahap Mana (Untuk Keperluan Riwayat User)
             $table->unsignedBigInteger('user_id')->nullable(); // Warga yang menginput surat
             $table->string('pengirim')->nullable(); // Pengirim Surat (Untuk Keperluan Input Surat Keluar)

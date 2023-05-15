@@ -191,7 +191,10 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
         // Surat Antar
         Route::group(['prefix' => 'surat-antar'], function() {
             Route::get('/', 'suratAntarController@index')->name('surat-antar');
-            Route::get('/detail', 'suratAntarController@detail')->name('surat-antar.detail');
+            Route::get('/detailKeluar/{id}', 'suratAntarController@detailKeluar')->name('surat-antar.detailKeluar');
+            Route::get('/detailMasuk/{id}', 'suratAntarController@detailMasuk')->name('surat-antar.detailMasuk');
+            Route::post('/antarMasukProcess/{id}', 'suratAntarController@antarMasukProcess')->name('edit-suratMasuk-antar.process');
+            Route::post('/antarKeluarProcess/{id}', 'suratAntarController@antarKeluarProcess')->name('edit-suratKeluar-antar.process');
         });
 
     });
