@@ -26,6 +26,7 @@
         href="{{ asset('style/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet"
         href="{{ asset('style/node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
+    <title>{{ $title }}</title>
 </head>
 
 <body>

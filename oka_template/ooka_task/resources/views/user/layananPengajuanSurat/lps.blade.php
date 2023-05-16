@@ -3,16 +3,6 @@
 <link rel="stylesheet" href="{{asset('style/css/lps.css')}}">
 <div class="lps-head row">
     <p class=" head-title col-md-6"> Layanan Pengajuan Surat </p>
-    <div class="col-md-6 mt-2">
-        <div class="input-group">
-            <input type="text" style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px;" class="form-control" placeholder="Cari di sini...">
-            <div class="input-group-append">
-            <button class="btn btn-secondary" type="button">
-                <i class="fa fa-search"></i>
-            </button>
-            </div>
-        </div>
-    </div>
 </div>
 <div class=" macam-surat row">
     <!-- <div class=" surat col-md-6">

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('asal_surat');
             $table->string('judul_surat');
             $table->string('no_surat');
+            $table->string('kode_surat')->nullable();
             $table->string('perihal');
             $table->date('tgl_surat');
             $table->unsignedBigInteger('tujuan_surat_id')->nullable(); // Surat Ditujukan Untuk Siapa

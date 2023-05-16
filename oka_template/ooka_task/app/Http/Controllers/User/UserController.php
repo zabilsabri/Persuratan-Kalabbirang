@@ -14,6 +14,11 @@ class UserController extends Controller
         return view('user.beranda')
             ->with(compact('beritas'));
     }
+
+    public function tracking()
+    {
+        return view('user.tracking.index');
+    }
     
     public function dataSimpan() {
         return view('user.dataSimpan');

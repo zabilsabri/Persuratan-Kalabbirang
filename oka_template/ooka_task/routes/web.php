@@ -34,11 +34,16 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth'], funct
 });
 
 Route::get('/', [Users::class, 'beranda'])->name('beranda')->middleware('count.visitors');
-// Route::get('riwayat', [Users::class, 'riwayat'])->name('riwayat');
 Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
+
+// Tracking
+Route::get('/track', [Users::class, 'tracking'])->name('tracking.index');
+
+
 Route::get('profil-user', [Users::class, 'profilUserLogin'])->name('profil-user');
 Route::get('profil-user-nl', [Users::class, 'profilUserNotLogin'])->name('profil-user-nl');
 Route::get('layanan-pengajuan-surat', [Users::class, 'lps'])->name('lps');
+
 
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Surat'], function () {
 
