@@ -85,6 +85,10 @@ class suratKeluar extends Model
         return $this->hasOne('App\Models\arsipKeluar', 'suratKeluar_id', 'id');
     }
 
+    public function antar() {
+        return $this->hasOne('App\Models\antarKeluar', 'surat_id', 'id');
+    }
+
     public function jenisSurat() {
         return $this->hasOne('App\Models\jenisSurat', 'id', 'jenis_suratKeluar_id');
     }

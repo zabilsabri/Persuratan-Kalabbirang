@@ -29,11 +29,13 @@
 <body>
     <div class="main text-center w-50">
         <img src="{{ asset('image/Logo.png') }}" width="400px" height="auto" class="img-fluid" alt="logo kalabbirang">
-        <p class="main-title" >Silahkan masukkan ID yang telah diberikan oleh Admin</p>
-        <input class="form-control form-control-lg" type="text" aria-label=".form-control-lg example">
-        <div class="d-grid gap-2 col-6 mx-auto mt-3">
-            <button class="btn btn-success" type="button">Cari</button>
-        </div>
+        <p class="main-title" >Silahkan Masukkan Kode Surat Yang Telah Diberikan Oleh Admin</p>
+        <form action="{{ route('tracking.detail') }}" method="GET">
+            <input class="form-control form-control-lg" type="text" name="kode_surat" aria-label=".form-control-lg example">
+            <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                <button class="btn btn-success" type="submit">Cari</button>
+            </div>
+        </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>

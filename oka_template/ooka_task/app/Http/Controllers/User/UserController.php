@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Berita;
+use App\Models\suratKeluar;
+use App\Models\suratMasuk;
 
 class UserController extends Controller
 {
@@ -18,6 +20,20 @@ class UserController extends Controller
     public function tracking()
     {
         return view('user.tracking.index');
+    }
+
+    public function trackingDetail(Request $request)
+    {
+        $surat = suratMasuk::where('kode_surat', $request->kode_surat)->get();
+        if($surat == null){
+            $surat = suratKeluar::where('kode_surat', $request->kode_surat)->get();
+            return view('user.tracking.detail')
+                ->with(compact('surat'));
+        } else {
+            return back()->with('failed', 'Kode Surat Tidak Ditemukan!');
+        }
+        return view('user.tracking.detail')
+            ->with(compact('surat'));
     }
     
     public function dataSimpan() {
