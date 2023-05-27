@@ -18,7 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2??family=Montserrat:wght@600&family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
     <title>Track Detail</title>
 </head>
 <body>
@@ -29,13 +29,30 @@
     <div class="row">
         <div class="d-flex align-items-center mb-4">
             <div class="flex-shrink-0">
+                @if ($surat -> status == "Segera")
                 <button type="button" class="btn btn-success">SEGERA</button>
+                @elseif ($surat -> status == "Biasa")
                 <button type="button" class="btn btn-primary">BIASA</button>
+                @elseif ($surat -> status == "Penting")
                 <button type="button" class="btn btn-danger">PENTING</button>
+                @elseif ($surat -> status == "Rahasia")
                 <button type="button" class="btn btn-dark">RAHASIA</button>    
+                @endif
             </div>
             <div class="flex-grow-1 ms-3 status-title">
-                This is some content from a media component. You can replace this with any content and adjust it as needed.
+                @if (!isset($surat -> antar -> status))
+                Surat Anda Sedang Dalam Antrian Untuk Ditanda-tangani. Silahkan Menunggu.
+                @else
+                    @if ($surat -> antar -> status == "Belum Terkirim")
+                    <p>Surat Anda Belum Diproses Oleh Admin. Silahkan Tunggu Beberapa Saat Lagi.</p>
+                    @elseif ($surat -> antar -> status == "Waiting")
+                    <p>Surat Anda Sedang Menunggu Konfirmasi Kurir. Silahkan Tunggu Beberapa Saat Lagi.</p>
+                    @elseif ($surat -> antar -> status == "On Progress")
+                    <p>Surat Anda Sedang Dibawa Oleh Kurir. Silahkan Tunggu Beberapa Saat Lagi.</p>
+                    @elseif ($surat -> antar -> status == "Finish/Done")
+                    <p>Surat Anda Sudah Diantar. Bila Ada Masalah Silahkan Hubungi Admin Atau Langsung Datang Ke Kantor Kelurahan.</p>
+                    @endif
+                @endif
             </div>
         </div>
         <h6 class="no-surat">test</h6>
@@ -44,29 +61,27 @@
                 <tr>    
                     <td class="surat-kategori" >Tanggal Surat</td>
                     <td>:</td>
-                    <td class="surat-detail" ></td>
+                    <td class="surat-detail">{{ $surat -> tgl_surat }}</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori" >Perihal Surat</td>
                     <td>:</td>
-                    <td class="surat-detail"></td>
+                    <td class="surat-detail">{{ $surat -> perihal }}</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori"> Dari </td>
                     <td>:</td>
-                    <td class="surat-detail">
-                        
-                    </td>
+                    <td class="surat-detail">{{ $surat -> asal_surat ?? $surat -> user -> nama }}</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori" >Kepada</td>
                     <td>:</td>
-                    <td class="surat-detail"></td>
+                    <td class="surat-detail">{{ $surat -> tujuan_surat_id ?? $surat -> ttd -> user -> nama }}</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori" >Jenis Surat</td>
                     <td>:</td>
-                    <td class="surat-detail"></td>
+                    <td class="surat-detail">{{ $surat -> jenis_surat ?? $surat -> jenisSurat -> nama }}</td>
                 </tr>
             </table>
             </table>
@@ -79,7 +94,7 @@
                 <p class="lampiran-text">Lampiran</p>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="#" class="stretched-link">TEST.PDF</a></h5>
+                        <h5 class="card-title"><a href="{{ route('surat-masuk-admin.detailFile', [$surat -> file_surat]) ?? route('export.surat', ['id' => $surat -> id]) }}" class="stretched-link">{{ $surat -> judul_surat ?? $surat -> jenisSurat -> nama }}.pdf</a></h5>
                     </div>
                 </div>
             </div>
@@ -90,17 +105,17 @@
                     <tr>    
                         <td class="surat-kategori" >Pengajuan Pengantaran</td>
                         <td>:</td>
-                        <td class="surat-detail" ></td>
+                        <td class="surat-detail"> {{ $surat -> antar -> created_at ?? "-" }} </td>
                     </tr>
                     <tr>
                         <td class="surat-kategori" >Diterima Kurir</td>
                         <td>:</td>
-                        <td class="surat-detail"></td>
+                        <td class="surat-detail">-</td>
                     </tr>
                     <tr>
                         <td class="surat-kategori" >Selesai Diantar</td>
                         <td>:</td>
-                        <td class="surat-detail"></td>
+                        <td class="surat-detail">-</td>
                     </tr>
                 </table>
                 </table>

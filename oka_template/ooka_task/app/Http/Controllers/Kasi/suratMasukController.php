@@ -100,6 +100,7 @@ class suratMasukController extends Controller
     {
         $surat = suratMasuk::find($id);
         $surat->tujuan_surat_id = null;
+        $surat->process = "3";
         $surat->acc_id = Auth::user()->id;
         $surat->save();
 

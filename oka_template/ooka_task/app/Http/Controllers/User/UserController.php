@@ -24,16 +24,18 @@ class UserController extends Controller
 
     public function trackingDetail(Request $request)
     {
-        $surat = suratMasuk::where('kode_surat', $request->kode_surat)->get();
-        if($surat == null){
-            $surat = suratKeluar::where('kode_surat', $request->kode_surat)->get();
+        $search = $request->input('kode_surat');
+        if(suratMasuk::where('kode_surat', $search)->first() != null){
+            $surat = suratMasuk::where('kode_surat', $search)->first();
+            return view('user.tracking.detail')
+                ->with(compact('surat'));
+        } else if (suratKeluar::where('kode_surat', $search)->first() != null){
+            $surat = suratKeluar::where('kode_surat', $search)->first();
             return view('user.tracking.detail')
                 ->with(compact('surat'));
         } else {
-            return back()->with('failed', 'Kode Surat Tidak Ditemukan!');
+            return back()->with('failed', 'Kode Surat Anda Tidak Ditemukan! Silahkan Hubungi Admin!');
         }
-        return view('user.tracking.detail')
-            ->with(compact('surat'));
     }
     
     public function dataSimpan() {

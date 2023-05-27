@@ -37,6 +37,11 @@
                         <td>:</td>
                         <td class="surat-detail">{{ $surats -> jenis_surat }}</td>
                     </tr>
+                    <tr>
+                        <td class="surat-kategori">Kode Surat</td>
+                        <td>:</td>
+                        <td class="surat-detail">{{ $surats -> kode_surat }}</td>
+                    </tr>
                 </table>
                 @if($surats -> status == "Segera")
                 <button type="button" class="btn btn-success mb-5">Segera</button>
@@ -59,7 +64,7 @@
                     <p class="lampiran-text">Lampiran</p>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="{{ route('surat-masuk-admin.detailFile', [$surats -> file_surat]) }}" class="stretched-link">{{ $surats -> judul_surat }}</a>
+                            <h5 class="card-title"><a href="{{ route('surat-masuk-admin.detailFile', [$surats -> file_surat]) }}" class="stretched-link">{{ $surats -> judul_surat }}.pdf</a>
                             </h5>
                         </div>
                     </div>

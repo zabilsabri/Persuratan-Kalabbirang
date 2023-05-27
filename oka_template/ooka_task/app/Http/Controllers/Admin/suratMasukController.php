@@ -32,6 +32,8 @@ class suratMasukController extends Controller
         $surat = new suratMasuk();
         $surat->judul_surat = $request->judul_surat;
         $surat->no_surat = $request->no_surat;
+        $surat->kode_surat = time();
+        $surat->process = "1";
         $surat->tgl_surat = $request->tgl_surat;
         $surat->perihal = $request->perihal;
         $surat->asal_surat = $request->asal_surat;
@@ -95,6 +97,7 @@ class suratMasukController extends Controller
     {
         $surats = suratMasuk::find($id);
         $surats->isAntar = $request->isAntar;
+        $surats->process = "2";
         $surats->tujuan_surat_id = $request->penerima;
         $surats->save();
 

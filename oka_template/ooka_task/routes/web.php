@@ -38,7 +38,7 @@ Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
 
 // Tracking
 Route::get('/track', [Users::class, 'tracking'])->name('tracking.index');
-Route::get('/track-detail', [Users::class, 'trackingDetail'])->name('tracking.detail');
+Route::get('/track-detail/', [Users::class, 'trackingDetail'])->name('tracking.detail');
 
 
 

@@ -39,13 +39,9 @@
                     <td class="surat-detail">{{ $surat -> jenisSurat -> nama }}</td>
                 </tr>
                 <tr>
-                    <td class="surat-kategori" >TTD</td>
+                    <td class="surat-kategori">Kode Surat</td>
                     <td>:</td>
-                    @if(isset($surat -> ttd_id))
-                    <td class="surat-detail">(Sudah)</td>
-                    @else
-                    <td class="surat-detail">(Belum)</td>
-                    @endif
+                    <td class="surat-detail">{{ $surats -> kode_surat }}</td>
                 </tr>
             </table>
             </table>

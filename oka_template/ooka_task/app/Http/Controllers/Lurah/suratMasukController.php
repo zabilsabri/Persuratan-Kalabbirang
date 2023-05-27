@@ -17,7 +17,7 @@ use PDF;
 class suratMasukController extends Controller
 {
     public function index() {
-        $surat_masuks = suratMasuk::get();
+        $surat_masuks = suratMasuk::where('tujuan_surat_id', '!=', '1')->orWhere('tujuan_surat_id', '2')->get();
         $surats = suratKeluar::where('pj_id', '!=', null)->where('pj_id', '!=', '1')->orWhere('pj_id', '2')->get();
         return view('lurah.suratMasuk.index')
             ->with(compact('surats'))

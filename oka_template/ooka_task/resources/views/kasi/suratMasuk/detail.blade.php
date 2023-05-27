@@ -83,7 +83,7 @@
                     @foreach($pengantars as $pengantar)
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="{{ route('surat-masuk-kasi.detailFilePengantar', [$pengantar -> file_surat]) }}" class="stretched-link">{{ $pengantar -> nama_file_surat }}</a></h5>
+                            <h5 class="card-title"><a href="{{ route('surat-masuk-kasi.detailFilePengantar', [$pengantar -> file_surat]) }}" class="stretched-link">{{ $pengantar -> nama_file_surat }}.pdf</a></h5>
                         </div>
                     </div>
                     @endforeach
