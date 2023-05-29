@@ -24,6 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable(); // Warga yang menginput surat
             $table->string('pengirim')->nullable(); // Pengirim Surat (Untuk Keperluan Input Surat Keluar)
             $table->unsignedBigInteger('pj_id')->nullable(); // Penanggung Jawab atau Surat Sekarang Berada Di Siapa
+            $table->unsignedBigInteger('acc_id')->nullable(); // Surat Di Acc Oleh Siapa
             $table->unsignedBigInteger('ttd_id')->nullable(); // Yang Menandatangani Surat Ini Siapa
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
 
@@ -71,6 +72,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('pj_id')->references('id')->on('roles');
             $table->foreign('ttd_id')->references('id')->on('ttds');
+            $table->foreign('acc_id')->references('id')->on('users');
 
         });
     }

@@ -35,7 +35,7 @@
             <div class=" form-group">
                 <h4 class="surat-kategori col-form-label ">Tanggal Disposisi</h4>
                 <div class="">
-                    <form action="{{ route('surat-keluar.disposisiProses', [$surat -> id]) }}" method="POST">
+                    <form action="{{ route('surat-keluar-admin.disposisiProses', [$surat -> id]) }}" method="POST">
                         @csrf
                     <input type="date" class="form-control " id="floatingInput" placeholder="" value="" name="tgl_disposisi" required>
                 </div>

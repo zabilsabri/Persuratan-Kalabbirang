@@ -32,6 +32,32 @@
                     <td>:</td>
                     <td class="surat-detail">Undangan</td>
                 </tr>
+                <tr>
+                    <td class="surat-kategori" >Kode Surat</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $detailArsips -> suratMasuk -> kode_surat }}</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Penanggung Jawab</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $detailArsips -> suratMasuk -> userAcc -> nama }} ({{ $detailArsips -> suratMasuk -> userAcc -> role -> nama }})</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Status</td>
+                    <td>:</td>
+                    <td class="surat-detail">
+                        @if($detailArsips -> status == 1)
+                        <span class="text-success fw-bold" >Diterima</span>
+                        @else
+                        <span class="text-danger fw-bold" >Ditolak</span>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Alasan</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $detailArsips -> keterangan_status }}</td>
+                </tr>
             </table>
             @if($detailArsips -> suratMasuk -> status == "Segera")
             <button type="button" class="btn btn-success mb-5">Segera</button>
@@ -51,11 +77,10 @@
                 <p class="lampiran-text">Lampiran</p>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="{{ route('surat-masuk-lurah.detailFile', [$detailArsips -> file_surat]) }}" class="stretched-link">{{ $detailArsips -> suratMasuk -> judul_surat }}</a></h5>
+                        <h5 class="card-title"><a href="{{ route('surat-masuk-lurah.detailFile', [$detailArsips -> file_surat]) }}" class="stretched-link">{{ $detailArsips -> suratMasuk -> judul_surat }}.pdf</a></h5>
                     </div>
                 </div>
             </div>
-            <p class="surat-detail text-end fs-5"> *Telah Disetujui </p>
         </div>
     </div>
 </div>

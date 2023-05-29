@@ -16,11 +16,6 @@
                     <td class="surat-detail" >{{ $detailArsips -> suratKeluar -> tgl_surat }}</td>
                 </tr>
                 <tr>
-                    <td class="surat-kategori" >Perihal Surat</td>
-                    <td>:</td>
-                    <td class="surat-detail"></td>
-                </tr>
-                <tr>
                     <td class="surat-kategori"> Dari </td>
                     <td>:</td>
                     <td class="surat-detail">
@@ -28,14 +23,35 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="surat-kategori" >Kepada</td>
+                    <td class="surat-kategori" >Penanggung Jawab</td>
                     <td>:</td>
-                    <td class="surat-detail">{{ $detailArsips -> suratKeluar -> ttd -> user -> nama }}</td>
+                    <td class="surat-detail">{{ $detailArsips -> suratKeluar -> ttd -> user -> nama ?? $detailArsips -> suratKeluar -> userAcc -> nama }} ({{ $detailArsips -> suratKeluar -> userAcc -> role -> nama }})</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori" >Jenis Surat</td>
                     <td>:</td>
                     <td class="surat-detail">{{ $detailArsips -> suratKeluar -> jenisSurat -> nama }}</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Kode Surat</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $detailArsips -> suratKeluar -> kode_surat }}</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Status</td>
+                    <td>:</td>
+                    <td class="surat-detail">
+                        @if($detailArsips -> status == 1)
+                        <span class="text-success fw-bold" >Diterima</span>
+                        @else
+                        <span class="text-danger fw-bold" >Ditolak</span>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Alasan</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $detailArsips -> keterangan_status }}</td>
                 </tr>
             </table>
             @if($detailArsips -> suratKeluar -> status == "Segera")
@@ -60,7 +76,6 @@
                     </div>
                 </div>
             </div>
-            <p class="surat-detail text-end fs-5"> *Telah Ditandatangani </p>
         </div>
     </div>
 </div>

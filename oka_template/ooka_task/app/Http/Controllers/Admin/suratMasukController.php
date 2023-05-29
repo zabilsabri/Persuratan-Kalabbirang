@@ -115,7 +115,7 @@ class suratMasukController extends Controller
         $notifikasi = new notifikasiMasuk();
         $notifikasi->suratMasuk_id = $id;
         $notifikasi->status = "Dalam Proses";
-        $notifikasi->keterangan = "Surat Anda Sedang Menunggu Tanda Tangan Dari Kasi/Lurah. Silahkan Menunggu Kembali!";
+        $notifikasi->keterangan = "Surat Anda Sedang Menunggu Persetujuan/Keputusan Dari Kasi/Lurah. Silahkan Menunggu Kembali!";
         $notifikasi->save();
 
         return redirect()->route('surat-masuk-admin')->with('success', 'Surat Berhasil DIserahkan!');

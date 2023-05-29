@@ -21,6 +21,6 @@ class disposisiMasuk extends Model
     }
 
     public function suratMasuk(){
-        return $this->belongsTo(suratKeluar::class, 'suratMasuk_id', 'id');
+        return $this->belongsTo(suratMasuk::class, 'suratMasuk_id', 'id');
     }
 }

@@ -12,6 +12,11 @@ use App\Models\disposisiMasuk;
 use App\Models\pengantar;
 use App\Models\arsipKeluar;
 use App\Models\arsipMasuk;
+use App\Models\notifikasiMasuk;
+use App\Models\notifikasi;
+use App\Models\antarMasuk;
+use App\Models\antarKeluar;
+use Carbon\Carbon;
 use PDF;
 
 class suratMasukController extends Controller
@@ -25,12 +30,12 @@ class suratMasukController extends Controller
     }
 
     public function detailkeluar($id) {
-        $surats = suratKeluar::find($id);
+        $surat = suratKeluar::find($id);
         $disposisis = disposisi::latest()->where('suratKeluar_id', $id)->first();
         $disposisis_all = disposisi::where('suratKeluar_id', $id)->get();
         $pengantars = pengantar::where('suratKeluar_id', $id)->get();
         return view('lurah.suratMasuk.detailKeluar')
-            ->with(compact('surats'))
+            ->with(compact('surat'))
             ->with(compact('disposisis'))
             ->with(compact('disposisis_all'))
             ->with(compact('pengantars'));
@@ -63,16 +68,44 @@ class suratMasukController extends Controller
     public function ttd($id)
     {
         $surat = suratKeluar::find($id);
-        $surat->ttd_id = Auth::user() -> ttd -> id;
-        $surat->pj_id = $surat -> user_id;
+        
+        if(!isset(Auth::user() -> ttd -> id)){
+            return back()->with('failed', 'Lurah ini belum memiliki tanda tangan! Silahkan ke admin untuk mendaftarkan tanda tangan anda!');
+        } else {
+            $surat->ttd_id = Auth::user() -> ttd -> id;
+            if(!isset($surat->user->role->id)){
+                $surat->pj_id = null;
+                $notifikasi = notifikasi::where('suratKeluar_id', $id)->first();
+            } else {
+                $surat->pj_id = $surat -> user_id;
+                $notifikasi = new notifikasi();
+            }
         $surat->process = "3";
+        $surat->acc_id = Auth::user()->id;
         $surat->save();
 
         $arsip = new arsipKeluar();
+        $arsip->status = 1;
+        $arsip->keterangan_status = "Surat Yang Anda Sediakan Sudah Lengkap.";
         $arsip->suratKeluar_id = $id;
         $arsip->save();
 
+        if($surat -> isAntar == 1){
+            $antar = new antarKeluar();
+            $antar->surat_id = $id;
+            $antar->tgl_pengajuan = Carbon::now();
+            $antar->status = "Belum Terkirim";
+            $antar->save();
+        }
+
+        $notifikasi->user_id = $surat->user_id;
+        $notifikasi->suratKeluar_id = $id;
+        $notifikasi->status = "Disetujui";
+        $notifikasi->keterangan = "Surat Anda Telah Disetujui Oleh Pihak Kalabbirang!";
+        $notifikasi->save();
+
         return redirect()->route('surat-masuk-lurah');
+        }
     }
 
     public function arsip(Request $request, $id)
@@ -89,6 +122,19 @@ class suratMasukController extends Controller
         $arsip->file_surat = $surat->file_surat;
         $arsip->save();
 
+        if($surat -> isAntar == 1){
+            $antar = new antarMasuk();
+            $antar->surat_id = $id;
+            $antar->tgl_pengajuan = Carbon::now();
+            $antar->status = "Belum Terkirim";
+            $antar->save();
+        }
+
+        $notifikasi = notifikasiMasuk::where('suratMasuk_id', $id)->first();
+        $notifikasi->status = "Disetujui";
+        $notifikasi->keterangan = "Surat Anda Telah Disetujui Oleh Pihak Kalabbirang!";
+        $notifikasi->save();
+
         return redirect()->route('surat-masuk-lurah');
     }
 
@@ -98,14 +144,14 @@ class suratMasukController extends Controller
         $surat->acc_id = Auth::user()->id;
         $surat->save();
 
-        $notifikasi = notifikasiMasuk::where('suratMasuk_id', $id);
+        $notifikasi = notifikasiMasuk::where('suratMasuk_id', $id)->first();
         $notifikasi->status = "Ditolak";
-        $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali!";
+        $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali Atau Datang Ke Kantor Kelurahan.";
         $notifikasi->save();
 
         $arsip = new arsipMasuk();
         $arsip->status = 0;
-        $arsip->keterangan_status = $request->alasan_arsip;
+        $arsip->keterangan_status = $request->alasan_tolak;
         $arsip->suratMasuk_id = $id;
         $arsip->file_surat = $surat->file_surat;
         $arsip->save();
@@ -113,8 +159,28 @@ class suratMasukController extends Controller
         return redirect()->route('surat-masuk-lurah');
     }
 
+    public function tolakSuratKeluar(Request $request, $id) {
+        $surat = suratKeluar::find($id);
+        $surat->pj_id = null;
+        $surat->acc_id = Auth::user()->id;
+        $surat->save();
+
+        $notifikasi = notifikasi::where('suratKeluar_id', $id)->first();
+        $notifikasi->status = "Ditolak";
+        $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali Atau Datang Ke Kantor Kelurahan.";
+        $notifikasi->save();
+
+        $arsip = new arsipKeluar();
+        $arsip->status = 0;
+        $arsip->keterangan_status = $request->alasan_tolak;
+        $arsip->suratKeluar_id = $id;
+        $arsip->save();
+
+        return redirect()->route('surat-masuk-lurah');
+    }
+
     
-    public function disposisiProses(Request $request, $id) {
+    public function disposisiKeluarProses(Request $request, $id) {
         $surats = suratKeluar::find($id);
         $surats->pj_id = $request->penerima;
         $surats->process = "2";
@@ -129,6 +195,24 @@ class suratMasukController extends Controller
         $disposisi->instruksi = $request->instruksi;
         $disposisi->save();
 
-        return redirect()->route('surat-keluar-lurah');
+        return redirect()->route('surat-masuk-lurah');
+    }
+
+    public function disposisiMasukProses(Request $request, $id) {
+        $surats = suratMasuk::find($id);
+        $surats->tujuan_surat_id = $request->penerima;
+        $surats->process = "2";
+        $surats->save();
+
+        $disposisi = new disposisiMasuk();
+        $disposisi->suratMasuk_id = $id;
+        $disposisi->userk_id = Auth::user()->id;
+        $disposisi->usert_id = $request->penerima;
+        $disposisi->tgl_disposisi = $request->tgl_disposisi;
+        $disposisi->catatan = $request->catatan;
+        $disposisi->instruksi = $request->instruksi;
+        $disposisi->save();
+
+        return redirect()->route('surat-masuk-lurah');
     }
 }

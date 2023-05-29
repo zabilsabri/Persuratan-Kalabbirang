@@ -82,6 +82,7 @@ class suratMasukController extends Controller
                 $notifikasi = new notifikasi();
             }
         $surat->process = "3";
+        $surat->acc_id = Auth::user()->id;
         $surat->save();
 
         $arsip = new arsipKeluar();

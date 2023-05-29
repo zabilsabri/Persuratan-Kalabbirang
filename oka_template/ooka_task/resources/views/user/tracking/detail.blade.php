@@ -28,17 +28,6 @@
 <div class="hal-body px-5">
     <div class="row">
         <div class="d-flex align-items-center mb-4">
-            <div class="flex-shrink-0">
-                @if ($surat -> status == "Segera")
-                <button type="button" class="btn btn-success">SEGERA</button>
-                @elseif ($surat -> status == "Biasa")
-                <button type="button" class="btn btn-primary">BIASA</button>
-                @elseif ($surat -> status == "Penting")
-                <button type="button" class="btn btn-danger">PENTING</button>
-                @elseif ($surat -> status == "Rahasia")
-                <button type="button" class="btn btn-dark">RAHASIA</button>    
-                @endif
-            </div>
             <div class="flex-grow-1 ms-3 status-title">
                 @if (!isset($surat -> antar -> status))
                     {{$surat -> notifikasi -> keterangan ?? "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu."}}
@@ -66,7 +55,7 @@
                 <tr>
                     <td class="surat-kategori" >Perihal Surat</td>
                     <td>:</td>
-                    <td class="surat-detail">{{ $surat -> perihal }}</td>
+                    <td class="surat-detail">{{ $surat -> perihal ?? "-" }}</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori"> Dari </td>
@@ -74,14 +63,34 @@
                     <td class="surat-detail">{{ $surat -> asal_surat ?? $surat -> user -> nama }}</td>
                 </tr>
                 <tr>
-                    <td class="surat-kategori" >Kepada</td>
+                    <td class="surat-kategori" >Penanggung Jawab</td>
                     <td>:</td>
-                    <td class="surat-detail">{{ $surat -> tujuan_surat_id ?? $surat -> ttd -> user -> nama }}</td>
+                    <td class="surat-detail">{{ $surat -> pj -> nama ?? $surat -> user -> nama ?? $surat -> ttd -> user -> nama ?? $surat -> userAcc -> nama }} ( {{ $surat -> user -> role -> nama ?? $surat -> userAcc -> role -> nama ?? $surat -> pj -> role -> nama }} )</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori" >Jenis Surat</td>
                     <td>:</td>
                     <td class="surat-detail">{{ $surat -> jenis_surat ?? $surat -> jenisSurat -> nama }}</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Status</td>
+                    <td>:</td>
+                    <td class="surat-detail">
+                        @if(isset($surat -> arsipKeluar -> status) || isset($surat -> arsipMasuk -> status))
+                            @if($surat -> arsipKeluar -> status ?? $surat -> arsipMasuk -> status == 1)
+                            <span class="text-success fw-bold" >Diterima</span>
+                            @else
+                            <span class="text-danger fw-bold" >Ditolak</span>
+                            @endif
+                        @else
+                            <span>-</span>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Alasan</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $surat -> arsipKeluar -> keterangan_status ?? $surat -> arsipMasuk -> keterangan_status ?? "-" }}</td>
                 </tr>
             </table>
             </table>
@@ -94,11 +103,16 @@
                 <p class="lampiran-text">Lampiran</p>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><a href="{{ route('surat-masuk-admin.detailFile', [$surat -> file_surat]) ?? route('export.surat', ['id' => $surat -> id]) }}" class="stretched-link">{{ $surat -> judul_surat ?? $surat -> jenisSurat -> nama }}.pdf</a></h5>
+                        @if($surat -> file_surat != null)
+                        <h5 class="card-title"><a href="{{ route('surat-masuk-admin.detailFile', [$surat -> file_surat])}}" class="stretched-link">{{ $surat -> judul_surat ?? $surat -> jenisSurat -> nama }}.pdf</a></h5>
+                        @else
+                        <h5 class="card-title"><a href="{{ route('export.surat', ['id' => $surat -> id]) }}" class="stretched-link">{{ $surat -> judul_surat ?? $surat -> jenisSurat -> nama }}.pdf</a></h5>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
+        @if($surat -> isAntar == 1)
         <div class="col-sm-6 mt-5">
             <div class="col-sm-6">
                 <table class="table table-borderless">
@@ -121,6 +135,7 @@
                 </table>
             </div>
         </div>
+        @endif
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

@@ -7,7 +7,7 @@
         <h1 class="hal-title"> Kirim Disposisi </h1>
     </div>
     <div class="hal-body">
-        <form action="{{ route('surat-masuk.disposisiProses', [$surat -> id])}}" method="POST">
+        <form action="{{ route('surat-masuk-admin.disposisiProses', [$surat -> id])}}" method="POST">
             @csrf
             <div class="row">
                 <h6 class="no-surat">{{ $surat -> no_surat }}</h6>
@@ -63,7 +63,7 @@
                         <h4 class="surat-kategori col-form-label ">Penerima</h4>
                         <div class="">
                             <select class="form-control" id="floatingInput" name="penerima" required>
-                                <option value="{{ $surat -> tujuan_surat_id }}">-- {{ $surat -> user -> role -> nama }}</option>
+                                <option value="">-- Pilih Penerima</option>
                                 <option value="2" >Lurah</option>
                                 <option value="3" >Kasi Pemerintahan, Ketertiban, dan Ketentraman</option>
                                 <option value="4" >Kasi Pemerintahan</option>

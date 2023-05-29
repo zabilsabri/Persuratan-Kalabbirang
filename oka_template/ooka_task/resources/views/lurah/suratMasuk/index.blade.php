@@ -26,6 +26,7 @@
                             <th scope="col">Judul Surat</th>
                             <th scope="col">Nama Pengirim</th>
                             <th scope="col">Tgl Masuk</th>
+                            <th scope="col">Penanggung Jawab</th>
                             <th scope="col" style="width: 150px;">Aksi</th>
                         </tr>
                     </thead>
@@ -36,6 +37,7 @@
                                 <td scope="col">{{ $surat_masuk -> judul_surat }}</td>
                                 <td scope="col">{{ $surat_masuk -> asal_surat }}</td>
                                 <td scope="col">{{ $surat_masuk -> tgl_surat }}</td>
+                                <td scope="col">{{ $surat_masuk -> user -> nama }} ({{ $surat_masuk -> user -> role -> nama }})</td>
                                 <td scope="col"><a class="btn btn-success" href="{{ route('surat-masuk-lurah.detail', [$surat_masuk -> id]) }}" role="button">Open</a></td>
                             </tr>
                         @endforeach
@@ -55,6 +57,7 @@
                             <th scope="col">Judul Surat</th>
                             <th scope="col">Nama Pengirim</th>
                             <th scope="col">Tgl Masuk</th>
+                            <th scope="col">Penanggung Jawab</th>
                             <th scope="col" style="width: 150px;">Aksi</th>
                         </tr>
                     </thead>
@@ -65,6 +68,7 @@
                                 <td scope="col">{{ $surat -> jenisSurat -> nama }}</td>
                                 <td scope="col">{{ $surat -> user -> nama }}</td>
                                 <td scope="col">{{ $surat -> created_at }}</td>
+                                <td scope="col">{{ $surat -> pj -> nama }} ({{ $surat -> pj -> role -> nama }})</td>
                                 <td scope="col"><a class="btn btn-success" href="{{ route('surat-keluar-lurah.detail', [$surat -> id]) }}" role="button">Open</a></td>
                             </tr>
                         @endforeach

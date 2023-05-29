@@ -2,12 +2,17 @@
 <link rel="stylesheet" href="{{ asset('style/css/suratKeluarDetail.css') }}">
 
 @section('content')
+    @if($message = Session::get('failed'))
+    <div class="alert alert-danger alert-dismissible fade show w-100" role="alert">
+        <strong> {{$message}} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <div class="hal-head">
         <h1 class="hal-title"> Detail Surat Masuk </h1>
     </div>
     <div class="hal-body">
         <div class="row">
-            @foreach($surats as $surat)
             <h6 class="no-surat">{{ $surat -> no_surat }}</h6>
             <div class="col-sm-6">
                 <table class="table table-borderless">
@@ -30,6 +35,11 @@
                         <td class="surat-kategori">NIK</td>
                         <td>:</td>
                         <td class="surat-detail">{{ $surat -> user -> nik }}</td>
+                    </tr>
+                    <tr>
+                        <td class="surat-kategori">Kode Surat</td>
+                        <td>:</td>
+                        <td class="surat-detail">{{ $surat -> kode_surat }}</td>
                     </tr>
                     <tr>
                         <td class="surat-kategori">Jenis Surat</td>
@@ -59,7 +69,7 @@
                     <p class="lampiran-text">Surat</p>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="../exportData{{ $surat -> jenis_suratKeluar_id }}/{{ $surat -> id }}" class="stretched-link">{{ $surat -> jenisSurat -> nama }}</a></h5>
+                            <h5 class="card-title"><a href="{{ route('export.surat', ['id' => $surat -> id]) }}" class="stretched-link">{{ $surat -> jenisSurat -> nama }}</a></h5>
                         </div>
                     </div>
                     <hr>
@@ -96,7 +106,6 @@
                 </div>
 
             </div>
-            @endforeach
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5 pt-5">
@@ -218,8 +227,8 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body p-4">
-                <p class="modal-body-text1">Surat berhasil ditandatangani</p>
-                <p class="modal-body-text2">Surat akan langsung masuk dalam arsip</p>
+                <p class="modal-body-text1">Apakah Anda Yakin?</p>
+                <p class="modal-body-text2">Tekan Oke untuk menandatangani dan surat akan otomatis akan tersimpan ke arsip</p>
                 <div class="modal-body-button text-end">
                     <a href="{{ route('surat-masuk-lurah.ttd', [$surat -> id]) }}" type="button" class="btn btn-modal btn-success-modal w-25">Oke</a>
                 </div>
@@ -241,7 +250,7 @@
                 <div class=" form-group">
                     <h4 class="surat-kategori col-form-label ">Tanggal Disposisi</h4>
                     <div class="">
-                        <form action="{{ route('surat.disposisiProses', [$surat -> id]) }}" method="POST">
+                        <form action="{{ route('surat-keluar-lurah.disposisiProses', [$surat -> id]) }}" method="POST">
                             @csrf
                         <input type="date" class="form-control " id="floatingInput" placeholder="" value="" name="tgl_disposisi" required>
                     </div>
