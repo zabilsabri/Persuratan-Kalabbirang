@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\suratMasuk;
 use App\Models\disposisi;
 use App\Models\disposisiMasuk;
+use App\Models\notifikasiMasuk;
+use App\Models\notifikasi;
 use Auth;
 
 
@@ -109,6 +111,12 @@ class suratMasukController extends Controller
         $disposisi->catatan = $request->catatan;
         $disposisi->instruksi = $request->instruksi;
         $disposisi->save();
+
+        $notifikasi = new notifikasiMasuk();
+        $notifikasi->suratMasuk_id = $id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sedang Menunggu Tanda Tangan Dari Kasi/Lurah. Silahkan Menunggu Kembali!";
+        $notifikasi->save();
 
         return redirect()->route('surat-masuk-admin')->with('success', 'Surat Berhasil DIserahkan!');
     }

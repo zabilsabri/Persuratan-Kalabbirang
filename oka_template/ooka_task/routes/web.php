@@ -217,16 +217,21 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah', 'midd
         // Logout
         Route::get('/logout', 'DashboardController@logout')->name('logout-lurah');
 
-        // Surat Masuk
-        Route::group(['prefix' => 'surat-masuk'], function() {
+        // Surat
+        Route::group(['prefix' => 'surat'], function() {
             Route::get('/', 'suratMasukController@index')->name('surat-masuk-lurah');
-            Route::get('/detail/{id}', 'suratMasukController@detail')->name('surat-keluar-lurah.detail');
+            Route::get('/detail-keluar/{id}', 'suratMasukController@detailKeluar')->name('surat-keluar-lurah.detail');
             Route::get('/detail-masuk/{id}', 'suratMasukController@detailMasuk')->name('surat-masuk-lurah.detail');
+            Route::post('/disposisiProses/{id}', 'suratMasukController@disposisiProses')->name('surat.disposisiProses');
+
+            Route::post('/tolakSurat-keluar/{id}', 'suratMasukController@tolakSuratKeluar')->name('surat-keluar-lurah.tolakSurat');
+            Route::post('/tolakSurat-masuk/{id}', 'suratMasukController@tolakSuratMasuk')->name('surat-masuk-lurah.tolakSurat');
+
             Route::get('/kosong', 'suratMasukController@kosong')->name('surat-masuk-lurah.kosong');
             Route::get('/detailFile/{id}', 'suratMasukController@detailFile')->name('surat-masuk-lurah.detailFile');
             Route::get('/detailFilePengantar/{id}', 'suratMasukController@detailFilePengantar')->name('surat-masuk-lurah.detailFilePengantar');
             Route::get('/ttd/{id}', 'suratMasukController@ttd')->name('surat-masuk-lurah.ttd');
-            Route::get('/arsip/{id}', 'suratMasukController@arsip')->name('surat-masuk-lurah.arsip');
+            Route::post('/arsip/{id}', 'suratMasukController@arsip')->name('surat-keluar-lurah.arsipSurat');
         });
 
         // Surat Arsip

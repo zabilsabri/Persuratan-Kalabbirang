@@ -31,4 +31,8 @@ class suratMasuk extends Model
     public function userAcc() {
         return $this->belongsTo('App\Models\User', 'acc_id', 'id');
     }
+
+    public function notifikasi() {
+        return $this->hasOne('App\Models\notifikasiMasuk', 'suratMasuk_id', 'id');
+    }
 }

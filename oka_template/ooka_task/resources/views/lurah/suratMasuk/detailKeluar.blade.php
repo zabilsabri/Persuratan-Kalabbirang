@@ -17,27 +17,19 @@
                         <td class="surat-detail">{{ $surat -> tgl_surat }}</td>
                     </tr>
                     <tr>
-                        <td class="surat-kategori">Perihal Surat</td>
+                        <td class="surat-kategori">Nama Pemohon</td>
                         <td>:</td>
-                        <td class="surat-detail"></td>
+                        <td class="surat-detail">{{ $surat -> user -> nama }}</td>
                     </tr>
                     <tr>
-                        <td class="surat-kategori"> Dari </td>
+                        <td class="surat-kategori">No. Kartu Keluarga</td>
                         <td>:</td>
-                        <td class="surat-detail">
-                            {{ $disposisis -> userk -> nama }}
-                            <br>
-                            <span class="bidang-pengirim">Bidang {{ $disposisis -> userk -> role -> nama }}</span>
-                        </td>
+                        <td class="surat-detail">{{ $surat -> user -> nomor_kk ?? "-" }}</td>
                     </tr>
                     <tr>
-                        <td class="surat-kategori"> Kepada </td>
+                        <td class="surat-kategori">NIK</td>
                         <td>:</td>
-                        <td class="surat-detail">
-                            {{ $surat -> pj -> nama }}
-                            <br>
-                            <span class="bidang-pengirim">Bidang {{ $surat -> pj -> role -> nama }}</span>
-                        </td>
+                        <td class="surat-detail">{{ $surat -> user -> nik }}</td>
                     </tr>
                     <tr>
                         <td class="surat-kategori">Jenis Surat</td>
@@ -85,36 +77,47 @@
                         </div>
                     </div>
                     @endforeach
+                    <button class="btn btn-light border-green me-md-2 mb-2 float-right" type="button" data-bs-toggle="modal"
+                        data-bs-target="#modalInfoDisposisi">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <svg width="53" height="44" viewBox="0 0 53 44" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M26.3207 39.7913C14.3328 39.7913 4.61523 31.77 4.61523 21.8747C4.61523 11.9793 14.3328 3.95801 26.3207 3.95801C38.3086 3.95801 48.0261 11.9793 48.0261 21.8747C48.0261 31.77 38.3086 39.7913 26.3207 39.7913ZM26.3207 36.208C30.926 36.208 35.3427 34.6979 38.5991 32.0099C41.8555 29.3218 43.685 25.6761 43.685 21.8747C43.685 18.0732 41.8555 14.4275 38.5991 11.7395C35.3427 9.05146 30.926 7.54134 26.3207 7.54134C21.7153 7.54134 17.2987 9.05146 14.0422 11.7395C10.7858 14.4275 8.95632 18.0732 8.95632 21.8747C8.95632 25.6761 10.7858 29.3218 14.0422 32.0099C17.2987 34.6979 21.7153 36.208 26.3207 36.208ZM24.1501 12.9163H28.4912V16.4997H24.1501V12.9163ZM24.1501 20.083H28.4912V30.833H24.1501V20.083Z"
+                                        fill="#4FB96E" />
+                                </svg>
+                            </div>
+                            <div class="button-text text-green flex-grow-1 ms-3">
+                                INFO DISPOSISI
+                            </div>
+                        </div>
+                    </button>
                 </div>
 
             </div>
             @endforeach
         </div>
 
-        @if($surat -> pj -> id == Auth::user()->id)
         <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5 pt-5">
-            <button class="btn btn-light border-green me-md-2 mb-2" type="button" data-bs-toggle="modal"
-                data-bs-target="#modalInfoDisposisi">
+            <button class="btn btn-danger me-md-2 mb-2" type="button" data-bs-toggle="modal" data-bs-target="#modalDitolak">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
-                        <svg width="53" height="44" viewBox="0 0 53 44" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M26.3207 39.7913C14.3328 39.7913 4.61523 31.77 4.61523 21.8747C4.61523 11.9793 14.3328 3.95801 26.3207 3.95801C38.3086 3.95801 48.0261 11.9793 48.0261 21.8747C48.0261 31.77 38.3086 39.7913 26.3207 39.7913ZM26.3207 36.208C30.926 36.208 35.3427 34.6979 38.5991 32.0099C41.8555 29.3218 43.685 25.6761 43.685 21.8747C43.685 18.0732 41.8555 14.4275 38.5991 11.7395C35.3427 9.05146 30.926 7.54134 26.3207 7.54134C21.7153 7.54134 17.2987 9.05146 14.0422 11.7395C10.7858 14.4275 8.95632 18.0732 8.95632 21.8747C8.95632 25.6761 10.7858 29.3218 14.0422 32.0099C17.2987 34.6979 21.7153 36.208 26.3207 36.208ZM24.1501 12.9163H28.4912V16.4997H24.1501V12.9163ZM24.1501 20.083H28.4912V30.833H24.1501V20.083Z"
-                                fill="#4FB96E" />
-                        </svg>
+                    <svg width="32" height="32" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.4472 36.1042C8.70701 36.1042 0.811523 28.2228 0.811523 18.5C0.811523 8.77721 8.70701 0.895828 18.4472 0.895828C28.1874 0.895828 36.0828 8.77721 36.0828 18.5C36.0828 28.2228 28.1874 36.1042 18.4472 36.1042ZM18.4472 32.5833C22.189 32.5833 25.7776 31.0996 28.4234 28.4584C31.0693 25.8173 32.5557 22.2351 32.5557 18.5C32.5557 14.7649 31.0693 11.1827 28.4234 8.54157C25.7776 5.90044 22.189 4.41666 18.4472 4.41666C14.7054 4.41666 11.1168 5.90044 8.47095 8.54157C5.82508 11.1827 4.33865 14.7649 4.33865 18.5C4.33865 22.2351 5.82508 25.8173 8.47095 28.4584C11.1168 31.0996 14.7054 32.5833 18.4472 32.5833V32.5833ZM16.6836 9.69791H20.2107V13.2187H16.6836V9.69791ZM16.6836 16.7396H20.2107V27.3021H16.6836V16.7396Z" fill="white"/>
+                    </svg>
                     </div>
-                    <div class="button-text text-green flex-grow-1 ms-3">
-                        INFO DISPOSISI
+                    <div class="button-text flex-grow-1 ms-3">
+                        DITOLAK
                     </div>
                 </div>
             </button>
             <button class="btn btn-success me-md-2 mb-2" type="button" data-bs-toggle="modal"
-                data-bs-target="#modalTandaTangan">
+                data-bs-target="#modalDisposisi">
                 <div class="d-flex align-items-center">
                     <div class="d-flex align-items-center">
                         <div class="flex-shrink-0">
-                            <svg width="34" height="23" viewBox="0 0 41 30" fill="none"
+                            <svg width="30" height="20" viewBox="0 0 41 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M39.9313 13.8842L3.30822 0.132036C3.02118 0.0242271 2.69877 -0.0189696 2.37979 0.00764733C2.06082 0.0342642 1.75889 0.12956 1.51037 0.282059C1.27302 0.431449 1.09587 0.627597 0.998824 0.848454C0.901778 1.06931 0.888686 1.30612 0.96102 1.53226L5.88848 14.9969L0.894433 28.424C0.826558 28.6129 0.818635 28.811 0.871301 29.0026C0.923967 29.1942 1.03575 29.3738 1.19767 29.527C1.35959 29.6802 1.56712 29.8028 1.80357 29.8848C2.04003 29.9668 2.29881 30.006 2.55912 29.9993C2.81971 29.9981 3.0763 29.951 3.30822 29.8617L39.9313 16.1096C40.2039 16.0046 40.4328 15.8453 40.5926 15.6489C40.7524 15.4526 40.8369 15.227 40.8369 14.9969C40.8369 14.7668 40.7524 14.5412 40.5926 14.3448C40.4328 14.1485 40.2039 13.9891 39.9313 13.8842ZM5.13938 26.3862L8.81833 16.2471H24.2V13.7467H8.81833L5.13938 3.60758L35.4533 14.9969L5.13938 26.3862Z"
@@ -122,13 +125,29 @@
                             </svg>
                         </div>
                         <div class="button-text flex-grow-1 ms-3">
+                            DISPOSISI
+                        </div>
+                    </div>
+                </div>
+            </button>
+            @if($surat -> pj -> id == Auth::user()->id)
+            <button class="btn btn-success me-md-2 mb-2" type="button" data-bs-toggle="modal"
+                data-bs-target="#modalTandaTangan">
+                <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                        <svg width="34" height="23" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M35.9375 21.7247L25.25 32.6497H20.9375V28.2413L31.625 17.3163L35.9375 21.7247ZM42.3125 20.1913C42.3125 20.7663 41.75 21.3413 41.1875 21.9163L36.5 26.708L34.8125 24.983L39.6875 19.9997L38.5625 18.8497L37.25 20.1913L32.9375 15.783L37.0625 11.758C37.4375 11.3747 38.1875 11.3747 38.75 11.758L41.375 14.4413C41.75 14.8247 41.75 15.5913 41.375 16.1663C41 16.5497 40.625 16.933 40.625 17.3163C40.625 17.6997 41 18.083 41.375 18.4663C41.9375 19.0413 42.5 19.6163 42.3125 20.1913ZM4.625 35.333V4.66634H17.75V14.2497H27.125V17.1247L30.875 13.2913V12.333L19.625 0.833008H4.625C2.5625 0.833008 0.875 2.55801 0.875 4.66634V35.333C0.875 37.4413 2.5625 39.1663 4.625 39.1663H27.125C29.1875 39.1663 30.875 37.4413 30.875 35.333H4.625ZM19.625 29.7747C19.25 29.7747 18.875 29.9663 18.6875 29.9663L17.75 25.7497H14.9375L11 29.008L12.125 23.833H9.3125L7.4375 33.4163H10.25L15.6875 28.433L16.8125 32.8413H18.6875L19.625 32.6497V29.7747Z" fill="white"/>
+                        </svg>
+                        </div>
+                        <div class="button-text flex-grow-1 ms-3">
                             TANDA TANGAN
                         </div>
                     </div>
                 </div>
             </button>
+            @endif
         </div>
-        @endif
     </div>
 @endsection
 
@@ -204,6 +223,79 @@
                 <div class="modal-body-button text-end">
                     <a href="{{ route('surat-masuk-lurah.ttd', [$surat -> id]) }}" type="button" class="btn btn-modal btn-success-modal w-25">Oke</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Disposisi -->
+<div class="modal fade" id="modalDisposisi" tabindex="-1" aria-labelledby="modalDisposisiLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Disposisi Surat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class=" form-group">
+                    <h4 class="surat-kategori col-form-label ">Tanggal Disposisi</h4>
+                    <div class="">
+                        <form action="{{ route('surat.disposisiProses', [$surat -> id]) }}" method="POST">
+                            @csrf
+                        <input type="date" class="form-control " id="floatingInput" placeholder="" value="" name="tgl_disposisi" required>
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <h4 class="surat-kategori col-form-label ">Penerima</h4>
+                    <div class="">
+                        <select class="form-control" id="floatingInput" name="penerima" required>
+                            <option value="">-- Pilih Penerima</option>
+                            <option value="2" >Lurah</option>
+                            <option value="3" >Kasi Pemerintahan, Ketertiban, dan Ketentraman</option>
+                            <option value="4" >Kasi Pemerintahan</option>
+                            <option value="5" >Kasi Ekonomi dan Kesejahteraan Masyarakat</option>
+                        </select>
+                    </div>
+                </div>
+                <div class=" form-group">
+                    <h4 class="surat-kategori col-form-label ">Instruksi</h4>
+                    <div class="">
+                        <select class="form-control" name="instruksi" id="floatingInput">
+                            <option value="" >-- Pilih Instruksi</option>
+                            <option value="Mohon Persetujuan">Mohon Persetujuan</option>
+                            <option value="Mohon Keputusan">Mohon Keputusan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h4 class="surat-kategori col-form-label ">Catatan</h4>
+                    <textarea class="form-control" name="catatan" style="height:110px;" id="exampleFormControlTextarea1" rows="3"></textarea>                
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Kirim</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Ditolak -->
+<div class="modal fade" id="modalDitolak" tabindex="-1" aria-labelledby="modalDitolakLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-body" style="padding-bottom: 0px;">
+                <h6>Alasan Penolakan <span style="color:red;" >*</span> </h6>
+                <form action="{{ route('surat-keluar-lurah.tolakSurat', [$surat -> id]) }}" method="POST">
+                    @csrf
+                    <textarea class="form-control" name="alasan_tolak" style="border: 1px solid #FF0000; height:150px;" id="exampleFormControlTextarea1" rows="3"></textarea>                
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Kirim</button>
+            </div>
+            </form>
             </div>
         </div>
     </div>

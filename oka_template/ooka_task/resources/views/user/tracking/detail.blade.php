@@ -41,16 +41,16 @@
             </div>
             <div class="flex-grow-1 ms-3 status-title">
                 @if (!isset($surat -> antar -> status))
-                Surat Anda Sedang Dalam Antrian Untuk Ditanda-tangani. Silahkan Menunggu.
+                    {{$surat -> notifikasi -> keterangan ?? "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu."}}
                 @else
                     @if ($surat -> antar -> status == "Belum Terkirim")
-                    <p>Surat Anda Belum Diproses Oleh Admin. Silahkan Tunggu Beberapa Saat Lagi.</p>
+                    <p>Alamat Surat Anda Belum Diproses Oleh Admin. Silahkan Tunggu Beberapa Saat Lagi.</p>
                     @elseif ($surat -> antar -> status == "Waiting")
                     <p>Surat Anda Sedang Menunggu Konfirmasi Kurir. Silahkan Tunggu Beberapa Saat Lagi.</p>
                     @elseif ($surat -> antar -> status == "On Progress")
                     <p>Surat Anda Sedang Dibawa Oleh Kurir. Silahkan Tunggu Beberapa Saat Lagi.</p>
                     @elseif ($surat -> antar -> status == "Finish/Done")
-                    <p>Surat Anda Sudah Diantar. Bila Ada Masalah Silahkan Hubungi Admin Atau Langsung Datang Ke Kantor Kelurahan.</p>
+                    <p>Surat Anda Sudah Tiba. Bila Ada Masalah Silahkan Hubungi Admin Atau Langsung Datang Ke Kantor Kelurahan.</p>
                     @endif
                 @endif
             </div>

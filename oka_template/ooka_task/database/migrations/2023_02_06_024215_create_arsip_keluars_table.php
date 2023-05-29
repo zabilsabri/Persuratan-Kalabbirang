@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('suratKeluar_id');
             $table->string('file_surat')->nullable();
+            $table->boolean('status');
+            $table->string('keterangan_status');
             $table->timestamps();
 
             $table->foreign('suratKeluar_id')->references('id')->on('surat_keluars');

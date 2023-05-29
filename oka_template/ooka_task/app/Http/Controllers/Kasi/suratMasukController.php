@@ -14,6 +14,8 @@ use App\Models\arsipKeluar;
 use App\Models\arsipMasuk;
 use App\Models\antarKeluar;
 use App\Models\antarMasuk;
+use App\Models\notifikasiMasuk;
+use App\Models\notifikasi;
 use PDF;
 use Carbon\Carbon;
 
@@ -73,10 +75,12 @@ class suratMasukController extends Controller
         } else {
             $surat->ttd_id = Auth::user() -> ttd -> id;
             if(!isset($surat->user->role->id)){
-            $surat->pj_id = null;
-        } else {
-            $surat->pj_id = $surat -> user_id;
-        }
+                $surat->pj_id = null;
+                $notifikasi = nofikasi::where('suratKeluar_id', $id);
+            } else {
+                $surat->pj_id = $surat -> user_id;
+                $notifikasi = new notifikasi();
+            }
         $surat->process = "3";
         $surat->save();
 
@@ -91,6 +95,12 @@ class suratMasukController extends Controller
             $antar->status = "Belum Terkirim";
             $antar->save();
         }
+
+        $notifikasi->user_id = $surat->user_id;
+        $notifikasi->suratKeluar_id = $id;
+        $notifikasi->status = "Disetujui";
+        $notifikasi->keterangan = "Surat Anda Telah Disetujui Oleh Pihak Kalabbirang!";
+        $notifikasi->save();
 
         return redirect()->route('surat-masuk-kasi');
         }
@@ -116,6 +126,13 @@ class suratMasukController extends Controller
             $antar->status = "Belum Terkirim";
             $antar->save();
         }
+
+        $notifikasi = notifikasiMasuk::where('suratMasuk_id', $id);
+        $notifikasi->user_id = $surats->user_id;
+        $notifikasi->suratKeluar_id = $id;
+        $notifikasi->status = "Disetujui";
+        $notifikasi->keterangan = "Surat Anda Telah Disetujui Oleh Pihak Kalabbirang!";
+        $notifikasi->save();
 
         return redirect()->route('surat-masuk-kasi');
     }

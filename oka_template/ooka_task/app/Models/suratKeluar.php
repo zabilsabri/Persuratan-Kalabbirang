@@ -113,6 +113,10 @@ class suratKeluar extends Model
         return $this->hasMany(disposisi::class, 'suratKeluar_id', 'id');
     }
 
+    public function notifikasi() {
+        return $this->hasOne('App\Models\notifikasi', 'suratKeluar_id', 'id');
+    }
+
     // public function userK(){
     //     return $this->belongsToMany(User::class, 'disposisis', 'userk_id');
     // }

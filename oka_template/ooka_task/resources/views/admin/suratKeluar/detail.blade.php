@@ -17,9 +17,24 @@
                     <td class="surat-detail" >{{ $surat -> tgl_surat }}</td>
                 </tr>
                 <tr>
-                    <td class="surat-kategori" >Perihal Surat</td>
+                    <td class="surat-kategori">Nama Pemohon</td>
                     <td>:</td>
-                    <td class="surat-detail"></td>
+                    <td class="surat-detail">{{ $surat -> user -> nama }}</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori">No. Kartu Keluarga</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $surat -> user -> nomor_kk ?? "-" }}</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori">NIK</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $surat -> user -> nik }}</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori">Nomor Telpon</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $surat -> user -> nomor_telp ?? "-" }}</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori"> Dari </td>
@@ -29,11 +44,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="surat-kategori" >Kepada</td>
-                    <td>:</td>
-                    <td class="surat-detail">{{ $surat -> pj -> nama }}</td>
-                </tr>
-                <tr>
                     <td class="surat-kategori" >Jenis Surat</td>
                     <td>:</td>
                     <td class="surat-detail">{{ $surat -> jenisSurat -> nama }}</td>
@@ -41,7 +51,7 @@
                 <tr>
                     <td class="surat-kategori">Kode Surat</td>
                     <td>:</td>
-                    <td class="surat-detail">{{ $surats -> kode_surat }}</td>
+                    <td class="surat-detail">{{ $surat -> kode_surat }}</td>
                 </tr>
             </table>
             </table>

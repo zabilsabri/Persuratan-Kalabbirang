@@ -24,12 +24,12 @@ class suratMasukController extends Controller
             ->with(compact('surat_masuks'));
     }
 
-    public function detail($id) {
-        $surats = suratKeluar::where('id', $id)->get();
+    public function detailkeluar($id) {
+        $surats = suratKeluar::find($id);
         $disposisis = disposisi::latest()->where('suratKeluar_id', $id)->first();
         $disposisis_all = disposisi::where('suratKeluar_id', $id)->get();
         $pengantars = pengantar::where('suratKeluar_id', $id)->get();
-        return view('lurah.suratMasuk.detail')
+        return view('lurah.suratMasuk.detailKeluar')
             ->with(compact('surats'))
             ->with(compact('disposisis'))
             ->with(compact('disposisis_all'))
@@ -75,13 +75,16 @@ class suratMasukController extends Controller
         return redirect()->route('surat-masuk-lurah');
     }
 
-    public function arsip($id)
+    public function arsip(Request $request, $id)
     {
         $surat = suratMasuk::find($id);
         $surat->tujuan_surat_id = null;
+        $surat->acc_id = Auth::user()->id;
         $surat->save();
 
         $arsip = new arsipMasuk();
+        $arsip->status = 1;
+        $arsip->keterangan_status = $request->alasan_arsip;
         $arsip->suratMasuk_id = $id;
         $arsip->file_surat = $surat->file_surat;
         $arsip->save();
@@ -89,13 +92,27 @@ class suratMasukController extends Controller
         return redirect()->route('surat-masuk-lurah');
     }
 
-    public function disposisi($id) {
-        $surats = suratKeluar::with('jenisSurat', 'user', 'pj')->where('id', $id)->get();
-        $pengantars = pengantar::where('suratKeluar_id', $id)->get();
-        return view('admin.suratKeluar.disposisi')
-            ->with(compact('surats'))
-            ->with(compact('pengantars'));
+    public function tolakSuratMasuk(Request $request, $id) {
+        $surat = suratMasuk::find($id);
+        $surat->tujuan_surat_id = null;
+        $surat->acc_id = Auth::user()->id;
+        $surat->save();
+
+        $notifikasi = notifikasiMasuk::where('suratMasuk_id', $id);
+        $notifikasi->status = "Ditolak";
+        $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali!";
+        $notifikasi->save();
+
+        $arsip = new arsipMasuk();
+        $arsip->status = 0;
+        $arsip->keterangan_status = $request->alasan_arsip;
+        $arsip->suratMasuk_id = $id;
+        $arsip->file_surat = $surat->file_surat;
+        $arsip->save();
+
+        return redirect()->route('surat-masuk-lurah');
     }
+
     
     public function disposisiProses(Request $request, $id) {
         $surats = suratKeluar::find($id);
@@ -112,6 +129,6 @@ class suratMasukController extends Controller
         $disposisi->instruksi = $request->instruksi;
         $disposisi->save();
 
-        return redirect()->route('surat-keluar-admin');
+        return redirect()->route('surat-keluar-lurah');
     }
 }

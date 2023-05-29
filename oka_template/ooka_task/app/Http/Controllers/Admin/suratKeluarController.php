@@ -47,6 +47,7 @@ class suratKeluarController extends Controller
 
         $notifikasi = new notifikasi();
         $notifikasi->user_id = $surats->user_id;
+        $notifikasi->suratKeluar_id = $id;
         $notifikasi->status = "Dalam Proses";
         $notifikasi->keterangan = "Surat Anda Sedang Menunggu Tanda Tangan Dari Kasi/Lurah. Silahkan Menunggu Kembali!";
         $notifikasi->save();

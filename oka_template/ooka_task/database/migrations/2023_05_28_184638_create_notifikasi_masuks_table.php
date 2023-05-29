@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('arsip_masuks', function (Blueprint $table) {
+        Schema::create('notifikasi_masuks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('suratMasuk_id');
-            $table->string('file_surat')->nullable();
-            $table->boolean('status');
-            $table->string('keterangan_status');
+            $table->unsignedBigInteger('suratMasuk_id')->nullable();
+            $table->enum('status', ['Selesai', 'Dalam Proses', 'Disetujui', 'Ditolak']);
+            $table->string('keterangan', 1000);
             $table->timestamps();
 
             $table->foreign('suratMasuk_id')->references('id')->on('surat_masuks');
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('arsip_masuks');
+        Schema::dropIfExists('notifikasi_masuks');
     }
 };

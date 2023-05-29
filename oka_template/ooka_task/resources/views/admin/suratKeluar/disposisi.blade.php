@@ -12,11 +12,6 @@
         <div class="col-sm-6">
             <table class="table table-borderless">
                 <tr>    
-                    <td class="surat-kategori" >No. Agenda</td>
-                    <td>:</td>
-                    <td class="surat-detail" ></td>
-                </tr>
-                <tr>    
                     <td class="surat-kategori" >Tanggal Surat</td>
                     <td>:</td>
                     <td class="surat-detail" >{{ $surat -> tgl_surat }}</td>
@@ -27,21 +22,11 @@
                     <td class="surat-detail">{{ $surat -> jenisSurat -> nama }}</td>
                 </tr>
                 <tr>
-                    <td class="surat-kategori" >Perihal Surat</td>
-                    <td>:</td>
-                    <td class="surat-detail"></td>
-                </tr>
-                <tr>
                     <td class="surat-kategori"> Dari </td>
                     <td>:</td>
                     <td class="surat-detail">
                         {{ $surat -> user -> nama }}
                     </td>
-                </tr>
-                <tr>
-                    <td class="surat-kategori" >Kepada</td>
-                    <td>:</td>
-                    <td class="surat-detail"> {{ $surat -> pj -> nama }} </td>
                 </tr>
             </table>
             @endforeach
