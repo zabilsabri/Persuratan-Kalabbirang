@@ -9,6 +9,7 @@ use App\Models\pengantar;
 use App\Models\User;
 use App\Models\disposisi;
 use App\Models\notifikasi;
+use App\Models\arsipKeluar;
 use Carbon\Carbon;
 use Auth;
 use PDF;
@@ -45,14 +46,18 @@ class suratKeluarController extends Controller
         $disposisi->instruksi = $request->instruksi;
         $disposisi->save();
 
-        $notifikasi = new notifikasi();
+        if(!isset($surats->user->role->id)){
+            $notifikasi = notifikasi::where('suratKeluar_id', $id)->first();
+        } else {
+            $notifikasi = new notifikasi();
+        }
         $notifikasi->user_id = $surats->user_id;
         $notifikasi->suratKeluar_id = $id;
         $notifikasi->status = "Dalam Proses";
         $notifikasi->keterangan = "Surat Anda Sedang Menunggu Tanda Tangan Dari Kasi/Lurah. Silahkan Menunggu Kembali!";
         $notifikasi->save();
 
-        return redirect()->route('surat-keluar-admin');
+        return redirect()->route('surat-keluar-admin')->with('success', 'Surat Berhasil Diserahkan!');
     }
 
     public function suratKeteranganUsaha() {
@@ -76,18 +81,29 @@ class suratKeluarController extends Controller
         $file = asset('temp_file/pengantar/'.$id);
         return view('admin.suratKeluar.openFile', compact('file'));
     }
-    public function tolakSurat(Request $request, $id) {
+
+    public function tolakSuratKeluar(Request $request, $id) {
         $surat = suratKeluar::find($id);
-        $surat->pj_id = $surat->user_id;
-        $surat->alasan_tolak = $request->alasan_tolak;
+        $surat->pj_id = null;
+        $surat->acc_id = Auth::user()->id;
         $surat->save();
 
-        $notifikasi = notifikasi::where('suratKeluar_id', $id);
+        if(!isset($surat->user->role->id)){
+            $notifikasi = notifikasi::where('suratKeluar_id', $id)->first();
+        } else {
+            $notifikasi = new notifikasi();
+        }
         $notifikasi->status = "Ditolak";
-        $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali!";
+        $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali Atau Datang Ke Kantor Kelurahan.";
         $notifikasi->save();
 
-        return redirect()->route('surat-keluar-admin');
+        $arsip = new arsipKeluar();
+        $arsip->status = 0;
+        $arsip->keterangan_status = $request->alasan_tolak;
+        $arsip->suratKeluar_id = $id;
+        $arsip->save();
+
+        return redirect()->route('surat-keluar-admin')->with('success', 'Surat Berhasil Ditolak Dan Sudah Terarsip.');
     }
 
     public function store13(Request $request)
@@ -131,6 +147,13 @@ class suratKeluarController extends Controller
         $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
         $suratKeluar->save();
+
+        $notifikasi = new notifikasi();
+        $notifikasi->user_id = $user->id;
+        $notifikasi->suratKeluar_id = $suratKeluar -> id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu.";
+        $notifikasi->save();
         
         $suratKeluar_id = $suratKeluar->id;
 
@@ -153,7 +176,7 @@ class suratKeluarController extends Controller
 
         pengantar::insert($data);
     
-        return redirect()->route('surat-keluar-admin');
+        return redirect()->route('surat-keluar-admin')->with('success', 'Surat Berhasil Ditambahkan!');
     }
 
     public function store3(Request $request)
@@ -202,6 +225,13 @@ class suratKeluarController extends Controller
         $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
 
+        $notifikasi = new notifikasi();
+        $notifikasi->user_id = $user->id;
+        $notifikasi->suratKeluar_id = $suratKeluar -> id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu.";
+        $notifikasi->save();
+
         $suratKeluar->bidang_usaha = $request->bidang_usaha;
         $suratKeluar->bentuk_usaha = $request->bentuk_usaha;
         $suratKeluar->alamat_usaha = $request->alamat_usaha;
@@ -233,7 +263,7 @@ class suratKeluarController extends Controller
 
         pengantar::insert($data);
 
-        return redirect()->route('surat-keluar-admin');
+        return redirect()->route('surat-keluar-admin')->with('success', 'Surat Berhasil Ditambahkan!');
     }
 
 
@@ -295,6 +325,13 @@ class suratKeluarController extends Controller
         $suratKeluar->alamat_anak = $request->alamat_anak;
 
         $suratKeluar->save();
+
+        $notifikasi = new notifikasi();
+        $notifikasi->user_id = $user->id;
+        $notifikasi->suratKeluar_id = $suratKeluar -> id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu.";
+        $notifikasi->save();
         
         $suratKeluar_id = $suratKeluar->id;
 
@@ -317,7 +354,7 @@ class suratKeluarController extends Controller
 
         pengantar::insert($data);
 
-        return redirect()->route('surat-keluar-admin');
+        return redirect()->route('surat-keluar-admin')->with('success', 'Surat Berhasil Ditambahkan!');
     }
 
     public function store11(Request $request)
@@ -400,6 +437,13 @@ class suratKeluarController extends Controller
         $suratKeluar->pekerjaan_ibu = $request->pekerjaan_ibu;
 
         $suratKeluar->save();
+
+        $notifikasi = new notifikasi();
+        $notifikasi->user_id = $user->id;
+        $notifikasi->suratKeluar_id = $suratKeluar -> id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu.";
+        $notifikasi->save();
         
         $suratKeluar_id = $suratKeluar->id;
 
@@ -443,7 +487,7 @@ class suratKeluarController extends Controller
 
         pengantar::insert($data);
 
-        return redirect()->route('surat-keluar-admin');
+        return redirect()->route('surat-keluar-admin')->with('success', 'Surat Berhasil Ditambahkan!');
     }
 
 }

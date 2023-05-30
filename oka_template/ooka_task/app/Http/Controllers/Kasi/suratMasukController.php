@@ -43,11 +43,11 @@ class suratMasukController extends Controller
     }
 
     public function detailMasuk($id) {
-        $surats = suratMasuk::where('id', $id)->get();
+        $surat = suratMasuk::where('id', $id)->first();
         $disposisis = disposisiMasuk::latest()->where('suratMasuk_id', $id)->first();
         $disposisis_all = disposisiMasuk::where('suratMasuk_id', $id)->get();
         return view('kasi.suratMasuk.detailMasuk')
-            ->with(compact('surats'))
+            ->with(compact('surat'))
             ->with(compact('disposisis'))
             ->with(compact('disposisis_all'));
     }
@@ -76,16 +76,19 @@ class suratMasukController extends Controller
             $surat->ttd_id = Auth::user() -> ttd -> id;
             if(!isset($surat->user->role->id)){
                 $surat->pj_id = null;
-                $notifikasi = nofikasi::where('suratKeluar_id', $id);
+                $notifikasi = notifikasi::where('suratKeluar_id', $id)->first();
             } else {
                 $surat->pj_id = $surat -> user_id;
                 $notifikasi = new notifikasi();
             }
         $surat->process = "3";
         $surat->acc_id = Auth::user()->id;
+        $surat->tgl_ttd = Carbon::now();
         $surat->save();
 
         $arsip = new arsipKeluar();
+        $arsip->status = 1;
+        $arsip->keterangan_status = "Surat Yang Anda Sediakan Sudah Lengkap.";
         $arsip->suratKeluar_id = $id;
         $arsip->save();
 
@@ -103,11 +106,11 @@ class suratMasukController extends Controller
         $notifikasi->keterangan = "Surat Anda Telah Disetujui Oleh Pihak Kalabbirang!";
         $notifikasi->save();
 
-        return redirect()->route('surat-masuk-kasi');
+        return redirect()->route('surat-masuk-kasi')->with('success', 'Surat Berhasil Di Tandatangani Dan Sudah Terarsip.');
         }
     }
 
-    public function arsip($id)
+    public function arsip(Request $request, $id)
     {
         $surat = suratMasuk::find($id);
         $surat->tujuan_surat_id = null;
@@ -116,6 +119,8 @@ class suratMasukController extends Controller
         $surat->save();
 
         $arsip = new arsipMasuk();
+        $arsip->status = 1;
+        $arsip->keterangan_status = $request->alasan_arsip;
         $arsip->suratMasuk_id = $id;
         $arsip->file_surat = $surat->file_surat;
         $arsip->save();
@@ -128,13 +133,56 @@ class suratMasukController extends Controller
             $antar->save();
         }
 
-        $notifikasi = notifikasiMasuk::where('suratMasuk_id', $id);
-        $notifikasi->user_id = $surats->user_id;
-        $notifikasi->suratKeluar_id = $id;
+        $notifikasi = notifikasiMasuk::where('suratMasuk_id', $id)->first();
         $notifikasi->status = "Disetujui";
         $notifikasi->keterangan = "Surat Anda Telah Disetujui Oleh Pihak Kalabbirang!";
         $notifikasi->save();
 
-        return redirect()->route('surat-masuk-kasi');
+        return redirect()->route('surat-masuk-kasi')->with('success', 'Surat Berhasil Diarsipkan.');
+    }
+
+    public function tolakSuratMasuk(Request $request, $id) {
+        $surat = suratMasuk::find($id);
+        $surat->tujuan_surat_id = null;
+        $surat->acc_id = Auth::user()->id;
+        $surat->save();
+
+        $notifikasi = notifikasiMasuk::where('suratMasuk_id', $id)->first();
+        $notifikasi->status = "Ditolak";
+        $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali Atau Datang Ke Kantor Kelurahan.";
+        $notifikasi->save();
+
+        $arsip = new arsipMasuk();
+        $arsip->status = 0;
+        $arsip->keterangan_status = $request->alasan_tolak;
+        $arsip->suratMasuk_id = $id;
+        $arsip->file_surat = $surat->file_surat;
+        $arsip->save();
+
+        return redirect()->route('surat-masuk-kasi')->with('success', 'Surat Berhasil Ditolak Dan Sudah Terarsip.');
+    }
+
+    public function tolakSuratKeluar(Request $request, $id) {
+        $surat = suratKeluar::find($id);
+        $surat->pj_id = null;
+        $surat->acc_id = Auth::user()->id;
+        $surat->save();
+
+        if(!isset($surat->user->role->id)){
+            $notifikasi = notifikasi::where('suratKeluar_id', $id)->first();
+        } else {
+            $notifikasi = new notifikasi();
+        }
+        $notifikasi->status = "Ditolak";
+        $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali Atau Datang Ke Kantor Kelurahan.";
+        $notifikasi->save();
+
+        $arsip = new arsipKeluar();
+        $arsip->status = 0;
+        $arsip->keterangan_status = $request->alasan_tolak;
+        $arsip->suratKeluar_id = $id;
+        $arsip->save();
+
+        return redirect()->route('surat-masuk-kasi')->with('success', 'Surat Berhasil Ditolak Dan Sudah Terarsip.');
     }
 }

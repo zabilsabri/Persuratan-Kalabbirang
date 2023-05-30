@@ -9,6 +9,7 @@ use App\Models\disposisi;
 use App\Models\disposisiMasuk;
 use App\Models\notifikasiMasuk;
 use App\Models\notifikasi;
+use App\Models\arsipMasuk;
 use Auth;
 
 
@@ -50,8 +51,35 @@ class suratMasukController extends Controller
         $surat->file_surat = $nama_surat;
         $surat->save();
 
+        $notifikasi = new notifikasiMasuk();
+        $notifikasi->suratMasuk_id = $surat -> id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu.";
+        $notifikasi->save();
+
         return redirect()->route('surat-masuk-admin')->with('success', 'Surat Masuk Berhasil Ditambahkan!');
 
+    }
+
+    public function tolakSuratMasuk(Request $request, $id) {
+        $surat = suratMasuk::find($id);
+        $surat->tujuan_surat_id = null;
+        $surat->acc_id = Auth::user()->id;
+        $surat->save();
+
+        $notifikasi = notifikasiMasuk::where('suratMasuk_id', $id)->first();
+        $notifikasi->status = "Ditolak";
+        $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali Atau Datang Ke Kantor Kelurahan.";
+        $notifikasi->save();
+
+        $arsip = new arsipMasuk();
+        $arsip->status = 0;
+        $arsip->keterangan_status = $request->alasan_tolak;
+        $arsip->suratMasuk_id = $id;
+        $arsip->file_surat = $surat->file_surat;
+        $arsip->save();
+
+        return redirect()->route('surat-masuk-admin')->with('success', 'Surat Berhasil Ditolak Dan Sudah Terarsip.');
     }
 
     public function detailFile($id){

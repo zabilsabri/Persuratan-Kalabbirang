@@ -27,6 +27,15 @@
                         <td class="surat-detail">{{ $surat -> user -> nama }}</td>
                     </tr>
                     <tr>
+                        <td class="surat-kategori"> Penanggung Jawab </td>
+                        <td>:</td>
+                        <td class="surat-detail">
+                            {{ $disposisis -> suratKeluar -> pj -> nama }}
+                            <br>
+                            <span class="bidang-pengirim">Bidang {{ $disposisis -> usert -> role -> nama }}</span>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="surat-kategori">No. Kartu Keluarga</td>
                         <td>:</td>
                         <td class="surat-detail">{{ $surat -> user -> nomor_kk ?? "-" }}</td>

@@ -69,23 +69,34 @@
                         </div>
                     </div>
                 </div>
-                
+                <a class="btn btn-light me-md-2 float-right" href="{{ route('surat-masuk.edit', [$surats -> id]) }}" type="button">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.33333 34.5C2.41667 34.5 1.63167 34.1734 0.978333 33.52C0.326111 32.8678 0 32.0834 0 31.1667V7.83335C0 6.91669 0.326111 6.13169 0.978333 5.47835C1.63167 4.82613 2.41667 4.50002 3.33333 4.50002H18.2083L14.875 7.83335H3.33333V31.1667H26.6667V19.5834L30 16.25V31.1667C30 32.0834 29.6739 32.8678 29.0217 33.52C28.3683 34.1734 27.5833 34.5 26.6667 34.5H3.33333ZM21.9583 5.45835L24.3333 7.79169L13.3333 18.7917V21.1667H15.6667L26.7083 10.125L29.0833 12.4584L17.0833 24.5H10V17.4167L21.9583 5.45835ZM29.0833 12.4584L21.9583 5.45835L26.125 1.29169C26.7917 0.625021 27.5906 0.291687 28.5217 0.291687C29.4517 0.291687 30.2361 0.625021 30.875 1.29169L33.2083 3.66669C33.8472 4.30558 34.1667 5.08335 34.1667 6.00002C34.1667 6.91669 33.8472 7.69446 33.2083 8.33335L29.0833 12.4584Z" fill="#4FB96E"/>
+                        </svg>
+                        </div>
+                        <div class="button-text text-success flex-grow-1 ms-3">
+                            EDIT
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5 pt-5">
-            <a class="btn btn-light me-md-2" href="{{ route('surat-masuk.edit', [$surats -> id]) }}" type="button">
+            <button class="btn btn-danger me-md-2 mb-2" type="button" data-bs-toggle="modal" data-bs-target="#modalDitolak">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
-                    <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3.33333 34.5C2.41667 34.5 1.63167 34.1734 0.978333 33.52C0.326111 32.8678 0 32.0834 0 31.1667V7.83335C0 6.91669 0.326111 6.13169 0.978333 5.47835C1.63167 4.82613 2.41667 4.50002 3.33333 4.50002H18.2083L14.875 7.83335H3.33333V31.1667H26.6667V19.5834L30 16.25V31.1667C30 32.0834 29.6739 32.8678 29.0217 33.52C28.3683 34.1734 27.5833 34.5 26.6667 34.5H3.33333ZM21.9583 5.45835L24.3333 7.79169L13.3333 18.7917V21.1667H15.6667L26.7083 10.125L29.0833 12.4584L17.0833 24.5H10V17.4167L21.9583 5.45835ZM29.0833 12.4584L21.9583 5.45835L26.125 1.29169C26.7917 0.625021 27.5906 0.291687 28.5217 0.291687C29.4517 0.291687 30.2361 0.625021 30.875 1.29169L33.2083 3.66669C33.8472 4.30558 34.1667 5.08335 34.1667 6.00002C34.1667 6.91669 33.8472 7.69446 33.2083 8.33335L29.0833 12.4584Z" fill="#4FB96E"/>
+                    <svg width="32" height="32" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.4472 36.1042C8.70701 36.1042 0.811523 28.2228 0.811523 18.5C0.811523 8.77721 8.70701 0.895828 18.4472 0.895828C28.1874 0.895828 36.0828 8.77721 36.0828 18.5C36.0828 28.2228 28.1874 36.1042 18.4472 36.1042ZM18.4472 32.5833C22.189 32.5833 25.7776 31.0996 28.4234 28.4584C31.0693 25.8173 32.5557 22.2351 32.5557 18.5C32.5557 14.7649 31.0693 11.1827 28.4234 8.54157C25.7776 5.90044 22.189 4.41666 18.4472 4.41666C14.7054 4.41666 11.1168 5.90044 8.47095 8.54157C5.82508 11.1827 4.33865 14.7649 4.33865 18.5C4.33865 22.2351 5.82508 25.8173 8.47095 28.4584C11.1168 31.0996 14.7054 32.5833 18.4472 32.5833V32.5833ZM16.6836 9.69791H20.2107V13.2187H16.6836V9.69791ZM16.6836 16.7396H20.2107V27.3021H16.6836V16.7396Z" fill="white"/>
                     </svg>
                     </div>
-                    <div class="button-text text-success flex-grow-1 ms-3">
-                        EDIT
+                    <div class="button-text flex-grow-1 ms-3">
+                        DITOLAK
                     </div>
                 </div>
-            </a>
-            <a class="btn btn-success" href="{{ route('surat-masuk.disposisi', [$surats -> id]) }}" type="button">
+            </button>
+            <a class="btn btn-success me-md-2 mb-2" href="{{ route('surat-masuk.disposisi', [$surats -> id]) }}" type="button">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
                         <svg width="34" height="23" viewBox="0 0 41 30" fill="none"
@@ -103,3 +114,22 @@
         </div>
     </div>
 @endsection
+
+<!-- Modal Ditolak -->
+<div class="modal fade" id="modalDitolak" tabindex="-1" aria-labelledby="modalDitolakLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-body" style="padding-bottom: 0px;">
+                <h6>Alasan Penolakan <span style="color:red;" >*</span> </h6>
+                <form action="{{ route('surat-masuk-admin.tolakSurat', [$surats -> id]) }}" method="POST">
+                    @csrf
+                    <textarea class="form-control" name="alasan_tolak" style="border: 1px solid #FF0000; height:150px;" id="exampleFormControlTextarea1" rows="3"></textarea>                
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Kirim</button>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

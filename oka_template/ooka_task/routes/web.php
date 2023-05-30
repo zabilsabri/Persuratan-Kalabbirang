@@ -148,7 +148,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
             Route::post('/disposisiProses/{id}', 'suratKeluarController@disposisiProses')->name('surat-keluar-admin.disposisiProses');
             Route::get('/detail/{id}', 'suratKeluarController@detail')->name('surat-keluar-admin.detail');
             Route::get('/detailFile/{id}', 'suratKeluarController@detailFile')->name('surat-keluar-admin.detailFile');
-            Route::post('/tolakSurat/{id}', 'suratKeluarController@tolakSurat')->name('surat-keluar-admin.tolakSurat');
+            Route::post('/tolakSurat/{id}', 'suratKeluarController@tolakSuratKeluar')->name('surat-keluar-admin.tolakSurat');
             Route::get('exportData/{id}', 'suratKeluarController@exportSurat')->name('exportSuratKeluar');
         });
 
@@ -163,6 +163,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
             Route::post('/disposisiProses/{id}', 'suratMasukController@disposisiProses')->name('surat-masuk-admin.disposisiProses');
             Route::get('/detail/{id}', 'suratMasukController@detail')->name('surat-masuk-admin.detail');
             Route::get('/detailFile/{id}', 'suratMasukController@detailFile')->name('surat-masuk-admin.detailFile');
+            Route::post('/tolakSurat/{id}', 'suratMasukController@tolakSuratMasuk')->name('surat-masuk-admin.tolakSurat');
         });
 
         // Data Warga
@@ -233,7 +234,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah', 'midd
             Route::get('/detailFile/{id}', 'suratMasukController@detailFile')->name('surat-masuk-lurah.detailFile');
             Route::get('/detailFilePengantar/{id}', 'suratMasukController@detailFilePengantar')->name('surat-masuk-lurah.detailFilePengantar');
             Route::get('/ttd/{id}', 'suratMasukController@ttd')->name('surat-masuk-lurah.ttd');
-            Route::post('/arsip/{id}', 'suratMasukController@arsip')->name('surat-keluar-lurah.arsipSurat');
+            Route::post('/arsip/{id}', 'suratMasukController@arsip')->name('surat-masuk-lurah.arsipSurat');
         });
 
         // Surat Arsip
@@ -271,7 +272,10 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi', 'middl
             Route::get('/detailFile/{id}', 'suratMasukController@detailFile')->name('surat-masuk-kasi.detailFile');
             Route::get('/detailFilePengantar/{id}', 'suratMasukController@detailFilePengantar')->name('surat-masuk-kasi.detailFilePengantar');
             Route::get('/ttd/{id}', 'suratMasukController@ttd')->name('surat-masuk-kasi.ttd');
-            Route::get('/arsip/{id}', 'suratMasukController@arsip')->name('surat-masuk-kasi.arsip');
+            Route::post('/arsip/{id}', 'suratMasukController@arsip')->name('surat-masuk-kasi.arsipSurat');
+
+            Route::post('/tolakSurat-keluar/{id}', 'suratMasukController@tolakSuratKeluar')->name('surat-keluar-kasi.tolakSurat');
+            Route::post('/tolakSurat-masuk/{id}', 'suratMasukController@tolakSuratMasuk')->name('surat-masuk-kasi.tolakSurat');
         });
 
         // Surat Arsip

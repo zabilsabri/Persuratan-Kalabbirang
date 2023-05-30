@@ -30,7 +30,7 @@
         <div class="d-flex align-items-center mb-4">
             <div class="flex-grow-1 ms-3 status-title">
                 @if (!isset($surat -> antar -> status))
-                    {{$surat -> notifikasi -> keterangan ?? "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu."}}
+                    {{$notif -> keterangan ?? $surat -> notifikasi -> keterangan ?? "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu."}}
                 @else
                     @if ($surat -> antar -> status == "Belum Terkirim")
                     <p>Alamat Surat Anda Belum Diproses Oleh Admin. Silahkan Tunggu Beberapa Saat Lagi.</p>
@@ -44,7 +44,7 @@
                 @endif
             </div>
         </div>
-        <h6 class="no-surat">test</h6>
+        <h6 class="no-surat">{{ $surat -> no_surat }}</h6>
         <div class="col-sm-6">
             <table class="table table-borderless">
                 <tr>    
@@ -65,7 +65,7 @@
                 <tr>
                     <td class="surat-kategori" >Penanggung Jawab</td>
                     <td>:</td>
-                    <td class="surat-detail">{{ $surat -> pj -> nama ?? $surat -> user -> nama ?? $surat -> ttd -> user -> nama ?? $surat -> userAcc -> nama }} ( {{ $surat -> user -> role -> nama ?? $surat -> userAcc -> role -> nama ?? $surat -> pj -> role -> nama }} )</td>
+                    <td class="surat-detail">{{ $surat -> pj -> nama ?? $surat -> userTrack -> nama ?? $surat -> ttd -> user -> nama ?? $surat -> userAcc -> nama }} ( {{ $surat -> user -> role -> nama ?? $surat -> userAcc -> role -> nama ?? $surat -> pj -> role -> nama }} )</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori" >Jenis Surat</td>

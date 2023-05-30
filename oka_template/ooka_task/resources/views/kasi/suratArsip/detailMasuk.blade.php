@@ -30,7 +30,33 @@
                 <tr>
                     <td class="surat-kategori" >Jenis Surat</td>
                     <td>:</td>
-                    <td class="surat-detail">Undangan</td>
+                    <td class="surat-detail">{{ $detailArsips -> suratMasuk -> jenis_surat }}</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Kode Surat</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $detailArsips -> suratMasuk -> kode_surat }}</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Penanggung Jawab</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $detailArsips -> suratMasuk -> userAcc -> nama }} ({{ $detailArsips -> suratMasuk -> userAcc -> role -> nama }})</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Status</td>
+                    <td>:</td>
+                    <td class="surat-detail">
+                        @if($detailArsips -> status == 1)
+                        <span class="text-success fw-bold" >Diterima</span>
+                        @else
+                        <span class="text-danger fw-bold" >Ditolak</span>
+                        @endif
+                    </td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Alasan</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $detailArsips -> keterangan_status }}</td>
                 </tr>
             </table>
             @if($detailArsips -> suratMasuk -> status == "Segera")
@@ -55,7 +81,6 @@
                     </div>
                 </div>
             </div>
-            <p class="surat-detail text-end fs-5"> *Telah Disetujui </p>
         </div>
     </div>
 </div>

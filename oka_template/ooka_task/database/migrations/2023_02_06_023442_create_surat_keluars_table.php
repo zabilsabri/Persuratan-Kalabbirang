@@ -26,6 +26,7 @@ return new class extends Migration
             $table->unsignedBigInteger('pj_id')->nullable(); // Penanggung Jawab atau Surat Sekarang Berada Di Siapa
             $table->unsignedBigInteger('acc_id')->nullable(); // Surat Di Acc Oleh Siapa
             $table->unsignedBigInteger('ttd_id')->nullable(); // Yang Menandatangani Surat Ini Siapa
+            $table->date('tgl_ttd')->nullable(); // Tanggal TTD Surat
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
 
             // field surat ket. tidak mampu

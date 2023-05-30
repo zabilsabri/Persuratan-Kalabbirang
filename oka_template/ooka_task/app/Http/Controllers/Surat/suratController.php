@@ -77,7 +77,7 @@ class suratController extends Controller
         }
         
         $pdf->setPaper('A4', 'potrait');
-        return $pdf->stream('Surat Belum Menikah.pdf' , array("Attachment" => false));
+        return $pdf->stream('Surat-Kalabbirang.pdf' , array("Attachment" => false));
         exit(0);
     }
 }

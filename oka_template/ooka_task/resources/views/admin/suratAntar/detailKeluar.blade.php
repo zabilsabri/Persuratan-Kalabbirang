@@ -2,6 +2,12 @@
 <link rel="stylesheet" href="{{ asset('style/css/suratKeluarDetail.css') }}">
 
 @section('content')
+    @if($message = Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
+            <strong> {{$message}} </strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 <div class="hal-head">
     <h1 class="hal-title" > Pengantaran Surat </h1>
 </div>
@@ -24,6 +30,11 @@
                     <td class="surat-kategori" >Kepada</td>
                     <td>:</td>
                     <td class="surat-detail">{{ $antar -> suratKeluar -> ttd -> user -> role -> nama }}</td>
+                </tr>
+                <tr>
+                    <td class="surat-kategori" >Kode Surat</td>
+                    <td>:</td>
+                    <td class="surat-detail">{{ $antar -> suratKeluar -> kode_surat }}</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori" >Jenis Surat</td>

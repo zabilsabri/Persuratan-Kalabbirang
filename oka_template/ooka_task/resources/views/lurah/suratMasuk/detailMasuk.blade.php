@@ -7,7 +7,6 @@
     </div>
     <div class="hal-body">
         <div class="row">
-            @foreach($surats as $surat)
             <h6 class="no-surat">{{ $surat -> no_surat }}</h6>
             <div class="col-sm-6">
                 <table class="table table-borderless">
@@ -27,7 +26,7 @@
                         <td class="surat-detail">
                             {{ $disposisis -> suratMasuk -> user -> nama }}
                             <br>
-                            <span class="bidang-pengirim">Bidang {{ $disposisis -> userk -> role -> nama }}</span>
+                            <span class="bidang-pengirim">Bidang {{ $disposisis -> usert -> role -> nama }}</span>
                         </td>
                     </tr>
                     <tr>
@@ -84,7 +83,6 @@
                     </button>
                 </div>
             </div>
-            @endforeach
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5 pt-5">
@@ -264,7 +262,7 @@
         <div class="modal-content">
             <div class="modal-body" style="padding-bottom: 0px;">
                 <h6>Catatan Arsip <span style="color:red;" >*</span> </h6>
-                <form action="{{ route('surat-keluar-lurah.arsipSurat', [$surat -> id]) }}" method="POST">
+                <form action="{{ route('surat-masuk-lurah.arsipSurat', [$surat -> id]) }}" method="POST">
                     @csrf
                     <textarea class="form-control" name="alasan_arsip" style="height:150px;" id="exampleFormControlTextarea1" rows="3"></textarea>                
             </div>

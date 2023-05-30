@@ -49,6 +49,8 @@
                             <th scope="col">Judul Surat</th>
                             <th scope="col">Nama Pengirim</th>
                             <th scope="col">Tgl Masuk</th>
+                            <th scope="col">Penanggung Jawab</th>
+                            <th scope="col">Status</th>
                             <th scope="col" style="width: 150px;">Aksi</th>
                         </tr>
                     </thead>
@@ -59,6 +61,14 @@
                                 <td scope="col">{{ $arsipMasuk -> suratMasuk -> judul_surat }}</td>
                                 <td scope="col">{{ $arsipMasuk -> suratMasuk -> asal_surat }}</td>
                                 <td scope="col">{{ $arsipMasuk -> suratMasuk -> created_at }}</td>
+                                <td scope="col">{{ $arsipMasuk -> suratMasuk -> userAcc -> nama }} ( {{ $arsipMasuk -> suratMasuk -> userAcc -> role -> nama }} )</td>
+                                <td scope="col">
+                                    @if($arsipMasuk -> status == 1)
+                                    <span class="text-success fw-bold" >Diterima</span>
+                                    @else
+                                    <span class="text-danger fw-bold" >Ditolak</span>
+                                    @endif
+                                </td>
                                 <td scope="col">
                                     {{-- Detail --}}
                                     <a href="{{ route('surat-arsip-kasi.detailMasuk', [$arsipMasuk -> id]) }}" class="btn btn-warning">
@@ -83,6 +93,8 @@
                             <th scope="col">Judul Surat</th>
                             <th scope="col">Nama Pengirim</th>
                             <th scope="col">Tgl Masuk</th>
+                            <th scope="col">Penanggung Jawab</th>
+                            <th scope="col">Status</th>
                             <th scope="col" style="width: 150px;">Aksi</th>
                         </tr>
                     </thead>
@@ -93,6 +105,14 @@
                                 <td scope="col">{{ $arsipKeluar -> suratKeluar -> jenisSurat -> nama }}</td>
                                 <td scope="col">{{ $arsipKeluar -> suratKeluar -> user -> nama }}</td>
                                 <td scope="col">{{ $arsipKeluar -> suratKeluar -> tgl_surat }}</td>
+                                <td scope="col">{{ $arsipKeluar -> suratKeluar -> userAcc -> nama }} ( {{ $arsipKeluar -> suratKeluar -> userAcc -> role -> nama }} )</td>
+                                <td scope="col">
+                                    @if($arsipKeluar -> status == 1)
+                                    <span class="text-success fw-bold" >Diterima</span>
+                                    @else
+                                    <span class="text-danger fw-bold" >Ditolak</span>
+                                    @endif
+                                </td>
                                 <td scope="col">
                                     {{-- Detail --}}
                                     <a href="{{ route('surat-arsip-kasi.detailKeluar', [$arsipKeluar -> id]) }}" class="btn btn-warning">

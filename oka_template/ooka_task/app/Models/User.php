@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -82,7 +83,8 @@ class User extends Authenticatable
         return $this->hasMany(disposisi::class, 'suratKeluar_id', 'id');
     }
 
-    // public function suratKeluarDisposisi(){
-    //     return $this->belongsToMany(suratKeluar::class, 'disposisis', 'suratKeluar_id');
-    // }
+    public function getTanggalLahirAttribute($value){
+        return Carbon::parse($value)->format('d-m-Y');
+    }
+
 }

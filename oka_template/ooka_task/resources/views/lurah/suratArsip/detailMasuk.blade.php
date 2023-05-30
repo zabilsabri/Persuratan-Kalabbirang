@@ -30,7 +30,7 @@
                 <tr>
                     <td class="surat-kategori" >Jenis Surat</td>
                     <td>:</td>
-                    <td class="surat-detail">Undangan</td>
+                    <td class="surat-detail">{{ $detailArsips -> suratMasuk -> jenis_surat }}</td>
                 </tr>
                 <tr>
                     <td class="surat-kategori" >Kode Surat</td>

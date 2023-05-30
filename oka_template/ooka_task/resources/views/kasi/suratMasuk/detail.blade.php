@@ -17,29 +17,30 @@
             <h6 class="no-surat">{{ $surat -> no_surat }}</h6>
             <div class="col-sm-6">
                 <table class="table table-borderless">
-                    <tr>
+                <tr>
                         <td class="surat-kategori">Tanggal Surat</td>
                         <td>:</td>
                         <td class="surat-detail">{{ $surat -> tgl_surat }}</td>
                     </tr>
                     <tr>
-                        <td class="surat-kategori">Perihal Surat</td>
+                        <td class="surat-kategori">Nama Pemohon</td>
                         <td>:</td>
-                        <td class="surat-detail"></td>
+                        <td class="surat-detail">{{ $surat -> user -> nama }}</td>
                     </tr>
                     <tr>
-                        <td class="surat-kategori"> Dari </td>
+                        <td class="surat-kategori">No. Kartu Keluarga</td>
                         <td>:</td>
-                        <td class="surat-detail">
-                            {{ $disposisis -> userk -> nama }}
-                            <br>
-                            <span class="bidang-pengirim">Bidang {{ $disposisis -> userk -> role -> nama }}</span>
-                        </td>
+                        <td class="surat-detail">{{ $surat -> user -> nomor_kk ?? "-" }}</td>
                     </tr>
                     <tr>
-                        <td class="surat-kategori">Kepada</td>
+                        <td class="surat-kategori">NIK</td>
                         <td>:</td>
-                        <td class="surat-detail">{{ Auth::user()->nama }}</td>
+                        <td class="surat-detail">{{ $surat -> user -> nik }}</td>
+                    </tr>
+                    <tr>
+                        <td class="surat-kategori">Kode Surat</td>
+                        <td>:</td>
+                        <td class="surat-detail">{{ $surat -> kode_surat }}</td>
                     </tr>
                     <tr>
                         <td class="surat-kategori">Jenis Surat</td>
@@ -89,24 +90,36 @@
                     @endforeach
                 </div>
 
+                <button class="btn btn-light border-green me-md-2 mb-2 float-right" type="button" data-bs-toggle="modal"
+                    data-bs-target="#modalInfoDisposisi">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <svg width="53" height="44" viewBox="0 0 53 44" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M26.3207 39.7913C14.3328 39.7913 4.61523 31.77 4.61523 21.8747C4.61523 11.9793 14.3328 3.95801 26.3207 3.95801C38.3086 3.95801 48.0261 11.9793 48.0261 21.8747C48.0261 31.77 38.3086 39.7913 26.3207 39.7913ZM26.3207 36.208C30.926 36.208 35.3427 34.6979 38.5991 32.0099C41.8555 29.3218 43.685 25.6761 43.685 21.8747C43.685 18.0732 41.8555 14.4275 38.5991 11.7395C35.3427 9.05146 30.926 7.54134 26.3207 7.54134C21.7153 7.54134 17.2987 9.05146 14.0422 11.7395C10.7858 14.4275 8.95632 18.0732 8.95632 21.8747C8.95632 25.6761 10.7858 29.3218 14.0422 32.0099C17.2987 34.6979 21.7153 36.208 26.3207 36.208ZM24.1501 12.9163H28.4912V16.4997H24.1501V12.9163ZM24.1501 20.083H28.4912V30.833H24.1501V20.083Z"
+                                    fill="#4FB96E" />
+                            </svg>
+                        </div>
+                        <div class="button-text text-green flex-grow-1 ms-3">
+                            INFO DISPOSISI
+                        </div>
+                    </div>
+                </button>
             </div>
             @endforeach
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-5 pt-5">
-            <button class="btn btn-light border-green me-md-2 mb-2" type="button" data-bs-toggle="modal"
-                data-bs-target="#modalInfoDisposisi">
+            <button class="btn btn-danger me-md-2 mb-2" type="button" data-bs-toggle="modal" data-bs-target="#modalDitolak">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
-                        <svg width="53" height="44" viewBox="0 0 53 44" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M26.3207 39.7913C14.3328 39.7913 4.61523 31.77 4.61523 21.8747C4.61523 11.9793 14.3328 3.95801 26.3207 3.95801C38.3086 3.95801 48.0261 11.9793 48.0261 21.8747C48.0261 31.77 38.3086 39.7913 26.3207 39.7913ZM26.3207 36.208C30.926 36.208 35.3427 34.6979 38.5991 32.0099C41.8555 29.3218 43.685 25.6761 43.685 21.8747C43.685 18.0732 41.8555 14.4275 38.5991 11.7395C35.3427 9.05146 30.926 7.54134 26.3207 7.54134C21.7153 7.54134 17.2987 9.05146 14.0422 11.7395C10.7858 14.4275 8.95632 18.0732 8.95632 21.8747C8.95632 25.6761 10.7858 29.3218 14.0422 32.0099C17.2987 34.6979 21.7153 36.208 26.3207 36.208ZM24.1501 12.9163H28.4912V16.4997H24.1501V12.9163ZM24.1501 20.083H28.4912V30.833H24.1501V20.083Z"
-                                fill="#4FB96E" />
-                        </svg>
+                    <svg width="32" height="32" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.4472 36.1042C8.70701 36.1042 0.811523 28.2228 0.811523 18.5C0.811523 8.77721 8.70701 0.895828 18.4472 0.895828C28.1874 0.895828 36.0828 8.77721 36.0828 18.5C36.0828 28.2228 28.1874 36.1042 18.4472 36.1042ZM18.4472 32.5833C22.189 32.5833 25.7776 31.0996 28.4234 28.4584C31.0693 25.8173 32.5557 22.2351 32.5557 18.5C32.5557 14.7649 31.0693 11.1827 28.4234 8.54157C25.7776 5.90044 22.189 4.41666 18.4472 4.41666C14.7054 4.41666 11.1168 5.90044 8.47095 8.54157C5.82508 11.1827 4.33865 14.7649 4.33865 18.5C4.33865 22.2351 5.82508 25.8173 8.47095 28.4584C11.1168 31.0996 14.7054 32.5833 18.4472 32.5833V32.5833ZM16.6836 9.69791H20.2107V13.2187H16.6836V9.69791ZM16.6836 16.7396H20.2107V27.3021H16.6836V16.7396Z" fill="white"/>
+                    </svg>
                     </div>
-                    <div class="button-text text-green flex-grow-1 ms-3">
-                        INFO DISPOSISI
+                    <div class="button-text flex-grow-1 ms-3">
+                        DITOLAK
                     </div>
                 </div>
             </button>
@@ -188,6 +201,25 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Ditolak -->
+<div class="modal fade" id="modalDitolak" tabindex="-1" aria-labelledby="modalDitolakLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-body" style="padding-bottom: 0px;">
+                <h6>Alasan Penolakan <span style="color:red;" >*</span> </h6>
+                <form action="{{ route('surat-keluar-kasi.tolakSurat', [$surat -> id]) }}" method="POST">
+                    @csrf
+                    <textarea class="form-control" name="alasan_tolak" style="border: 1px solid #FF0000; height:150px;" id="exampleFormControlTextarea1" rows="3"></textarea>                
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Kirim</button>
+            </div>
+            </form>
             </div>
         </div>
     </div>

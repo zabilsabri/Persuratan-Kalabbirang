@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class suratKeluar extends Model
 {
@@ -121,12 +122,17 @@ class suratKeluar extends Model
         return $this->belongsTo('App\Models\User', 'acc_id', 'id');
     }
 
-    // public function userK(){
-    //     return $this->belongsToMany(User::class, 'disposisis', 'userk_id');
-    // }
+    public function getCreatedAtAttribute($value){
+        return Carbon::parse($value)->format('d/m/Y');
+    }
 
-    // public function userT(){
-    //     return $this->belongsToMany(User::class, 'disposisis', 'usert_id');
-    // }
+    public function getTglSuratAttribute($value){
+        return Carbon::parse($value)->format('d/m/Y');
+    }
+
+    public function getTglTtdAttribute($value){
+        return Carbon::parse($value)->format('d-m-Y');
+    }
+
 }
 

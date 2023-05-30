@@ -32,7 +32,7 @@ class suratAntarController extends Controller
         $antar->status = "Waiting";
         $antar->save();
 
-        return redirect()->route('surat-antar')->with('success', 'Data Alamat Surat Berhasil Ditambahkan! Silahkan Tunggu Kurir Untuk Proses Pengantaran!');
+        return back()->with('success', 'Data Alamat Surat Berhasil Ditambahkan! Silahkan Tunggu Kurir Untuk Proses Pengantaran!');
     }
 
     public function detailKeluar($id) {

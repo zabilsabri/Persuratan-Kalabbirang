@@ -1,7 +1,7 @@
 <div class="surat-ttd">
     <table align="right">
         <tr>
-            <td>Kalabbirang, {{ $data -> ttd -> created_at ?? '(Tanggal Ditandatangani)' }}</td>
+            <td>Kalabbirang, {{ $data -> tgl_ttd ?? '(Tanggal Ditandatangani)' }}</td>
         </tr>
         <tr>
             <td>{{ $data -> ttd -> user -> role -> nama ?? '(Jabatan Yang Menandatangani)' }} KALABBIRANG,</td>
@@ -17,7 +17,7 @@
             <td class="text-decoration-underline fw-bold" >{{ $data -> ttd -> user -> nama ?? '(Nama Yang Menandatangani)'}}</td>
         </tr>
         <tr>
-            <td>Pangkat :-</td>
+            <td>Pangkat : -</td>
         </tr>
         <tr>
             <td>Nip. {{ $data -> ttd -> user -> nip ?? '(NIP Yang Menandatangani)' }}</td>

@@ -9,13 +9,7 @@
         margin-left: 25px;
     }
     </style>
-    <div class="hal-head">
-        @if($message = Session::get('success'))
-        <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
-            <strong> {{$message}} </strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
+    <div class="hal-head">        
         <div class="d-flex align-items-center">
             <div class="flex-grow-1 ms-3">
                 <h1 class="mx-3 mt-3 mb-4"> Pengantaran Surat </h1>

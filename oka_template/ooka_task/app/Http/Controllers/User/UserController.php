@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Berita;
 use App\Models\suratKeluar;
 use App\Models\suratMasuk;
+use App\Models\notifikasi;
+
 
 class UserController extends Controller
 {
@@ -31,8 +33,10 @@ class UserController extends Controller
                 ->with(compact('surat'));
         } else if (suratKeluar::where('kode_surat', $search)->first() != null){
             $surat = suratKeluar::where('kode_surat', $search)->first();
+            $notif = notifikasi::latest()->where('suratKeluar_id', $surat->id)->first();
             return view('user.tracking.detail')
-                ->with(compact('surat'));
+                ->with(compact('surat'))
+                ->with(compact('notif'));
         } else {
             return back()->with('failed', 'Kode Surat Anda Tidak Ditemukan! Silahkan Hubungi Admin!');
         }

@@ -91,6 +91,7 @@
     <script src="{{ asset('style/js/page/modules-chartjs.js') }}"></script>
     <script src="{{ asset('style/js/page/modules-datatables.js') }}"></script>
 
+    @include('admin.layouts.modal')
 
 </body>
 
