@@ -7,7 +7,7 @@
         <p class="judul-surat"> Belum Menikah </p>
     </div>
     <hr>
-    @if ($errors->any())
+    @if($errors->any())
         <div class="alert alert-danger alert-dismissible fade show m-5" role="alert">
                 <ul>
                 @foreach ($errors->all() as $error)

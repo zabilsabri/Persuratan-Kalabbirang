@@ -33,6 +33,7 @@ class suratKeluarController extends Controller
     public function disposisiProses(Request $request, $id) {
         $surats = suratKeluar::find($id);
         $surats->pj_id = $request->penerima;
+        $surats->no_surat = $request->no_surat;
         $surats->isAntar = $request->isAntar;
         $surats->process = "2";
         $surats->save();
@@ -93,6 +94,7 @@ class suratKeluarController extends Controller
         } else {
             $notifikasi = new notifikasi();
         }
+        $notifikasi->user_id = $surat -> user_id;
         $notifikasi->status = "Ditolak";
         $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali Atau Datang Ke Kantor Kelurahan.";
         $notifikasi->save();

@@ -101,7 +101,7 @@ class suratMasukController extends Controller
 
         $notifikasi->user_id = $surat->user_id;
         $notifikasi->suratKeluar_id = $id;
-        $notifikasi->status = "Disetujui";
+        $notifikasi->status = "Selesai";
         $notifikasi->keterangan = "Surat Anda Telah Disetujui Oleh Pihak Kalabbirang!";
         $notifikasi->save();
 

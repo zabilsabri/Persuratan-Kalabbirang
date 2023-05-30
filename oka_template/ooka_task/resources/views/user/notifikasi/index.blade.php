@@ -38,12 +38,13 @@
 
                             <div class="px-2 text-start ">
                                 <h5 class="pt-2 text-warning">Dalam Proses!</h5>
+                                <h6 class="text-warning">No: {{ $notif -> suratKeluar -> no_surat }}</h6>
                                 <p class="text-secondary fw-bold">{{ $notif -> keterangan }}</p>
                             </div>
                         </div>
                     </div>
 
-                    @elseif($notif -> status == "Disetujui")
+                    @elseif($notif -> status == "Selesai")
                     <div class="card btn btn-hover-primary surat-box border border-primary py-0 mt-2">
                         <p class=" position-absolute top-0 end-0 pt-2 px-3 text-secondary">{{ $notif -> created_at }}</p>
                         <div class="d-flex justify-content-start ">
@@ -51,6 +52,7 @@
 
                             <div class="px-2 text-start ">
                                 <h5 class="pt-2 text-primary">Disetujui</h5>
+                                <h6 class="text-warning">No: {{ $notif -> suratKeluar -> no_surat }}</h6>
                                 <p class="text-secondary fw-bold">{{ $notif -> keterangan }}</p>
                             </div>
                         </div>
@@ -70,6 +72,9 @@
                     </div>
                     @endif
                     @endforeach
+                    <div class="text-center">
+                        {{ $notifs->links() }}
+                    </div>
                 </div>
                 <div class="col-md-6 ">
                     <div class="text-center">

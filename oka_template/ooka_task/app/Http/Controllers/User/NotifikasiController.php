@@ -10,7 +10,7 @@ use Auth;
 class NotifikasiController extends Controller
 {
     public function index() {
-      $notifs = notifikasi::where('user_id', Auth::user()->id)->get();
+      $notifs = notifikasi::where('user_id', Auth::user()->id)->paginate(5);
       return view('user.notifikasi.index')
         ->with(compact('notifs'));
     }

@@ -49,8 +49,8 @@ class requestSuratController extends Controller
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "1";
         $suratKeluar->user_id = Auth::user()->id;
-        $suratKeluar->no_surat = "1";
-        $suratKeluar->kode_surat = "1";
+        $suratKeluar->no_surat = "-";
+        $suratKeluar->kode_surat = time();
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";
@@ -80,7 +80,7 @@ class requestSuratController extends Controller
 
         $notifikasi = new notifikasi();
         $notifikasi->user_id = Auth::user()->id;
-        $notifikasi->suratKeluar_id = $suratKeluar -> id;
+        $notifikasi->suratKeluar_id = $suratKeluar->id;
         $notifikasi->status = "Dalam Proses";
         $notifikasi->keterangan = "Surat Anda Sedang Diverifikasi Oleh Admin. Silahkan Tunggu!";
         $notifikasi->save();
@@ -128,7 +128,7 @@ class requestSuratController extends Controller
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "3";
         $suratKeluar->user_id = Auth::user()->id;
-        $suratKeluar->no_surat = "1";
+        $suratKeluar->no_surat = "-";
         $suratKeluar->kode_surat = "1";
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
@@ -230,7 +230,7 @@ class requestSuratController extends Controller
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "4";
         $suratKeluar->user_id = Auth::user()->id;
-        $suratKeluar->no_surat = "1";
+        $suratKeluar->no_surat = "-";
         $suratKeluar->kode_surat = "1";
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
@@ -350,7 +350,7 @@ class requestSuratController extends Controller
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "2";
         $suratKeluar->user_id = Auth::user()->id;
-        $suratKeluar->no_surat = "1";
+        $suratKeluar->no_surat = "-";
         $suratKeluar->kode_surat = "1";
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();

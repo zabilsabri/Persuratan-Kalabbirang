@@ -41,6 +41,12 @@
                 </div>
             </div>
             <div class=" form-group">
+                <h4 class="surat-kategori col-form-label ">No. Surat</h4>
+                <div class="">
+                    <input type="text" class="form-control" name="no_surat" placeholder="XXX / XXX / XXX / X / XXXX" aria-label="First name">
+                </div>
+            </div>
+            <div class=" form-group">
                 <h4 class="surat-kategori col-form-label ">Penerima</h4>
                 <div class="">
                     <select class="form-control" id="floatingInput" name="penerima" required>

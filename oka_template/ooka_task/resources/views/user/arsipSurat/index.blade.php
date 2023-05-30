@@ -1,4 +1,4 @@
-@extends('user.layouts.app')
+@extends('user.layouts.app', ['title' => 'Arsip Surat'])
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('style/css/arsipSurat.css') }}">
@@ -83,7 +83,7 @@
                                                     &emsp; &emsp; : &nbsp;
                                                 </td>
                                                 <td class="text-success fw-bold">
-                                                    {{ $arsip -> ttd -> user -> nama }}
+                                                    {{ $arsip -> ttd -> user -> nama }} ( {{ $arsip -> ttd -> user -> role -> nama }} )
                                                 </td>
                                             </tr>
 
@@ -95,7 +95,7 @@
                                         <div class="text-center py-2">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="/exportData{{ $arsip -> jenis_suratKeluar_id }}/{{ $arsip -> id }}" class="stretched-link">{{ $arsip -> jenisSurat -> nama }}</a></h5>
+                                                <h5 class="card-title"><a href="{{ route('export.surat', ['id' => $arsip -> id]) }}" class="stretched-link">{{ $arsip -> jenisSurat -> nama }}</a></h5>
                                             </div>
                                         </div>
                                         </div>
