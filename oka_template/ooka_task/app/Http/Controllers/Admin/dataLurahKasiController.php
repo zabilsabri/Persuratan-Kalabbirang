@@ -11,11 +11,9 @@ use DB;
 class dataLurahKasiController extends Controller
 {
     public function index() {
-        $kasis = User::where('role_id', 3)->orWhere('role_id', 4)->orWhere('role_id', 5)->get();
-        $lurahs = User::where('role_id', 2)->get();
+        $pegawais = User::where('role_id', 2)->orWhere('role_id', 3)->orWhere('role_id', 4)->orWhere('role_id', 5)->get();
         return view('admin.dataLurahKasi.index')
-            ->with(compact('kasis'))
-            ->with(compact('lurahs'));
+            ->with(compact('pegawais'));
     }
 
     public function detail($id) {
@@ -63,12 +61,12 @@ class dataLurahKasiController extends Controller
             $ttd->save();
         }
 
-        return redirect()->route('detail-lurah-kasi', [$id]);
+        return redirect()->route('detail-lurah-kasi', [$id])->with('success', 'Data Berhasil Diedit');
     }
 
     public function deletePegawai($id)
     {
         $deleted = DB::table('users')->where('id','=', $id)->delete();
-        return redirect()->route('data-lurah-kasi');
+        return redirect()->route('data-lurah-kasi')->with('success', 'Data Berhasil Dihapus');
     }
 }

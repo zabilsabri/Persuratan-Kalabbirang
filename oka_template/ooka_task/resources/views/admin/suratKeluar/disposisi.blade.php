@@ -53,7 +53,7 @@
                         <option value="">Pilih Penerima</option>
                         <option value="2" >Lurah</option>
                         <option value="3" >Kasi Pemerintahan, Ketertiban, dan Ketentraman</option>
-                        <option value="4" >Kasi Pemerintahan</option>
+                        <option value="4" >Kasi Pembangunan</option>
                         <option value="5" >Kasi Ekonomi dan Kesejahteraan Masyarakat</option>
                     </select>
                 </div>

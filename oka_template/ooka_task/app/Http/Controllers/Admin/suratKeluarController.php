@@ -142,7 +142,7 @@ class suratKeluarController extends Controller
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "1";
         $suratKeluar->user_id = $user->id;
-        $suratKeluar->no_surat = "1";
+        $suratKeluar->no_surat = "-";
         $suratKeluar->kode_surat = time();
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
@@ -219,9 +219,7 @@ class suratKeluarController extends Controller
 
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "3";
-        $suratKeluar->user_id = $user->id;
-        $suratKeluar->no_surat = "1";
-        $suratKeluar->kode_surat = time();
+        $suratKeluar->user_id = $us-        $suratKeluar->kode_surat = time();
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";
@@ -307,9 +305,7 @@ class suratKeluarController extends Controller
 
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "2";
-        $suratKeluar->user_id = $user->id;
-        $suratKeluar->no_surat = "1";
-        $suratKeluar->kode_surat = time();
+        $suratKeluar->user_id = $us-        $suratKeluar->kode_surat = time();
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";
@@ -411,9 +407,7 @@ class suratKeluarController extends Controller
 
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "4";
-        $suratKeluar->user_id = $user->id;
-        $suratKeluar->no_surat = "1";
-        $suratKeluar->kode_surat = time();
+        $suratKeluar->user_id = $us-        $suratKeluar->kode_surat = time();
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";

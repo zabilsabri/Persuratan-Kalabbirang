@@ -76,7 +76,7 @@ class BeritaController extends Controller
     public function deleteBerita($id)
     {
         $deleted = Berita::where('id','=', $id)->delete();
-        return redirect()->route('berita-admin');
+        return redirect()->route('berita-admin')->with('success', 'Berita Berhasil Dihapus!');
     }
 
 }
