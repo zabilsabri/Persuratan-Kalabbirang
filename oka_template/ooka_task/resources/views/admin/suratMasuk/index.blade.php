@@ -43,7 +43,7 @@
             <div class="col-12">
                 <div class="card p-4">
                     <!-- Set up the datatable -->
-                    <table class="table" id="tableSuratMasuk">
+                    <table class="table" id="tableSuratMasuk" style="width:100%">
                         <thead style="background-color: #CCFFDA;">
                             <tr>
                                 <th scope="col" style="width: 10px;">No</th>
@@ -72,7 +72,9 @@
 
     <script>
     $(document).ready( function () {
-            $('#tableSuratMasuk').DataTable();
+            $('#tableSuratMasuk').DataTable({
+                scrollX: true,
+            });
         } );
     </script>
 @endsection

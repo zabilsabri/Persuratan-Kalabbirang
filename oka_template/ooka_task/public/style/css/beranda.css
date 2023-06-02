@@ -175,3 +175,20 @@ hr{
     background-color: #4FB96E;
     text-align: center;
 }
+
+@media only screen and (max-width: 400px) {
+    .head-left-1{
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .head-left-2{
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .beranda-head-text{
+        font-size: 15px;
+        padding: 20px !important;
+    }
+}

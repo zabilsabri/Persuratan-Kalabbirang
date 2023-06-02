@@ -1,4 +1,4 @@
-@extends('kasi.layouts.app', ['title' => 'Edit Profile'])
+@extends('lurah.layouts.app', ['title' => 'Edit Profile'])
 <link rel="stylesheet" href="{{ asset('style/css/profil-admin-edit.css') }}">
 
 <style>
@@ -14,11 +14,11 @@
                 <p class="hal-title" > Edit Profil Saya </p>
             </div>
             <div class="col-md-6 text-right mt-5">
-                <p class="hal-breadcrump" > Profil / Kasi </p>
+                <p class="hal-breadcrump" > Profil / lurah </p>
             </div>
         </div>
     </div>
-    <form action="{{ route('update-data-kasi') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('update-data-lurah') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="hal-body">
         <img src="{{ asset('temp_file/profile/' . Auth::user()->profil) }}" onerror="this.onerror=null;this.src='{{ asset('style/img/avatar/avatar-1.png') }}';" id="output_image" class="profile-picture mb-4" alt="...">

@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['title' => 'Detail Surat Arsip'])
+@extends('kasi.layouts.app', ['title' => 'Detail Surat Arsip'])
 <link rel="stylesheet" href="{{ asset('style/css/suratKeluarDetail.css') }}">
 
 @section('content')

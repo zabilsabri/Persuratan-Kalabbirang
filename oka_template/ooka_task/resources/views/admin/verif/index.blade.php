@@ -103,11 +103,13 @@
     $("document").ready(function () {
 
       $("#filterTable").dataTable({
-        "searching": true
+        "searching": true,
+        scrollX: true,
       });
 
       $("#filterTable2").dataTable({
-        "searching": true
+        "searching": true,
+        scrollX: true,
       });
 
       var table = $('#filterTable').DataTable();

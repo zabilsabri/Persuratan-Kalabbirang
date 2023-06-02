@@ -13,11 +13,6 @@
                 <h6 class="no-surat">{{ $surat -> no_surat }}</h6>
                 <div class="col-sm-7">
                     <table class="table table-borderless">
-                        <tr>
-                            <td class="surat-kategori">No. Agenda</td>
-                            <td>:</td>
-                            <td class="surat-detail"></td>
-                        </tr>
 
                         <tr>
                             <td class="surat-kategori">Tanggal Surat</td>
@@ -56,7 +51,7 @@
                     <div class=" form-group">
                         <h4 class="surat-kategori col-form-label ">Tanggal Disposisi</h4>
                         <div class="">
-                            <input type="date" class="form-control " id="floatingInput" name="tgl_disposisi">
+                            <input type="date" class="form-control " id="floatingInput" name="tgl_disposisi" value="<?php echo date('Y-m-d') ?>">
                         </div>
                     </div>
                     <div class=" form-group">

@@ -8,7 +8,7 @@
 <div class="row">
         <div class="col-md-6  col-12">
             <div class="card-body">
-                <figure class="avatar mr-2 avatar-xxl">
+                <figure class="avatar mr-2 avatar-xxl img-fluid">
                     @guest
                     <img src="{{ asset('style/img/avatar/avatar-1.png') }}" class="profile-user-picture" alt="profile-pic">
                     @endguest

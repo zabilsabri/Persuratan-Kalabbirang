@@ -23,7 +23,7 @@
 <form action="{{ route('surat-keluar.proses12') }}" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="row mb-4">
-            <div class="col-6">
+            <div class="col-sm-6">
                 <div class="mb-3">
                     <label for="inputNama" class="form-label">1. Nama</label>
                     <input type="text" class="form-control" id="inputNama" name="nama" required>
@@ -48,7 +48,7 @@
                     <input type="text" class="form-control" name="pekerjaan" id="inputPekerjaan">
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-sm-6">
                 <div class="mb-3">
                     <label for="inputTanggungan" class="form-label">5. Jumlah Tanggungan</label>
                     <input type="number" class="form-control" name="jumlah_tanggungan" id="inputTanggungan">
@@ -65,7 +65,7 @@
         </div>
         <h4>Biodata Anak</h4>
         <div class="row mb-4">
-            <div class="col-6">
+            <div class="col-sm-6">
                 <div class="mb-3">
                     <label for="inputNama" class="form-label">1. Nama</label>
                     <input type="text" class="form-control" id="inputNama" name="nama_anak" required>
@@ -86,7 +86,7 @@
                     <input type="text" class="form-control" name="pekerjaan_anak" id="inputNIK" required>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-sm-6">
                 <div class="mb-3">
                     <label for="inputPekerjaan" class="form-label">4. Nama Sekolah</label>
                     <input type="text" class="form-control" name="sekolah_anak" id="inputPekerjaan" required>

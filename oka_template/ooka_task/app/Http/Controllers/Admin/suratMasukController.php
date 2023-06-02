@@ -113,7 +113,7 @@ class suratMasukController extends Controller
         }
         $surat->save();
 
-        return redirect()->route('surat-masuk-admin')->with('success', 'Surat Masuk Berhasil Diedit!');
+        return redirect()->route('surat-masuk-admin.detail', $id)->with('success', 'Surat Masuk Berhasil Diedit!');
 
     }
 

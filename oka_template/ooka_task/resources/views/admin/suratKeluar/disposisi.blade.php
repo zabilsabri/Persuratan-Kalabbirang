@@ -37,7 +37,7 @@
                 <div class="">
                     <form action="{{ route('surat-keluar-admin.disposisiProses', [$surat -> id]) }}" method="POST">
                         @csrf
-                    <input type="date" class="form-control " id="floatingInput" placeholder="" value="" name="tgl_disposisi" required>
+                    <input type="date" class="form-control " id="floatingInput" placeholder="" name="tgl_disposisi" value="<?php echo date('Y-m-d') ?>" required>
                 </div>
             </div>
             <div class=" form-group">

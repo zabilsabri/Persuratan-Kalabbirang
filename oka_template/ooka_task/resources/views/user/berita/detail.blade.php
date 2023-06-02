@@ -27,7 +27,7 @@
         </div>
 
         <div class="hero pt-3">
-            <img src="{{ asset('temp_file/berita/'. $berita -> gambar ) }}" class="img-fluid" alt="Gambar Berita">
+            <img src="{{ asset('temp_file/berita/'. $berita -> gambar ) }}" class="mx-auto d-block w-75" alt="Gambar Berita">
         </div>
 
         <div class="body p-2 pt-3">

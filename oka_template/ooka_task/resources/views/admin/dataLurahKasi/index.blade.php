@@ -47,7 +47,9 @@
     <script>
     $("document").ready(function () {
 
-      $("#tableSuratMasuk").dataTable();
+      $("#tableSuratMasuk").dataTable({
+        scrollX: true,
+      });
 
 
     });

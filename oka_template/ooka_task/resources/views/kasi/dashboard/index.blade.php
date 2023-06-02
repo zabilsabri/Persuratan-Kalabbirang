@@ -68,7 +68,7 @@
                     <div class="card-header" style="border-bottom-color: transparent;">
                         <h3 class="text-success">Data Kunjungan Website</h3>
                     </div>
-                    <div class="card-body" style="width: 400px;">
+                    <div class="card-body img-fluid" style="width: 400px;">
                         <canvas id="myChart4"></canvas>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                 @foreach($beritas as $berita)
                 <div class="col">
                     <a href="{{ route('detail.berita', [$berita -> id]) }}">
-                        <div class="container-berita">
+                        <div class="container-berita img-fluid">
                             <img src="{{ asset('temp_file/berita/'. $berita -> gambar ) }}" class="p-auto" alt="Snow" style="width:100%; height:217px">
                             <div class="bottom-left">
                             <p class="berita-img" >

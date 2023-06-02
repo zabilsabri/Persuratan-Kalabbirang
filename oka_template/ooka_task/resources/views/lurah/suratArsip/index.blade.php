@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-12">
             <div class="row" style="justify-content: center;">
-                <div class="col-sm-3 mb-3 mb-sm-0">
+                <div class="col-sm-3 mb-sm-0">
                     <div class="card">
                     <div class="card-body" style="margin-top: 0px; color:white; background-color:#4FB96E; border-radius: 7px;">
                         <h5 class="card-title">Surat Masuk</h5>
@@ -129,8 +129,12 @@
 
     <script>
     $(document).ready( function () {
-            $('#tableMasuk').DataTable();
-            $('#tableKeluar').DataTable();
+            $('#tableMasuk').DataTable({
+                scrollX: true,
+            });
+            $('#tableKeluar').DataTable({
+                scrollX: true,
+            });
         } );
     </script>
 @endsection

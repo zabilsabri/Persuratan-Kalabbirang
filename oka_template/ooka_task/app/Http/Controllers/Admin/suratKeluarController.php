@@ -94,7 +94,7 @@ class suratKeluarController extends Controller
         } else {
             $notifikasi = new notifikasi();
         }
-        $notifikasi->user_id = $surat -> user_id;
+        $notifikasi->user_id = $surat->user_id;
         $notifikasi->status = "Ditolak";
         $notifikasi->keterangan = "Surat Anda Ditolak. Silahkan Mengajukan Kembali Atau Datang Ke Kantor Kelurahan.";
         $notifikasi->save();
@@ -152,7 +152,7 @@ class suratKeluarController extends Controller
 
         $notifikasi = new notifikasi();
         $notifikasi->user_id = $user->id;
-        $notifikasi->suratKeluar_id = $suratKeluar -> id;
+        $notifikasi->suratKeluar_id = $suratKeluar->id;
         $notifikasi->status = "Dalam Proses";
         $notifikasi->keterangan = "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu.";
         $notifikasi->save();
@@ -219,18 +219,13 @@ class suratKeluarController extends Controller
 
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "3";
-        $suratKeluar->user_id = $us-        $suratKeluar->kode_surat = time();
+        $suratKeluar->user_id = $user->id;
+        $suratKeluar->no_surat = "-";        
+        $suratKeluar->kode_surat = time();
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";
         $suratKeluar->status = "Segera";
-
-        $notifikasi = new notifikasi();
-        $notifikasi->user_id = $user->id;
-        $notifikasi->suratKeluar_id = $suratKeluar -> id;
-        $notifikasi->status = "Dalam Proses";
-        $notifikasi->keterangan = "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu.";
-        $notifikasi->save();
 
         $suratKeluar->bidang_usaha = $request->bidang_usaha;
         $suratKeluar->bentuk_usaha = $request->bentuk_usaha;
@@ -238,6 +233,13 @@ class suratKeluarController extends Controller
         $suratKeluar->durasi_usaha = $request->durasi_usaha;
 
         $suratKeluar->save();
+
+        $notifikasi = new notifikasi();
+        $notifikasi->user_id = $user->id;
+        $notifikasi->suratKeluar_id = $suratKeluar->id;
+        $notifikasi->status = "Dalam Proses";
+        $notifikasi->keterangan = "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu.";
+        $notifikasi->save();
         
         $suratKeluar_id = $suratKeluar->id;
 
@@ -305,7 +307,9 @@ class suratKeluarController extends Controller
 
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "2";
-        $suratKeluar->user_id = $us-        $suratKeluar->kode_surat = time();
+        $suratKeluar->user_id = $user->id;
+        $suratKeluar->no_surat = "-";        
+        $suratKeluar->kode_surat = time();
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";
@@ -326,7 +330,6 @@ class suratKeluarController extends Controller
 
         $notifikasi = new notifikasi();
         $notifikasi->user_id = $user->id;
-        $notifikasi->suratKeluar_id = $suratKeluar -> id;
         $notifikasi->status = "Dalam Proses";
         $notifikasi->keterangan = "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu.";
         $notifikasi->save();
@@ -407,7 +410,9 @@ class suratKeluarController extends Controller
 
         $suratKeluar = new suratKeluar();
         $suratKeluar->jenis_suratKeluar_id = "4";
-        $suratKeluar->user_id = $us-        $suratKeluar->kode_surat = time();
+        $suratKeluar->user_id = $user->id;
+        $suratKeluar->no_surat = "-";        
+        $suratKeluar->kode_surat = time();
         $suratKeluar->process = "1";
         $suratKeluar->tgl_surat = Carbon::now();
         $suratKeluar->pj_id = "1";
@@ -436,7 +441,6 @@ class suratKeluarController extends Controller
 
         $notifikasi = new notifikasi();
         $notifikasi->user_id = $user->id;
-        $notifikasi->suratKeluar_id = $suratKeluar -> id;
         $notifikasi->status = "Dalam Proses";
         $notifikasi->keterangan = "Surat Anda Sementara Masih Menunggu Proses Disposisi. Silahkan Menunggu.";
         $notifikasi->save();

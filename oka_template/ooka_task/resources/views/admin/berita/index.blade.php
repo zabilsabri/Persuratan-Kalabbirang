@@ -2,6 +2,12 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('style/css/suratMasuk.css') }} ">
+    @if($message = Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show w-100 mb-0" role="alert">
+        <strong> {{$message}} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <div class="hal-head mb-3">
         <div class="d-flex flex-column">
             <div class="flex-grow-1 ms-3">
@@ -13,12 +19,6 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    @if($message = Session::get('success'))
-                    <div class="alert alert-success alert-dismissible fade show w-100 mb-0" role="alert">
-                        <strong> {{$message}} </strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    @endif
                     <div class="px-4">
                         <div class=" text-right px-4 pt-3 mb-4">
                             <a href="{{ route('berita-admin.tambah') }}" class="btn text-white btn-success">
@@ -65,7 +65,9 @@
 
     <script>
     $(document).ready( function () {
-            $('#tableBerita').DataTable();
+            $('#tableBerita').DataTable({
+                scrollX: true,
+            });
         } );
     </script>
 @endsection

@@ -2,6 +2,12 @@
 <link rel="stylesheet" href="{{ asset('style/css/profil-admin.css') }}">
 
 @section('content')
+    @if($message = Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
+        <strong> {{$message}} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <div class="hal-head">
         <div class="row ms-4 me-4">
             <div class="col-md-6 mt-5">
@@ -32,6 +38,10 @@
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="disabledTextInput" value="{{ Auth::user()->nomor_telp }}">
+                    <label for="floatingInput" class="profil-input-label">No. Telepon</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="disabledTextInput" value="{{ Auth::user()->alamat }}">
                     <label for="floatingInput" class="profil-input-label">No. Telepon</label>
                 </div>
             </fieldset>

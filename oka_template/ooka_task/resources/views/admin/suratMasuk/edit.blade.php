@@ -3,12 +3,6 @@
 <link rel="stylesheet" href="{{ asset('style/css/profil-admin-edit.css') }}">
 
 @section('content')
-    @if($message = Session::get('success'))
-    <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
-        <strong> {{$message}} </strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
     <div class="hal-head">
         <h1 class="hal-title"> Edit Surat Masuk </h1>
     </div>
@@ -35,7 +29,7 @@
                     <div class="row form-group">
                         <h4 class="surat-kategori col-form-label col-sm-3">Tanggal Surat</h4>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control " id="floatingInput" name="tgl_surat" value="{{ $surats -> tgl_surat }}" required>
+                            <input type="date" class="form-control " id="floatingInput" name="tgl_surat" value="{{ old('tgl_surat', date('Y-m-d')) }}" required>
                         </div>
                     </div>
 

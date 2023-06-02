@@ -55,7 +55,7 @@
                 </div>
             @endforeach
                 <div class="text-center mt-4">
-                    <button class="btn btn-success w-25" type="submit" role="button">SIMPAN</button>
+                    <button class="btn btn-success" type="submit" role="button">SIMPAN</button>
                 </div>
             </form>
         </div>

@@ -57,7 +57,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card p-4">
-                    <table class="table" id="tableSuratKeluar">
+                    <table class="table" id="tableSuratKeluar" style="font-size: 13px !important;">
                         <thead style="background-color: #CCFFDA;">
                             <tr>
                                 <th scope="col" style="width: 10px;">No</th>
@@ -87,7 +87,9 @@
 
     <script>
     $(document).ready( function () {
-            $('#tableSuratKeluar').DataTable();
+            $('#tableSuratKeluar').DataTable({
+                scrollX: true,
+            });
         } );
     </script>
 

@@ -83,7 +83,7 @@
             </div>
         </div>
     </div>
-    <div class="d-grid gap-5 d-md-flex justify-content-md-center mt-2">
+    <div class="d-grid gap-1 d-md-flex justify-content-md-center mt-2">
         <button class="btn btn-danger me-md-2 mb-2" type="button" data-bs-toggle="modal" data-bs-target="#modalDitolakAdmin">
         <div class="d-flex align-items-center">
             <div class="flex-shrink-0">

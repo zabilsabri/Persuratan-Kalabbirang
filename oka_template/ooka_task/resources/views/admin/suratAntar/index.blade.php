@@ -2,13 +2,6 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('style/css/suratMasuk.css') }} ">
-    <style>
-    select.special{
-        display: inline;
-        width: 300px;
-        margin-left: 25px;
-    }
-    </style>
     <div class="hal-head">        
         <div class="d-flex align-items-center">
             <div class="flex-grow-1 ms-3">
@@ -20,8 +13,8 @@
 
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-left: 30px;margin-right: 30px;border-bottom-width: 0px;">
-            <button class="nav-link active" id="nav-antarMasuk-tab" data-bs-toggle="tab" data-bs-target="#nav-antarMasuk" type="button" role="tab" aria-controls="nav-antarMasuk" aria-selected="true">Pengantaran Surat Masuk</button>
-            <button class="nav-link" id="nav-antarKeluar-tab" data-bs-toggle="tab" data-bs-target="#nav-antarKeluar" type="button" role="tab" aria-controls="nav-antarKeluar" aria-selected="false">Pengantaran Surat Keluar</button>
+            <button class="nav-link active" id="nav-antarMasuk-tab" data-bs-toggle="tab" data-bs-target="#nav-antarMasuk" type="button" role="tab" aria-controls="nav-antarMasuk" aria-selected="true">Surat Masuk</button>
+            <button class="nav-link" id="nav-antarKeluar-tab" data-bs-toggle="tab" data-bs-target="#nav-antarKeluar" type="button" role="tab" aria-controls="nav-antarKeluar" aria-selected="false">Surat Keluar</button>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
@@ -171,11 +164,13 @@
     $("document").ready(function () {
 
       $("#filterTableMasuk").dataTable({
-        "searching": true
+        "searching": true,
+        scrollX: true,
       });
 
       $("#filterTableKeluar").dataTable({
-        "searching": true
+        "searching": true,
+        scrollX: true,
       });
 
       var table = $('#filterTableMasuk').DataTable();

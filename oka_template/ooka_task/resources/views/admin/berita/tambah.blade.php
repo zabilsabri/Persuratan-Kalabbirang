@@ -55,11 +55,11 @@
         <h4 class="surat-kategori col-form-label col-sm-3">Gambar</h4>
         <div class="row form-group">
 
-            <div class="col-md-4">
-                <img id="output_image" width="400" height="210" class="ms-2 img-thumbnail " />
+            <div class="col-sm-4 mb-2">
+                <img id="output_image" width="400" height="210" class="img-thumbnail " />
             </div>
 
-            <div class="col-md-4">
+            <div class="col-sm-4">
                 <div class="file-drop-area-berita">
                     <span class="choose-file-button">Pilih File</span>
                     <input class="file-input" name="gambar" type="file" accept="iamge/*" onchange="preview(event)">
@@ -68,7 +68,7 @@
 
         </div>
 
-        <div class="btn-input-berita">
+        <div class="btn-input-berita pt-0">
             <button type="submit" class="btn btn-success btn-lg d-block fs-5 fw-bold mx-auto mt-5" style="padding: 10px 100px;">
                 SELESAI
             </button>

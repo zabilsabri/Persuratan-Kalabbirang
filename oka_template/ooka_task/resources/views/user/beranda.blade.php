@@ -16,7 +16,7 @@
         <div class="head-right mt-5 mb-5">
             <p class="head-right-title text-center" >Program Layanan</p>
             <a class="card-beranda" href="{{ route('lps') }}">
-                <div class="card mt-4 ms-4 me-4" style="width: 700px;">
+                <div class="card mt-4 ms-4 me-4">
                     <div class="card-body">
                         <div class="d-flex">
                             <div class="flex-shrink-0">
@@ -55,7 +55,7 @@
                 @foreach($beritas as $berita)
                 <div class="col">
                     <a href="{{ route('detail.berita', [$berita -> id]) }}">
-                        <div class="container-berita">
+                        <div class="container-berita img-fluid">
                             <img src="{{ asset('temp_file/berita/'. $berita -> gambar ) }}" class="p-auto" alt="Snow" style="width:100%; height:217px">
                             <div class="bottom-left">
                             <p class="berita-img" >

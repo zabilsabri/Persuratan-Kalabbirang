@@ -79,6 +79,10 @@ a:not(.btn-social-icon):not(.btn-social):not(.page-link) .fab {
   margin-left: 4px;
 }
 
+.dataTables_scrollHeadInner, .table{
+  width: 100%!important
+};
+
 .bg-primary {
   background-color: #6777ef !important;
 }
@@ -3803,4 +3807,27 @@ body.layout-3 .main-wrapper {
   letter-spacing: 0.02em;
 
   color: #FFFFFF;
+}
+
+@media (max-width: 400px){
+  .main-content {
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 100% !important;
+  }
+}
+
+.table{
+  width: 100%;
+  font-size: 13px !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+  width: 150px;
+  margin-right: 10px;
+}
+
+select.special{
+  display: inline;
+  width: 200px;
 }

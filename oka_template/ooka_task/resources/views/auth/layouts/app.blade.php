@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{{ asset('style/css/style.css')}}">
   <link rel="stylesheet" href="{{ asset('style/css/components.css')}}">
   <link rel="stylesheet" href="{{ asset('style/css/custom-style/dropzone.css')}}">
+  <link rel="icon" href="{{ asset('image/Lambang_Kabupaten_Takalar.png') }}">
 </head>
 
 <body class="bg-success">

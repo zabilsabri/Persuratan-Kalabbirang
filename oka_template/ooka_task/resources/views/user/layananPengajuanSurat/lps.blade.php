@@ -113,7 +113,7 @@
         <p class="surat-jenis">Surat Pengantar</p>
         <p class="surat-title"> Pembuatan KTP / Perpanjangan KTP / Mengurus KTP Hilang </p>
         <a data-bs-toggle="collapse" href="#KTP" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -269,7 +269,7 @@
         <p class="surat-jenis">Surat Pengantar</p>
         <p class="surat-title"> Kartu Keluarga </p>
         <a data-bs-toggle="collapse" href="#kartuKeluarga" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -413,7 +413,7 @@
         <p class="surat-jenis">Surat Keterangan</p>
         <p class="surat-title"> Kelahiran </p>
         <a data-bs-toggle="collapse" href="#kelahiran" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -563,7 +563,7 @@
         <p class="surat-jenis">Surat Pengantar</p>
         <p class="surat-title"> Pembuatan Sertifikat </p>
         <a data-bs-toggle="collapse" href="#sertifikat" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -707,7 +707,7 @@
         <p class="surat-jenis">Surat Keterangan</p>
         <p class="surat-title"> Surat Keterangan Usaha </p>
         <a data-bs-toggle="collapse" href="#SKU" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -860,7 +860,7 @@
         <p class="surat-jenis">Surat Pengantar</p>
         <p class="surat-title"> Akta Jual Beli </p>
         <a data-bs-toggle="collapse" href="#aktaJualBeli" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -1016,7 +1016,7 @@
         <p class="surat-jenis">Surat Pengantar</p>
         <p class="surat-title"> Akte Hibah dan Ahli Waris </p>
         <a data-bs-toggle="collapse" href="#akteHibahDanAhliWaris" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -1160,7 +1160,7 @@
         <p class="surat-jenis">Surat Pengantar</p>
         <p class="surat-title"> Pembuatan SKCK </p>
         <a data-bs-toggle="collapse" href="#SKCK" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -1298,7 +1298,7 @@
         <p class="surat-jenis">Surat Pengantar</p>
         <p class="surat-title"> Izin Keramaian </p>
         <a data-bs-toggle="collapse" href="#keramaian" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -1436,7 +1436,7 @@
         <p class="surat-jenis">Surat Pengantar</p>
         <p class="surat-title"> Izin Mendirikan Pembangunan (IMB) </p>
         <a data-bs-toggle="collapse" href="#IMB" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -1580,7 +1580,7 @@
         <p class="surat-jenis">Surat Keterangan</p>
         <p class="surat-title"> Keterangan Menikah (N1, N2, N4) </p>
         <a data-bs-toggle="collapse" href="#ketMenikah" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -1751,7 +1751,7 @@
         <p class="surat-jenis">Surat Keterangan</p>
         <p class="surat-title"> Tidak Mampu </p>
         <a data-bs-toggle="collapse" href="#tdkMampu" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>
@@ -1898,7 +1898,7 @@
         <p class="surat-jenis">Surat Keterangan</p>
         <p class="surat-title"> Belum Menikah </p>
         <a data-bs-toggle="collapse" href="#blmMenikah" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <svg width="300" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="auto" height="12" viewBox="0 0 373 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="0.871582" width="339.258" height="2.94194" fill="#A6A6A6"/>
             <path d="M359.907 11.0003L352.589 4.34895C351.697 3.53885 351.498 2.61193 351.992 1.56818C352.483 0.522726 353.363 0 354.629 0H369.124C370.391 0 371.27 0.522726 371.762 1.56818C372.255 2.61193 372.056 3.53885 371.165 4.34895L363.847 11.0003C363.566 11.2561 363.261 11.448 362.932 11.5759C362.604 11.7038 362.252 11.7677 361.877 11.7677C361.501 11.7677 361.15 11.7038 360.821 11.5759C360.493 11.448 360.188 11.2561 359.907 11.0003Z" fill="#A6A6A6"/>
         </svg>

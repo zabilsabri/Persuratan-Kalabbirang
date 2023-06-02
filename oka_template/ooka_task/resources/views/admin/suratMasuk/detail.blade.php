@@ -2,6 +2,12 @@
 <link rel="stylesheet" href="{{ asset('style/css/suratKeluarDetail.css') }}">
 
 @section('content')
+    @if($message = Session::get('success'))
+    <div class="alert alert-success alert-dismissible fade show w-100" role="alert">
+        <strong> {{$message}} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <div class="hal-head">
         <h1 class="hal-title"> Detail Surat Masuk </h1>
     </div>

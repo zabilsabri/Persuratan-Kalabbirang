@@ -82,8 +82,12 @@
 
     <script>
     $(document).ready( function () {
-            $('#tableMasuk').DataTable();
-            $('#tableKeluar').DataTable();
+            $('#tableMasuk').DataTable({
+                scrollX: true,
+            });
+            $('#tableKeluar').DataTable({
+                scrollX: true,
+            });
         } );
     </script>
 @endsection

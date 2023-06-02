@@ -34,7 +34,7 @@ class ProfilController extends Controller
         
         $users->save();
 
-        return back()->with('success', 'Data Anda Berhasil Diedit!');
+        return redirect()->route('profil-kasi')->with('success', 'Data Anda Berhasil Diedit!');
 
     }
 }

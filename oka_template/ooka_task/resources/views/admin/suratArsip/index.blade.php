@@ -5,7 +5,7 @@
     <div class="hal-head">
         <div class="d-flex align-items-center">
             <div class="flex-grow-1 ms-3">
-                <h1 class="mx-3 mt-3 mb-0"> Surat Arsip </h1>
+                <h1 class="mx-3 mt-3 mb-2"> Surat Arsip </h1>
             </div>
         </div>
     </div>
@@ -128,8 +128,12 @@
 
     <script>
     $(document).ready( function () {
-            $('#tableMasuk').DataTable();
-            $('#tableKeluar').DataTable();
+            $('#tableMasuk').DataTable({
+                scrollX: true,
+            });
+            $('#tableKeluar').DataTable({
+                scrollX: true,
+            });
         } );
     </script>
 @endsection

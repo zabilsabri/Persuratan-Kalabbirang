@@ -1,6 +1,6 @@
 .avatar.avatar-xxl {
   font-size: 30px;
-  height: 300px;
+  height: auto;
   width: 300px;
 }
 
@@ -132,7 +132,6 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
     line-height: 20px;
     color: #062310;
 }

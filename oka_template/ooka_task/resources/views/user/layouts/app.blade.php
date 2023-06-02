@@ -26,6 +26,7 @@
         href="{{ asset('style/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet"
         href="{{ asset('style/node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css') }}">
+    <link rel="icon" href="{{ asset('image/Lambang_Kabupaten_Takalar.png') }}">
     <title>{{ $title }}</title>
 </head>
 
@@ -34,7 +35,7 @@
         <div class="container-fluid">
             {{-- <img src="{{ asset('image/Lambang_Kabupaten_Takalar.png') }}" alt="Lambang_Kabupaten_Takalar">
             <a class="navbar-brand">Kallabirang</a> --}}
-            <img src="{{ asset('image/Logo-black.png') }} " alt="">
+            <img src="{{ asset('image/Logo-white.png') }} " class="logo-nav" alt="">
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -48,17 +49,17 @@
                     </li>
                     @auth
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('riwayat') || Route::is('riwayat.kosong') ? 'active' : '' }}" href="riwayat">Riwayat</a>
+                        <a class="nav-link {{ Route::is('riwayat') || Route::is('riwayat.kosong') ? 'active' : '' }}" href="{{ route('riwayat') }}">Riwayat</a>
                     </li>
                     @endauth
                     <li class="nav-item">
-                        <a class="nav-link {{ Route::is('berita') || Route::is('detail.berita') ? 'active' : '' }} " href="berita">Berita</a>
+                        <a class="nav-link {{ Route::is('berita') || Route::is('detail.berita') ? 'active' : '' }} " href="{{ route('berita') }}">Berita</a>
                     </li>
                 </ul>
                 <div class="d-flex">
                     @auth
                     <a href="{{ route('notifikasi') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#ffff"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" style="margin-left: 30px;" height="25" fill="#ffff"
                             class="bi bi-bell-fill" viewBox="0 0 16 16">
                             <path
                                 d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
@@ -67,7 +68,7 @@
                     @endauth
                     <div class="dropdown">
                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <svg xmlns="http://www.w3.org/2000/svg" style="margin-left: 30px;" width="25" height="25"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                             fill="#ffff" class="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                         </svg>

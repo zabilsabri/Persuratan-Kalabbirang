@@ -1,5 +1,12 @@
 @extends('admin.layouts.app', ['title' => 'Dashboard - Admin'])
 
+<style>
+    .img-fluid{
+        height: 100% !important;
+        max-width: 100% !important;
+    }
+</style>
+
 @section('content')
     <div class="section-header">
         <h1>Selamat Datang, Admin ! </h1>
@@ -68,8 +75,8 @@
                     <div class="card-header" style="border-bottom-color: transparent;">
                         <h3 class="text-success">Data Kunjungan Website</h3>
                     </div>
-                    <div class="card-body" style="width: 400px;">
-                        <canvas id="myChart4"></canvas>
+                    <div class="card-body" class="img-fluid" style="max-width: 400px">
+                        <canvas id="myChart4" ></canvas>
                     </div>
                 </div>
             </div>
@@ -104,12 +111,12 @@
         <div class="berita-title">
             <p class="berita-section-title"> Berita </p>
         </div>
-        <div class="berita-body mt-4 mb-4">
+        <div class="berita-body mt-4 mb-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach($beritas as $berita)
-                <div class="col">
+                <div class="col mb-2">
                     <a href="{{ route('detail.berita', [$berita -> id]) }}">
-                        <div class="container-berita">
+                        <div class="container-berita img-fluid">
                             <img src="{{ asset('temp_file/berita/'. $berita -> gambar ) }}" class="p-auto" alt="Snow" style="width:100%; height:217px">
                             <div class="bottom-left">
                             <p class="berita-img" >
