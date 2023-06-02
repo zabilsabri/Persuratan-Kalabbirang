@@ -12,7 +12,7 @@
             </h1>
         </div>
 
-        <table class="table" id="tableArsipSurat">
+        <table class="table" id="tableArsipSurat" style="width: 100%;">
             <thead style="background-color: #CCFFDA;" >
                 <tr>
                     <th scope="col" style="width: 10px;">No</th>

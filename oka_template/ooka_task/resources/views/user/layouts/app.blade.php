@@ -59,7 +59,7 @@
                 <div class="d-flex">
                     @auth
                     <a href="{{ route('notifikasi') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" style="margin-left: 30px;" height="25" fill="#ffff"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" style="margin-right: 30px;" height="25" fill="#ffff"
                             class="bi bi-bell-fill" viewBox="0 0 16 16">
                             <path
                                 d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
@@ -152,12 +152,16 @@
     <script src="{{ asset('style/js/page/modules-ion-icons.js') }}"></script>
     <script>
         $(document).ready( function () {
-            $('#tableDokumen').DataTable();
+            $('#tableDokumen').DataTable({
+                scrollX: true,
+            });
         } );
     </script>
     <script>
     $(document).ready( function () {
-            $('#tableArsipSurat').DataTable();
+            $('#tableArsipSurat').DataTable({
+                scrollX: true,
+            });
         } );
     </script>
 </body>

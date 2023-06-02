@@ -11,7 +11,7 @@
             </h1>
         </div>
 
-        <table id="tableDokumen" class="table">
+        <table id="tableDokumen" class="table" style="width: 100%;">
             <thead style="background-color: #CCFFDA;">
                 <tr>
                     <th>No</th>

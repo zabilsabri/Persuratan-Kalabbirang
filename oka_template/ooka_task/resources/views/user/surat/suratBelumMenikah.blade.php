@@ -20,7 +20,7 @@
     <form action="{{ route('requestSurat13') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row mb-4">
-            <div class="col-6">
+            <div class="col-sm-6">
                 <div class="mb-3">
                     <label for="inputNama" class="form-label">1. Nama</label>
                     <input type="text" class="form-control" id="inputNama" name="nama" value="{{ Auth::user()->nama }}" required>
@@ -49,7 +49,7 @@
                     <input type="text" class="form-control" name="nik" id="inputNIK" placeholder="" value="{{ Auth::user()->nik }}" required>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-sm-6">
                 <div class="mb-3">
                     <label for="inputStatus" class="form-label">5. Status Nikah</label>
                     <input type="text" class="form-control" name="status_nikah" id="inputStatus" value="{{ Auth::user()->status_nikah }}"  required>

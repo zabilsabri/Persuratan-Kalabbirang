@@ -6,7 +6,7 @@
         <h1>Verifikasi Warga</h1>
     </div>
     <div class="row" style="padding: 20px; margin-right: 0px">
-        <div class="profil-input col-7">
+        <div class="profil-input col-sm-7">
             <fieldset disabled>
                 @foreach($users as $user)
                 <div class="form-floating mb-3">
@@ -31,7 +31,7 @@
                 </div>
             </fieldset>
         </div>
-        <div class="gambar-user mb-4 ms-5 col-4">
+        <div class="gambar-user mb-4 col-sm-5">
             <p class="gambar-label">Foto KTP</p>
             <img src="{{ asset('temp_file/ktp/' . $user -> ktp) }}" width="300" height="210" class="img-thumbnail"/>
             <p class="gambar-label">Swafoto Dengan KTP</p>
@@ -39,7 +39,7 @@
         </div>
         @endforeach
     </div>
-    <div class="d-grid gap-5 d-md-flex mb-5 justify-content-md-center">
+    <div class="d-grid gap-2 d-md-flex mb-5 justify-content-md-center">
         <button class="btn btn-danger me-md-2" type="button" data-bs-toggle="modal" data-bs-target="#modalDitolak">DITOLAK</button>
         <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modalVerifikasi">VERIFIKASI</button>
     </div>

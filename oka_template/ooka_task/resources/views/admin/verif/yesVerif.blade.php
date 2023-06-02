@@ -6,7 +6,7 @@
         <h1>Verifikasi Warga</h1>
     </div>
     <div class="row" style="padding: 20px; margin-right: 0px">
-        <div class="profil-input col-7">
+        <div class="profil-input col-sm-7">
             <fieldset disabled>
                 @foreach($users as $user)
                 <div class="form-floating mb-3">
@@ -31,7 +31,7 @@
                 </div>
             </fieldset>
         </div>
-        <div class="gambar-user mb-4 ms-5 col-4">
+        <div class="gambar-user mb-4 col-sm-4">
             <p class="gambar-label">Foto KTP</p>
             <img src="{{ asset('temp_file/ktp/' . $user -> ktp) }}" width="300" height="210" class="img-thumbnail"/>
             <p class="gambar-label">Swafoto Dengan KTP</p>

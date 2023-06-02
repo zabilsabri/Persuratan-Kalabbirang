@@ -20,7 +20,7 @@
 <form action="{{ route('requestSurat11') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row mb-4">
-        <div class="col-6">
+        <div class="col-sm-6">
             <div class="mb-3">
                 <label for="inputNama" class="form-label">1. Nama</label>
                 <input type="text" class="form-control" id="inputNama" name="nama" value="{{ Auth::user()->nama }}" required>
@@ -53,7 +53,7 @@
                 <input type="text" class="form-control" name="kewarganegaraan" id="inputKewarganegaraan" required>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-sm-6">
             <div class="mb-3">
                 <label for="inputAgama" class="form-label">6. Agama</label>
                 <select class="form-select" name="agama" aria-label="Default select example" required>
@@ -85,7 +85,7 @@
     </div>
     <h4>Biodata Ayah</h4>
     <div class="row mb-4">
-        <div class="col-6">
+        <div class="col-sm-6">
             <div class="mb-3">
                 <label for="inputNama" class="form-label">1. Nama Lengkap dan Alias</label>
                 <input type="text" class="form-control" id="inputNama" name="nama_ayah" required>
@@ -110,7 +110,7 @@
                 <input type="text" class="form-control" name="nik_ayah" id="inputNIK" required>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-sm-6">
             <div class="mb-3">
                 <label for="inputAlamat" class="form-label">5. Alamat</label>
                 <input type="text" class="form-control" name="alamat_ayah" id="inputAlamat" required>
@@ -134,7 +134,7 @@
     </div>
     <h4>Biodata Ibu</h4>
     <div class="row mb-4">
-        <div class="col-6">
+        <div class="col-sm-6">
             <div class="mb-3">
                 <label for="inputNama" class="form-label">1. Nama Lengkap dan Alias</label>
                 <input type="text" class="form-control" id="inputNama" name="nama_ibu" required>
@@ -159,7 +159,7 @@
                 <input type="text" class="form-control" name="nik_ibu" id="inputNIK" required>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-sm-6">
             <div class="mb-3">
                 <label for="inputAlamat" class="form-label">5. Alamat</label>
                 <input type="text" class="form-control" name="alamat_ibu" id="inputAlamat" required>
