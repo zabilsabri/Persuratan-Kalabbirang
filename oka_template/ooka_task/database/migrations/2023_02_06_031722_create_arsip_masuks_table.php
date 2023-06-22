@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('arsip_masuks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('suratMasuk_id');
-            $table->string('file_surat')->nullable();
-            $table->boolean('status');
-            $table->string('keterangan_status');
+            // $table->string('file_surat')->nullable();
+            // $table->enum('status', ['Waiting', 'On Progress', 'Finish/Done', 'Belum Terkirim'])->default('On Progress');
+            $table->string('keterangan_status'); // unutk deskripsi surat
             $table->timestamps();
 
             $table->foreign('suratMasuk_id')->references('id')->on('surat_masuks');

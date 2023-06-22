@@ -38,8 +38,8 @@ class User extends Authenticatable
         'ktp',
         'swafoto_ktp',
         'email',
-        'status'
-        // 'password',
+        'status_login',
+        'password',
     ];
 
     public function role()

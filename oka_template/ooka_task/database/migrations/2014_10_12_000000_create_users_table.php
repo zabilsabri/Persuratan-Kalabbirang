@@ -33,11 +33,12 @@ return new class extends Migration
             $table->string('nomor_telp')->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            // $table->string('password');
+            $table->string('password')->nullable();
             $table->string('profil')->nullable(); // foto profil
             $table->string('ktp')->nullable(); // foto ktp
             $table->string('swafoto_ktp')->nullable(); // swafoto ktp
             $table->boolean('verif_user')->default(0)->nullable();
+            $table->integer('status_login')->default(0);
             $table->rememberToken();
             $table->timestamps();
 

@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('notifikasi_masuks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('suratMasuk_id')->nullable();
-            $table->enum('status', ['Selesai', 'Dalam Proses', 'Disetujui', 'Ditolak']);
+            $table->unsignedBigInteger('suratMasuk_id');
+            $table->enum('status', ['Selesai', 'Dalam Proses', 'Disetujui', 'Ditolak'])->default('Dalam Proses');
             $table->string('keterangan', 1000);
             $table->timestamps();
-
             $table->foreign('suratMasuk_id')->references('id')->on('surat_masuks');
         });
     }

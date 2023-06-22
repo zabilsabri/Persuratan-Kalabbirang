@@ -37,10 +37,12 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-
+        
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
+            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -68,5 +70,6 @@ class Kernel extends HttpKernel
         'Kasi' => \App\Http\Middleware\KasiMiddleware::class,
         'Surat' => \App\Http\Middleware\suratMiddleware::class,
         'count.visitors' => \App\Http\Middleware\CountVisitors::class,
+        'redirectApi' => \App\Http\Middleware\redirectApi::class,
     ];
 }
