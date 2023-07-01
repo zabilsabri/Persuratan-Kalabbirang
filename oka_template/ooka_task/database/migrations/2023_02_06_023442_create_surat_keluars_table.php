@@ -39,16 +39,16 @@ return new class extends Migration
             $table->string('nama_SekolahAnak')->nullable();
             $table->string('nis_kelas_anak')->nullable();
             $table->string('alamat_anak')->nullable();
-            
+
             // field surat ket. usaha
             $table->string('bidang_usaha')->nullable();
             $table->string('bentuk_usaha')->nullable();
             $table->string('alamat_usaha')->nullable();
             $table->string('durasi_usaha')->nullable();
-            
+
             // field surat ket. menikah
             $table->string('nama_istri_suami_terdahulu')->nullable();
-                //Biodata Ayah
+            //Biodata Ayah
             $table->string('nama_ayah')->nullable();
             $table->string('nik_ayah')->nullable();
             $table->string('tempat_lahir_ayah')->nullable();
@@ -57,7 +57,7 @@ return new class extends Migration
             $table->string('agama_ayah')->nullable();
             $table->string('pekerjaan_ayah')->nullable();
             $table->string('alamat_ayah')->nullable();
-                //Biodata Ayah
+            //Biodata Ayah
             $table->string('nama_ibu')->nullable();
             $table->string('nik_ibu')->nullable();
             $table->string('tempat_lahir_ibu')->nullable();
@@ -68,13 +68,12 @@ return new class extends Migration
             $table->string('alamat_ibu')->nullable();
 
             $table->timestamps();
-            
+
             $table->foreign('jenis_suratKeluar_id')->references('id')->on('jenis_surats');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('pj_id')->references('id')->on('roles');
             $table->foreign('ttd_id')->references('id')->on('ttds');
             $table->foreign('acc_id')->references('id')->on('users');
-
         });
     }
 

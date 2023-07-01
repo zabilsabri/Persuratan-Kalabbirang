@@ -266,7 +266,7 @@ class LoginController extends Controller
         ]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         // dd(Auth::user()->id);
         $id_login = Auth::user()->id;
@@ -274,8 +274,11 @@ class LoginController extends Controller
         $find->status_login = '0';
         $find->save();
 
-        $logout = auth()->user()->tokens()->delete();
-        // dd($logout);
+        $user = request()->user();
+        // dump($user->currentAccessToken());
+        // dd($user->tokens()->delete());
+        // $logout = auth()->user()->tokens()->delete();
+        $user->tokens()->delete();
 
         return response()->json([
             'message'   => 'Sukses Logout'

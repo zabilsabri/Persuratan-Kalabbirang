@@ -29,6 +29,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         FacadesGate::define('setuju-tidakSetuju', function (User $user) {
+            // dd($user->role_id != 6);
             if ($user->role_id != 6) {
                 return true;
             }

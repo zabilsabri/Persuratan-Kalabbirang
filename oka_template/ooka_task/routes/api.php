@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\api\LoginController as ApiLogin;
 Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api', 'middleware' => 'auth:sanctum'], function () {
     // return $request->user();
     Route::get('/login', 'LoginController@index')->name('index.login');
+    Route::post('/logout', 'LoginController@logout')->name('api.logout');
 
     Route::group(['prefix' => 'suratMasuk'], function () {
 
@@ -62,7 +63,6 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Auth\api'], f
 
     Route::post('/login', 'LoginController@login')->name('api.login');
     Route::post('/register', 'LoginController@register')->name('api.register');
-    Route::post('/logout', 'LoginController@logout')->name('api.logout');
 
 
     Route::put('/forget', 'LoginController@forget')->name('forget_password');
