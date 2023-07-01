@@ -6,6 +6,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class AkunSeeder extends Seeder
 {
@@ -36,6 +37,7 @@ class AkunSeeder extends Seeder
                 'nik'           => $akun['nik'],
                 'nomor_kk'      => $akun['nomor_kk'],
                 'nomor_telp'    => $akun['nomor_telp'],
+                'password'      => Hash::make($akun['nomor_telp']),
                 'email'         => $akun['email'],
             ]);
         };

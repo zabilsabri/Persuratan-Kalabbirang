@@ -12,8 +12,16 @@ class suratMasuk extends Model
     protected $fillable = [
         'asal_surat',
         'no_surat',
-        'tujuan_surat',
+        'judul_surat',
+        'perihal',
+        // 'isAntar',
+        'tujuan_surat_id',
+        'acc_id',
+        'process',
+        'jenis_surat',
         'status',
+        'tgl_surat',
+        'catatan',
         'file_surat'
     ];
 

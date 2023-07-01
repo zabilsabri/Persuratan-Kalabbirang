@@ -93,34 +93,42 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        // dd($request->only('nik', 'nomor_telp'));
+        $password = $request->nomor_telp;
+
+        // dump($password);
+        // dump(Auth::attempt(['nik' => $request->nik, 'password' => $password]));
+
         $user = User::where('nik', $request->nik)->first();
-        if ($user == null) {
+        if (!Auth::attempt(['nik' => $request->nik, 'password' => $password])) {
             return response()->json([
                 'status' => false,
-                'message' => 'Data tidak ada'
+                'message' => 'Periksa kembali NIK dan Nomor Telepon anda'
             ], 404);
         }
-        $token = $user->createToken('auth_token')->plainTextToken;
+
+        $auth = Auth::user();
+        // dd($auth);
+
+        $token = $auth->createToken('auth_token')->plainTextToken;
         // dd($token);
-        $find = User::find($request->nik);
 
-        $find->status = 1;
-        $find->save();
+        // $find = User::find($request->nik);
 
-        if ($request->nik == $user->nik && $request->nomor_telp == $user->nomor_telp) {
-            return response()->json([
-                'status' => true,
-                'message' => 'Berhasil Login',
-                'access_token' => $token,
-                'token_type' => 'Bearer'
-            ], 200);
-        } else {
-            return response()->json([
-                'status'    => false,
-                'message'   => 'Gagal Login'
-            ]);
-        }
+        // $id = $request->session()->put('id', $user->id);
+        // dd($id);
+
+        $user->status_login = 1;
+        $user->save();
+
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil Login',
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'Nama akun' => auth()->user()->nama,
+        ], 200);
+
     }
 
     /**
@@ -213,6 +221,7 @@ class LoginController extends Controller
         $warga->pekerjaan = $request->pekerjaan;
         $warga->nomor_kk = $request->nomor_kk;
         $warga->nomor_telp = $request->nomor_telp;
+        $warga->password = $request->nomor_telp;
         $warga->nomor_kp = $request->nomor_kp;
         $warga->email = $request->email;
 
@@ -257,13 +266,20 @@ class LoginController extends Controller
         ]);
     }
 
-    public function logout() {
+    public function logout(Request $request)
+    {
+        // dd(Auth::user()->id);
         $id_login = Auth::user()->id;
         $find = User::find($id_login);
-        $find->status = '0';
+        $find->status_login = '0';
         $find->save();
 
-        Auth::user()->tokens()->delete();
+        $user = request()->user();
+        // dump($user->currentAccessToken());
+        // dd($user->tokens()->delete());
+        // $logout = auth()->user()->tokens()->delete();
+        $user->tokens()->delete();
+
         return response()->json([
             'message'   => 'Sukses Logout'
         ]);

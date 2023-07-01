@@ -3,14 +3,18 @@
 namespace App\Http\Controllers\Auth\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\antarMasuk;
+use App\Models\arsipMasuk;
+use App\Models\notifikasiMasuk;
 use App\Models\suratMasuk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 
 class SuratMasukController extends Controller
 {
-     /**
+    /**
      * @OA\Get(
      *     path="/api/SuratMasuk",
      *     tags={"SuratMasuk"},
@@ -86,9 +90,15 @@ class SuratMasukController extends Controller
      */
     public function store(Request $request)
     {
+
         $validate = Validator::make($request->all(), [
             'asal_surat'                => 'required',
             'no_surat'                  => 'required',
+            'judul_surat'                  => 'required',
+            'perihal'                  => 'required',
+            'process'                  => 'required',
+            'jenis_surat'                  => 'required',
+            'catatan'                  => 'required',
             'tujuan_surat'              => 'required',
             'status'                    => 'required',
             'file_surat'                => 'required|mimes:pdf,docx',
@@ -98,25 +108,71 @@ class SuratMasukController extends Controller
             return response()->json($validate->errors());
         }
 
+        // validasi role, cuman admin, lurah dan kasi
+        // dd(auth()->user()->nama);
+        $this->authorize('setuju-tidakSetuju');
+
         $data = $request->all();
 
-        if ($request->hasFile('file_surat')) {
-            $file = $request->file('file_surat');
-            $namaSurat = $file->getClientOriginalName();
-            $request->file_surat->move(public_path('file/suratMasuk/'), $namaSurat);
-        }
-        $data['file_surat'] = $namaSurat;
-        $store = suratMasuk::create($data);
+        $dataMasuk = suratMasuk::where('no_surat', $data['no_surat'])->first();
+        if ($dataMasuk == null) {
 
-        if ($store) {
+            if ($request->hasFile('file_surat')) {
+                $file = $request->file('file_surat');
+                $namaSurat = $file->getClientOriginalName();
+                $request->file_surat->move(public_path('file/suratMasuk/'), $namaSurat);
+            }
+            // dd(Auth::user()->id);
+            $data['file_surat'] = $namaSurat;
+            $data['tujuan_surat_id'] = Auth::user()->id;
+            $data['acc_id'] = Auth::user()->id;
+            $data['tgl_surat'] = new \DateTime('today');
+    
+            $store = suratMasuk::create($data);
+    
+            // Create otomatis data ke notifikasi
+            $data_notif['suratMasuk_id'] = $store->id;
+            $data_notif['keterangan'] = 'Mohon tunggu untuk konfirmasi selanjutnya';
+            notifikasiMasuk::create($data_notif);
+    
+            // Untuk validasi Data ke antarMasuk atau tidak
+            // if ($data['isAntar'] == 1) {
+            //     $data_antar['surat_id'] = $store->id;
+            //     $data_antar['tgl_pengajuan'] = new \DateTime('today');
+            //     // $data_antar['tgl_terima_kurir'] = new \DateTime('today');
+            //     $data_antar['status'] = 'On Progress';
+            //     antarMasuk::create($data_antar);
+            // }
+            // else {
+            //     $data_arsip['suratMasuk_id'] = $store->id;
+            //     $data_arsip['keterangan_status'] = 'Silahkan tunggu konfirmasi';
+            //     arsipMasuk::create($data_arsip);
+            // }
+    
+            if ($store) {
+                return response()->json([
+                    'status' => 'Sukses Tambah Surat Masuk'
+                ]);
+            }
+    
             return response()->json([
-                'status' => 'Sukses Tambah Surat Masuk'
+                'status' => 'Gagal Tambah Surat Masuk'
+            ]);
+
+        }
+        // dd($dataMasuk);
+        else if ($data['no_surat'] == $dataMasuk->no_surat || $data['kode_surat'] == $dataMasuk->kode_surat) {
+            return response()->json([
+                'status'        => false,
+                'message'       => "Periksa kembali surat anda"
             ]);
         }
+        // else {
 
-        return response()->json([
-            'status' => 'Gagal Tambah Surat Masuk'
-        ]);
+           
+
+        // }
+
     }
 
     /**
@@ -148,7 +204,8 @@ class SuratMasukController extends Controller
      *     ),
      * )
      */
-    public function edit($id) {
+    public function edit($id)
+    {
 
         return response()->json([
             'status' => 'Data edit',
@@ -200,6 +257,11 @@ class SuratMasukController extends Controller
         $validate = Validator::make($request->all(), [
             'asal_surat'                => 'required',
             'no_surat'                  => 'required',
+            'judul_surat'                  => 'required',
+            'perihal'                  => 'required',
+            'process'                  => 'required',
+            'jenis_surat'                  => 'required',
+            'catatan'                  => 'required',
             'tujuan_surat'              => 'required',
             'status'                    => 'required',
             'file_surat'                => 'required|mimes:pdf,docx',
@@ -208,6 +270,8 @@ class SuratMasukController extends Controller
         if ($validate->fails()) {
             return response()->json($validate->errors());
         }
+
+        $this->authorize('setuju-tidakSetuju');
 
         $data = $request->all();
 
@@ -257,6 +321,88 @@ class SuratMasukController extends Controller
      *     ),
      * )
      */
+
+    public function ajukan(Request $request)
+    {
+
+        // dd(auth()->user()->nama);
+        // $this->authorize('setuju-tidakSetuju');
+
+        // $masuk  = notifikasiMasuk::find($request->suratMasuk_id);
+        // $namaPenerima = $masuk->suratMasuk->userAcc->nama;
+        // dd($namaPenerima);
+
+        $data_surat = suratMasuk::find($request->suratMasuk_id);
+        // dd($data_surat);
+        if ($data_surat == null) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Surat Masuk tidak ada',
+            ]);
+        }
+
+        $data_antar = [
+            'suratMasuk_id' => $request->suratMasuk_id,
+            'keterangan'    => $request->keterangan,
+            'status'        => $request->status,
+            'penerima'      => $request->penerima,
+            'instansi'      => $request->instansi,
+            'alamat'        => $request->alamat,
+            'tgl_pengajuan' => new \DateTime('today'),
+        ];
+
+        // Surat Diarsipkan
+        $arsip_masuk = arsipMasuk::find($request->suratMasuk_id);
+        if ($arsip_masuk == null) {
+            $data_arsip = [
+                'suratMasuk_id'     => $request->suratMasuk_id,
+                'keterangan_status' => $request->status,
+            ];
+            $arsip = arsipMasuk::create($data_arsip);
+        }
+        else {
+            $data_arsip = [
+                'keterangan_status' => $request->status,
+            ];
+            // dd($arsip_masuk);
+            $arsip = $arsip_masuk->update($data_arsip);
+        }
+
+
+
+        //get data notifikasi surat
+        $notifikasi = notifikasiMasuk::find($request->suratMasuk_id);
+
+        // surat disetujui dan ubah status di notifikasi surat
+        if ($data_antar['status'] == 'Disetujui') {
+
+            $antar = antarMasuk::create($data_antar);
+            $data_notifikasi = [
+                'keterangan' => 'Surat Telah Disetujui',
+                'status' => 'Disetujui',
+            ];
+        } else {
+            $data_notifikasi = [
+                'keterangan' => 'Surat Tidak Disetujui',
+                'status' => 'Ditolak',
+            ];
+        }
+
+        $notifikasi->update($data_notifikasi);
+
+        if ($arsip) {
+            return response()->json([
+                'status' => true,
+                'message' => 'Surat masuk berhasil di proses, silahkan cek status surat',
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Error',
+            ]);
+        }
+    }
+
     public function destroy(Request $request)
     {
 
@@ -267,4 +413,4 @@ class SuratMasukController extends Controller
             'status'    => 'Sukses Hapus Data'
         ]);
     }
-}
+};
