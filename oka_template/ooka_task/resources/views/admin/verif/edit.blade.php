@@ -10,31 +10,31 @@
                     <div class="row justify-content-center">
                         <div class="col-md-12 d-flex justify-content-center">
                             <div class="form-floating mb-3 w-50">
-                                <input type="text" class="form-control" id="floatingInput" name="nama" value="{{ $user -> nama }}">
+                                <input type="text" class="form-control" id="floatingInput" name="nama" value="{{ $user -> nama }}" required>
                                 <label for="floatingInput" class="profil-input-label">Nama Lengkap</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="nomor_kk" value="{{ $user -> nomor_kk }}">
+                                <input type="text" class="form-control" id="floatingInput" name="nomor_kk" value="{{ $user -> nomor_kk }}" required>
                                 <label for="floatingInput" class="profil-input-label">No. Kartu Keluarga</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="nik" value="{{ $user -> nik }}">
+                                <input type="text" class="form-control" id="floatingInput" name="nik" value="{{ $user -> nik }}" required>
                                 <label for="floatingInput" class="profil-input-label">Nomor Induk Kependudukan</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" name="email" value="{{ $user -> email }}">
+                                <input type="email" class="form-control" id="floatingInput" name="email" value="{{ $user -> email }}" required>
                                 <label for="floatingInput" class="profil-input-label">Email</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" name="nomor_telp" value="{{ $user -> nomor_telp }}">
+                                <input type="text" class="form-control" id="floatingInput" name="nomor_telp" value="{{ $user -> nomor_telp }}" required>
                                 <label for="floatingInput" class="profil-input-label">No. Telepon</label>
                             </div>
                         </div>

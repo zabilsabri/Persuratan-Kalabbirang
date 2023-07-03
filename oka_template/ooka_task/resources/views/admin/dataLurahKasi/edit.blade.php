@@ -15,33 +15,33 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" name="nama" value="{{ $user -> nama }}">
+                        <input type="text" class="form-control" id="floatingInput" name="nama" value="{{ $user -> nama }}" required>
                             <label for="floatingInput" class="profil-input-label">Nama Lengkap</label>
                         </div>
                         <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" name="nip" value="{{ $user -> nip }}">
+                        <input type="text" class="form-control" id="floatingInput" name="nip" value="{{ $user -> nip }}" required>
                             <label for="floatingInput" class="profil-input-label">NIP</label>
                         </div>
                         <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" name="nomor_kp" value="{{ $user -> nomor_kp }}">
-                            <label for="floatingInput" class="profil-input-label">No. Kartu Kasi</label>
+                        <input type="text" class="form-control" id="floatingInput" name="nomor_kp" value="{{ $user -> nomor_kp }}" required>
+                            <label for="floatingInput" class="profil-input-label">No. Kartu Kasi / Lurah</label>
                         </div>
                         <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" name="jabatan" value="{{ $user -> role -> nama }}">
+                        <input type="text" class="form-control" id="floatingInput" name="jabatan" value="{{ $user -> role -> nama }}" requreid>
                             <label for="floatingInput" class="profil-input-label">Jabatan</label>
                         </div>
                         <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" name="alamat" value="{{ $user -> alamat }}">
+                        <input type="text" class="form-control" id="floatingInput" name="alamat" value="{{ $user -> alamat }}" required>
                             <label for="floatingInput" class="profil-input-label">Alamat</label>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" name="email" value="{{ $user -> email }}">
+                        <input type="email" class="form-control" id="floatingInput" name="email" value="{{ $user -> email }}" required>
                             <label for="floatingInput" class="profil-input-label">Email</label>
                         </div>
                         <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" name="nomor_telp" value="{{ $user -> nomor_telp }}">
+                        <input type="text" class="form-control" id="floatingInput" name="nomor_telp" value="{{ $user -> nomor_telp }}" required>
                             <label for="floatingInput" class="profil-input-label">No. Telepon</label>
                         </div>
                         <div class="signature-pad text-right mt-4">

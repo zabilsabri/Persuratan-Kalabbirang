@@ -15,42 +15,42 @@
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Nomor Surat</h4>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control " id="floatingInput" name="no_surat">
+                        <input type="text" class="form-control " id="floatingInput" name="no_surat" required>
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Judul Surat</h4>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control " id="floatingInput" name="judul_surat">
+                        <input type="text" class="form-control " id="floatingInput" name="judul_surat" required>
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Tanggal Surat</h4>
                     <div class="col-sm-9">
-                        <input type="date" class="form-control " id="floatingInput" name="tgl_surat">
+                        <input type="date" class="form-control " id="floatingInput" name="tgl_surat" required>
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Perihal</h4>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control " id="floatingInput" name="perihal">
+                        <input type="text" class="form-control " id="floatingInput" name="perihal" required>
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Pengirim</h4>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control " id="floatingInput" name="asal_surat">
+                        <input type="text" class="form-control " id="floatingInput" name="asal_surat" required>
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Jenis Surat</h4>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control " id="floatingInput" name="jenis_surat">
+                        <input type="text" class="form-control " id="floatingInput" name="jenis_surat" required>
                     </div>
                 </div>
 
@@ -58,7 +58,7 @@
                     <h4 class="surat-kategori col-form-label col-sm-3">Sifat Surat</h4>
                     <div class="ms-2">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sifatSurat" id="sifatSurat1" value="Rahasia">
+                        <input class="form-check-input" type="radio" name="sifatSurat" id="sifatSurat1" value="Rahasia" required>
                         <label class="form-check-label" for="sifatSurat1">
                             Rahasia
                         </label>
@@ -98,7 +98,7 @@
                 <h4 class="surat-kategori col-form-label col-sm-4">Upload File</h4>
                 <div class="row form-group">
                     <div class="col-sm-10 ms-0 ms-md-4">
-                        <input class="form-control" type="file" name="file_surat" id="customFile">
+                        <input class="form-control" type="file" name="file_surat" id="customFile" required>
                     </div>
                 </div>
 

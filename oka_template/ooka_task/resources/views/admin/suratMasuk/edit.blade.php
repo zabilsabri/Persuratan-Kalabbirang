@@ -102,7 +102,7 @@
                     <h4 class="surat-kategori col-form-label col-sm-4">Catatan</h4>
                     <div class="row form-group">
                         <div class="col-sm-10 ms-0 ms-md-3">
-                            <textarea class="form-control" name="catatan" style="height: 150px" required>{{ $surats -> catatan }}</textarea>
+                            <textarea class="form-control" name="catatan" style="height: 150px">{{ $surats -> catatan }}</textarea>
                         </div>
                     </div>
                     <h4 class="surat-kategori col-form-label col-sm-4">Upload File</h4>

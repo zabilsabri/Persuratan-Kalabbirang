@@ -43,7 +43,7 @@
             <div class=" form-group">
                 <h4 class="surat-kategori col-form-label ">No. Surat</h4>
                 <div class="">
-                    <input type="text" class="form-control" name="no_surat" placeholder="XXX / XXX / XXX / X / XXXX" aria-label="First name">
+                    <input type="text" class="form-control" name="no_surat" placeholder="XXX / XXX / XXX / X / XXXX" aria-label="First name" required>
                 </div>
             </div>
             <div class=" form-group">
@@ -61,7 +61,7 @@
             <div class=" form-group">
                 <h4 class="surat-kategori col-form-label ">Instruksi</h4>
                 <div class="">
-                    <select class="form-control" name="instruksi" id="floatingInput">
+                    <select class="form-control" name="instruksi" id="floatingInput" required>
                         <option value="" >Pilih Instruksi</option>
                         <option value="Mohon Persetujuan">Mohon Persetujuan</option>
                         <option value="Mohon Keputusan">Mohon Keputusan</option>
@@ -78,7 +78,7 @@
         <div class="row mt-4" style="align-items: flex-end">
             <div class="col-sm-6 mb-3">
                 <label for="exampleFormControlTextarea1" class="surat-kategori col-form-label ">Catatan</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="catatan" rows="3" style="height: 150px"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="catatan" rows="3" style="height: 150px" required></textarea>
             </div>
             <div class="col-sm-6 mb-3 text-center">
                 <button type="submit" class="btn btn-success w-75 H-25">SERAHKAN SURAT</button>

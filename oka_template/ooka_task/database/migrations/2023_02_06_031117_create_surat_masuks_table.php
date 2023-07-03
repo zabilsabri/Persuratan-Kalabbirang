@@ -26,7 +26,7 @@ return new class extends Migration
             $table->unsignedBigInteger('acc_id')->nullable(); // Surat Di Acc Oleh Siapa
             $table->boolean('isAntar')->default(0)->nullable(); // Apakah Surat Ingin Diantarkan Atau Tidak
             $table->string('jenis_surat');
-            $table->string('catatan', 1000);
+            $table->string('catatan', 1000)->nullable();
             $table->enum('status', ['Rahasia', 'Penting', 'Segera', 'Biasa']);
             $table->string('file_surat');
             $table->timestamps();

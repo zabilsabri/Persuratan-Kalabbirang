@@ -69,8 +69,8 @@
                     <div class=" form-group">
                         <h4 class="surat-kategori col-form-label ">Instruksi</h4>
                         <div class="">
-                            <select class="form-control" name="instruksi" id="floatingInput">
-                                <option value="" >Pilih Instruksi</option>
+                            <select class="form-control" name="instruksi" id="floatingInput" required>
+                                <option value="" >-- Pilih Instruksi</option>
                                 <option value="Mohon Persetujuan">Mohon Persetujuan</option>
                                 <option value="Mohon Keputusan">Mohon Keputusan</option>
                             </select>
@@ -89,7 +89,7 @@
                     <h4 class="surat-kategori col-form-label ">Catatan</h4>
                     <div class="row form-group">
                         <div class="col-sm-10 ">
-                            <textarea class="form-control" style="height: 150px" name="catatan"></textarea>
+                            <textarea class="form-control" style="height: 150px" name="catatan" required></textarea>
                         </div>
                     </div>
                 </div>

@@ -80,19 +80,19 @@
         <div class="mb-3 row">
             <label for="nama-penerima" class="surat-kategori col-sm-2 col-form-label">Nama Penerima</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" name="penerima" id="nama-penerima">
+                <input type="text" class="form-control" name="penerima" id="nama-penerima" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="nama-instansi" class="surat-kategori col-sm-2 col-form-label">Nama Instansi</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" name="instansi" id="nama-instansi">
+                <input type="text" class="form-control" name="instansi" id="nama-instansi" required>
             </div>
         </div>
         <div class="mb-3 row">
             <label for="alamat" class="surat-kategori col-sm-2 col-form-label">Alamat</label>
             <div class="col-sm-5">
-                <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                <textarea class="form-control" id="alamat" name="alamat" rows="3" required></textarea>
             </div>
         </div>
         <div class="text-center mt-5">

@@ -129,7 +129,7 @@
                 <h6>Alasan Penolakan <span style="color:red;" >*</span> </h6>
                 <form action="{{ route('surat-masuk-admin.tolakSurat', [$surats -> id]) }}" method="POST">
                     @csrf
-                    <textarea class="form-control" name="alasan_tolak" style="border: 1px solid #FF0000; height:150px;" id="exampleFormControlTextarea1" rows="3"></textarea>                
+                    <textarea class="form-control" name="alasan_tolak" style="border: 1px solid #FF0000; height:150px;" id="exampleFormControlTextarea1" rows="3" required></textarea>                
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-danger">Kirim</button>

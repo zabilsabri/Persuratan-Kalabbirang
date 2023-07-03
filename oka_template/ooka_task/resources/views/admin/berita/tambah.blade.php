@@ -16,35 +16,35 @@
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Judul Berita</h4>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control " id="floatingInput" name="judul">
+                        <input type="text" class="form-control " id="floatingInput" name="judul" required>
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Tanggal Berita</h4>
                     <div class="col-sm-4">
-                        <input type="date" class="form-control " id="floatingInput" name="tgl_berita">
+                        <input type="date" class="form-control " id="floatingInput" name="tgl_berita" required>
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Tempat Kejadian</h4>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control " id="floatingInput" name="tempat_kejadian">
+                        <input type="text" class="form-control " id="floatingInput" name="tempat_kejadian" required>
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Penulis</h4>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control " id="floatingInput" name="penulis">
+                        <input type="text" class="form-control " id="floatingInput" name="penulis" required>
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <h4 class="surat-kategori col-form-label col-sm-3">Deskripsi</h4>
                     <div class="col-sm-9 ">
-                        <textarea class="form-control" name="deskripsi" style="height: 150px"></textarea>
+                        <textarea class="form-control" name="deskripsi" style="height: 150px" required></textarea>
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@
             <div class="col-sm-4">
                 <div class="file-drop-area-berita">
                     <span class="choose-file-button">Pilih File</span>
-                    <input class="file-input" name="gambar" type="file" accept="iamge/*" onchange="preview(event)">
+                    <input class="file-input" name="gambar" type="file" accept="iamge/*" onchange="preview(event)" required>
                 </div>
             </div>
 
