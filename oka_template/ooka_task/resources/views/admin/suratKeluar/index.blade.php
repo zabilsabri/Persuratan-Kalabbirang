@@ -86,11 +86,13 @@
     </div>
 
     <script>
-    $(document).ready( function () {
+    window.onload = function(){
+        $(document).ready( function () {
             $('#tableSuratKeluar').DataTable({
                 scrollX: true,
             });
-        } );
+        });
+    }
     </script>
 
 @endsection

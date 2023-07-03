@@ -100,6 +100,7 @@
 </div>
 
   <script>
+    window.onload = function(){
     $("document").ready(function () {
 
       $("#filterTable").dataTable({
@@ -140,5 +141,6 @@
 
       table.draw();
     });
+    }
   </script>
 @endsection

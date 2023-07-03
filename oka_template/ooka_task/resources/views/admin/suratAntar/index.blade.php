@@ -161,33 +161,35 @@
     </div>
 
     <script>
-    $("document").ready(function () {
+    window.onload = function(){
+        $("document").ready(function () {
 
-      $("#filterTableMasuk").dataTable({
-        "searching": true,
-        scrollX: true,
-      });
+        $("#filterTableMasuk").dataTable({
+            "searching": true,
+            scrollX: true,
+        });
 
-      $("#filterTableKeluar").dataTable({
-        "searching": true,
-        scrollX: true,
-      });
+        $("#filterTableKeluar").dataTable({
+            "searching": true,
+            scrollX: true,
+        });
 
-      var table = $('#filterTableMasuk').DataTable();
-      var table2 = $('#filterTableKeluar').DataTable();
+        var table = $('#filterTableMasuk').DataTable();
+        var table2 = $('#filterTableKeluar').DataTable();
 
-      $("#filterTableMasuk_filter.dataTables_filter").append($("#categoryFilterMasuk"));
-      $("#filterTableKeluar_filter.dataTables_filter").append($("#categoryFilterKeluar"));
+        $("#filterTableMasuk_filter.dataTables_filter").append($("#categoryFilterMasuk"));
+        $("#filterTableKeluar_filter.dataTables_filter").append($("#categoryFilterKeluar"));
 
 
-      $("#categoryFilterMasuk").on('change', function (e) {
-        table.column(5).search(this.value).draw();
-      });
+        $("#categoryFilterMasuk").on('change', function (e) {
+            table.column(5).search(this.value).draw();
+        });
 
-      $("#categoryFilterKeluar").on('change', function (e) {
-        table2.column(5).search(this.value).draw();
-      });
+        $("#categoryFilterKeluar").on('change', function (e) {
+            table2.column(5).search(this.value).draw();
+        });
 
-    });
+        });
+    }
   </script>
 @endsection

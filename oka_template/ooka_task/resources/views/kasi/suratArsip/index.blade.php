@@ -128,6 +128,7 @@
     </div>
 
     <script>
+    window.onload = function(){
     $(document).ready( function () {
             $('#tableMasuk').DataTable({
                 scrollX: true,
@@ -136,5 +137,6 @@
                 scrollX: true,
             });
         } );
+    }
     </script>
 @endsection

@@ -45,13 +45,12 @@
     </div>
 
     <script>
-    $("document").ready(function () {
-
-      $("#tableSuratMasuk").dataTable({
-        scrollX: true,
-      });
-
-
-    });
+    window.onload = function(){
+        $("document").ready(function () {
+            $("#tableSuratMasuk").dataTable({
+                scrollX: true,
+            });
+        });
+    }
   </script>
 @endsection

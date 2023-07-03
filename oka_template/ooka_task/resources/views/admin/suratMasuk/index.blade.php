@@ -71,10 +71,12 @@
     </div>
 
     <script>
-    $(document).ready( function () {
-            $('#tableSuratMasuk').DataTable({
-                scrollX: true,
-            });
-        } );
+    window.onload = function(){
+        $(document).ready( function () {
+                $('#tableSuratMasuk').DataTable({
+                    scrollX: true,
+                });
+            } );
+        }
     </script>
 @endsection

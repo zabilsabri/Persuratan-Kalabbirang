@@ -64,10 +64,12 @@
     </div>
 
     <script>
+    window.onload = function(){
     $(document).ready( function () {
             $('#tableBerita').DataTable({
                 scrollX: true,
             });
         } );
+    }
     </script>
 @endsection
