@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <input type="text" class="form-control phone-number"
-                                placeholder="Masukkan Nomor Kartu Keluarga" name="nomor_kk" autofocus style="height: 61.6px;border-left-width: 0px;"">
+                                placeholder="Masukkan Nomor Kartu Keluarga" name="nomor_kk" autofocus style="height: 61.6px;border-left-width: 0px;" required>
                         </div>
                     </div>
 
@@ -45,7 +45,7 @@
                                     <img src="{{ asset('image/icon/phone.svg') }}"></img>
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" name="nomor_telp" placeholder="Masukkan Nomor Telepon" style="height: 61.6px;border-left-width: 0px;"">
+                            <input type="text" class="form-control phone-number" name="nomor_telp" placeholder="Masukkan Nomor Telepon" style="height: 61.6px;border-left-width: 0px;" required>
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@
                         <label for="first_name">Foto KTP</label>
                         <div class="file-drop-area">
                             <span class="choose-file-button">Pilih File</span>
-                            <input class="file-input" name="ktp" type="file" multiple>
+                            <input class="file-input" name="ktp" type="file" multiple required>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             <input type="text" class="form-control phone-number"
-                                placeholder="Masukkan Nomor Induk Kependudukan " name="nik" style="height: 61.6px;border-left-width: 0px;"">
+                                placeholder="Masukkan Nomor Induk Kependudukan " name="nik" style="height: 61.6px;border-left-width: 0px;" required>
                         </div>
                     </div>
 
@@ -82,7 +82,7 @@
                                     <img src="{{ asset('image/icon/email.svg') }}"></img>
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" name="email" placeholder="Masukkan Alamat Email" style="height: 61.6px;border-left-width: 0px;"">
+                            <input type="text" class="form-control phone-number" name="email" placeholder="Masukkan Alamat Email" style="height: 61.6px;border-left-width: 0px;" required>
                         </div>
                     </div>
 
@@ -91,7 +91,7 @@
                         <div class="file-drop-area">
 
                             <span class="choose-file-button">Pilih File</span>
-                            <input class="file-input" type="file" name="swafoto_ktp" multiple>
+                            <input class="file-input" type="file" name="swafoto_ktp" multiple required>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
 
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" name="nama" placeholder="Masukkan Nama Lengkap" style="height: 61.6px;border-left-width: 0px;"">
+                            <input type="text" class="form-control phone-number" name="nama" placeholder="Masukkan Nama Lengkap" style="height: 61.6px;border-left-width: 0px;" required>
                         </div>
                     </div>
 
@@ -120,7 +120,7 @@
                                     <img src="{{ asset('image/icon/person-write.svg') }}"></img>
                                 </div>
                             </div>
-                            <input type="text" class="form-control phone-number" name="username" placeholder="Buat Username" style="height: 61.6px;border-left-width: 0px;"">
+                            <input type="text" class="form-control phone-number" name="username" placeholder="Buat Username" style="height: 61.6px;border-left-width: 0px;" required>
                         </div>
                     </div>
                 </div>
