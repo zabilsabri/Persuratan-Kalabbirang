@@ -83,19 +83,19 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" name="email" id="floatingInput" value="{{ Auth::user()->email }}">
+                            <input type="email" class="form-control" name="email" id="floatingInput" value="{{ Auth::user()->email }}" required>
                             <label for="floatingInput" class="profil-input-label">Email</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="nomor_telp" id="floatingInput" value="{{ Auth::user()->nomor_telp }}">
+                            <input type="text" class="form-control" name="nomor_telp" id="floatingInput" value="{{ Auth::user()->nomor_telp }}" required>
                             <label for="floatingInput" class="profil-input-label">No. Telpon</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="alamat" id="floatingInput" value="{{ Auth::user()->alamat }}">
+                            <input type="text" class="form-control" name="alamat" id="floatingInput" value="{{ Auth::user()->alamat }}" required>
                             <label for="floatingInput" class="profil-input-label">Alamat</label>
                         </div>
                     </div>

@@ -66,7 +66,7 @@
                 <span class="input-group-text" style="border-right-style: solid;border-right-width: 0px;">
                     <img src="{{ asset('image/icon/phone.svg') }}"></img>
                 </span>
-                <input type="text" name="nomor_telp" class="form-control" value="{{ Auth::user()->nomor_telp }}" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                <input type="text" name="nomor_telp" class="form-control" value="{{ Auth::user()->nomor_telp }}" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;" required>
             </div>
         </div>
     </div>
@@ -78,7 +78,7 @@
                 <span class="input-group-text" style="border-right-style: solid;border-right-width: 0px;">
                     <img src="{{ asset('image/icon/email.svg') }}"></img>
                 </span>
-                <input type="email" name="email" class="form-control" value="{{ Auth::user()->email }}" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;">
+                <input type="email" name="email" class="form-control" value="{{ Auth::user()->email }}" aria-label="Username" aria-describedby="addon-wrapping" style="border-left-width: 0px;" required>
             </div>
         </div>
     </div>

@@ -9,12 +9,24 @@ use App\Models\Berita;
 use App\Models\suratKeluar;
 use App\Models\suratMasuk;
 use App\Models\notifikasi;
+use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
 {
     public function beranda() {
         $beritas = Berita::limit(3)->get();
+        if(Auth::check()){
+            if(Auth::user()->role_id == 1){
+                return redirect()->route('dashboard-admin');
+            }
+            else if (Auth::user()->role_id == 2){
+                return redirect()->route('dashboard-lurah');
+            }
+            else if (Auth::user()->role_id == 3 || Auth::user()->role_id == 4 || Auth::user()->role_id == 5){
+                return redirect()->route('dashboard-kasi');
+            }
+        }
         return view('user.beranda')
             ->with(compact('beritas'));
     }

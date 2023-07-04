@@ -35,7 +35,7 @@
         <div class="container-fluid">
             {{-- <img src="{{ asset('image/Lambang_Kabupaten_Takalar.png') }}" alt="Lambang_Kabupaten_Takalar">
             <a class="navbar-brand">Kallabirang</a> --}}
-            <img src="{{ asset('image/Logo-white.png') }} " class="logo-nav" alt="">
+            <img src="{{ asset('image/logo-white.png') }} " class="logo-nav" alt="">
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -151,18 +151,22 @@
     <script src="{{ asset('style/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js')}}"></script>
     <script src="{{ asset('style/js/page/modules-ion-icons.js') }}"></script>
     <script>
-        $(document).ready( function () {
-            $('#tableDokumen').DataTable({
-                scrollX: true,
+        window.onload = function(){
+            $(document).ready( function () {
+                $('#tableDokumen').DataTable({
+                    scrollX: true,
+                });
             });
-        } );
+        }
     </script>
     <script>
-    $(document).ready( function () {
+    window.onload = function(){
+        $(document).ready( function () {
             $('#tableArsipSurat').DataTable({
                 scrollX: true,
             });
-        } );
+        });
+    }
     </script>
 </body>
 
