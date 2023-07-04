@@ -20,7 +20,7 @@
   <link rel="icon" href="{{ asset('image/Lambang_Kabupaten_Takalar.png') }}">
 </head>
 
-<body class="bg-success">
+<body style="background: #4FB96E">
   <div id="app">
     <section class="sections">
       <div class="container mt-5 ">
