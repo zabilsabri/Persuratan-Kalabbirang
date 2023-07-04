@@ -20,12 +20,12 @@ use PDF;
 use Carbon\Carbon;
 
 
-class suratMasukController extends Controller
+class suratMasukKeluarController extends Controller
 {
     public function index() {
         $surat_masuks = suratMasuk::where('tujuan_surat_id', Auth::user()->id)->get();
         $surats = suratKeluar::where('pj_id', Auth::user()->id)->get();
-        return view('kasi.suratMasuk.index')
+        return view('kasi.suratMasukKeluar.index')
             ->with(compact('surats'))
             ->with(compact('surat_masuks'));
     }
@@ -35,7 +35,7 @@ class suratMasukController extends Controller
         $disposisis = disposisi::latest()->where('suratKeluar_id', $id)->first();
         $disposisis_all = disposisi::where('suratKeluar_id', $id)->get();
         $pengantars = pengantar::where('suratKeluar_id', $id)->get();
-        return view('kasi.suratMasuk.detail')
+        return view('kasi.suratMasukKeluar.detail')
             ->with(compact('surats'))
             ->with(compact('disposisis'))
             ->with(compact('disposisis_all'))
@@ -46,7 +46,7 @@ class suratMasukController extends Controller
         $surat = suratMasuk::where('id', $id)->first();
         $disposisis = disposisiMasuk::latest()->where('suratMasuk_id', $id)->first();
         $disposisis_all = disposisiMasuk::where('suratMasuk_id', $id)->get();
-        return view('kasi.suratMasuk.detailMasuk')
+        return view('kasi.suratMasukKeluar.detailMasuk')
             ->with(compact('surat'))
             ->with(compact('disposisis'))
             ->with(compact('disposisis_all'));
@@ -54,7 +54,7 @@ class suratMasukController extends Controller
 
     public function detailFile($id){
         $file = asset('temp_file/surat-masuk/'.$id);
-        return view('kasi.suratMasuk.openFile', compact('file'));
+        return view('kasi.suratMasukKeluar.openFile', compact('file'));
     }
 
     public function detailFilePengantar($id){
@@ -63,7 +63,7 @@ class suratMasukController extends Controller
     }
 
     public function kosong() {
-        return view('kasi.suratMasuk.kosong');
+        return view('kasi.suratMasukKeluar.kosong');
     }
 
     public function ttd($id)

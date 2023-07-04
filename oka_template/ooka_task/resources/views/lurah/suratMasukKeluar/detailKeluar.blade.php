@@ -2,6 +2,12 @@
 <link rel="stylesheet" href="{{ asset('style/css/suratKeluarDetail.css') }}">
 
 @section('content')
+    @if($message = Session::get('failed'))
+    <div class="alert alert-danger alert-dismissible fade show w-100" role="alert">
+        <strong> {{$message}} </strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     <div class="hal-head">
         <h1 class="hal-title"> Detail Surat Masuk </h1>
     </div>
@@ -16,18 +22,28 @@
                         <td class="surat-detail">{{ $surat -> tgl_surat }}</td>
                     </tr>
                     <tr>
-                        <td class="surat-kategori">Perihal Surat</td>
+                        <td class="surat-kategori">Nama Pemohon</td>
                         <td>:</td>
-                        <td class="surat-detail">{{ $surat -> perihal }}</td>
+                        <td class="surat-detail">{{ $surat -> user -> nama }}</td>
                     </tr>
                     <tr>
                         <td class="surat-kategori"> Penanggung Jawab </td>
                         <td>:</td>
                         <td class="surat-detail">
-                            {{ $disposisis -> suratMasuk -> user -> nama }}
+                            {{ $disposisis -> suratKeluar -> pj -> nama }}
                             <br>
                             <span class="bidang-pengirim">Bidang {{ $disposisis -> usert -> role -> nama }}</span>
                         </td>
+                    </tr>
+                    <tr>
+                        <td class="surat-kategori">No. Kartu Keluarga</td>
+                        <td>:</td>
+                        <td class="surat-detail">{{ $surat -> user -> nomor_kk ?? "-" }}</td>
+                    </tr>
+                    <tr>
+                        <td class="surat-kategori">NIK</td>
+                        <td>:</td>
+                        <td class="surat-detail">{{ $surat -> user -> nik }}</td>
                     </tr>
                     <tr>
                         <td class="surat-kategori">Kode Surat</td>
@@ -37,7 +53,7 @@
                     <tr>
                         <td class="surat-kategori">Jenis Surat</td>
                         <td>:</td>
-                        <td class="surat-detail">{{ $surat -> jenis_surat }}</td>
+                        <td class="surat-detail">{{ $surat -> jenisSurat -> nama }}</td>
                     </tr>
                 </table>
                 @if($surat -> status == "Segera")
@@ -62,9 +78,24 @@
                     <p class="lampiran-text">Surat</p>
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><a href="{{ route('surat-masuk-lurah.detailFile', [$surat -> file_surat]) }}" class="stretched-link">{{ $surat -> jenis_surat }}.pdf</a></h5>
+                            <h5 class="card-title"><a href="{{ route('export.surat', ['id' => $surat -> id]) }}" class="stretched-link">{{ $surat -> jenisSurat -> nama }}</a></h5>
                         </div>
                     </div>
+                    <hr>
+                    <svg width="30" style="float:left;" height="17" viewBox="0 0 30 17" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M8.25 17C5.95 17 4 16.1758 2.4 14.5273C0.8 12.8788 0 10.8697 0 8.5C0 6.1303 0.8 4.12121 2.4 2.47273C4 0.824243 5.95 0 8.25 0H24C25.65 0 27.0625 0.605303 28.2375 1.81591C29.4125 3.02652 30 4.48182 30 6.18182C30 7.88182 29.4125 9.33712 28.2375 10.5477C27.0625 11.7583 25.65 12.3636 24 12.3636H9.75C8.7 12.3636 7.8125 11.9902 7.0875 11.2432C6.3625 10.4962 6 9.58182 6 8.5C6 7.41818 6.3625 6.50379 7.0875 5.75682C7.8125 5.00985 8.7 4.63636 9.75 4.63636H24V6.95455H9.75C9.325 6.95455 8.969 7.10239 8.682 7.39809C8.394 7.69482 8.25 8.06212 8.25 8.5C8.25 8.93788 8.394 9.30467 8.682 9.60036C8.969 9.89709 9.325 10.0455 9.75 10.0455H24C25.05 10.0455 25.9375 9.67197 26.6625 8.925C27.3875 8.17803 27.75 7.26364 27.75 6.18182C27.75 5.1 27.3875 4.18561 26.6625 3.43864C25.9375 2.69167 25.05 2.31818 24 2.31818H8.25C6.6 2.31818 5.1875 2.92349 4.0125 4.13409C2.8375 5.3447 2.25 6.8 2.25 8.5C2.25 10.2 2.8375 11.6553 4.0125 12.8659C5.1875 14.0765 6.6 14.6818 8.25 14.6818H24V17H8.25Z"
+                            fill="#909090" />
+                    </svg>
+                    <p class="lampiran-text">Lampiran</p>
+                    @foreach($pengantars as $pengantar)
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{{ route('surat-masuk-lurah.detailFilePengantar', [$pengantar -> file_surat]) }}" class="stretched-link">{{ $pengantar -> nama_file_surat }}</a></h5>
+                        </div>
+                    </div>
+                    @endforeach
                     <button class="btn btn-light border-green me-md-2 mb-2 float-right" type="button" data-bs-toggle="modal"
                         data-bs-target="#modalInfoDisposisi">
                         <div class="d-flex align-items-center">
@@ -82,6 +113,7 @@
                         </div>
                     </button>
                 </div>
+
             </div>
         </div>
 
@@ -102,24 +134,7 @@
                 data-bs-target="#modalDisposisi">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0">
-                            <svg width="30" height="20" viewBox="0 0 41 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M39.9313 13.8842L3.30822 0.132036C3.02118 0.0242271 2.69877 -0.0189696 2.37979 0.00764733C2.06082 0.0342642 1.75889 0.12956 1.51037 0.282059C1.27302 0.431449 1.09587 0.627597 0.998824 0.848454C0.901778 1.06931 0.888686 1.30612 0.96102 1.53226L5.88848 14.9969L0.894433 28.424C0.826558 28.6129 0.818635 28.811 0.871301 29.0026C0.923967 29.1942 1.03575 29.3738 1.19767 29.527C1.35959 29.6802 1.56712 29.8028 1.80357 29.8848C2.04003 29.9668 2.29881 30.006 2.55912 29.9993C2.81971 29.9981 3.0763 29.951 3.30822 29.8617L39.9313 16.1096C40.2039 16.0046 40.4328 15.8453 40.5926 15.6489C40.7524 15.4526 40.8369 15.227 40.8369 14.9969C40.8369 14.7668 40.7524 14.5412 40.5926 14.3448C40.4328 14.1485 40.2039 13.9891 39.9313 13.8842ZM5.13938 26.3862L8.81833 16.2471H24.2V13.7467H8.81833L5.13938 3.60758L35.4533 14.9969L5.13938 26.3862Z"
-                                    fill="white" />
-                            </svg>
-                    </div>
-                    <div class="button-text flex-grow-1 ms-3">
-                        DISPOSISI
-                    </div>
-                </div>
-            </button>
-            @if($surat -> tujuan_surat_id == Auth::user()->id)
-            <button class="btn btn-success me-md-2 mb-2" type="button" data-bs-toggle="modal"
-                data-bs-target="#modalTandaTangan">
-                <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                        <svg width="34" height="23" viewBox="0 0 41 30" fill="none"
+                        <svg width="30" height="20" viewBox="0 0 41 30" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M39.9313 13.8842L3.30822 0.132036C3.02118 0.0242271 2.69877 -0.0189696 2.37979 0.00764733C2.06082 0.0342642 1.75889 0.12956 1.51037 0.282059C1.27302 0.431449 1.09587 0.627597 0.998824 0.848454C0.901778 1.06931 0.888686 1.30612 0.96102 1.53226L5.88848 14.9969L0.894433 28.424C0.826558 28.6129 0.818635 28.811 0.871301 29.0026C0.923967 29.1942 1.03575 29.3738 1.19767 29.527C1.35959 29.6802 1.56712 29.8028 1.80357 29.8848C2.04003 29.9668 2.29881 30.006 2.55912 29.9993C2.81971 29.9981 3.0763 29.951 3.30822 29.8617L39.9313 16.1096C40.2039 16.0046 40.4328 15.8453 40.5926 15.6489C40.7524 15.4526 40.8369 15.227 40.8369 14.9969C40.8369 14.7668 40.7524 14.5412 40.5926 14.3448C40.4328 14.1485 40.2039 13.9891 39.9313 13.8842ZM5.13938 26.3862L8.81833 16.2471H24.2V13.7467H8.81833L5.13938 3.60758L35.4533 14.9969L5.13938 26.3862Z"
@@ -127,7 +142,21 @@
                         </svg>
                     </div>
                     <div class="button-text flex-grow-1 ms-3">
-                        ARSIP
+                        DISPOSISI
+                    </div>
+                </div>
+            </button>
+            @if($surat -> pj -> id == Auth::user()->id)
+            <button class="btn btn-success me-md-2 mb-2" type="button" data-bs-toggle="modal"
+                data-bs-target="#modalTandaTangan">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                    <svg width="34" height="23" viewBox="0 0 43 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M35.9375 21.7247L25.25 32.6497H20.9375V28.2413L31.625 17.3163L35.9375 21.7247ZM42.3125 20.1913C42.3125 20.7663 41.75 21.3413 41.1875 21.9163L36.5 26.708L34.8125 24.983L39.6875 19.9997L38.5625 18.8497L37.25 20.1913L32.9375 15.783L37.0625 11.758C37.4375 11.3747 38.1875 11.3747 38.75 11.758L41.375 14.4413C41.75 14.8247 41.75 15.5913 41.375 16.1663C41 16.5497 40.625 16.933 40.625 17.3163C40.625 17.6997 41 18.083 41.375 18.4663C41.9375 19.0413 42.5 19.6163 42.3125 20.1913ZM4.625 35.333V4.66634H17.75V14.2497H27.125V17.1247L30.875 13.2913V12.333L19.625 0.833008H4.625C2.5625 0.833008 0.875 2.55801 0.875 4.66634V35.333C0.875 37.4413 2.5625 39.1663 4.625 39.1663H27.125C29.1875 39.1663 30.875 37.4413 30.875 35.333H4.625ZM19.625 29.7747C19.25 29.7747 18.875 29.9663 18.6875 29.9663L17.75 25.7497H14.9375L11 29.008L12.125 23.833H9.3125L7.4375 33.4163H10.25L15.6875 28.433L16.8125 32.8413H18.6875L19.625 32.6497V29.7747Z" fill="white"/>
+                    </svg>
+                    </div>
+                    <div class="button-text flex-grow-1 ms-3">
+                        TANDA TANGAN
                     </div>
                 </div>
             </button>
@@ -162,13 +191,13 @@
                         <div class="col-5">
                             <span class="modal-container-text2"> Sifat Surat : </span>
                             <br>
-                            @if($surat -> status == "Penting")
+                            @if($disposisi_all -> suratKeluar -> status == "Penting")
                             <span class="text-danger fw-bold"> PENTING </span>
-                            @elseif ($surat -> status == "Rahasia")
+                            @elseif ($disposisi_all -> suratKeluar -> status == "Rahasia")
                             <span class="text-dark fw-bold"> RAHASIA </span>
-                            @elseif ($surat -> status == "Segera")
+                            @elseif ($disposisi_all -> suratKeluar -> status == "Segera")
                             <span class="text-success fw-bold"> SEGERA </span>
-                            @elseif ($surat -> status == "Biasa")
+                            @elseif ($disposisi_all -> suratKeluar -> status == "Biasa")
                             <span class="text-primary fw-bold"> BIASA </span>
                             @endif
                         </div>
@@ -197,6 +226,22 @@
     </div>
 </div>
 
+<!-- Modal Tanda Tangan -->
+<div class="modal fade" id="modalTandaTangan" tabindex="-1" aria-labelledby="modalTandaTanganLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <p class="modal-body-text1">Apakah Anda Yakin?</p>
+                <p class="modal-body-text2">Tekan Oke untuk menandatangani dan surat akan otomatis akan tersimpan ke arsip</p>
+                <div class="modal-body-button text-end">
+                    <a href="{{ route('surat-masuk-lurah.ttd', [$surat -> id]) }}" type="button" class="btn btn-modal btn-success-modal w-25">Oke</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Modal Disposisi -->
 <div class="modal fade" id="modalDisposisi" tabindex="-1" aria-labelledby="modalDisposisiLabel"
     aria-hidden="true">
@@ -210,9 +255,9 @@
                 <div class=" form-group">
                     <h4 class="surat-kategori col-form-label ">Tanggal Disposisi</h4>
                     <div class="">
-                        <form action="{{ route('surat-masuk-lurah.disposisiProses', [$surat -> id]) }}" method="POST">
+                        <form action="{{ route('surat-keluar-lurah.disposisiProses', [$surat -> id]) }}" method="POST">
                             @csrf
-                        <input type="date" class="form-control " id="floatingInput" placeholder="" value="<?php echo date('Y-m-d') ?>" name="tgl_disposisi" required>
+                        <input type="date" class="form-control " id="floatingInput" value="<?php echo date('Y-m-d') ?>" name="tgl_disposisi" required>
                     </div>
                 </div>
                 <div class=" form-group">
@@ -230,7 +275,7 @@
                 <div class=" form-group">
                     <h4 class="surat-kategori col-form-label ">Instruksi</h4>
                     <div class="">
-                        <select class="form-control" name="instruksi" id="floatingInput">
+                        <select class="form-control" name="instruksi" id="floatingInput" required>
                             <option value="" >-- Pilih Instruksi</option>
                             <option value="Mohon Persetujuan">Mohon Persetujuan</option>
                             <option value="Mohon Keputusan">Mohon Keputusan</option>
@@ -239,7 +284,7 @@
                 </div>
                 <div class="form-group">
                     <h4 class="surat-kategori col-form-label ">Catatan</h4>
-                    <textarea class="form-control" name="catatan" style="height:110px;" id="exampleFormControlTextarea1" rows="3"></textarea>                
+                    <textarea class="form-control" name="catatan" style="height:110px;" id="exampleFormControlTextarea1" rows="3" required></textarea>                
                 </div>
             </div>
             <div class="modal-footer">
@@ -251,34 +296,15 @@
     </div>
 </div>
 
-<!-- Modal Tanda Tangan -->
-<div class="modal fade" id="modalTandaTangan" tabindex="-1" aria-labelledby="modalTandaTanganLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body" style="padding-bottom: 0px;">
-                <h6>Catatan Arsip <span style="color:red;" >*</span> </h6>
-                <form action="{{ route('surat-masuk-lurah.arsipSurat', [$surat -> id]) }}" method="POST">
-                    @csrf
-                    <textarea class="form-control" name="alasan_arsip" style="height:150px;" id="exampleFormControlTextarea1" rows="3"></textarea>                
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Kirim</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <!-- Modal Ditolak -->
 <div class="modal fade" id="modalDitolak" tabindex="-1" aria-labelledby="modalDitolakLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-body" style="padding-bottom: 0px;">
                 <h6>Alasan Penolakan <span style="color:red;" >*</span> </h6>
-                <form action="{{ route('surat-masuk-lurah.tolakSurat', [$surat -> id]) }}" method="POST">
+                <form action="{{ route('surat-keluar-lurah.tolakSurat', [$surat -> id]) }}" method="POST">
                     @csrf
-                    <textarea class="form-control" name="alasan_tolak" style="border: 1px solid #FF0000; height:150px;" id="exampleFormControlTextarea1" rows="3"></textarea>                
+                    <textarea class="form-control" name="alasan_tolak" style="border: 1px solid #FF0000; height:150px;" id="exampleFormControlTextarea1" rows="3" required></textarea>                
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-danger">Kirim</button>

@@ -220,21 +220,21 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Lurah', 'midd
 
         // Surat
         Route::group(['prefix' => 'surat'], function() {
-            Route::get('/', 'suratMasukController@index')->name('surat-masuk-lurah');
-            Route::get('/detail-keluar/{id}', 'suratMasukController@detailKeluar')->name('surat-keluar-lurah.detail');
-            Route::get('/detail-masuk/{id}', 'suratMasukController@detailMasuk')->name('surat-masuk-lurah.detail');
+            Route::get('/', 'suratMasukKeluarController@index')->name('surat-masuk-lurah');
+            Route::get('/detail-keluar/{id}', 'suratMasukKeluarController@detailKeluar')->name('surat-keluar-lurah.detail');
+            Route::get('/detail-masuk/{id}', 'suratMasukKeluarController@detailMasuk')->name('surat-masuk-lurah.detail');
 
-            Route::post('/disposisiMasukProses/{id}', 'suratMasukController@disposisiMasukProses')->name('surat-masuk-lurah.disposisiProses');
-            Route::post('/disposisiKeluarProses/{id}', 'suratMasukController@disposisiKeluarProses')->name('surat-keluar-lurah.disposisiProses');
+            Route::post('/disposisiMasukProses/{id}', 'suratMasukKeluarController@disposisiMasukProses')->name('surat-masuk-lurah.disposisiProses');
+            Route::post('/disposisiKeluarProses/{id}', 'suratMasukKeluarController@disposisiKeluarProses')->name('surat-keluar-lurah.disposisiProses');
 
-            Route::post('/tolakSurat-keluar/{id}', 'suratMasukController@tolakSuratKeluar')->name('surat-keluar-lurah.tolakSurat');
-            Route::post('/tolakSurat-masuk/{id}', 'suratMasukController@tolakSuratMasuk')->name('surat-masuk-lurah.tolakSurat');
+            Route::post('/tolakSurat-keluar/{id}', 'suratMasukKeluarController@tolakSuratKeluar')->name('surat-keluar-lurah.tolakSurat');
+            Route::post('/tolakSurat-masuk/{id}', 'suratMasukKeluarController@tolakSuratMasuk')->name('surat-masuk-lurah.tolakSurat');
 
-            Route::get('/kosong', 'suratMasukController@kosong')->name('surat-masuk-lurah.kosong');
-            Route::get('/detailFile/{id}', 'suratMasukController@detailFile')->name('surat-masuk-lurah.detailFile');
-            Route::get('/detailFilePengantar/{id}', 'suratMasukController@detailFilePengantar')->name('surat-masuk-lurah.detailFilePengantar');
-            Route::get('/ttd/{id}', 'suratMasukController@ttd')->name('surat-masuk-lurah.ttd');
-            Route::post('/arsip/{id}', 'suratMasukController@arsip')->name('surat-masuk-lurah.arsipSurat');
+            Route::get('/kosong', 'suratMasukKeluarController@kosong')->name('surat-masuk-lurah.kosong');
+            Route::get('/detailFile/{id}', 'suratMasukKeluarController@detailFile')->name('surat-masuk-lurah.detailFile');
+            Route::get('/detailFilePengantar/{id}', 'suratMasukKeluarController@detailFilePengantar')->name('surat-masuk-lurah.detailFilePengantar');
+            Route::get('/ttd/{id}', 'suratMasukKeluarController@ttd')->name('surat-masuk-lurah.ttd');
+            Route::post('/arsip/{id}', 'suratMasukKeluarController@arsip')->name('surat-masuk-lurah.arsipSurat');
         });
 
         // Surat Arsip
@@ -265,17 +265,17 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Kasi', 'middl
 
         // Surat Masuk
         Route::group(['prefix' => 'surat-masuk'], function() {
-            Route::get('/', 'suratMasukController@index')->name('surat-masuk-kasi');
-            Route::get('/detail/{id}', 'suratMasukController@detail')->name('surat-keluar-kasi.detail');
-            Route::get('/detail-masuk/{id}', 'suratMasukController@detailMasuk')->name('surat-masuk-kasi.detail');
-            Route::get('/kosong', 'suratMasukController@kosong')->name('surat-masuk-kasi.kosong');
-            Route::get('/detailFile/{id}', 'suratMasukController@detailFile')->name('surat-masuk-kasi.detailFile');
-            Route::get('/detailFilePengantar/{id}', 'suratMasukController@detailFilePengantar')->name('surat-masuk-kasi.detailFilePengantar');
-            Route::get('/ttd/{id}', 'suratMasukController@ttd')->name('surat-masuk-kasi.ttd');
-            Route::post('/arsip/{id}', 'suratMasukController@arsip')->name('surat-masuk-kasi.arsipSurat');
+            Route::get('/', 'suratMasukKeluarController@index')->name('surat-masuk-kasi');
+            Route::get('/detail/{id}', 'suratMasukKeluarController@detail')->name('surat-keluar-kasi.detail');
+            Route::get('/detail-masuk/{id}', 'suratMasukKeluarController@detailMasuk')->name('surat-masuk-kasi.detail');
+            Route::get('/kosong', 'suratMasukKeluarController@kosong')->name('surat-masuk-kasi.kosong');
+            Route::get('/detailFile/{id}', 'suratMasukKeluarController@detailFile')->name('surat-masuk-kasi.detailFile');
+            Route::get('/detailFilePengantar/{id}', 'suratMasukKeluarController@detailFilePengantar')->name('surat-masuk-kasi.detailFilePengantar');
+            Route::get('/ttd/{id}', 'suratMasukKeluarController@ttd')->name('surat-masuk-kasi.ttd');
+            Route::post('/arsip/{id}', 'suratMasukKeluarController@arsip')->name('surat-masuk-kasi.arsipSurat');
 
-            Route::post('/tolakSurat-keluar/{id}', 'suratMasukController@tolakSuratKeluar')->name('surat-keluar-kasi.tolakSurat');
-            Route::post('/tolakSurat-masuk/{id}', 'suratMasukController@tolakSuratMasuk')->name('surat-masuk-kasi.tolakSurat');
+            Route::post('/tolakSurat-keluar/{id}', 'suratMasukKeluarController@tolakSuratKeluar')->name('surat-keluar-kasi.tolakSurat');
+            Route::post('/tolakSurat-masuk/{id}', 'suratMasukKeluarController@tolakSuratMasuk')->name('surat-masuk-kasi.tolakSurat');
         });
 
         // Surat Arsip

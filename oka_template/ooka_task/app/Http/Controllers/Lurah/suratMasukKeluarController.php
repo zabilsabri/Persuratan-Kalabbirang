@@ -19,12 +19,12 @@ use App\Models\antarKeluar;
 use Carbon\Carbon;
 use PDF;
 
-class suratMasukController extends Controller
+class suratMasukKeluarController extends Controller
 {
     public function index() {
         $surat_masuks = suratMasuk::where('tujuan_surat_id', '!=', '1')->orWhere('tujuan_surat_id', '2')->get();
         $surats = suratKeluar::where('pj_id', '!=', null)->where('pj_id', '!=', '1')->orWhere('pj_id', '2')->get();
-        return view('lurah.suratMasuk.index')
+        return view('lurah.suratMasukKeluar.index')
             ->with(compact('surats'))
             ->with(compact('surat_masuks'));
     }
@@ -34,7 +34,7 @@ class suratMasukController extends Controller
         $disposisis = disposisi::latest()->where('suratKeluar_id', $id)->first();
         $disposisis_all = disposisi::where('suratKeluar_id', $id)->get();
         $pengantars = pengantar::where('suratKeluar_id', $id)->get();
-        return view('lurah.suratMasuk.detailKeluar')
+        return view('lurah.suratMasukKeluar.detailKeluar')
             ->with(compact('surat'))
             ->with(compact('disposisis'))
             ->with(compact('disposisis_all'))
@@ -45,7 +45,7 @@ class suratMasukController extends Controller
         $surat = suratMasuk::where('id', $id)->first();
         $disposisis = disposisiMasuk::latest()->where('suratMasuk_id', $id)->first();
         $disposisis_all = disposisiMasuk::where('suratMasuk_id', $id)->get();
-        return view('lurah.suratMasuk.detailMasuk')
+        return view('lurah.suratMasukKeluar.detailMasuk')
             ->with(compact('surat'))
             ->with(compact('disposisis'))
             ->with(compact('disposisis_all'));
@@ -53,16 +53,16 @@ class suratMasukController extends Controller
 
     public function detailFile($id){
         $file = asset('temp_file/surat-masuk/'.$id);
-        return view('lurah.suratMasuk.openFile', compact('file'));
+        return view('lurah.suratMasukKeluar.openFile', compact('file'));
     }
 
     public function detailFilePengantar($id){
         $file = asset('temp_file/pengantar/'.$id);
-        return view('lurah.suratMasuk.openFile', compact('file'));
+        return view('lurah.suratMasukKeluar.openFile', compact('file'));
     }
 
     public function kosong() {
-        return view('lurah.suratMasuk.kosong');
+        return view('lurah.suratMasukKeluar.kosong');
     }
 
     public function ttd($id)
