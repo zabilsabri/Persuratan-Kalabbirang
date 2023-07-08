@@ -18,14 +18,14 @@ return new class extends Migration
             $table->string('penerima')->nullable();
             $table->string('instansi')->nullable();
             $table->string('alamat')->nullable();
-            $table->unsignedBigInteger('surat_id');
+            $table->unsignedBigInteger('suratKeluar_id');
             $table->date('tgl_pengajuan'); // Tgl Pengajuan Pengantaran. Ini tanggalnya diambil ketika Surat sudah Ditandatangani.
             $table->date('tgl_terima_kurir')->nullable();
             $table->date('tgl_selesai')->nullable();
-            $table->enum('status', ['Waiting', 'On Progress', 'Finish/Done', 'Belum Terkirim']);
+            $table->enum('status', ['Waiting', 'On Progress', 'Finish/Done', 'Belum Terkirim'])->default('Belum Terkirim'); // Belum terkirim artinya alamat penerima belum di input oleh Admin
             $table->timestamps();
 
-            $table->foreign('surat_id')->references('id')->on('surat_keluars');
+            $table->foreign('suratKeluar_id')->references('id')->on('surat_keluars');
         });
     }
 

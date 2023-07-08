@@ -30,7 +30,7 @@ class suratMasuk extends Model
     }
 
     public function antar() {
-        return $this->hasOne('App\Models\antarMasuk', 'surat_id', 'id');
+        return $this->hasOne('App\Models\antarMasuk', 'suratMasuk_id', 'id');
     }
 
     public function user() {

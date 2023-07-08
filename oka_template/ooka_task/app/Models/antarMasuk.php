@@ -19,6 +19,6 @@ class antarMasuk extends Model
     ];
 
     public function suratMasuk() {
-        return $this->belongsTo('App\Models\suratMasuk', 'surat_id', 'id');
+        return $this->belongsTo('App\Models\suratMasuk', 'suratMasuk_id', 'id');
     }
 }

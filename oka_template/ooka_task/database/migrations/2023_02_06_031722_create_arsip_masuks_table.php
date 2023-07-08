@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('suratMasuk_id');
             // $table->string('file_surat')->nullable();
-            // $table->enum('status', ['Waiting', 'On Progress', 'Finish/Done', 'Belum Terkirim'])->default('On Progress');
+            $table->boolean('status'); // Karena surat yang diterima maupun ditolak akan di arsip, maka kolom ini untuk identifikasi apakah surat yang diarsip ini termasuk surat yang ditolak atau diterima
             $table->string('keterangan_status'); // unutk deskripsi surat
             $table->timestamps();
 

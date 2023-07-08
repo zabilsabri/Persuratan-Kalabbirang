@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('arsip_keluars', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('suratKeluar_id');
-            $table->string('file_surat')->nullable();
-            $table->boolean('status');
+            // $table->string('file_surat')->nullable();
+            $table->boolean('status'); // Karena surat yang diterima maupun ditolak akan di arsip, maka kolom ini untuk identifikasi apakah surat yang diarsip ini termasuk surat yang ditolak atau diterima
             $table->string('keterangan_status');
             $table->timestamps();
 

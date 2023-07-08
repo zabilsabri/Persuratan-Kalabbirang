@@ -12,7 +12,7 @@ class antarKeluar extends Model
     protected $table = 'surat_antars_keluar';
 
     public function suratKeluar() {
-        return $this->belongsTo('App\Models\suratKeluar', 'surat_id', 'id');
+        return $this->belongsTo('App\Models\suratKeluar', 'suratKeluar_id', 'id');
     }
 
 }

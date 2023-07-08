@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('tgl_pengajuan'); // Tgl Pengajuan Pengantaran. Ini tanggalnya diambil ketika Surat sudah Ditandatangani.
             $table->date('tgl_terima_kurir')->nullable();
             $table->date('tgl_selesai')->nullable();
-            // $table->enum('status', ['Waiting', 'On Progress', 'Finish/Done', 'Belum Terkirim'])->default('On Progress');
+            $table->enum('status', ['Waiting', 'On Progress', 'Finish/Done', 'Belum Terkirim'])->default('Belum Terkirim'); // Belum terkirim artinya alamat penerima belum di input oleh Admin
             $table->timestamps();
 
             $table->foreign('suratMasuk_id')->references('id')->on('surat_masuks');
