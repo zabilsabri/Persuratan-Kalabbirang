@@ -11,7 +11,7 @@
             </h1>
         </div>
 
-        <table id="tableDokumen" class="table" style="width: 100%;">
+        <table class="table" id="tableDokumen" style="width: 100%;">
             <thead style="background-color: #CCFFDA;">
                 <tr>
                     <th>No</th>
@@ -37,3 +37,15 @@
         </table>
     </div>
 @endsection
+
+@push('script')
+    <script>
+        window.onload = function(){
+            $(document).ready( function () {
+                $('#tableDokumen').DataTable({
+                    scrollX: true,
+                });
+            });
+        }
+    </script>
+@endpush

@@ -744,7 +744,7 @@
                 @if(Auth()->user()->verif_user != '1')
                     <button class="btn btn-success float-end" type="button" data-bs-toggle="modal" data-bs-target="#ModalNotVerif">Mulai</a>
                 @else
-                    <a class="btn btn-success float-end" href="{{ route('surat12') }}" role="button">Mulai</a>
+                    <a class="btn btn-success float-end" href="{{ route('surat3') }}" role="button">Mulai</a>
                 @endif
             @endauth
             @guest

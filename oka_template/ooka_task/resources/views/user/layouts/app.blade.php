@@ -150,24 +150,8 @@
     <script src="{{ asset('style/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
     <script src="{{ asset('style/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js')}}"></script>
     <script src="{{ asset('style/js/page/modules-ion-icons.js') }}"></script>
-    <script>
-        window.onload = function(){
-            $(document).ready( function () {
-                $('#tableDokumen').DataTable({
-                    scrollX: true,
-                });
-            });
-        }
-    </script>
-    <script>
-    window.onload = function(){
-        $(document).ready( function () {
-            $('#tableArsipSurat').DataTable({
-                scrollX: true,
-            });
-        });
-    }
-    </script>
+
+    @stack('script')
 </body>
 
 </html>

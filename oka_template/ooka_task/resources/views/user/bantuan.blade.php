@@ -115,7 +115,7 @@
                         <div class="card-icon">
                             <div class="card-text">
                                 <p class="wa-title m-0">Email</p>
-                                <p class="wa-number m-0">loremipsum@gmail.com</p>
+                                <p class="wa-number m-0">kalabbirang.takalar@gmail.com</p>
                             </div>
                             <div class="icon">
                                 <svg width="12" height="19" viewBox="0 0 12 19" fill="none" xmlns="http://www.w3.org/2000/svg">

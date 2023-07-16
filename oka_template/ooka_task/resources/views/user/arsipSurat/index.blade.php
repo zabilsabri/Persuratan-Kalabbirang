@@ -19,7 +19,7 @@
                     <th scope="col">Jenis Surat</th>
                     <th scope="col">No. Surat</th>
                     <th scope="col">Tgl Selesai</th>
-                    <th scope="col" style="width: 200px;">Aksi</th>
+                    <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,50 +44,50 @@
                                     </div>
                                     <div class="modal-body">
                                         <table>
-                                            <tr>
-                                                <td class=" fw-bold">Tanggal Pengajuan</td>
-                                                <td>
-                                                    &emsp; &emsp; : &nbsp;
+                                            <tr style="height: 40px">
+                                                <td class=" fw-bold" style="width: 180px">Tanggal Pengajuan</td>
+                                                <td class="text-end">
+                                                    :
                                                 </td>
-                                                <td class="text-success fw-bold">
+                                                <td class="text-success fw-bold ps-2">
                                                     {{ $arsip -> created_at }}
                                                 </td>
                                             </tr>
 
-                                            <tr>
-                                                <td class=" fw-bold">Tanggal Selesai</td>
-                                                <td>
-                                                    &emsp; &emsp; : &nbsp;
+                                            <tr style="height: 40px">
+                                                <td class=" fw-bold" style="width: 180px">Tanggal Selesai</td>
+                                                <td class="text-end">
+                                                    :
                                                 </td>
-                                                <td class="text-success fw-bold">
+                                                <td class="text-success fw-bold ps-2">
                                                     {{$arsip -> arsipKeluar -> created_at}}
                                                 </td>
                                             </tr>
 
-                                            <tr>
-                                                <td class=" fw-bold">
+                                            <tr style="height: 40px">
+                                                <td class=" fw-bold" style="width: 180px">
                                                     Jenis Surat
 
                                                 </td>
-                                                <td>
-                                                    &emsp; &emsp; : &nbsp;
+                                                <td class="text-end">
+                                                    :
                                                 </td>
-                                                <td class="text-success fw-bold">
+                                                <td class="text-success fw-bold ps-2">
                                                     {{ $arsip -> jenisSurat -> nama }}
                                                 </td>
                                             </tr>
 
-                                            <tr>
-                                                <td class=" fw-bold">Penandatanganan</td>
-                                                <td>
-                                                    &emsp; &emsp; : &nbsp;
+                                            <tr style="height: 40px">
+                                                <td class=" fw-bold" style="width: 180px">Penandatanganan</td>
+                                                <td class="text-end">
+                                                    :
                                                 </td>
-                                                <td class="text-success fw-bold">
+                                                <td class="text-success fw-bold ps-2">
                                                     {{ $arsip -> ttd -> user -> nama }} ( {{ $arsip -> ttd -> user -> role -> nama }} )
                                                 </td>
                                             </tr>
 
-                                            <tr class=" fw-bold">
+                                            <tr class=" fw-bold" style="width: 180px">
                                                 <td>Lampiran</td>
                                             </tr>
 
@@ -115,3 +115,16 @@
 
     </div>
 @endsection
+
+
+@push('script')
+    <script>
+    window.onload = function(){
+        $(document).ready( function () {
+            $('#tableArsipSurat').DataTable({
+                scrollX: true,
+            });
+        });
+    }
+    </script>
+@endpush
