@@ -235,7 +235,7 @@
                 <p class="modal-body-text1">Apakah Anda Yakin?</p>
                 <p class="modal-body-text2">Tekan Oke untuk menandatangani dan surat akan otomatis akan tersimpan ke arsip</p>
                 <div class="modal-body-button text-end">
-                    <a href="{{ route('surat-masuk-lurah.ttd', [$surat -> id]) }}" type="button" class="btn btn-modal btn-success-modal w-25">Oke</a>
+                    <a href="{{ route('surat-masuk-lurah.ttd', [$surat -> id]) }}" onclick="ttd()" type="button" class="btn btn-modal btn-success-modal w-25">Oke</a>
                 </div>
             </div>
         </div>
@@ -314,3 +314,27 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Kembali Ke Halaman Sebelumnya -->
+<div class="modal fade" id="modalKembali" tabindex="-1" aria-labelledby="modalKembaliLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <p class="modal-body-text1">Berhasil !</p>
+                <p class="modal-body-text2">Silahkan tunggu beberapa saat kemudian tekan tombol Kembali untuk kembali ke halaman sebelumnya</p>
+                <div class="modal-body-button text-end">
+                    <a href="{{ route('surat-masuk-lurah')}}" type="button" class="btn btn-modal btn-success-modal w-25">Kembali</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function ttd() {
+        $('#modalTandaTangan').modal('hide');
+        $('#modalKembali').modal('show');
+    }
+</script>

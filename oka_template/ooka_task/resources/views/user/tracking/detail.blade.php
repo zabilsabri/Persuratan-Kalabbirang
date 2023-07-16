@@ -106,7 +106,7 @@
                         @if($surat -> file_surat != null)
                         <h5 class="card-title"><a href="{{ route('surat-masuk-admin.detailFile', [$surat -> file_surat])}}" class="stretched-link">{{ $surat -> judul_surat ?? $surat -> jenisSurat -> nama }}.pdf</a></h5>
                         @else
-                        <h5 class="card-title"><a href="{{ route('export.surat', ['id' => $surat -> id]) }}" class="stretched-link">{{ $surat -> judul_surat ?? $surat -> jenisSurat -> nama }}.pdf</a></h5>
+                        <h5 class="card-title"><a href="{{ route('tracking.file', [$surat -> kode_surat]) }}" class="stretched-link">{{ $surat -> judul_surat ?? $surat -> jenisSurat -> nama }}.pdf</a></h5>
                         @endif
                     </div>
                 </div>

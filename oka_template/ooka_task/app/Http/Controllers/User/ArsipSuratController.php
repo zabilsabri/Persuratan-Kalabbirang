@@ -16,7 +16,9 @@ class ArsipSuratController extends Controller
             ->with(compact('arsips'));
     }
 
-    public function kosong() {
-        return view('user.arsipSurat.kosong');
+    public function showFileArsip($kode_surat)
+    {
+        $file = asset('temp_file/surat-keluar/'.$kode_surat.'.'.'pdf');
+        return view('user.dokumen.detail', compact('file'));
     }
 }

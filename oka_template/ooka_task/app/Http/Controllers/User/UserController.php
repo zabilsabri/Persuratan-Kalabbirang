@@ -53,6 +53,12 @@ class UserController extends Controller
             return back()->with('failed', 'Kode Surat Anda Tidak Ditemukan! Silahkan Hubungi Admin!');
         }
     }
+
+    public function trackingDetailFile($kode_surat)
+    {
+        $file = asset('temp_file/surat-keluar/'.$kode_surat.'.'.'pdf');
+        return view('user.dokumen.detail', compact('file'));
+    }
     
     public function dataSimpan() {
         return view('user.dataSimpan');

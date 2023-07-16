@@ -21,11 +21,9 @@ class requestSuratController extends Controller
     public function store13(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'jkl' => 'required',
-            'nik' => 'required|numeric',
             'status_nikah' => 'required',
             'agama' => 'required',
             'pekerjaan' => 'required',
@@ -95,11 +93,9 @@ class requestSuratController extends Controller
     public function store3(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'jkl' => 'required',
-            'nik' => 'required|numeric',
             'status_nikah' => 'required',
             'agama' => 'required',
             'pekerjaan' => 'required',
@@ -183,11 +179,9 @@ class requestSuratController extends Controller
     public function store11(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required|date',
             'jkl' => 'required',
-            'nik' => 'required|numeric',
             'pekerjaan' => 'required',
             'kewarganegaraan' => 'required',
             'agama' => 'required',
@@ -317,10 +311,8 @@ class requestSuratController extends Controller
     public function store12(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'nik' => 'required|numeric',
             'pekerjaan' => 'required',
             'jumlah_tanggungan' => 'required',
             'jumlah_penghasilan' => 'required',

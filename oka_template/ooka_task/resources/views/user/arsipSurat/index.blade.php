@@ -31,15 +31,15 @@
                     <td scope="col">{{ $arsip -> arsipKeluar -> created_at}}</td>
                     <td>
                         {{-- Detail --}}
-                        <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning">
+                        <a data-bs-toggle="modal" data-bs-target="#modalDetailArsip{{ $arsip -> id }}" class="btn btn-warning">
                             <i class="ion ion-information"></i>
                         </a>
                         {{-- Modal After Klik --}}
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modalDetailArsip{{ $arsip -> id }}" tabindex="-1" aria-labelledby="modalDetailArsip{{ $arsip -> id }}Label" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                 <div class="modal-content">
                                     <div class="modal-header d-block">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Data Arsip Surat</h1>
+                                        <h1 class="modal-title fs-5" id="modalDetailArsip{{ $arsip -> id }}Label">Data Arsip Surat</h1>
                                         <h6 class="modal-title text-success">No : {{ $arsip -> no_surat }}</h6>
                                     </div>
                                     <div class="modal-body">
@@ -95,7 +95,7 @@
                                         <div class="text-center py-2">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h5 class="card-title"><a href="{{ route('export.surat', ['id' => $arsip -> id]) }}" class="stretched-link">{{ $arsip -> jenisSurat -> nama }}</a></h5>
+                                                <h5 class="card-title"><a href="{{ route('showFileArsip', [$arsip -> kode_surat]) }}" class="stretched-link">{{ $arsip -> jenisSurat -> nama }}</a></h5>
                                             </div>
                                         </div>
                                         </div>

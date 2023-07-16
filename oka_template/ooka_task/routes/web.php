@@ -39,6 +39,7 @@ Route::get('bantuan', [Users::class, 'bantuan'])->name('bantuan');
 // Tracking
 Route::get('/track', [Users::class, 'tracking'])->name('tracking.index');
 Route::get('/track-detail/', [Users::class, 'trackingDetail'])->name('tracking.detail');
+Route::get('/track-detail-file/{kode_surat}', [Users::class, 'trackingDetailFile'])->name('tracking.file');
 
 
 
@@ -79,10 +80,11 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\User'], funct
     // Arsip Surat
     Route::get('/arsip', 'ArsipSuratController@index')->name('arsip');
     Route::get('/arsip_kosong', 'ArsipSuratController@kosong')->name('arsip.kosong');
+    Route::get('/detail-arsip/{kode_surat}', 'ArsipSuratController@showFileArsip')->name('showFileArsip');
 
     // Dokumen
     Route::get('/dokumen', 'DokumenController@index')->name('dokumen');
-    Route::get('/detail/{id}', 'DokumenController@showFile')->name('showFile');
+    Route::get('/detail-dokumen/{id}', 'DokumenController@showFile')->name('showFile');
     
     // FaQ
     Route::get('/faq', 'FaqController@index')->name('faq');

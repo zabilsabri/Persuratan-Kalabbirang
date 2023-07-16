@@ -68,23 +68,23 @@ class suratMasukKeluarController extends Controller
 
     public function ttd($id)
     {
-        $surat = suratKeluar::find($id);
+        $data = suratKeluar::find($id);
         
         if(!isset(Auth::user() -> ttd -> id)){
             return back()->with('failed', 'Kasi ini belum memiliki tanda tangan! Silahkan ke admin untuk mendaftarkan tanda tangan anda!');
         } else {
-            $surat->ttd_id = Auth::user() -> ttd -> id;
-            if(!isset($surat->user->role->id)){
-                $surat->pj_id = null;
+            $data->ttd_id = Auth::user() -> ttd -> id;
+            if(!isset($data->user->role->id)){
+                $data->pj_id = null;
                 $notifikasi = notifikasi::where('suratKeluar_id', $id)->first();
             } else {
-                $surat->pj_id = $surat -> user_id;
+                $data->pj_id = $data -> user_id;
                 $notifikasi = new notifikasi();
             }
-        $surat->process = "3";
-        $surat->acc_id = Auth::user()->id;
-        $surat->tgl_ttd = Carbon::now();
-        $surat->save();
+        $data->process = "3";
+        $data->acc_id = Auth::user()->id;
+        $data->tgl_ttd = Carbon::now();
+        $data->save();
 
         $arsip = new arsipKeluar();
         $arsip->status = 1;
@@ -92,7 +92,7 @@ class suratMasukKeluarController extends Controller
         $arsip->suratKeluar_id = $id;
         $arsip->save();
 
-        if($surat -> isAntar == 1){
+        if($data -> isAntar == 1){
             $antar = new antarKeluar();
             $antar->surat_id = $id;
             $antar->tgl_pengajuan = Carbon::now();
@@ -100,13 +100,27 @@ class suratMasukKeluarController extends Controller
             $antar->save();
         }
 
-        $notifikasi->user_id = $surat->user_id;
+        $notifikasi->user_id = $data->user_id;
         $notifikasi->suratKeluar_id = $id;
         $notifikasi->status = "Selesai";
         $notifikasi->keterangan = "Surat Anda Telah Disetujui Oleh Pihak Kalabbirang!";
         $notifikasi->save();
 
-        return redirect()->route('surat-masuk-kasi')->with('success', 'Surat Berhasil Di Tandatangani Dan Sudah Terarsip.');
+        if($data -> jenis_suratKeluar_id == 1){
+            $pdf = Pdf::loadView('surat.isiSurat.belumNikah', compact('data'));
+        } else if ($data -> jenis_suratKeluar_id == 2){
+            $pdf = Pdf::loadView('surat.isiSurat.kurangMampu', compact('data'));
+        } else if ($data -> jenis_suratKeluar_id == 3){
+            $pdf = Pdf::loadView('surat.isiSurat.sku', compact('data'));
+        } else if ($data -> jenis_suratKeluar_id == 4){
+            $pdf = Pdf::loadView('surat.isiSurat.pengPernikahan', compact('data'));
+        }
+
+        $path = public_path('temp_file/surat-keluar/');
+        $fileName =  $data['kode_surat'] . '.' . 'pdf' ;
+        $pdf->save($path . '/' . $fileName);
+        
+        return $pdf->download($fileName);
         }
     }
 
