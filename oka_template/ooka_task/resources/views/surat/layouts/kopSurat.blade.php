@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="kopSurat text-center">
-        <img width='90px' height="100px" src="{{ public_path('image/Lambang_Kabupaten_Takalar.png') }}" alt="logo-kalabbirang">
+        <img width='90px' height="100px" src="{{ asset('image/Lambang_Kabupaten_Takalar.png') }}" alt="logo-kalabbirang">
         <h6 class="fw-bold mb-0" >PEMERINTAH KABUPATEN TAKALAR</h6>
         <h6 class="fw-bold mb-0" >KECAMATAN PATTALLASSANG</h6>
         <h2 class="fw-bold mb-0"> KELURAHAN KALABBIRANG </h2>

@@ -241,7 +241,7 @@
 
 
 <!-- Modal Kembali Ke Halaman Sebelumnya -->
-<div class="modal fade" id="modalKembali" tabindex="-1" aria-labelledby="modalKembaliLabel"
+<div class="modal fade" id="modalKembali" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalKembaliLabel" aria-hidden="true">
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

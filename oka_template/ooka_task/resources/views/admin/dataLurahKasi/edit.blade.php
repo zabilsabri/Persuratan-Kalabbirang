@@ -61,12 +61,20 @@
         </div>
     </div>
     
-    <script type="text/javascript">
-        var sig = $('#sig').signature({syncField: '#signature64', syncFormat: 'PNG'});
-        $('#clear').click(function(e) {
-            e.preventDefault();
-            sig.signature('clear');
-            $("#signature64").val('');
-        });
-    </script>
 @endsection
+
+    @push('script')
+    <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet"> 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/signature.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('style/css/signature.css') }}">
+
+    <script type="text/javascript">
+            var sig = $('#sig').signature({syncField: '#signature64', syncFormat: 'PNG'});
+                $('#clear').click(function(e) {
+                e.preventDefault();
+                sig.signature('clear');
+                $("#signature64").val('');
+            });
+    </script>
+    @endpush

@@ -8,7 +8,7 @@
         </tr>
         <tr class="text-center">
             @if(!empty($data -> ttd -> photo_ttd))
-            <img src="{{ public_path('temp_file/ttd/'. $data -> ttd -> photo_ttd) }}" width="200" height="170" class="img-thumbnail"/>
+            <img src="{{ asset('temp_file/ttd/'. $data -> ttd -> photo_ttd) }}" width="200" height="170" class="img-thumbnail"/>
             @else
             <img width="400" height="210" class="img-thumbnail"/>
             @endif
